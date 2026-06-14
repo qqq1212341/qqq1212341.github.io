@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Dumb Game Lab — 엉뚱한 게임 연구소</title>
+<meta name="description" content="Dumb Game Lab은 작고 중독적인 모바일 게임을 만드는 1인 게임 연구소입니다. PC방 알바 시뮬레이터, ASMR 슬라임 가든 등 누구나 부담 없이 즐기는 캐주얼 게임을 무료로 제공합니다." />
+<meta name="keywords" content="Dumb Game Lab, 모바일 게임, 무료 게임, 캐주얼 게임, 타이쿤, 시뮬레이터, PC방 알바, 슬라임, 인디 게임" />
+<meta name="author" content="Dumb Game Lab" />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#0e0f1a" />
+<!-- site ownership verification -->
+<meta name="naver-site-verification" content="06ad311e36d8dc23b4b67565dbb3da8ea2fd9e6a" />
+<link rel="canonical" href="https://qqq1212341.github.io/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Dumb Game Lab" />
+<meta property="og:locale" content="ko_KR" />
+<meta property="og:url" content="https://qqq1212341.github.io/" />
+<meta property="og:title" content="Dumb Game Lab — 엉뚱한 게임 연구소" />
+<meta property="og:description" content="작고 중독적인 모바일 게임을 만드는 1인 게임 연구소. PC방 알바 시뮬레이터 외 캐주얼 게임 무료 플레이." />
+<meta property="og:image" content="https://qqq1212341.github.io/pcbang-alba-sim/assets/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Dumb Game Lab — 엉뚱한 게임 연구소" />
+<meta name="twitter:description" content="작고 중독적인 모바일 게임을 만드는 1인 게임 연구소." />
+<meta name="twitter:image" content="https://qqq1212341.github.io/pcbang-alba-sim/assets/og-image.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Gowun+Dodum&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Dumb Game Lab",
+  "url": "https://qqq1212341.github.io/",
+  "description": "작고 중독적인 모바일 게임을 만드는 1인 게임 연구소",
+  "logo": "https://qqq1212341.github.io/pcbang-alba-sim/assets/app-icon.png"
+}
+</script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg0: #0b0c16; --bg1: #14162a; --card: #1b1e36; --line: #2a2e4d;
+    --ink: #eef0ff; --muted: #9aa0c8; --accent: #ff8a3d; --accent2: #6cf0c2;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Gowun Dodum', system-ui, -apple-system, sans-serif;
+    color: var(--ink); min-height: 100vh;
+    background:
+      radial-gradient(1200px 600px at 15% -10%, #20243f 0%, transparent 55%),
+      radial-gradient(900px 500px at 100% 0%, #2a1c33 0%, transparent 50%),
+      linear-gradient(180deg, var(--bg0), var(--bg1));
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+  header { text-align: center; padding: 88px 20px 36px; }
+  .logo {
+    font-family: 'Bungee', cursive; font-size: clamp(34px, 8vw, 62px);
+    line-height: 1.05; letter-spacing: 1px;
+    background: linear-gradient(92deg, var(--accent), #ffd16b 55%, var(--accent2));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    text-shadow: 0 8px 40px rgba(255,138,61,.18);
+  }
+  .tag { margin-top: 16px; color: var(--muted); font-size: clamp(14px, 3.4vw, 18px); }
+  .pill {
+    display: inline-block; margin-top: 22px; padding: 7px 16px; border-radius: 999px;
+    background: rgba(108,240,194,.1); border: 1px solid rgba(108,240,194,.32);
+    color: var(--accent2); font-size: 13px; letter-spacing: .3px;
+  }
+  h2.section { font-size: 14px; color: var(--muted); letter-spacing: 2px;
+    text-transform: uppercase; margin: 40px 4px 18px; font-family: 'Bungee', cursive; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+  .card {
+    position: relative; background: var(--card); border: 1px solid var(--line);
+    border-radius: 20px; padding: 24px; overflow: hidden;
+    transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+    text-decoration: none; color: inherit; display: flex; flex-direction: column;
+  }
+  .card:hover { transform: translateY(-4px); border-color: var(--accent);
+    box-shadow: 0 18px 50px rgba(0,0,0,.45); }
+  .card .emoji { font-size: 46px; line-height: 1; filter: drop-shadow(0 6px 14px rgba(0,0,0,.4)); }
+  .card h3 { font-size: 21px; margin: 16px 0 8px; }
+  .card p { color: var(--muted); font-size: 14px; line-height: 1.6; flex: 1; }
+  .badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+  .b {
+    font-size: 12.5px; padding: 8px 13px; border-radius: 10px; font-weight: 600;
+    border: 1px solid var(--line); color: var(--ink); background: rgba(255,255,255,.04);
+  }
+  .b.play { background: linear-gradient(92deg, var(--accent), #ffb05a); color: #25160a; border: none; }
+  .b.soon { color: var(--muted); }
+  .ribbon {
+    position: absolute; top: 16px; right: -34px; transform: rotate(38deg);
+    background: var(--accent2); color: #06251c; font-size: 11px; font-weight: 700;
+    padding: 4px 40px; letter-spacing: .5px;
+  }
+  footer { text-align: center; color: var(--muted); font-size: 13px; padding: 56px 20px 48px; }
+  footer a { color: var(--accent2); text-decoration: none; }
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">DUMB GAME LAB</div>
+    <p class="tag">엉뚱하지만 자꾸 손이 가는, 작은 모바일 게임 연구소 🧪🎮</p>
+    <span class="pill">무료 · 무광고 지향 · 오프라인 플레이</span>
+  </header>
+
+  <main class="wrap">
+    <h2 class="section">Games</h2>
+    <div class="grid">
+
+      <a class="card" href="/pcbang-alba-sim/">
+        <div class="emoji">🖥️🍜</div>
+        <h3>PC방 알바 시뮬레이터</h3>
+        <p>망해가는 동네 PC방을 키우는 모바일 타이쿤. 손님을 응대해 평판을 쌓고, 골목 PC방에서 전국구 프랜차이즈로!</p>
+        <div class="badges">
+          <span class="b play">▶ 웹에서 플레이</span>
+          <span class="b">Google Play 곧 출시</span>
+        </div>
+      </a>
+
+      <div class="card" aria-disabled="true" style="cursor:default">
+        <div class="ribbon">SOON</div>
+        <div class="emoji">🫧✨</div>
+        <h3>ASMR 슬라임 가든</h3>
+        <p>꾹꾹 누르고 늘리는 키치·홀로그래픽 ASMR 슬라임. 보기만 해도 말랑한 힐링 게임, 곧 공개됩니다.</p>
+        <div class="badges">
+          <span class="b soon">⏳ 준비 중</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    made with 🩶 by <strong>Dumb Game Lab</strong> · 문의 <a href="mailto:jjs01hwang@gmail.com">jjs01hwang@gmail.com</a>
+  </footer>
+</body>
+</html>
