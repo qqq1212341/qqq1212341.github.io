@@ -1,0 +1,120 @@
+/* ═══════════════════════════════════════════════════════════════════
+ * title-fx.css — DGL 상태 타이틀 코드 효과 (드롭인, 의존성 0)
+ *
+ * 무엇: "승리!" "패배" "보스 등장" "라운드 3" 같은 **상태 타이틀**을
+ *   이미지 생성 없이 폰트+코드로 게임답게 — 디스플레이 폰트 + 외곽선 +
+ *   짧은 하단 깊이 + 등장 애니메이션. (메인 게임 로고는 이걸로 만들지 말 것 —
+ *   로고는 전용 그래픽 에셋: studio/docs/title-art-playbook.md)
+ *
+ * 사용:
+ *   1) 이 파일을 <repo>/prototype/css/ 로 복사, 장르 폰트를 assets/fonts/ 로 복사
+ *   2) @font-face 는 게임이 선언 (아래 예시 주석)
+ *   3) <div class="dgl-title dgl-skin-win dgl-pop" data-text="승리!">승리!</div>
+ *      ★ data-text 는 본문과 반드시 동일하게 (그라데이션 fill이 ::after 복제층에 그려짐)
+ *      동적 문구 JS 헬퍼: const setTitle=(el,t)=>{ el.textContent=t; el.dataset.text=t; };
+ *
+ * @font-face 예시 (게임 쪽 CSS):
+ *   @font-face{ font-family:"Black Han Sans"; src:url("../assets/fonts/BlackHanSans.ttf"); font-display:block; }
+ *   .dgl-title{ --fx-font:"Black Han Sans"; }
+ *
+ * 함정:
+ *   - 부모에 overflow:hidden 이 있으면 외곽선·그림자가 잘린다 → 타이틀 주변 여백 확보.
+ *   - 금색 그라데이션+글로우 "만"으로 게임 타이틀처럼 보이게 하지 말 것(루브릭 T10) —
+ *     외곽선·깊이·장르 폰트가 본체다. 프리셋 색은 시작점일 뿐, 게임 팔레트에 맞게 재정의.
+ * ═══════════════════════════════════════════════════════════════════ */
+
+.dgl-title {
+  /* ── 조정 노브 (게임/스킨이 재정의) ─────────────────────────── */
+  --fx-font: inherit;        /* 장르 디스플레이 폰트 (fonts.json) */
+  --fx-size: 44px;
+  --fx-fill: #ffffff;        /* 글자면 그라데이션 위색 */
+  --fx-fill2: var(--fx-fill);/* 글자면 그라데이션 아래색 */
+  --fx-stroke: #212640;      /* 외곽선 */
+  --fx-stroke-w: 0.05em;     /* 외곽선 두께(보이는 폭) */
+  --fx-depth: #12162a;       /* 하단 깊이 면 */
+  --fx-depth-h: 0.09em;      /* 깊이 높이 — '짧게' 유지 */
+  --fx-shadow: rgba(0, 0, 0, 0.35);
+
+  position: relative;
+  display: inline-block;
+  font-family: var(--fx-font);
+  font-size: var(--fx-size);
+  font-weight: normal;       /* 디스플레이 폰트는 자체가 굵음 — faux bold(700 강제)는 획을 뭉갠다 */
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  white-space: pre-wrap;     /* data-text 복제층과 줄바꿈 동일 유지 */
+
+  /* 밑층 = 자기 자신: 외곽선 + 하단 깊이 + 몸통칠.
+   * ★레이어 순서 주의: bg-clip:text 그라데이션은 '배경'이라 음수 z-index 가상요소보다
+   *   아래에 깔린다(스펙) → 그라데이션 fill 은 반드시 위층(::after)에. 반대로 만들면
+   *   외곽선층이 fill 을 덮어 통짜 실루엣만 남는다(실측 확인). */
+  color: var(--fx-stroke);
+  -webkit-text-fill-color: var(--fx-stroke);
+  -webkit-text-stroke: calc(var(--fx-stroke-w) * 2) var(--fx-stroke); /* 절반은 fill 밑으로 숨음 */
+  text-shadow:
+    0 calc(var(--fx-depth-h) * 0.5) 0 var(--fx-depth),
+    0 var(--fx-depth-h)             0 var(--fx-depth),
+    0 calc(var(--fx-depth-h) + 0.06em) 0.12em var(--fx-shadow);
+}
+
+/* 위층 = ::after 복제층: 그라데이션 fill.
+ * iOS WKWebView·Android WebView 공통 안전 (paint-order 는 웹뷰 지원이 갈림) */
+.dgl-title::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  -webkit-text-stroke: 0 transparent;  /* ★text-stroke 는 상속됨 — 차단 필수 */
+  text-shadow: none;                   /* ★text-shadow 도 상속됨 — 차단 필수 */
+  background: linear-gradient(180deg, var(--fx-fill) 46%, var(--fx-fill2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── 간이 변형: data-text 없이 (동적·잦은 갱신용. 외곽선 얇은 한계) ── */
+.dgl-title--simple {
+  --fx-o: 2px; /* 외곽선 px (3px 이상은 울퉁불퉁 — 굵게는 기본형을 써라) */
+  -webkit-text-stroke: 0 transparent;
+  -webkit-text-fill-color: currentColor;
+  color: var(--fx-fill);
+  text-shadow:
+    var(--fx-o) 0 0 var(--fx-stroke), calc(-1 * var(--fx-o)) 0 0 var(--fx-stroke),
+    0 var(--fx-o) 0 var(--fx-stroke), 0 calc(-1 * var(--fx-o)) 0 var(--fx-stroke),
+    calc(var(--fx-o) * 0.7) calc(var(--fx-o) * 0.7) 0 var(--fx-stroke),
+    calc(var(--fx-o) * -0.7) calc(var(--fx-o) * 0.7) 0 var(--fx-stroke),
+    calc(var(--fx-o) * 0.7) calc(var(--fx-o) * -0.7) 0 var(--fx-stroke),
+    calc(var(--fx-o) * -0.7) calc(var(--fx-o) * -0.7) 0 var(--fx-stroke),
+    0 calc(var(--fx-o) + 0.08em) 0 var(--fx-depth),
+    0 calc(var(--fx-o) + 0.16em) 0.1em var(--fx-shadow);
+}
+.dgl-title--simple::after { content: none; }
+
+/* ── 스킨 프리셋 (시작점 — 게임 팔레트에 맞게 재정의 권장) ────── */
+.dgl-skin-win   { --fx-fill: #fff7d6; --fx-fill2: #ffc93c; --fx-stroke: #6b4100; --fx-depth: #4a2d00; }
+.dgl-skin-lose  { --fx-fill: #e8ecff; --fx-fill2: #8fa0c9; --fx-stroke: #232b45; --fx-depth: #141a30; }
+.dgl-skin-boss  { --fx-fill: #ffe3e3; --fx-fill2: #ff5d5d; --fx-stroke: #4a0e1e; --fx-depth: #320818; }
+.dgl-skin-round { --fx-fill: #eafff3; --fx-fill2: #57e39b; --fx-stroke: #0e4a2c; --fx-depth: #08321e; }
+
+/* ── 등장 애니메이션 (탭 반응 지연 0 원칙 — 짧고 감쇠 빠르게) ──── */
+.dgl-pop  { animation: dgl-pop 0.45s cubic-bezier(0.22, 1.61, 0.36, 1) both; }
+@keyframes dgl-pop {
+  0%   { transform: scale(0);    opacity: 0; }
+  60%  { transform: scale(1.12); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/* 슬램 — 패배·보스 등장처럼 '내리꽂는' 문구 */
+.dgl-slam { animation: dgl-slam 0.38s cubic-bezier(0.16, 1, 0.3, 1) both; }
+@keyframes dgl-slam {
+  0%   { transform: scale(2.4);              opacity: 0; }
+  55%  { transform: scale(0.96);             opacity: 1; }
+  72%  { transform: scale(1.05) rotate(-1deg); }
+  100% { transform: scale(1); }
+}
+
+/* 라이즈 — 라운드 시작·보상처럼 '떠오르는' 문구 */
+.dgl-rise { animation: dgl-rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+@keyframes dgl-rise {
+  from { transform: translateY(0.55em); opacity: 0; }
+  to   { transform: translateY(0);      opacity: 1; }
+}

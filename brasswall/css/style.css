@@ -1,0 +1,167 @@
+/* 탄피성벽 — 네온 황동 셸. 자원=게이지 바, 오버레이도 게임 아트 언어(U7).
+ * 폰트(T10): 본문=Pretendard / 타이틀·상태=Black Han Sans (@font-face 번들, 시스템 폰트 의존 금지) */
+@font-face{font-family:"Pretendard";src:url("../assets/fonts/Pretendard-Regular.otf");font-weight:400;font-display:swap}
+@font-face{font-family:"Pretendard";src:url("../assets/fonts/Pretendard-Bold.otf");font-weight:700;font-display:swap}
+@font-face{font-family:"Black Han Sans";src:url("../assets/fonts/BlackHanSans.ttf");font-display:block}
+@font-face{font-family:"Bungee";src:url("../assets/fonts/Bungee.ttf");font-display:swap}
+:root{
+  --bg:#0a0e1c; --panel:#121830; --panel2:#1a2140; --line:#2b3560;
+  --txt:#eaf0ff; --muted:#8b95c0;
+  --neon:#3ff6ff; --brass:#d9a441; --brass-hi:#ffd97a; --gem:#3dffa2; --bad:#ff4d6d;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;background:#05060c;color:var(--txt);
+  font-family:"Pretendard",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  -webkit-user-select:none;user-select:none;touch-action:none;overflow:hidden}
+/* ── 상태 타이틀 스킨 (title-fx.css 위에 게임 팔레트) ── */
+.dgl-title{--fx-font:"Black Han Sans"}
+.bw-brass{--fx-size:32px;--fx-fill:#FFF0BE;--fx-fill2:#E8A63C;--fx-stroke:#33200A;--fx-depth:#1F1204;--fx-shadow:rgba(0,0,0,.5)}
+.bw-danger{--fx-size:46px;--fx-fill:#FFB9C6;--fx-fill2:#FF4D6D;--fx-stroke:#3A0A16;--fx-depth:#24060d;--fx-shadow:rgba(0,0,0,.5)}
+.bw-neon{--fx-size:30px;--fx-fill:#D8FDFF;--fx-fill2:#3FF6FF;--fx-stroke:#062a33;--fx-depth:#04191f;--fx-shadow:rgba(0,0,0,.5)}
+button{font-family:inherit}
+/* 데스크톱(포털) 레터박스 — 민무늬 검정 대신 전용 앰비언트 아트(bg-ambient.webp) */
+body{background:#05060c url("../assets/bg-ambient.webp") center/cover no-repeat}
+#app{max-width:480px;margin:0 auto;height:100vh;height:100dvh;position:relative;overflow:hidden;background:var(--bg)}
+@media (min-width:520px){
+  #app{box-shadow:0 0 90px rgba(0,0,0,.8);border-left:1px solid rgba(217,164,65,.18);border-right:1px solid rgba(217,164,65,.18)}
+}
+#stage{position:absolute;inset:0}
+#cv{position:absolute;inset:0;width:100%;height:100%;display:block}
+
+/* ── HUD (자원=게이지 바) ── */
+#hud{position:absolute;left:0;right:0;top:0;padding:calc(8px + env(safe-area-inset-top)) 10px 0;display:none;z-index:10;pointer-events:none}
+#hud.on{display:block}
+.hud-top{display:flex;align-items:center;gap:8px}
+.gauge{position:relative;height:20px;border-radius:10px;background:rgba(8,12,26,.78);
+  border:1px solid var(--line);overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+.gauge.hp{flex:1;max-width:150px}
+.gauge.xp{margin-top:6px;height:14px;border-color:#4a3a14}
+.gauge .fill{position:absolute;inset:0;width:100%;transform-origin:left;transition:width .18s ease-out}
+.gauge.hp .fill{background:linear-gradient(180deg,#ff7a92,#e03355)}
+.gauge.xp .fill{background:linear-gradient(180deg,var(--brass-hi),var(--brass))}
+.gauge-txt{position:relative;z-index:1;display:block;text-align:center;font-size:11px;font-weight:800;
+  line-height:18px;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.7)}
+.gauge.xp .gauge-txt{line-height:12px;font-size:10px;color:#241703;text-shadow:0 1px 0 rgba(255,235,170,.6)}
+.hud-time{font-weight:900;font-size:16px;letter-spacing:.5px;text-shadow:0 0 10px rgba(63,246,255,.45)}
+.hud-kills{margin-left:auto;font-weight:800;font-size:13px;color:var(--muted)}
+.hud-kills span{color:var(--txt);font-size:15px}
+#pauseBtn{pointer-events:auto;width:34px;height:34px;border-radius:9px;border:1px solid var(--line);
+  background:rgba(10,14,30,.8);color:var(--muted);font-weight:900;font-size:12px}
+
+/* ── 갇힘 경고 글로우 (PRD §7.1) ── */
+#trapGlow{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .25s;z-index:5;
+  box-shadow:inset 0 0 64px 18px rgba(217,164,65,.55)}
+#trapGlow.on{opacity:1;animation:trapPulse 1s ease-in-out infinite}
+@keyframes trapPulse{50%{box-shadow:inset 0 0 84px 30px rgba(217,164,65,.75)}}
+
+/* ── 가상 조이스틱 ── */
+#stick{position:absolute;width:104px;height:104px;margin:-52px 0 0 -52px;border-radius:50%;
+  border:2px solid rgba(63,246,255,.35);background:rgba(20,30,60,.25);display:none;z-index:8;pointer-events:none}
+#stick.on{display:block}
+#stickKnob{position:absolute;left:50%;top:50%;width:46px;height:46px;border-radius:50%;
+  transform:translate(-50%,-50%);background:radial-gradient(circle at 35% 30%,rgba(150,250,255,.9),rgba(63,246,255,.55));
+  box-shadow:0 0 16px rgba(63,246,255,.6)}
+
+/* ── 상태 타이틀(title-fx 래퍼)/토스트 ── */
+#stateTitle{position:absolute;left:0;right:0;top:26%;text-align:center;z-index:12;pointer-events:none;
+  opacity:0;transition:opacity .35s}
+#stateTitle.go{opacity:1}
+#stateTitle .bw-st{--fx-size:40px}
+.st-sub{margin-top:6px;font-size:14px;font-weight:700;color:var(--neon);text-shadow:0 0 12px rgba(63,246,255,.5),0 2px 4px rgba(0,0,0,.8)}
+#toast{position:absolute;left:50%;bottom:22%;transform:translateX(-50%) translateY(8px);max-width:86%;
+  background:rgba(10,15,32,.92);border:1px solid var(--brass);border-radius:12px;padding:10px 16px;
+  font-size:13.5px;font-weight:700;color:var(--brass-hi);opacity:0;transition:.3s cubic-bezier(.2,1.4,.4,1);
+  z-index:12;pointer-events:none;box-shadow:0 6px 20px rgba(0,0,0,.5);text-align:center;white-space:nowrap}
+#toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ── 오버레이 공통 ── */
+.overlay{position:absolute;inset:0;display:none;flex-direction:column;z-index:20;
+  background:rgba(5,8,18,.82);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.overlay.show{display:flex}
+.overlay.center{justify-content:center;align-items:center;gap:14px}
+.overlay .dgl-title{align-self:center;text-align:center}
+.btn{min-width:220px;min-height:48px;border-radius:13px;border:1px solid var(--line);
+  background:var(--panel2);color:var(--txt);font-size:16px;font-weight:800;cursor:pointer;
+  transition:transform .08s ease-out}
+.btn:active{transform:scale(.96)}
+.btn.big{min-height:56px;font-size:19px;letter-spacing:2px}
+.btn.primary{background:linear-gradient(180deg,#ffe27a,#eaa93a);color:#3a2306;border:none;
+  box-shadow:0 6px 24px rgba(234,169,58,.4),inset 0 1px 0 rgba(255,255,255,.55)}
+.btn.gold{background:linear-gradient(180deg,#2a2410,#1c1a10);border:1px solid var(--brass);color:var(--brass-hi)}
+.btn.ghost{background:rgba(18,24,48,.6);color:var(--muted);min-height:42px;font-size:13.5px;min-width:0;padding:0 16px}
+.dock-row{display:flex;gap:8px;justify-content:center}
+.brass-chip{color:var(--brass-hi);margin-left:4px}
+
+/* ── 타이틀 — 키아트 풀블리드 히어로 (U7: 이미지 섬 금지) ── */
+#titleOverlay{justify-content:space-between;
+  background:linear-gradient(180deg,rgba(6,9,20,.28) 0%,rgba(6,9,20,0) 30%,rgba(5,7,16,.42) 68%,rgba(4,6,12,.92) 100%),
+    url("../assets/keyart.webp") center 38%/cover no-repeat,#0a0e1c}
+.title-hero{text-align:center;padding:calc(46px + env(safe-area-inset-top)) 18px 0;position:relative}
+.title-logo img{width:min(80vw,350px);max-height:30vh;object-fit:contain;
+  filter:drop-shadow(0 10px 26px rgba(0,0,0,.75))}
+.title-main{font-family:"Black Han Sans";font-size:clamp(40px,14vw,64px);font-weight:400;margin:0;color:var(--brass-hi);letter-spacing:2px;
+  text-shadow:0 0 26px rgba(217,164,65,.6),0 4px 0 #7a5716,0 8px 18px rgba(0,0,0,.7)}
+.title-sub{color:#bffcff;font-family:"Bungee";font-weight:400;letter-spacing:7px;margin-top:6px;font-size:14px;
+  text-shadow:0 0 14px rgba(63,246,255,.7),0 2px 6px rgba(0,0,0,.8)}
+.title-tag{margin-top:12px;color:#d6def5;font-size:13px;font-weight:700;text-shadow:0 1px 6px rgba(0,0,0,.9)}
+.title-dock{display:flex;flex-direction:column;align-items:center;gap:10px;
+  padding:18px 22px calc(26px + env(safe-area-inset-bottom))}
+.title-stats{display:flex;gap:14px;font-size:12px;color:var(--muted);margin-bottom:2px}
+.title-stats .stat b{color:var(--txt);margin-right:3px}
+
+/* ── 레벨업 카드 ── */
+.lv-title{margin-bottom:4px}
+#cards{display:flex;flex-direction:column;gap:12px;width:min(86vw,340px)}
+.card{position:relative;display:flex;align-items:center;gap:12px;text-align:left;padding:13px 14px;
+  border-radius:15px;background:linear-gradient(180deg,var(--panel2),var(--panel));
+  border:1.5px solid var(--line);color:var(--txt);cursor:pointer;
+  animation:cardIn .38s cubic-bezier(.2,1.5,.4,1) backwards}
+.card:active{transform:scale(.97)}
+@keyframes cardIn{from{opacity:0;transform:translateY(18px) scale(.92)}}
+.card.brass{border-color:var(--brass);box-shadow:0 0 18px rgba(217,164,65,.22)}
+.card-slot{width:52px;height:52px;border-radius:11px;background:rgba(8,12,26,.7);flex:none;
+  border:1px solid var(--line);background-size:cover;background-position:center}
+.card.brass .card-slot{border-color:#5a4517}
+.card-body{flex:1;min-width:0}
+.card-name{font-size:16.5px;font-weight:900}
+.card-desc{font-size:12.5px;color:var(--muted);margin-top:2px}
+.card-pips{display:flex;gap:4px;margin-top:6px}
+.card-pips i{width:14px;height:5px;border-radius:3px;background:#2b3560}
+.card-pips i.on{background:var(--brass-hi);box-shadow:0 0 6px rgba(255,217,122,.6)}
+.card-tag{position:absolute;top:-8px;right:10px;font-size:10px;font-weight:900;letter-spacing:1px;
+  background:linear-gradient(180deg,var(--brass-hi),var(--brass));color:#3a2306;border-radius:7px;padding:2.5px 8px}
+
+/* ── 사망/결과 ── */
+.dead-title{font-size:44px;color:var(--bad);text-shadow:0 0 24px rgba(255,77,109,.55),0 3px 0 #6e1024}
+.dead-cause{color:var(--brass-hi);font-weight:800;font-size:15px}
+.dead-stats{color:var(--muted);font-size:13px}
+.dead-dock{display:flex;flex-direction:column;gap:10px;align-items:center;margin-top:10px}
+#resultOverlay{justify-content:space-between;padding-top:calc(48px + env(safe-area-inset-top))}
+.res-head{}
+.res-body{display:flex;flex-direction:column;align-items:center;gap:14px;padding:0 24px}
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:min(86vw,340px)}
+.res-item{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);
+  border-radius:13px;padding:12px;text-align:center}
+.res-item em{display:block;font-style:normal;font-size:11.5px;color:var(--muted);font-weight:700}
+.res-item b{font-size:22px;font-weight:900}
+.res-new{color:var(--gem);font-size:12.5px;font-weight:800;min-height:16px}
+.res-brass{font-size:16px;font-weight:800;color:var(--txt)}
+.res-brass b{color:var(--brass-hi);font-size:22px;text-shadow:0 0 12px rgba(255,217,122,.5)}
+.res-dock{display:flex;flex-direction:column;align-items:center;gap:9px;padding:16px 22px calc(24px + env(safe-area-inset-bottom))}
+
+/* ── 병기고(메타 상점) ── */
+#shopOverlay{padding-top:calc(44px + env(safe-area-inset-top))}
+.shop-balance{text-align:center;color:var(--muted);font-size:13.5px;margin:8px 0 14px}
+.shop-balance b{color:var(--brass-hi);font-size:17px}
+#shopList{display:flex;flex-direction:column;gap:10px;padding:0 20px;overflow-y:auto;flex:1}
+.shop-item{display:flex;align-items:center;gap:12px;background:linear-gradient(180deg,var(--panel2),var(--panel));
+  border:1px solid var(--line);border-radius:14px;padding:11px 12px}
+.shop-slot{width:46px;height:46px;border-radius:10px;background:rgba(8,12,26,.7);border:1px solid var(--line);
+  flex:none;background-size:cover;background-position:center}
+.shop-info{flex:1}
+.shop-name{font-weight:900;font-size:15px}
+.shop-desc{font-size:12px;color:var(--muted);margin-top:1px}
+.shop-buy{min-width:64px;min-height:40px;border-radius:11px;border:none;font-weight:900;font-size:14px;
+  background:linear-gradient(180deg,#ffe27a,#eaa93a);color:#3a2306;cursor:pointer}
+.shop-buy:disabled{background:var(--panel2);color:var(--muted);border:1px solid var(--line)}
+.shop-buy.maxed{background:var(--panel2);color:var(--gem);border:1px solid #1d4a35}

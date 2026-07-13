@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+<title>탄피성벽 — Brass Wall</title>
+<meta name="description" content="탄피성벽 — 내가 쏜 총알이 벽이 되어 나를 가둔다. 오토슈터 생존 게임" />
+<meta name="theme-color" content="#0a0e1c" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="탄피성벽" />
+<script src="js/splash.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/ads.js"></script>
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" type="image/png" href="assets/icon-192.png" />
+<link rel="apple-touch-icon" href="assets/icon-192.png" />
+<link rel="stylesheet" href="css/title-fx.css" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div id="app">
+  <div id="stage">
+    <canvas id="cv"></canvas>
+    <div id="trapGlow"></div>
+    <div id="stick"><div id="stickKnob"></div></div>
+    <div id="stateTitle"></div>
+    <div id="toast"></div>
+    <div id="hud">
+      <div class="hud-top">
+        <div class="gauge hp"><div class="fill" id="hpFill"></div><span class="gauge-txt" id="hpTxt">3/3</span></div>
+        <div class="hud-time" id="timeTxt">0:00</div>
+        <div class="hud-kills"><span id="killTxt">0</span></div>
+        <button id="pauseBtn" aria-label="일시정지">II</button>
+      </div>
+      <div class="gauge xp"><div class="fill" id="xpFill"></div><span class="gauge-txt" id="lvTxt">LV 1</span></div>
+    </div>
+  </div>
+
+  <!-- 타이틀 -->
+  <div class="overlay show" id="titleOverlay">
+    <div class="title-hero" id="titleHero">
+      <div class="title-logo">
+        <img id="logoImg" src="assets/ui/logo.png" alt="탄피성벽 BRASS WALL"
+             onerror="this.style.display='none';document.getElementById('logoFallback').style.display='block'" />
+        <h1 id="logoFallback" class="title-main" style="display:none" data-i18n="탄피성벽">탄피성벽</h1>
+      </div>
+      <div class="title-tag" data-i18n="쏜 총알이 벽이 된다 — 갇히기 전에 길을 설계하라">쏜 총알이 벽이 된다 — 갇히기 전에 길을 설계하라</div>
+    </div>
+    <div class="title-dock">
+      <div class="title-stats" id="titleStats"></div>
+      <button class="btn primary big" id="startBtn" data-i18n="출격">출격</button>
+      <div class="dock-row">
+        <button class="btn ghost" id="shopBtn"><span data-i18n="병기고">병기고</span> <b class="brass-chip" id="brassBalance">0</b></button>
+        <button class="btn ghost" id="muteBtn">사운드</button>
+        <button class="btn ghost" id="langBtn" aria-label="language">EN</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 레벨업 3택 -->
+  <div class="overlay center" id="levelupOverlay">
+    <div class="dgl-title bw-brass dgl-rise lv-title" data-text="강화 선택">강화 선택</div>
+    <div id="cards"></div>
+  </div>
+
+  <!-- 사망 -->
+  <div class="overlay center" id="deadOverlay">
+    <div class="dgl-title bw-danger dgl-slam dead-title" data-text="격침">격침</div>
+    <div class="dead-cause" id="deadCause"></div>
+    <div class="dead-stats" id="deadStats"></div>
+    <div class="dead-dock">
+      <button class="btn primary big" id="reviveBtn" data-i18n="부활">부활</button>
+      <button class="btn ghost" id="deadResultBtn" data-i18n="결과 보기">결과 보기</button>
+    </div>
+  </div>
+
+  <!-- 결과 -->
+  <div class="overlay" id="resultOverlay">
+    <div class="dgl-title bw-brass dgl-pop res-head" data-text="전투 결과">전투 결과</div>
+    <div class="res-body">
+      <div class="res-grid">
+        <div class="res-item"><em data-i18n="생존">생존</em><b id="resTime">0:00</b></div>
+        <div class="res-item"><em data-i18n="처치">처치</em><b id="resKills">0</b></div>
+        <div class="res-item"><em data-i18n="최대 벽">최대 벽</em><b id="resWall">0</b></div>
+        <div class="res-item"><em data-i18n="젬">젬</em><b id="resGems">0</b></div>
+      </div>
+      <div class="res-new" id="resNew"></div>
+      <div class="res-brass"><span data-i18n="황동">황동</span> <b id="resBrass">+0</b></div>
+      <button class="btn gold" id="doubleBtn" data-i18n="황동 2배 받기">황동 2배 받기</button>
+    </div>
+    <div class="res-dock">
+      <button class="btn primary big" id="retryBtn" data-i18n="다시 출격">다시 출격</button>
+      <div class="dock-row">
+        <button class="btn ghost" id="resShopBtn" data-i18n="병기고">병기고</button>
+        <button class="btn ghost" id="homeBtn" data-i18n="타이틀">타이틀</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 메타 상점(병기고) -->
+  <div class="overlay" id="shopOverlay">
+    <div class="dgl-title bw-brass dgl-rise shop-head" data-text="병기고">병기고</div>
+    <div class="shop-balance"><span data-i18n="보유 황동">보유 황동</span> <b id="shopBrass">0</b></div>
+    <div id="shopList"></div>
+    <div class="res-dock"><button class="btn primary" id="shopBackBtn" data-i18n="닫기">닫기</button></div>
+  </div>
+
+  <!-- 일시정지 -->
+  <div class="overlay center" id="pauseOverlay">
+    <div class="dgl-title bw-brass dgl-rise" data-text="일시정지">일시정지</div>
+    <div class="dead-dock">
+      <button class="btn primary big" id="resumeBtn" data-i18n="계속">계속</button>
+      <button class="btn ghost" id="quitBtn" data-i18n="타이틀로">타이틀로</button>
+    </div>
+  </div>
+</div>
+<!-- 로드 순서: config → assets → state → sound → fx → game -->
+<script src="js/config.js"></script>
+<script src="js/assets.js"></script>
+<script src="js/state.js"></script>
+<script src="js/sound.js"></script>
+<script src="js/fx.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
