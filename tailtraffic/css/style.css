@@ -1,0 +1,127 @@
+/* 꼬리추월 — 셸도 게임이다(U7): 번호판·도로표지판 언어. 플랫 앱 카드 금지. */
+@font-face{
+  font-family:'Bungee';
+  src:url('../assets/fonts/Bungee.ttf') format('truetype');
+  font-display:swap;
+}
+:root{
+  --bg:#0e0f1a; --line:#2c3050; --txt:#e8eaf6; --muted:#8b90b5;
+  --neon:#36e0ff; --gold:#ffd24a; --good:#5fe08a; --bad:#ff5d5d;
+  --sign-green:#17603a; --sign-green2:#0f4a2b; --sign-border:#f2f5ff;
+  --plate-bg:#f8f9ff; --plate-tx:#141824;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#05060c;color:var(--txt);
+  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  -webkit-user-select:none;user-select:none;overscroll-behavior:none;}
+#app{max-width:480px;margin:0 auto;height:100vh;height:100dvh;display:flex;flex-direction:column;
+  background:var(--bg);position:relative;overflow:hidden;touch-action:none;}
+#stage{flex:1;position:relative}
+#cv{position:absolute;inset:0;width:100%;height:100%}
+button{font-family:inherit}
+
+/* ── HUD ── */
+#hud{position:absolute;inset:0;pointer-events:none;display:none;z-index:10}
+#hud.show{display:block}
+.hud-top{position:absolute;top:calc(10px + env(safe-area-inset-top));left:12px;right:12px;
+  display:flex;justify-content:space-between;align-items:flex-start}
+.hud-right{display:flex;gap:8px;align-items:center}
+.chip{background:rgba(10,12,24,.72);border:1px solid var(--line);color:var(--gold);
+  font:800 12px 'Bungee',sans-serif;padding:7px 10px;border-radius:9px;letter-spacing:.5px}
+.icon-btn{pointer-events:auto;width:38px;height:38px;border-radius:10px;border:1px solid var(--line);
+  background:rgba(10,12,24,.72);color:var(--txt);cursor:pointer;position:relative}
+.pause-glyph,.pause-glyph::after{content:'';position:absolute;top:11px;width:5px;height:16px;background:var(--txt);border-radius:2px}
+.pause-glyph{left:12px}
+.pause-glyph::after{left:9px;top:0}
+.hud-sub{position:absolute;top:calc(58px + env(safe-area-inset-top));left:14px;
+  display:flex;gap:12px;align-items:center;color:var(--muted);font-weight:700;font-size:13px}
+.coin-wrap{display:flex;align-items:center;gap:4px;color:var(--gold)}
+.coin-ico{width:16px;height:16px}
+
+/* 번호판 (기록의 얼굴) */
+.plate{background:var(--plate-bg);color:var(--plate-tx);border:3px solid #2a2f45;border-radius:10px;
+  padding:6px 14px 5px;display:inline-flex;align-items:baseline;gap:3px;position:relative;
+  box-shadow:0 3px 0 #2a2f45, inset 0 0 0 1.5px #c9cede;}
+.plate::before,.plate::after{content:'';position:absolute;top:6px;width:5px;height:5px;border-radius:50%;
+  background:#b7bdd4;box-shadow:inset 0 1px 1px rgba(0,0,0,.4)}
+.plate::before{left:6px}.plate::after{right:6px}
+.plate span{font:900 26px 'Bungee',sans-serif;line-height:1}
+.plate em{font-style:normal;font-weight:900;font-size:14px}
+.plate.punch{animation:punch .38s cubic-bezier(.2,2.4,.4,1)}
+@keyframes punch{0%{transform:scale(1)}30%{transform:scale(1.28) rotate(-2deg)}100%{transform:scale(1)}}
+.plate-lg span{font-size:34px}
+.plate-lg i{font-style:normal;position:absolute;top:-9px;left:50%;transform:translateX(-50%);
+  background:var(--gold);color:#3a2306;font:800 9px 'Bungee',sans-serif;padding:2px 7px;border-radius:6px;letter-spacing:1px}
+.plate-xl{padding:10px 22px 8px}
+.plate-xl span{font-size:52px}
+.plate-xl em{font-size:20px}
+
+/* ── 온보딩 힌트 ── */
+#hintDrag{position:absolute;left:0;right:0;bottom:18%;display:none;flex-direction:column;align-items:center;
+  gap:6px;pointer-events:none;z-index:11;animation:hintSway 1.6s ease-in-out infinite}
+#hintDrag.show{display:flex}
+#hintDrag img{width:84px;filter:drop-shadow(0 4px 10px rgba(0,0,0,.5))}
+.hint-arrows{color:#fff;font-weight:900;font-size:18px;text-shadow:0 2px 6px rgba(0,0,0,.8)}
+.hint-arrows span{color:var(--gold)}
+@keyframes hintSway{0%,100%{transform:translateX(-34px)}50%{transform:translateX(34px)}}
+
+/* ── 오버레이 공통 ── */
+.overlay{position:absolute;inset:0;display:none;flex-direction:column;justify-content:space-between;z-index:20;}
+.overlay.show{display:flex}
+.dim{position:absolute;inset:0;background:rgba(5,6,12,.55)}
+
+/* ── 타이틀 (중앙 투명 — 어트랙트 주행이 보인다) ── */
+#titleOverlay{background:linear-gradient(180deg,rgba(10,11,20,.9) 0%,rgba(10,11,20,.25) 30%,rgba(10,11,20,0) 46%,rgba(10,11,20,0) 62%,rgba(10,11,20,.92) 86%);pointer-events:none}
+#titleOverlay .title-wrap,#titleOverlay .title-dock{pointer-events:auto}
+.title-wrap{text-align:center;padding:calc(34px + env(safe-area-inset-top)) 16px 0}
+#logoImg{width:min(72vw,320px);filter:drop-shadow(0 8px 24px rgba(0,0,0,.6))}
+.title-main{font-size:clamp(44px,16vw,74px);font-weight:900;margin:0;color:var(--gold);line-height:1.02;
+  text-shadow:0 0 22px rgba(255,210,74,.45),0 4px 0 #b97f1e,0 7px 14px rgba(0,0,0,.6);letter-spacing:2px}
+.title-tag{margin-top:10px;color:#fff;font-weight:800;font-size:15px;text-shadow:0 2px 8px rgba(0,0,0,.8);
+  background:rgba(10,12,24,.5);display:inline-block;padding:6px 14px;border-radius:999px;border:1px solid var(--line)}
+.title-dock{display:flex;flex-direction:column;align-items:center;gap:12px;
+  padding:18px 22px calc(20px + env(safe-area-inset-bottom))}
+.dock-row{display:flex;gap:8px;align-items:center}
+.title-stats{font-size:12px;color:var(--muted);margin-left:6px}
+.studio-tag{font:700 10px 'Bungee',sans-serif;letter-spacing:3px;color:var(--muted);opacity:.7}
+
+/* ── 버튼: 도로 표지판 ── */
+.btn{min-width:250px;min-height:52px;border-radius:14px;border:none;cursor:pointer;
+  font-size:17px;font-weight:900;position:relative;transition:transform .08s}
+.btn:active{transform:scale(.96)}
+.sign-yellow{background:repeating-linear-gradient(135deg,#ffd94e 0 26px,#f5b942 26px 52px);
+  color:#2b1a02;border:3px solid #2a2f45;box-shadow:0 5px 0 #2a2f45,0 10px 26px rgba(245,185,66,.35);
+  text-shadow:0 1px 0 rgba(255,255,255,.45);font-size:20px;letter-spacing:1px}
+.sign-white{background:var(--plate-bg);color:var(--plate-tx);border:3px solid #2a2f45;box-shadow:0 5px 0 #2a2f45}
+.sign-ad{display:none;background:#123c63;color:#dff1ff;border:3px solid #2a2f45;box-shadow:0 5px 0 #2a2f45;
+  align-items:center;justify-content:center;gap:8px;font-size:15px}
+.sign-ad.show{display:inline-flex}
+.ad-ico{width:20px;height:20px}
+.btn.ghost{background:transparent;color:var(--muted);min-height:40px;font-size:13px;font-weight:700}
+
+/* ── 결과: 고속도로 표지판 보드 ── */
+.sign-board{position:relative;margin:auto;width:min(86vw,360px);background:linear-gradient(180deg,var(--sign-green),var(--sign-green2));
+  border:4px solid var(--sign-border);border-radius:18px;box-shadow:0 10px 40px rgba(0,0,0,.6),inset 0 0 0 2px rgba(255,255,255,.12);
+  display:flex;flex-direction:column;align-items:center;gap:10px;padding:20px 18px 16px;z-index:2}
+.sign-board::before,.sign-board::after{content:'';position:absolute;top:-14px;width:8px;height:8px;border-radius:50%;
+  background:#d7dcef;box-shadow:0 2px 3px rgba(0,0,0,.5)}
+.sign-board::before{left:26px}.sign-board::after{right:26px}
+.sign-sm{gap:12px;padding-top:24px}
+.sign-title{font-weight:900;font-size:16px;letter-spacing:6px;color:#eafff2;opacity:.92}
+.sign-rows{display:flex;gap:10px;align-items:center;color:#d8ffe9;font-weight:800;font-size:15px}
+.sign-rows b{opacity:.5}
+.cause{color:#ffd0d0;font-weight:800;font-size:14px;min-height:18px}
+.best-sub{color:#bfe9d2;font-size:12px;font-weight:700}
+#tailStrip{width:100%;height:28px}
+.record-badge{display:none;align-items:center;gap:6px;position:absolute;top:-26px;right:-16px;transform:rotate(8deg)}
+.record-badge.show{display:flex;animation:badgePop .5s cubic-bezier(.2,2.2,.4,1)}
+.record-badge img{width:64px}
+.record-badge span{background:var(--bad);color:#fff;font-weight:900;font-size:13px;padding:5px 10px;border-radius:999px;
+  box-shadow:0 3px 10px rgba(255,93,93,.5)}
+.record-badge img[style*="none"]+span{font-size:14px}
+@keyframes badgePop{0%{transform:scale(.3) rotate(30deg)}100%{transform:scale(1) rotate(8deg)}}
+
+/* ── 미니 버튼 ── */
+.mini-btn{background:rgba(10,12,24,.6);border:1px solid var(--line);color:var(--txt);
+  border-radius:9px;padding:8px 12px;font-size:12px;font-weight:800;cursor:pointer}
+.mini-btn.off{opacity:.38;text-decoration:line-through}

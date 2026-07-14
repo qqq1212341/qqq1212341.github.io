@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+<title>꼬리추월</title>
+<meta name="description" content="꼬리추월 — 추월한 차가 전부 내 꼬리가 된다! Dumb Game Lab" />
+<meta name="theme-color" content="#0e0f1a" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="꼬리추월" />
+<script src="js/splash.js"></script>
+<script src="js/analytics.js"></script>
+<link rel="manifest" href="manifest.json" />
+<link rel="apple-touch-icon" href="assets/icon-192.png" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div id="app">
+  <div id="stage"><canvas id="cv"></canvas></div>
+
+  <!-- HUD (플레이 중) -->
+  <div id="hud">
+    <div class="hud-top">
+      <div id="plate" class="plate"><span id="tailN">0</span><em>대</em></div>
+      <div class="hud-right">
+        <div id="bestChip" class="chip">BEST 0</div>
+        <button id="pauseBtn" class="icon-btn" aria-label="일시정지"><span class="pause-glyph"></span></button>
+      </div>
+    </div>
+    <div class="hud-sub">
+      <span id="distTx">0m</span>
+      <span class="coin-wrap"><img class="coin-ico" src="assets/coin.webp" onerror="this.onerror=null;this.src='assets/coin.png';this.onerror=()=>this.style.display='none'" alt="" /><span id="coinTx">0</span></span>
+    </div>
+  </div>
+
+  <!-- 온보딩 드래그 힌트 -->
+  <div id="hintDrag">
+    <img src="assets/hint-drag.webp" onerror="this.onerror=null;this.src='assets/hint-drag.png';this.onerror=()=>{this.style.display='none';this.parentElement.classList.add('nofig')}" alt="" />
+    <div class="hint-arrows"><span>◀</span> 드래그 <span>▶</span></div>
+  </div>
+
+  <!-- 타이틀 (중앙은 투명 — 뒤에서 행렬 어트랙트가 달린다) -->
+  <div class="overlay show" id="titleOverlay">
+    <div class="title-wrap">
+      <img id="logoImg" src="assets/logo.webp" alt="꼬리추월"
+           onerror="this.onerror=()=>{this.style.display='none';document.getElementById('titleFallback').style.display='block'};this.src='assets/logo.png'" />
+      <h1 id="titleFallback" class="title-main" style="display:none">꼬리<br/>추월</h1>
+      <div class="title-tag">추월한 차는 전부 내 꼬리!</div>
+    </div>
+    <div class="title-dock">
+      <div class="plate plate-lg"><span id="titleBestN">0</span><em>대</em><i>BEST</i></div>
+      <button class="btn sign-yellow" id="startBtn">출발!</button>
+      <div class="dock-row">
+        <button id="bgmBtn" class="mini-btn">♪ BGM</button>
+        <button id="sfxBtn" class="mini-btn">SFX</button>
+        <span class="title-stats" id="titlePlays"></span>
+      </div>
+      <div class="studio-tag">DUMB GAME LAB</div>
+    </div>
+  </div>
+
+  <!-- 결과 (고속도로 표지판 보드) -->
+  <div class="overlay" id="resultOverlay">
+    <div class="dim"></div>
+    <div class="sign-board">
+      <div class="sign-title">─ 기 록 ─</div>
+      <div class="plate plate-xl"><span id="rTail">0</span><em>대</em></div>
+      <div id="rBadge" class="record-badge">
+        <img src="assets/badge-newrecord.webp" onerror="this.onerror=null;this.src='assets/badge-newrecord.png';this.onerror=()=>this.style.display='none'" alt="" />
+        <span>신기록!</span>
+      </div>
+      <canvas id="tailStrip"></canvas>
+      <div class="sign-rows">
+        <span id="rDist">0m</span><b>·</b><span id="rCoin">+0</span>
+      </div>
+      <div id="rCause" class="cause"></div>
+      <div id="rBest" class="best-sub"></div>
+      <button class="btn sign-yellow" id="retryBtn">다시 달리기</button>
+      <button class="btn sign-ad" id="continueBtn"><img class="ad-ico" src="assets/icon-ad.webp" onerror="this.onerror=null;this.src='assets/icon-ad.png';this.onerror=()=>this.style.display='none'" alt="" />광고 보고 이어달리기</button>
+      <button class="btn sign-ad" id="doubleBtn"><img class="ad-ico" src="assets/icon-ad.webp" onerror="this.onerror=null;this.src='assets/icon-ad.png';this.onerror=()=>this.style.display='none'" alt="" />광고 보고 코인 2배</button>
+      <button class="btn ghost" id="homeBtn">타이틀로</button>
+    </div>
+  </div>
+
+  <!-- 일시정지 -->
+  <div class="overlay" id="pauseOverlay">
+    <div class="dim"></div>
+    <div class="sign-board sign-sm">
+      <div class="sign-title">일시정지</div>
+      <button class="btn sign-yellow" id="resumeBtn">계속 달리기</button>
+      <button class="btn sign-white" id="pRetryBtn">처음부터</button>
+      <button class="btn ghost" id="pHomeBtn">타이틀로</button>
+    </div>
+  </div>
+</div>
+<!-- 로드 순서: config → ads → assets → sound → fx → state → tail → traffic → game -->
+<script src="js/config.js?v=whip5"></script>
+<script src="js/ads.js"></script>
+<script src="js/assets.js"></script>
+<script src="js/sound.js?v=whip5"></script>
+<script src="js/fx.js"></script>
+<script src="js/state.js"></script>
+<script src="js/tail.js?v=whip5"></script>
+<script src="js/traffic.js?v=whip5"></script>
+<script src="js/game.js?v=whip5"></script>
+</body>
+</html>
