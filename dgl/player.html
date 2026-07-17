@@ -1,0 +1,17 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>영상</title>
+<style>html,body{margin:0;height:100%;background:#0b0b0d;font:600 13px -apple-system,system-ui,sans-serif;color:#e8e8ea}
+.wrap{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+video{max-width:100%;max-height:100vh;background:#000;outline:none}
+#bar{position:fixed;top:0;left:0;right:0;display:flex;align-items:center;gap:10px;padding:10px 14px;background:linear-gradient(#000c,transparent);z-index:2}
+#t{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;opacity:.9}
+#bar a{color:#9db4ff;text-decoration:none;opacity:.85;flex:none}#bar a:hover{opacity:1;text-decoration:underline}
+#err{opacity:.7;text-align:center;padding:0 20px;line-height:1.6}#err a{color:#9db4ff;word-break:break-all}</style>
+</head><body><div id="bar"><span id="t">영상</span><a id="dl" href="#" download>내려받기</a></div><div class="wrap" id="wrap"></div>
+<script>
+var q=new URLSearchParams(location.search),v=q.get("v"),t=q.get("t");
+if(t){document.getElementById("t").textContent=t;document.title=t;}
+if(v){var vid=document.createElement("video");vid.src=v;vid.controls=true;vid.autoplay=true;vid.setAttribute("playsinline","");vid.setAttribute("controlsList","nodownload");
+vid.onerror=function(){document.getElementById("wrap").innerHTML='<div id=err>영상을 불러오지 못했습니다.<br><a href="'+v+'" target="_blank">'+v+'</a></div>';};
+document.getElementById("wrap").appendChild(vid);document.getElementById("dl").href=v;}
+else{document.getElementById("wrap").innerHTML='<div id=err>영상 URL이 없습니다 (?v=...)</div>';}
+</script></body></html>
