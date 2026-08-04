@@ -193,6 +193,36 @@ a.qrow:hover{background:var(--card-hover)}
 .fconv{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--faint);padding:0 1px;vertical-align:1px}
 .fconv.convlow{color:var(--warn)}
 .lockv{color:var(--muted);font-weight:500}
+/* 플랫폼 분해 표 — GA4 스트림 화이트리스트 스코프. 앱 실체(Android/iOS)와 웹 방문을 갈라 놓는 자리. */
+.plwrap{border:1px solid var(--line);border-radius:9px;background:var(--card-2);padding:11px 12px 9px;margin-bottom:4px}
+.plhd{display:flex;align-items:baseline;gap:9px;margin-bottom:6px;flex-wrap:wrap}
+.plhd .plt{font-size:11px;font-weight:800;letter-spacing:.04em;color:var(--txt2)}
+.plhd .pls{font-size:10px;color:var(--faint);font-weight:500}
+.plhd .plsrc{margin-left:auto;font-family:var(--mono);font-size:9.5px;color:var(--faint);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pltbl th.num,.pltbl td.num{text-align:right;font-family:var(--mono)}
+.pltbl td{padding:6px 8px}
+.pltbl td.num{font-weight:500;color:var(--txt2)}
+.pltbl td.num b{font-weight:700;color:var(--txt)}
+.pltbl .plname{white-space:nowrap;font-weight:600;color:var(--txt2)}
+.pltbl .plname em{font-style:normal;font-size:9.5px;font-weight:500;color:var(--faint);margin-left:3px}
+.pltbl .pdot{width:7px;height:7px;border-radius:2px;display:inline-block;margin-right:7px;vertical-align:1px;background:var(--line-2)}
+.pltbl .pdot.android{background:var(--ok)}
+.pltbl .pdot.ios{background:var(--accent)}
+.pltbl .pdot.web{background:var(--line-2)}
+.pltbl tr.plsum td{border-top:1px solid var(--line);border-bottom:0;color:var(--muted)}
+.pltbl tr.plsum .plname{color:var(--muted);font-weight:500}
+.plnote{margin-top:7px;font-size:11px;color:var(--txt2)}
+.plnote b{font-family:var(--mono);font-weight:700;color:var(--txt)}
+/* 속성 미분리 경고 — 다른 게임 유저가 섞였을 수 있다고 숫자 위에서 먼저 밝힌다(조용한 오답 금지) */
+.mixwarn{border:1px solid var(--warn-line);background:var(--warn-soft);border-radius:9px;padding:10px 12px;display:flex;flex-direction:column;gap:4px}
+.mixwarn b{font-size:11.5px;color:var(--warn);letter-spacing:-.01em}
+.mixwarn span{font-size:11px;color:var(--txt2);line-height:1.6}
+.mixwarn .mixlist{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.mixwarn .mixlist em{font-style:normal;font-size:10.5px;font-weight:600;color:var(--txt2);background:var(--card);border:1px solid var(--line);border-radius:6px;padding:2px 8px}
+.mixwarn .mixlist i{font-style:normal;color:var(--faint);font-family:var(--mono);font-size:9.5px;margin-left:6px;font-weight:400}
+.scopeok,.scopebad{font-size:10px;font-weight:700;border-radius:5px;padding:1px 6px;margin-left:4px;white-space:nowrap}
+.scopeok{color:var(--ok);background:var(--ok-soft);border:1px solid var(--ok-line)}
+.scopebad{color:var(--warn);background:var(--warn-soft);border:1px solid var(--warn-line)}
 /* 일별 추세 차트 — 활성(면적+선)·신규(선), 축·눈금·날짜 */
 .tcwrap{margin:2px 0 10px}
 .tclegend{display:flex;align-items:baseline;gap:14px;font-size:11.5px;margin-bottom:6px}
@@ -447,37 +477,37 @@ button.ctag:hover{background:var(--card-hover)}
   <a class="brand" href="#/">Dumb Game Lab</a>
   <div class="tabs"><a data-page="home" href="#/">홈</a><a data-page="game-pcbangalba" href="#/game/pcbangalba">PC방 키우기: 방치형 타이쿤<i class="tdot warn"></i></a><a data-page="game-muinthief" href="#/game/muinthief">무인점포 털지마!</a><a data-page="game-mergestampede" href="#/game/mergestampede">머지 스탬피드</a><a data-page="marketing" href="#/marketing">마케팅<i class="tdot danger"></i></a></div>
   
-  <span class="tn-sync">동기화 2026-08-05 01:14</span>
+  <span class="tn-sync">동기화 2026-08-05 01:39</span>
 </div></nav>
 <main class="main">
 <section class="page active" id="page-home">
   <section class="queue">
   <div class="qhead"><span class="qtitle">오늘 큐</span><span class="qsub">사람 게이트 → 판정·기한 → 경고 → 루틴 — 신호 자동 집계 · 클릭=해당 페이지</span></div>
-  <a class="qrow t-danger" href="#/marketing"><span class="qtag">마케팅</span><span class="qtext">발행된 포스트 URL을 matrix.json posts[].url에 채워라 — 2건 미확인 (game-grow)</span><span class="qwho">Claude</span></a><a class="qrow t-warn" href="#/game/pcbangalba"><span class="qtag">PC방 키우기: 방치형 타이쿤</span><span class="qtext">저품질 클립 5개 (fps&lt;23 = TikTok 발행 불가) — 재렌더 필요</span><span class="qwho">Claude</span></a><a class="qrow t-accent" href="#/game/muinthief"><span class="qtag">무인점포 털지마!</span><span class="qtext">다음 단계: 그로스·획득</span><code>game-grow</code><span class="qwho">Claude</span></a><a class="qrow t-accent" href="#/game/mergestampede"><span class="qtag">머지 스탬피드</span><span class="qtext">다음 단계: 빌드·스토어</span><code>store-deploy</code><span class="qwho">Claude</span></a><a class="qrow t-zinc" href="#/game/pcbangalba"><span class="qtag">PC방 키우기: 방치형 타이쿤</span><span class="qtext">App Store v1.0.10 심사 대기 — 승인 시 자동 라이브</span><span class="qwho">ASC 실측</span></a>
+  <a class="qrow t-danger" href="#/marketing"><span class="qtag">마케팅</span><span class="qtext">발행된 포스트 URL을 matrix.json posts[].url에 채워라 — 2건 미확인 (game-grow)</span><span class="qwho">Claude</span></a><a class="qrow t-warn" href="#/game/pcbangalba"><span class="qtag">PC방 키우기: 방치형 타이쿤</span><span class="qtext">저품질 클립 5개 (fps&lt;23 = TikTok 발행 불가) — 재렌더 필요</span><span class="qwho">Claude</span></a><a class="qrow t-accent" href="#/game/pcbangalba"><span class="qtag">PC방 키우기: 방치형 타이쿤</span><span class="qtext">다음 단계: 빌드·스토어</span><code>store-deploy</code><span class="qwho">Claude</span></a><a class="qrow t-accent" href="#/game/muinthief"><span class="qtag">무인점포 털지마!</span><span class="qtext">다음 단계: 빌드·스토어</span><code>store-deploy</code><span class="qwho">Claude</span></a><a class="qrow t-accent" href="#/game/mergestampede"><span class="qtag">머지 스탬피드</span><span class="qtext">다음 단계: 빌드·스토어</span><code>store-deploy</code><span class="qwho">Claude</span></a><a class="qrow t-zinc" href="#/game/pcbangalba"><span class="qtag">PC방 키우기: 방치형 타이쿤</span><span class="qtext">App Store v1.0.10 심사 대기 — 승인 시 자동 라이브</span><span class="qwho">ASC 실측</span></a>
 </section>
   <div class="stats">
-    <div class="stat"><div class="stt"><div class="stv">28.8k</div><div class="ktr"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><polyline points="1.0,12.3 7.6,12.4 14.2,10.5 20.8,17.0 27.4,17.0 34.0,7.3 40.6,5.8 47.2,3.0 53.8,3.0 60.4,3.0 67.0,3.0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="kd flat">±0</span></div></div><div class="stl">소셜 조회</div><div class="sts">77 포스트 · PostPeer 실측</div></div>
-    <div class="stat"><div class="stt"><div class="stv">81</div><div class="ktr"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><polyline points="1.0,17.0 7.6,16.6 14.2,13.3 20.8,13.1 27.4,12.3 34.0,11.4 40.6,11.0 47.2,5.4 53.8,4.5 60.4,3.0 67.0,3.0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="kd flat">±0</span></div></div><div class="stl">28일 획득</div><div class="sts">조회 대비 0.28% · first_open</div></div>
-    <div class="stat"><div class="stt"><div class="stv">150</div><div class="ktr"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><polyline points="1.0,17.0 7.6,16.7 14.2,12.8 20.8,12.7 27.4,12.1 34.0,11.2 40.6,10.7 47.2,3.0 53.8,5.9 60.4,4.7 67.0,4.2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="kd up">+3</span></div></div><div class="stl">28일 활성</div><div class="sts">GA 연결 1게임</div></div>
+    <div class="stat"><div class="stt"><div class="stv">21.5k</div><div class="ktr"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><polyline points="1.0,12.3 7.6,12.4 14.2,10.5 20.8,17.0 27.4,17.0 34.0,7.3 40.6,5.8 47.2,3.0 53.8,3.0 60.4,3.0 67.0,7.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="kd down">-7,326</span></div></div><div class="stl">소셜 조회</div><div class="sts">27 포스트 · PostPeer 실측</div></div>
+    <div class="stat"><div class="stt"><div class="stv">81</div><div class="ktr"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><polyline points="1.0,17.0 7.6,16.6 14.2,13.3 20.8,13.1 27.4,12.3 34.0,11.4 40.6,11.0 47.2,5.4 53.8,4.5 60.4,3.0 67.0,3.0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="kd flat">±0</span></div></div><div class="stl">28일 획득</div><div class="sts">조회 대비 0.38% · first_open</div></div>
+    <div class="stat"><div class="stt"><div class="stv">150</div><div class="ktr"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><polyline points="1.0,17.0 7.6,16.7 14.2,12.8 20.8,12.7 27.4,12.1 34.0,11.2 40.6,10.7 47.2,3.0 53.8,5.9 60.4,4.7 67.0,4.2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="kd up">+3</span></div></div><div class="stl">28일 활성</div><div class="sts">앱 82 · 웹 68 · GA 2게임</div></div>
     <div class="stat"><div class="stt"><div class="stv">187</div></div><div class="stl">광고 노출 28일</div><div class="sts">전면 168 · 보상 19</div></div>
   </div>
-  <div class="factline">공장 — 진행 3 · 라이브 3 · 평균 진행률 91% · 폐기 1</div>
+  <div class="factline">공장 — 진행 3 · 라이브 3 · 평균 진행률 82% · 폐기 1</div>
   <div class="sech mt"><h2>게임</h2><span class="secsub">클릭 = 게임 페이지 (파이프라인·지표·마케팅 전부)</span></div>
   <div class="grows"><a class="grow" href="#/game/pcbangalba">
   <div class="gr1"><h3>PC방 키우기: 방치형 타이쿤</h3><span class="eng">Web</span><span class="livepill"><i class="dot"></i>운영 중</span><span class="grgo">상세 <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></div>
-  <div class="gr2"><div class="pmini"><div class="tkbar"><i class="tk done" title="1. 컨셉·PRD — 완료"></i><i class="tk done" title="2. 엔진·밸런스 — 완료"></i><i class="tk done" title="3. 제작 폴리시 — 완료"></i><i class="tk done" title="4. 수익엔진·추적 — 완료"></i><i class="tk done" title="5. QA — 완료"></i><i class="tk done" title="6. 빌드·스토어 — 완료"></i><i class="tk done" title="7. 콘솔 등록 — 완료"></i><i class="tk done" title="8. 심사·출시 — 완료"></i><i class="tk done" title="9. 그로스·획득 — 완료"></i></div><span class="tkn">9/9</span><span class="rchip alldone"><em class="rok"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></em>전 단계 완료</span></div></div>
-  <div class="gr3">활성 150 · 획득 81 · 실험 조회 4.4k · v1.0.9 라이브 · <b class="t-warn">v1.0.10 심사 대기</b></div>
+  <div class="gr2"><div class="pmini"><div class="tkbar"><i class="tk done" title="1. 컨셉·PRD — 완료"></i><i class="tk done" title="2. 엔진·밸런스 — 완료"></i><i class="tk done" title="3. 제작 폴리시 — 완료"></i><i class="tk done" title="4. 수익엔진·추적 — 완료"></i><i class="tk done" title="5. QA — 완료"></i><i class="tk todo" title="6. 빌드·스토어 — 대기"></i><i class="tk done" title="7. 콘솔 등록 — 완료"></i><i class="tk done" title="8. 심사·출시 — 완료"></i><i class="tk done" title="9. 그로스·획득 — 완료"></i></div><span class="tkn">8/9</span><span class="rchip todo">6 빌드</span></div></div>
+  <div class="gr3">활성 135 <span class="fa">(앱 67)</span> · 획득 66 · 실험 조회 4.4k · v1.0.9 라이브 · <b class="t-warn">v1.0.10 심사 대기</b></div>
 </a><a class="grow" href="#/game/muinthief">
   <div class="gr1"><h3>무인점포 털지마!</h3><span class="eng">Web</span><span class="livepill"><i class="dot"></i>운영 중</span><span class="grgo">상세 <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></div>
-  <div class="gr2"><div class="pmini"><div class="tkbar"><i class="tk done" title="1. 컨셉·PRD — 완료"></i><i class="tk done" title="2. 엔진·밸런스 — 완료"></i><i class="tk done" title="3. 제작 폴리시 — 완료"></i><i class="tk done" title="4. 수익엔진·추적 — 완료"></i><i class="tk done" title="5. QA — 완료"></i><i class="tk done" title="6. 빌드·스토어 — 완료"></i><i class="tk done" title="7. 콘솔 등록 — 완료"></i><i class="tk done" title="8. 심사·출시 — 완료"></i><i class="tk todo" title="9. 그로스·획득 — 대기"></i></div><span class="tkn">8/9</span><span class="rchip todo">9 그로스</span></div></div>
+  <div class="gr2"><div class="pmini"><div class="tkbar"><i class="tk done" title="1. 컨셉·PRD — 완료"></i><i class="tk done" title="2. 엔진·밸런스 — 완료"></i><i class="tk done" title="3. 제작 폴리시 — 완료"></i><i class="tk done" title="4. 수익엔진·추적 — 완료"></i><i class="tk done" title="5. QA — 완료"></i><i class="tk todo" title="6. 빌드·스토어 — 대기"></i><i class="tk done" title="7. 콘솔 등록 — 완료"></i><i class="tk done" title="8. 심사·출시 — 완료"></i><i class="tk todo" title="9. 그로스·획득 — 대기"></i></div><span class="tkn">7/9</span><span class="rchip todo">6 빌드</span><span class="rchip todo">9 그로스</span></div></div>
   <div class="gr3">v1.0.1 라이브</div>
 </a><a class="grow" href="#/game/mergestampede">
   <div class="gr1"><h3>머지 스탬피드</h3><span class="eng">Web</span><span class="livepill"><i class="dot"></i>운영 중</span><span class="grgo">상세 <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></div>
-  <div class="gr2"><div class="pmini"><div class="tkbar"><i class="tk done" title="1. 컨셉·PRD — 완료"></i><i class="tk done" title="2. 엔진·밸런스 — 완료"></i><i class="tk done" title="3. 제작 폴리시 — 완료"></i><i class="tk done" title="4. 수익엔진·추적 — 완료"></i><i class="tk done" title="5. QA — 완료"></i><i class="tk partial" title="6. 빌드·스토어 — 진행중"></i><i class="tk done" title="7. 콘솔 등록 — 완료"></i><i class="tk done" title="8. 심사·출시 — 완료"></i><i class="tk todo" title="9. 그로스·획득 — 대기"></i></div><span class="tkn">7/9</span><span class="rchip partial">6 빌드</span><span class="rchip todo">9 그로스</span></div></div>
-  <div class="gr3">v1.0 라이브</div>
+  <div class="gr2"><div class="pmini"><div class="tkbar"><i class="tk done" title="1. 컨셉·PRD — 완료"></i><i class="tk done" title="2. 엔진·밸런스 — 완료"></i><i class="tk done" title="3. 제작 폴리시 — 완료"></i><i class="tk done" title="4. 수익엔진·추적 — 완료"></i><i class="tk done" title="5. QA — 완료"></i><i class="tk todo" title="6. 빌드·스토어 — 대기"></i><i class="tk done" title="7. 콘솔 등록 — 완료"></i><i class="tk done" title="8. 심사·출시 — 완료"></i><i class="tk todo" title="9. 그로스·획득 — 대기"></i></div><span class="tkn">7/9</span><span class="rchip todo">6 빌드</span><span class="rchip todo">9 그로스</span></div></div>
+  <div class="gr3">활성 15 <span class="fa">(앱 15)</span> · 획득 15 · v1.0 라이브</div>
 </a></div>
   <div class="grows retiredwrap"><a class="grow retired" href="#/game/slimesimulator">
-  <div class="gr1"><h3>슬라임 시뮬레이터</h3><span class="eng">Unity</span><span class="grpct">61%</span><span class="grgo">기록 <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></div>
+  <div class="gr1"><h3>슬라임 시뮬레이터</h3><span class="eng">Unity</span><span class="grpct">39%</span><span class="grgo">기록 <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></div>
   <div class="gr3">폐기 2026-07-02 — 중도 포기 — 사장님 판정. Play 출시됐으나 다운로드 6·grow 미착수, 추가 투자 중단 (레포·스토어 리스팅은 보존)</div>
 </a></div>
 </section>
@@ -493,11 +523,47 @@ button.ctag:hover{background:var(--card-hover)}
   
   <section class="queue">
   <div class="qhead"><span class="qtitle">이 게임의 큐</span><span class="qsub">사람 게이트 → 판정·기한 → 경고 → 루틴 — 신호 자동 집계 · 클릭=해당 페이지</span></div>
-  <a class="qrow t-warn" href="#/game/pcbangalba"><span class="qtag">PC방 키우기: 방치형 타이쿤</span><span class="qtext">저품질 클립 5개 (fps&lt;23 = TikTok 발행 불가) — 재렌더 필요</span><span class="qwho">Claude</span></a><a class="qrow t-zinc" href="#/game/pcbangalba"><span class="qtag">PC방 키우기: 방치형 타이쿤</span><span class="qtext">App Store v1.0.10 심사 대기 — 승인 시 자동 라이브</span><span class="qwho">ASC 실측</span></a>
+  <a class="qrow t-warn" href="#/game/pcbangalba"><span class="qtag">PC방 키우기: 방치형 타이쿤</span><span class="qtext">저품질 클립 5개 (fps&lt;23 = TikTok 발행 불가) — 재렌더 필요</span><span class="qwho">Claude</span></a><a class="qrow t-accent" href="#/game/pcbangalba"><span class="qtag">PC방 키우기: 방치형 타이쿤</span><span class="qtext">다음 단계: 빌드·스토어</span><code>store-deploy</code><span class="qwho">Claude</span></a><a class="qrow t-zinc" href="#/game/pcbangalba"><span class="qtag">PC방 키우기: 방치형 타이쿤</span><span class="qtext">App Store v1.0.10 심사 대기 — 승인 시 자동 라이브</span><span class="qwho">ASC 실측</span></a>
 </section>
-  <section class="sec"><div class="sech"><h2>지표</h2><span class="secsub">유입 · 활성 · 수익 — GA/Firebase 단일 소스 · 8. 5. AM 01:07 기준</span></div><div class="mbox"><div class="tcwrap"><div class="tclegend"><span class="k"><i style="background:var(--accent)"></i>활성 <b>0</b></span><span class="k"><i style="background:var(--ok)"></i>신규 <b>0</b></span><span class="tcnote">일별 최근 28일 · 최고 34</span></div><div class="tccanvas"><canvas class="tchart" id="tc1" data-tc='{&quot;labels&quot;:[&quot;7/9&quot;,&quot;7/10&quot;,&quot;7/11&quot;,&quot;7/12&quot;,&quot;7/13&quot;,&quot;7/14&quot;,&quot;7/15&quot;,&quot;7/16&quot;,&quot;7/17&quot;,&quot;7/18&quot;,&quot;7/19&quot;,&quot;7/20&quot;,&quot;7/21&quot;,&quot;7/22&quot;,&quot;7/23&quot;,&quot;7/24&quot;,&quot;7/25&quot;,&quot;7/26&quot;,&quot;7/27&quot;,&quot;7/28&quot;,&quot;7/29&quot;,&quot;7/30&quot;,&quot;7/31&quot;,&quot;8/1&quot;,&quot;8/2&quot;,&quot;8/3&quot;,&quot;8/4&quot;,&quot;8/5&quot;],&quot;active&quot;:[25,19,21,18,28,29,20,20,24,21,20,26,29,34,30,19,23,21,26,18,20,20,4,7,4,18,5,0],&quot;new&quot;:[25,4,4,1,9,11,2,2,6,3,2,7,10,11,4,1,5,2,6,0,2,1,4,4,2,14,3,0]}' aria-label="28일 일별 활성·신규 추세" role="img"></canvas></div></div><div class="mgrp"><span class="gi">유입</span><span class="gs">최근 28일 · 신규</span><span class="gt">신규 149</span></div><div class="mrow"><span class="ml" title="GA 속성 542222163 전체 합산(웹+Android+iOS 스트림). Android·iOS 모두 네이티브 Firebase 라이브 — first_open 실측(28일 Android 13·iOS 6; iOS 1.0.8 라이브 2026-07-10). web newUsers=웹플레이 방문(앱설치 아님). 광고매출=AdMob Reporting API 실측(admob.js); GA totalAdRevenue는 AdMob 노출단위매출 활성화+링크 후 지연 채워짐.">신규 유저</span><span class="mv">149 <span class="fa">(</span>앱 81 <span class="fa">·</span> 웹 68<span class="fa">)</span> <span class="cardspark"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><polyline points="1.0,17.0 7.6,16.6 14.2,13.3 20.8,13.1 27.4,12.3 34.0,11.4 40.6,11.0 47.2,5.4 53.8,4.5 60.4,3.0 67.0,3.0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div><div class="mrow"><span class="ml">세션</span><span class="mv">1184</span></div><div class="mrow"><span class="ml">유입 추이</span><span class="mv">1일 3 <span class="fa">·</span> 7일 30 <span class="fa">·</span> 28일 149</span></div><div class="mgrp"><span class="gi">활성</span><span class="gs">최근 28일 · 참여</span><span class="gt">활성 150</span></div><div class="mrow"><span class="ml">활성 유저</span><span class="mv">150 <span class="fa">(재방문 1)</span> <span class="cardspark"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><polyline points="1.0,17.0 7.6,16.7 14.2,12.8 20.8,12.7 27.4,12.1 34.0,11.2 40.6,10.7 47.2,3.0 53.8,5.9 60.4,4.7 67.0,4.2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div><div class="mrow"><span class="ml">활성 추이</span><span class="mv">1일 5 <span class="fa">·</span> 7일 50 <span class="fa">·</span> 28일 150</span></div><div class="mrow"><span class="ml">참여율</span><span class="mv"><span class="convlow" title="이탈 많음 — 첫 화면·후크 점검(진단 렌즈)">13%</span> <span class="fa">(154/1184 세션)</span> <span class="fa">·</span> 5분<span class="fa">/유저</span></span></div><div class="mrow"><span class="ml">참여 퍼널</span><span class="mv">활성 150 <span class="fa">→</span><span class="fconv">527%</span> 진입 791 <span class="fa">→</span><span class="fconv convlow">67%</span> 완료 533</span></div><div class="mgrp"><span class="gi">수익</span><span class="gs">AdMob 실측 · 28일</span><span class="gt">$1.72</span></div><div class="mrow"><span class="ml">광고 노출</span><span class="mv">전면 168 <span class="fa">·</span> 보상 19 <span class="fa">(1.2/유저)</span> <span class="fa">· AdMob 181</span></span></div><div class="mrow"><span class="ml" title="AdMob Reporting API 28일 · 추정수익(USD)">광고 매출</span><span class="mv">$1.72 <span class="fa">(ARPU $0.011)</span> <span class="srcnote">AdMob 실측</span></span></div><div class="mrow"><span class="ml">리뷰</span><span class="mv"><span class="rvline"><span class="rvi">App Store <a href="https://apps.apple.com/app/id6779939467" target="_blank">리뷰 0</a></span><span class="rvi off">Play 리뷰 집계 없음</span></span></span></div></div></section>
+  <section class="sec"><div class="sech"><h2>지표</h2><span class="secsub">유입 · 활성 · 수익 — GA/Firebase 단일 소스 · 8. 5. AM 01:39 기준 <span class="scopeok">스트림 3개 스코프</span></span></div><div class="mbox"><div class="plwrap">
+  <div class="plhd"><span class="plt">플랫폼 분해</span><span class="pls">최근 28일 · GA4 스트림 실측</span><span class="plsrc">스트림 3개 스코프 · PCAlba Web · PC방 알바 (Android) · PC방 알바 (iOS)</span></div>
+  <table class="tbl pltbl"><thead><tr><th>플랫폼</th><th class="num">활성</th><th class="num">신규</th><th class="num">획득</th><th class="num">세션</th><th class="num">참여율</th><th class="num">광고매출</th></tr></thead><tbody><tr>
+    <td class="plname"><i class="pdot android"></i>Android</td>
+    <td class="num"><b>37</b></td>
+    <td class="num">36</td>
+    <td class="num">36</td>
+    <td class="num">39</td>
+    <td class="num"><span class="">59%</span></td>
+    <td class="num">$0.375</td>
+  </tr><tr>
+    <td class="plname"><i class="pdot ios"></i>iOS</td>
+    <td class="num"><b>30</b></td>
+    <td class="num">30</td>
+    <td class="num">30</td>
+    <td class="num">41</td>
+    <td class="num"><span class="">78%</span></td>
+    <td class="num">$1.34</td>
+  </tr><tr>
+    <td class="plname"><i class="pdot web"></i>웹 <em>방문</em></td>
+    <td class="num"><b>68</b></td>
+    <td class="num">68</td>
+    <td class="num"><span class="fa">—</span></td>
+    <td class="num">1085</td>
+    <td class="num"><span class="convlow">8%</span></td>
+    <td class="num"><span class="fa">—</span></td>
+  </tr><tr class="plsum">
+    <td class="plname">합계 <em>중복 제거</em></td>
+    <td class="num"><b>135</b></td>
+    <td class="num">134</td>
+    <td class="num">66</td>
+    <td class="num">1166</td>
+    <td class="num">13%</td>
+    <td class="num">$1.72</td>
+  </tr></tbody></table>
+  <div class="plnote">앱 실체 <b>67</b><span class="fa">명 활성 · 획득 66</span> <span class="fa">/ 웹 방문 68 (참여율 8%)</span></div>
+</div><div class="tcwrap"><div class="tclegend"><span class="k"><i style="background:var(--accent)"></i>활성 <b>0</b></span><span class="k"><i style="background:var(--ok)"></i>신규 <b>0</b></span><span class="tcnote">일별 최근 28일 · 최고 33</span></div><div class="tccanvas"><canvas class="tchart" id="tc1" data-tc='{&quot;labels&quot;:[&quot;7/9&quot;,&quot;7/10&quot;,&quot;7/11&quot;,&quot;7/12&quot;,&quot;7/13&quot;,&quot;7/14&quot;,&quot;7/15&quot;,&quot;7/16&quot;,&quot;7/17&quot;,&quot;7/18&quot;,&quot;7/19&quot;,&quot;7/20&quot;,&quot;7/21&quot;,&quot;7/22&quot;,&quot;7/23&quot;,&quot;7/24&quot;,&quot;7/25&quot;,&quot;7/26&quot;,&quot;7/27&quot;,&quot;7/28&quot;,&quot;7/29&quot;,&quot;7/30&quot;,&quot;7/31&quot;,&quot;8/1&quot;,&quot;8/2&quot;,&quot;8/3&quot;,&quot;8/4&quot;,&quot;8/5&quot;],&quot;active&quot;:[25,19,21,18,25,26,19,19,22,21,19,25,29,33,28,19,23,21,26,18,19,20,4,7,4,18,5,0],&quot;new&quot;:[25,4,4,1,6,8,1,1,4,3,1,6,10,10,3,1,5,2,6,0,1,1,4,4,2,14,3,0]}' aria-label="28일 일별 활성·신규 추세" role="img"></canvas></div></div><div class="mgrp"><span class="gi">유입</span><span class="gs">최근 28일 · 신규</span><span class="gt">신규 134</span></div><div class="mrow"><span class="ml" title="★ GA4 속성 542222163 은 DGL 게임 공용이다(측정ID G-07WLGFMQDD). ga4Streams 화이트리스트(streamName 필터)로 이 게임 스트림만 회수한다 — 없으면 머지 스탬피드 유저가 섞여 활성이 150으로 부풀었다(실제 이 게임 135). 지표는 플랫폼별로 봐라: 웹 세션은 참여율 한 자리대 노이즈라 합계를 지배한다. 앱 실체 = Android+iOS. first_open 은 앱 스트림에서만 잡힌다(웹은 0). 광고매출=AdMob Reporting API 실측(admob.js, 앱ID로 Android/iOS 분해); GA totalAdRevenue 는 AdMob 노출단위매출 활성화+링크 후 지연 채워짐. ★ 스트림 이름을 GA 콘솔에서 바꾸면 여기도 같이 고쳐야 한다(streamId 는 대조용 기록).">신규 유저</span><span class="mv">134 <span class="fa">(</span>앱 66 <span class="fa">·</span> 웹 68<span class="fa">)</span> <span class="cardspark"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><polyline points="1.0,17.0 7.6,16.6 14.2,13.3 20.8,13.1 27.4,12.3 34.0,11.4 40.6,11.0 47.2,5.4 53.8,4.5 60.4,3.0 67.0,6.2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div><div class="mrow"><span class="ml">세션</span><span class="mv">1166</span></div><div class="mrow"><span class="ml">유입 추이</span><span class="mv">1일 3 <span class="fa">·</span> 7일 29 <span class="fa">·</span> 28일 134</span></div><div class="mgrp"><span class="gi">활성</span><span class="gs">최근 28일 · 참여</span><span class="gt">활성 135</span></div><div class="mrow"><span class="ml" title="앱 = Android+iOS 스트림 합. 웹은 방문(설치 아님).">활성 유저</span><span class="mv">135 <span class="fa">(</span>앱 67 <span class="fa">·</span> 웹 68<span class="fa">)</span> <span class="fa">· 재방문 1</span> <span class="cardspark"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><polyline points="1.0,17.0 7.6,16.7 14.2,12.8 20.8,12.7 27.4,12.1 34.0,11.2 40.6,10.7 47.2,3.0 53.8,5.9 60.4,4.7 67.0,6.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div><div class="mrow"><span class="ml">활성 추이</span><span class="mv">1일 5 <span class="fa">·</span> 7일 49 <span class="fa">·</span> 28일 135</span></div><div class="mrow"><span class="ml">참여율</span><span class="mv"><span class="convlow" title="이탈 많음 — 첫 화면·후크 점검(진단 렌즈)">13%</span> <span class="fa">(146/1166 세션)</span> <span class="fa">·</span> 5분<span class="fa">/유저</span></span></div><div class="mrow"><span class="ml">참여 퍼널</span><span class="mv">활성 135 <span class="fa">→</span><span class="fconv">579%</span> 진입 782 <span class="fa">→</span><span class="fconv convlow">67%</span> 완료 525</span></div><div class="mgrp"><span class="gi">수익</span><span class="gs">AdMob 실측 · 28일</span><span class="gt">$1.72</span></div><div class="mrow"><span class="ml">광고 노출</span><span class="mv">전면 168 <span class="fa">·</span> 보상 19 <span class="fa">(1.4/유저)</span> <span class="fa">· AdMob 181</span></span></div><div class="mrow"><span class="ml" title="AdMob Reporting API 28일 · 추정수익(USD) · 앱ID로 Android/iOS 귀속. ARPU 분모는 앱(Android+iOS) 활성 — 웹 방문자는 광고를 안 본다.">광고 매출</span><span class="mv">$1.72 <span class="fa">(</span>Android $0.375 <span class="fa">·</span> iOS $1.34<span class="fa">)</span> <span class="fa">· 앱 ARPU $0.026</span> <span class="srcnote">AdMob 실측</span></span></div><div class="mrow"><span class="ml">리뷰</span><span class="mv"><span class="rvline"><span class="rvi">App Store <a href="https://apps.apple.com/app/id6779939467" target="_blank">리뷰 0</a></span><span class="rvi off">Play 리뷰 집계 없음</span></span></span></div></div></section>
   <section class="sec"><div class="sech"><h2>스토어 &amp; 버전</h2><span class="secsub">실측 우선 — 심사=ASC API · 라이브=iTunes/Play 리스팅 (Play 심사 상태만 공식 API 없음 → 매니페스트)</span></div><div class="stbox"><div class="strow"><span class="stlb">웹</span><div class="stv"><span class="chip done">라이브</span></div><a class="stgo" href="https://qqq1212341.github.io/pcbang-alba-sim/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div><div class="strow"><span class="stlb">App Store</span><div class="stv"><span class="chip done">출시</span><span class="stver">v1.0.9 라이브 (7/14~)</span><span class="chip partial">v1.0.10 심사 대기</span><span class="srcnote">ASC 실측</span></div><a class="stgo" href="https://apps.apple.com/app/id6779939467" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div><div class="strow"><span class="stlb">Google Play</span><div class="stv"><span class="chip done">출시</span><span class="stver">v1.0.11 라이브 (Aug 3, 2026~)</span><span class="srcnote">리스팅 실측</span></div><a class="stgo" href="https://play.google.com/store/apps/details?id=com.dumbgamelab.pcbangalba" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div></div></section>
-  <section class="sec"><div class="sech"><h2>파이프라인</h2><span class="secsub">9단계 · 산출물 자동 감지 + manual 폴백</span></div><table class="tbl ptable"><thead><tr><th></th><th>단계</th><th>상태</th><th>담당</th><th>하위 신호</th></tr></thead><tbody><tr class="pt-done">
+  <section class="sec"><div class="sech"><h2>파이프라인</h2><span class="secsub">9단계 · 산출물 자동 감지 + manual 폴백</span></div><div class="nextline"><span class="ml2">NEXT</span><b>빌드·스토어</b><span class="who t-accent"><i class="dot"></i>Claude 자동</span><code>store-deploy</code></div><table class="tbl ptable"><thead><tr><th></th><th>단계</th><th>상태</th><th>담당</th><th>하위 신호</th></tr></thead><tbody><tr class="pt-done">
     <td class="c-id">1</td>
     <td class="ptl">컨셉·PRD</td>
     <td><span class="chip done">완료</span></td>
@@ -527,12 +593,12 @@ button.ctag:hover{background:var(--card-hover)}
     <td><span class="chip done">완료</span></td>
     <td class="ptwho"><span class="who t-accent"><i class="dot"></i><code>qa-harness</code></span></td>
     <td class="ptparts"><i class="pp done">눈검증 pass</i></td>
-  </tr><tr class="pt-done">
+  </tr><tr class="pt-todo">
     <td class="c-id">6</td>
     <td class="ptl">빌드·스토어</td>
-    <td><span class="chip done">완료</span></td>
+    <td><span class="chip todo">대기</span></td>
     <td class="ptwho"><span class="who t-accent"><i class="dot"></i><code>store-deploy</code></span></td>
-    <td class="ptparts"><i class="pp done">빌드</i><i class="pp done">자산</i><i class="pp done">카피</i></td>
+    <td class="ptparts"><i class="pp todo">빌드</i><i class="pp done">자산</i><i class="pp done">카피</i></td>
   </tr><tr class="pt-done">
     <td class="c-id">7</td>
     <td class="ptl">콘솔 등록</td>
@@ -550,7 +616,7 @@ button.ctag:hover{background:var(--card-hover)}
     <td class="ptl">그로스·획득</td>
     <td><span class="chip done">완료</span></td>
     <td class="ptwho"><span class="who t-accent"><i class="dot"></i><code>game-grow</code></span></td>
-    <td class="ptparts"><i class="pp done">산출물 492</i></td>
+    <td class="ptparts"><i class="pp done">산출물 482</i></td>
   </tr></tbody></table></section>
   <section class="sec"><div class="sech"><h2>마케팅</h2><span class="secsub">실험 SSOT: <code>marketing/shortform/matrix.json</code> (읽기 전용 · 조회 갱신=game-grow)</span></div>
   <div class="exph">
@@ -701,9 +767,9 @@ button.ctag:hover{background:var(--card-hover)}
       <td class="c-id">—</td>
       <td class="clipname"><span class="local-only" title="로컬 전용 — 사장님 맥에서만 열립니다">EN1b_ramen_freeloader_v2</span></td>
       <td></td>
-      <td><span class="q q-off">?</span></td>
-      <td class="c-res ">—</td>
-      <td class="c-dur">—<span class="csz"> 13.5M</span></td>
+      <td><span class="q q-ok">30fps</span></td>
+      <td class="c-res ">1080×1920</td>
+      <td class="c-dur">29s<span class="csz"> 13.5M</span></td>
       <td><span class="mst off">미추적</span></td>
       <td class="c-views">—</td>
     </tr><tr class="">
@@ -728,27 +794,27 @@ button.ctag:hover{background:var(--card-hover)}
       <td class="c-id">—</td>
       <td class="clipname"><span class="local-only" title="로컬 전용 — 사장님 맥에서만 열립니다">EN4_dawn_knock_en</span></td>
       <td></td>
-      <td><span class="q q-off">?</span></td>
-      <td class="c-res ">—</td>
-      <td class="c-dur">—<span class="csz"> 14.2M</span></td>
+      <td><span class="q q-ok">30fps</span></td>
+      <td class="c-res ">1080×1920</td>
+      <td class="c-dur">30s<span class="csz"> 14.2M</span></td>
       <td><span class="mst off">미추적</span></td>
       <td class="c-views">—</td>
     </tr><tr class="">
       <td class="c-id">—</td>
       <td class="clipname"><span class="local-only" title="로컬 전용 — 사장님 맥에서만 열립니다">EN5_screamer_en</span></td>
       <td></td>
-      <td><span class="q q-off">?</span></td>
-      <td class="c-res ">—</td>
-      <td class="c-dur">—<span class="csz"> 15.2M</span></td>
+      <td><span class="q q-ok">30fps</span></td>
+      <td class="c-res ">1080×1920</td>
+      <td class="c-dur">31s<span class="csz"> 15.2M</span></td>
       <td><span class="mst off">미추적</span></td>
       <td class="c-views">—</td>
     </tr><tr class="">
       <td class="c-id">—</td>
       <td class="clipname"><span class="local-only" title="로컬 전용 — 사장님 맥에서만 열립니다">EN6_seat_camper_en</span></td>
       <td></td>
-      <td><span class="q q-off">?</span></td>
-      <td class="c-res ">—</td>
-      <td class="c-dur">—<span class="csz"> 15.4M</span></td>
+      <td><span class="q q-ok">30fps</span></td>
+      <td class="c-res ">1080×1920</td>
+      <td class="c-dur">32s<span class="csz"> 15.4M</span></td>
       <td><span class="mst off">미추적</span></td>
       <td class="c-views">—</td>
     </tr><tr class="">
@@ -809,36 +875,36 @@ button.ctag:hover{background:var(--card-hover)}
       <td class="c-id">—</td>
       <td class="clipname"><span class="local-only" title="로컬 전용 — 사장님 맥에서만 열립니다">R2-7_kid_night</span></td>
       <td></td>
-      <td><span class="q q-off">?</span></td>
-      <td class="c-res ">—</td>
-      <td class="c-dur">—<span class="csz"> 16.7M</span></td>
+      <td><span class="q q-ok">30fps</span></td>
+      <td class="c-res ">1080×1920</td>
+      <td class="c-dur">37s<span class="csz"> 16.7M</span></td>
       <td><span class="mst off">미추적</span></td>
       <td class="c-views">—</td>
     </tr><tr class="">
       <td class="c-id">—</td>
       <td class="clipname"><span class="local-only" title="로컬 전용 — 사장님 맥에서만 열립니다">R2-8_mala_smell</span></td>
       <td></td>
-      <td><span class="q q-off">?</span></td>
-      <td class="c-res ">—</td>
-      <td class="c-dur">—<span class="csz"> 18.4M</span></td>
+      <td><span class="q q-ok">30fps</span></td>
+      <td class="c-res ">1080×1920</td>
+      <td class="c-dur">41s<span class="csz"> 18.4M</span></td>
       <td><span class="mst off">미추적</span></td>
       <td class="c-views">—</td>
     </tr><tr class="">
       <td class="c-id">—</td>
       <td class="clipname"><span class="local-only" title="로컬 전용 — 사장님 맥에서만 열립니다">R2-9_keyboard_smash</span></td>
       <td></td>
-      <td><span class="q q-off">?</span></td>
-      <td class="c-res ">—</td>
-      <td class="c-dur">—<span class="csz"> 16.8M</span></td>
+      <td><span class="q q-ok">30fps</span></td>
+      <td class="c-res ">1080×1920</td>
+      <td class="c-dur">37s<span class="csz"> 16.8M</span></td>
       <td><span class="mst off">미추적</span></td>
       <td class="c-views">—</td>
     </tr><tr class="">
       <td class="c-id">—</td>
       <td class="clipname"><span class="local-only" title="로컬 전용 — 사장님 맥에서만 열립니다">R3-1_order-rush</span></td>
       <td></td>
-      <td><span class="q q-off">?</span></td>
-      <td class="c-res ">—</td>
-      <td class="c-dur">—<span class="csz"> 2.9M</span></td>
+      <td><span class="q q-ok">30fps</span></td>
+      <td class="c-res ">1080×1920</td>
+      <td class="c-dur">17s<span class="csz"> 2.9M</span></td>
       <td><span class="mst off">미추적</span></td>
       <td class="c-views">—</td>
     </tr><tr class="">
@@ -927,18 +993,18 @@ button.ctag:hover{background:var(--card-hover)}
     <td><span class="chip done">완료</span></td>
     <td class="ptwho"><span class="who t-accent"><i class="dot"></i><code>game-concept</code></span></td>
     <td class="ptparts"></td>
-  </tr><tr class="pt-done">
+  </tr><tr class="pt-todo">
     <td class="c-id">2</td>
     <td class="ptl">엔진·밸런스</td>
-    <td><span class="chip done">완료</span></td>
+    <td><span class="chip todo">대기</span></td>
     <td class="ptwho"><span class="who t-accent"><i class="dot"></i><code>balance_sim</code></span></td>
     <td class="ptparts"></td>
-  </tr><tr class="pt-done">
+  </tr><tr class="pt-todo">
     <td class="c-id">3</td>
     <td class="ptl">제작 폴리시</td>
-    <td><span class="chip done">완료</span></td>
+    <td><span class="chip todo">대기</span></td>
     <td class="ptwho"><span class="who t-accent"><i class="dot"></i><code>codex-image</code></span></td>
-    <td class="ptparts"><i class="pp done">아트</i><i class="pp done">사운드</i><i class="pp done">UI</i></td>
+    <td class="ptparts"><i class="pp todo">아트</i><i class="pp done">사운드</i><i class="pp done">UI</i></td>
   </tr><tr class="pt-todo">
     <td class="c-id">4</td>
     <td class="ptl">수익엔진·추적</td>
@@ -956,7 +1022,7 @@ button.ctag:hover{background:var(--card-hover)}
     <td class="ptl">빌드·스토어</td>
     <td><span class="chip todo">대기</span></td>
     <td class="ptwho"><span class="who t-accent"><i class="dot"></i><code>store-deploy</code></span></td>
-    <td class="ptparts"><i class="pp todo">빌드</i><i class="pp done">자산</i><i class="pp done">카피</i></td>
+    <td class="ptparts"><i class="pp todo">빌드</i><i class="pp partial">자산</i><i class="pp done">카피</i></td>
   </tr><tr class="pt-done">
     <td class="c-id">7</td>
     <td class="ptl">콘솔 등록</td>
@@ -994,11 +1060,11 @@ button.ctag:hover{background:var(--card-hover)}
   
   <section class="queue">
   <div class="qhead"><span class="qtitle">이 게임의 큐</span><span class="qsub">사람 게이트 → 판정·기한 → 경고 → 루틴 — 신호 자동 집계 · 클릭=해당 페이지</span></div>
-  <a class="qrow t-accent" href="#/game/muinthief"><span class="qtag">무인점포 털지마!</span><span class="qtext">다음 단계: 그로스·획득</span><code>game-grow</code><span class="qwho">Claude</span></a>
+  <a class="qrow t-accent" href="#/game/muinthief"><span class="qtag">무인점포 털지마!</span><span class="qtext">다음 단계: 빌드·스토어</span><code>store-deploy</code><span class="qwho">Claude</span></a>
 </section>
   <section class="sec"><div class="sech"><h2>지표</h2><span class="secsub">유입 · 활성 · 수익 — GA/Firebase 단일 소스</span></div><div class="empty"><b>계측 전</b><span>수익엔진(4)에서 GA/Firebase 트래킹이 심긴다 — <code>store-deploy</code> · dgl.game.json <code>metrics.ga4PropertyId</code></span></div></section>
   <section class="sec"><div class="sech"><h2>스토어 &amp; 버전</h2><span class="secsub">실측 우선 — 심사=ASC API · 라이브=iTunes/Play 리스팅 (Play 심사 상태만 공식 API 없음 → 매니페스트)</span></div><div class="stbox"><div class="strow"><span class="stlb">App Store</span><div class="stv"><span class="chip done">출시</span><span class="stver">v1.0.1 라이브 (7/14~)</span><span class="srcnote">ASC 실측</span></div><a class="stgo" href="https://apps.apple.com/app/id6785839493" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div><div class="strow"><span class="stlb">Google Play</span><div class="stv"><span class="chip todo">등록</span></div></div></div></section>
-  <section class="sec"><div class="sech"><h2>파이프라인</h2><span class="secsub">9단계 · 산출물 자동 감지 + manual 폴백</span></div><div class="nextline"><span class="ml2">NEXT</span><b>그로스·획득</b><span class="who t-accent"><i class="dot"></i>Claude 자동</span><code>game-grow</code></div><table class="tbl ptable"><thead><tr><th></th><th>단계</th><th>상태</th><th>담당</th><th>하위 신호</th></tr></thead><tbody><tr class="pt-done">
+  <section class="sec"><div class="sech"><h2>파이프라인</h2><span class="secsub">9단계 · 산출물 자동 감지 + manual 폴백</span></div><div class="nextline"><span class="ml2">NEXT</span><b>빌드·스토어</b><span class="who t-accent"><i class="dot"></i>Claude 자동</span><code>store-deploy</code></div><table class="tbl ptable"><thead><tr><th></th><th>단계</th><th>상태</th><th>담당</th><th>하위 신호</th></tr></thead><tbody><tr class="pt-done">
     <td class="c-id">1</td>
     <td class="ptl">컨셉·PRD</td>
     <td><span class="chip done">완료</span></td>
@@ -1028,12 +1094,12 @@ button.ctag:hover{background:var(--card-hover)}
     <td><span class="chip done">완료</span></td>
     <td class="ptwho"><span class="who t-accent"><i class="dot"></i><code>qa-harness</code></span></td>
     <td class="ptparts"><i class="pp done">눈검증 pass</i></td>
-  </tr><tr class="pt-done">
+  </tr><tr class="pt-todo">
     <td class="c-id">6</td>
     <td class="ptl">빌드·스토어</td>
-    <td><span class="chip done">완료</span></td>
+    <td><span class="chip todo">대기</span></td>
     <td class="ptwho"><span class="who t-accent"><i class="dot"></i><code>store-deploy</code></span></td>
-    <td class="ptparts"><i class="pp done">빌드</i><i class="pp done">자산</i><i class="pp done">카피</i></td>
+    <td class="ptparts"><i class="pp todo">빌드</i><i class="pp done">자산</i><i class="pp done">카피</i></td>
   </tr><tr class="pt-done">
     <td class="c-id">7</td>
     <td class="ptl">콘솔 등록</td>
@@ -1073,7 +1139,35 @@ button.ctag:hover{background:var(--card-hover)}
   <div class="qhead"><span class="qtitle">이 게임의 큐</span><span class="qsub">사람 게이트 → 판정·기한 → 경고 → 루틴 — 신호 자동 집계 · 클릭=해당 페이지</span></div>
   <a class="qrow t-accent" href="#/game/mergestampede"><span class="qtag">머지 스탬피드</span><span class="qtext">다음 단계: 빌드·스토어</span><code>store-deploy</code><span class="qwho">Claude</span></a>
 </section>
-  <section class="sec"><div class="sech"><h2>지표</h2><span class="secsub">유입 · 활성 · 수익 — GA/Firebase 단일 소스</span></div><div class="empty"><b>계측 전</b><span>수익엔진(4)에서 GA/Firebase 트래킹이 심긴다 — <code>store-deploy</code> · dgl.game.json <code>metrics.ga4PropertyId</code></span></div></section>
+  <section class="sec"><div class="sech"><h2>지표</h2><span class="secsub">유입 · 활성 · 수익 — GA/Firebase 단일 소스 · 8. 5. AM 01:39 기준 <span class="scopeok">스트림 2개 스코프</span></span></div><div class="mbox"><div class="plwrap">
+  <div class="plhd"><span class="plt">플랫폼 분해</span><span class="pls">최근 28일 · GA4 스트림 실측</span><span class="plsrc">스트림 2개 스코프 · 머지 스탬피드 IOS · com.dumbgamelab.mergestampede</span></div>
+  <table class="tbl pltbl"><thead><tr><th>플랫폼</th><th class="num">활성</th><th class="num">신규</th><th class="num">획득</th><th class="num">세션</th><th class="num">참여율</th><th class="num">광고매출</th></tr></thead><tbody><tr>
+    <td class="plname"><i class="pdot android"></i>Android</td>
+    <td class="num"><b>4</b></td>
+    <td class="num">4</td>
+    <td class="num">4</td>
+    <td class="num">4</td>
+    <td class="num"><span class="convlow">0%</span></td>
+    <td class="num"><span class="fa">—</span></td>
+  </tr><tr>
+    <td class="plname"><i class="pdot ios"></i>iOS</td>
+    <td class="num"><b>11</b></td>
+    <td class="num">11</td>
+    <td class="num">11</td>
+    <td class="num">14</td>
+    <td class="num"><span class="">57%</span></td>
+    <td class="num"><span class="fa">—</span></td>
+  </tr><tr class="plsum">
+    <td class="plname">합계 <em>중복 제거</em></td>
+    <td class="num"><b>15</b></td>
+    <td class="num">15</td>
+    <td class="num">15</td>
+    <td class="num">18</td>
+    <td class="num">44%</td>
+    <td class="num"><span class="fa">—</span></td>
+  </tr></tbody></table>
+  <div class="plnote">앱 실체 <b>15</b><span class="fa">명 활성 · 획득 15</span></div>
+</div><div class="tcwrap"><div class="tclegend"><span class="k"><i style="background:var(--accent)"></i>활성 <b>0</b></span><span class="k"><i style="background:var(--ok)"></i>신규 <b>0</b></span><span class="tcnote">일별 최근 28일 · 최고 3</span></div><div class="tccanvas"><canvas class="tchart" id="tc2" data-tc='{&quot;labels&quot;:[&quot;7/9&quot;,&quot;7/10&quot;,&quot;7/11&quot;,&quot;7/12&quot;,&quot;7/13&quot;,&quot;7/14&quot;,&quot;7/15&quot;,&quot;7/16&quot;,&quot;7/17&quot;,&quot;7/18&quot;,&quot;7/19&quot;,&quot;7/20&quot;,&quot;7/21&quot;,&quot;7/22&quot;,&quot;7/23&quot;,&quot;7/24&quot;,&quot;7/25&quot;,&quot;7/26&quot;,&quot;7/27&quot;,&quot;7/28&quot;,&quot;7/29&quot;,&quot;7/30&quot;,&quot;7/31&quot;,&quot;8/1&quot;,&quot;8/2&quot;,&quot;8/3&quot;,&quot;8/4&quot;,&quot;8/5&quot;],&quot;active&quot;:[0,0,0,0,3,3,1,1,2,0,1,1,0,1,2,0,0,0,0,0,1,0,0,0,0,0,0,0],&quot;new&quot;:[0,0,0,0,3,3,1,1,2,0,1,1,0,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0]}' aria-label="28일 일별 활성·신규 추세" role="img"></canvas></div></div><div class="mgrp"><span class="gi">유입</span><span class="gs">최근 28일 · 신규</span><span class="gt">신규 15</span></div><div class="mrow"><span class="ml" title="GA4 속성 542222163 은 DGL 게임 공용(측정ID G-07WLGFMQDD) — ga4Streams 화이트리스트로 이 게임 스트림만 회수한다. 이 블록이 없을 땐 이 게임 유저(28일 iOS 11·Android 4)가 PC방 키우기 숫자에 통째로 섞여 있었다. 웹 스트림 없음(앱 전용). 광고매출=AdMob Reporting API(admob.js).">신규 유저</span><span class="mv">15 <span class="fa">(</span>앱 15 <span class="fa">·</span> 웹 0<span class="fa">)</span></span></div><div class="mrow"><span class="ml">세션</span><span class="mv">18</span></div><div class="mrow"><span class="ml">유입 추이</span><span class="mv">1일 0 <span class="fa">·</span> 7일 1 <span class="fa">·</span> 28일 15</span></div><div class="mgrp"><span class="gi">활성</span><span class="gs">최근 28일 · 참여</span><span class="gt">활성 15</span></div><div class="mrow"><span class="ml" title="앱 = Android+iOS 스트림 합. 웹은 방문(설치 아님).">활성 유저</span><span class="mv">15 <span class="fa">(</span>앱 15<span class="fa">)</span></span></div><div class="mrow"><span class="ml">활성 추이</span><span class="mv">1일 0 <span class="fa">·</span> 7일 1 <span class="fa">·</span> 28일 15 <span class="ktr-wait">추세 수집 중</span></span></div><div class="mrow"><span class="ml">참여율</span><span class="mv"><span class="">44%</span> <span class="fa">(8/18 세션)</span> <span class="fa">·</span> 37초<span class="fa">/유저</span></span></div><div class="mrow"><span class="ml">참여 퍼널</span><span class="mv">활성 15 <span class="fa">→</span><span class="fconv convlow">60%</span> 진입 9 <span class="fa">→</span><span class="fconv">89%</span> 완료 8</span></div><div class="mgrp"><span class="gi">수익</span><span class="gs">광고 (AdMob)</span></div><div class="mrow"><span class="ml">광고 노출</span><span class="mv">전면 0 <span class="fa">·</span> 보상 0</span></div><div class="mrow"><span class="ml" title="AdMob refresh token 없음 → admob-auth.js. 또는 Firebase↔AdMob 링크(GA totalAdRevenue)">광고 매출</span><span class="mv"><span class="lockv">잠금 <span class="fa">· AdMob API 연결 시 표시</span></span></span></div><div class="mrow"><span class="ml">리뷰</span><span class="mv"><span class="rvline"><span class="rvi">App Store <a href="https://apps.apple.com/app/id6790514141" target="_blank">리뷰 0</a></span><span class="rvi off">Play 미출시</span></span></span></div></div></section>
   <section class="sec"><div class="sech"><h2>스토어 &amp; 버전</h2><span class="secsub">실측 우선 — 심사=ASC API · 라이브=iTunes/Play 리스팅 (Play 심사 상태만 공식 API 없음 → 매니페스트)</span></div><div class="stbox"><div class="strow"><span class="stlb">App Store</span><div class="stv"><span class="chip done">출시</span><span class="stver">v1.0 라이브 (7/20~)</span><span class="srcnote">ASC 실측</span></div><a class="stgo" href="https://apps.apple.com/app/id6790514141" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div><div class="strow"><span class="stlb">Google Play</span><div class="stv"><span class="chip partial">심사중</span></div></div></div></section>
   <section class="sec"><div class="sech"><h2>파이프라인</h2><span class="secsub">9단계 · 산출물 자동 감지 + manual 폴백</span></div><div class="nextline"><span class="ml2">NEXT</span><b>빌드·스토어</b><span class="who t-accent"><i class="dot"></i>Claude 자동</span><code>store-deploy</code></div><table class="tbl ptable"><thead><tr><th></th><th>단계</th><th>상태</th><th>담당</th><th>하위 신호</th></tr></thead><tbody><tr class="pt-done">
     <td class="c-id">1</td>
@@ -1105,12 +1199,12 @@ button.ctag:hover{background:var(--card-hover)}
     <td><span class="chip done">완료</span></td>
     <td class="ptwho"><span class="who t-accent"><i class="dot"></i><code>qa-harness</code></span></td>
     <td class="ptparts"><i class="pp done">눈검증 pass</i></td>
-  </tr><tr class="pt-partial">
+  </tr><tr class="pt-todo">
     <td class="c-id">6</td>
     <td class="ptl">빌드·스토어</td>
-    <td><span class="chip partial">진행중</span></td>
+    <td><span class="chip todo">대기</span></td>
     <td class="ptwho"><span class="who t-accent"><i class="dot"></i><code>store-deploy</code></span></td>
-    <td class="ptparts"><i class="pp done">빌드</i><i class="pp partial">자산</i><i class="pp done">카피</i></td>
+    <td class="ptparts"><i class="pp todo">빌드</i><i class="pp partial">자산</i><i class="pp done">카피</i></td>
   </tr><tr class="pt-done">
     <td class="c-id">7</td>
     <td class="ptl">콘솔 등록</td>
@@ -1138,7 +1232,7 @@ button.ctag:hover{background:var(--card-hover)}
 </section>
 <section class="page" id="page-marketing">
   <header class="ph"><div class="phl"><div class="pht"><h1>마케팅</h1></div><div class="phs">공장 공통 인프라 — 채널·발행·실측. 게임별 실험은 각 게임 페이지에.</div></div></header>
-  <section class="sec"><div class="sech"><h2>채널</h2><span class="secsub">발행·조회 모두 PostPeer 단일 경로</span></div><div class="chwrap"><div class="rtoggle"><button class="rtbtn active" data-region="ko">KO</button><button class="rtbtn" data-region="en">EN</button><span class="rvia">발행·조회 <b>PostPeer</b></span></div><div class="chbar" data-region="ko"><a class="chbtn" href="https://www.youtube.com/channel/UC7qYtDdR9mufjF_f4fV5MbQ" target="_blank" rel="noopener"><span class="pf pf-youtube">YT</span><span class="chbtn-l">@dumbgamelab<i>23포스트 · 21.5k뷰</i></span><span class="chbtn-x"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span></a><a class="chbtn" href="https://www.tiktok.com/@dumb.game.lab" target="_blank" rel="noopener"><span class="pf pf-tiktok">TT</span><span class="chbtn-l">@dumb.game.lab<i>18포스트 · 7.3k뷰</i></span><span class="chbtn-x"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span></a><a class="chbtn" href="https://www.instagram.com/dumbgamelab" target="_blank" rel="noopener"><span class="pf pf-instagram">IG</span><span class="chbtn-l">@dumbgamelab<i>10포스트 · 뷰 미제공</i></span><span class="chbtn-x"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span></a></div><div class="chbar" data-region="en" style="display:none"><a class="chbtn" href="https://www.youtube.com/channel/UCVWgJlbNx5sWawdsJGmOM1Q" target="_blank" rel="noopener"><span class="pf pf-youtube">YT</span><span class="chbtn-l">@dumbgamelabglobal<i>4포스트 · 2뷰</i></span><span class="chbtn-x"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span></a><a class="chbtn" href="https://www.tiktok.com/@dumbgamelabglobal" target="_blank" rel="noopener"><span class="pf pf-tiktok">TT</span><span class="chbtn-l">@dumbgamelabglobal<i>11포스트 · —뷰</i></span><span class="chbtn-x"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span></a><a class="chbtn" href="https://www.instagram.com/dumbgamelabglobal" target="_blank" rel="noopener"><span class="pf pf-instagram">IG</span><span class="chbtn-l">@dumbgamelabglobal<i>11포스트 · 뷰 미제공</i></span><span class="chbtn-x"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span></a></div></div></section>
+  <section class="sec"><div class="sech"><h2>채널</h2><span class="secsub">발행·조회 모두 PostPeer 단일 경로</span></div><div class="chwrap"><div class="rtoggle"><button class="rtbtn active" data-region="ko">KO</button><button class="rtbtn" data-region="en">EN</button><span class="rvia">발행·조회 <b>PostPeer</b></span></div><div class="chbar" data-region="ko"><a class="chbtn" href="https://www.youtube.com/channel/UC7qYtDdR9mufjF_f4fV5MbQ" target="_blank" rel="noopener"><span class="pf pf-youtube">YT</span><span class="chbtn-l">@dumbgamelab<i>23포스트 · 21.5k뷰</i></span><span class="chbtn-x"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span></a><a class="chbtn" href="https://www.tiktok.com/@dumb.game.lab" target="_blank" rel="noopener"><span class="pf pf-tiktok">TT</span><span class="chbtn-l">@dumb.game.lab<i>0포스트 · 실측 없음</i></span><span class="chbtn-x"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span></a><a class="chbtn" href="https://www.instagram.com/dumbgamelab" target="_blank" rel="noopener"><span class="pf pf-instagram">IG</span><span class="chbtn-l">@dumbgamelab<i>0포스트 · 실측 없음</i></span><span class="chbtn-x"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span></a></div><div class="chbar" data-region="en" style="display:none"><a class="chbtn" href="https://www.youtube.com/channel/UCVWgJlbNx5sWawdsJGmOM1Q" target="_blank" rel="noopener"><span class="pf pf-youtube">YT</span><span class="chbtn-l">@dumbgamelabglobal<i>4포스트 · 2뷰</i></span><span class="chbtn-x"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span></a><a class="chbtn" href="https://www.tiktok.com/@dumbgamelabglobal" target="_blank" rel="noopener"><span class="pf pf-tiktok">TT</span><span class="chbtn-l">@dumbgamelabglobal<i>0포스트 · 실측 없음</i></span><span class="chbtn-x"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span></a><a class="chbtn" href="https://www.instagram.com/dumbgamelabglobal" target="_blank" rel="noopener"><span class="pf pf-instagram">IG</span><span class="chbtn-l">@dumbgamelabglobal<i>0포스트 · 실측 없음</i></span><span class="chbtn-x"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span></a></div></div></section>
   <section class="sec"><div class="sech"><h2>헬스</h2><span class="secsub">전부 matrix.json 파생 — 가짜 신호 없음 · 위 KO/EN 필터 연동</span></div><div class="hstrip" data-region="ko"><div class="hcard ok"><div class="hv">32/32</div><div class="hl">발행 진행</div><div class="hs">예약분 모두 경과</div></div><div class="hcard warn"><div class="hv">30/32</div><div class="hl">발행 실측</div><div class="hs">2건 URL 미확인 24h+</div></div><div class="hcard action"><div class="hv">9일 전</div><div class="hl">관찰 신선도</div><div class="hs">관찰 밀림 (game-grow)</div></div><div class="hcard ok"><div class="hv">2/1000</div><div class="hl">크레딧</div><div class="hs">PostPeer 1,000 크레딧</div></div><div class="hcard ok"><div class="hv">3/3</div><div class="hl">채널</div><div class="hs">KO · PostPeer</div></div><div class="hcard action"><div class="hv">종료</div><div class="hl">판정 창</div><div class="hs">~07/13</div></div></div><div class="hstrip" data-region="en" style="display:none"><div class="hcard ok"><div class="hv">7/7</div><div class="hl">발행 진행</div><div class="hs">예약분 모두 경과</div></div><div class="hcard ok"><div class="hv">7/7</div><div class="hl">발행 실측</div><div class="hs">URL 전건 확인</div></div><div class="hcard action"><div class="hv">11일 전</div><div class="hl">관찰 신선도</div><div class="hs">관찰 밀림 (game-grow)</div></div><div class="hcard ok"><div class="hv">15/1000</div><div class="hl">크레딧</div><div class="hs">PostPeer 1,000 크레딧</div></div><div class="hcard ok"><div class="hv">3/3</div><div class="hl">채널</div><div class="hs">EN · PostPeer</div></div><div class="hcard action"><div class="hv">종료</div><div class="hl">판정 창</div><div class="hs">~07/13</div></div></div></section>
   <section class="sec"><div class="sech"><h2>발행 캘린더</h2><span class="secsub">월 캘린더 · ‹ ›로 달 이동 · 영상 1개 = 칩 1개 · 체크 = 발행 확인(URL) · 점선 = PostPeer 예약 · 보라색 = 제작 큐(원본/기획, 미예약) · 위 KO/EN 필터 연동</span></div><div class="calnav">
     <button type="button" class="calnav-btn" data-caldir="-1" aria-label="이전 달">‹</button>
@@ -1150,12 +1244,12 @@ button.ctag:hover{background:var(--card-hover)}
   
   <div class="calnote plan">보라색 제작 큐 7건 — 원본 1건은 클릭 재생 가능 · 모두 미예약이라 예약/크레딧/헬스에는 미반영</div>
   <div class="calnote">앞으로 실제 예약된 발행 없음 — 기획을 제작·검증 후 <code>pp-post.mjs</code>로 예약</div></section>
-  <section class="sec"><div class="sech"><h2>소셜 실측</h2><span class="secsub">8. 5. AM 01:07 · ⏸ PostPeer 유료 회수 일시중지(크레딧 0) — TikTok·IG는 중지 시점 값 · YouTube만 갱신 중 · 재개 = metrics/social-pause.js off · 위 KO/EN 필터 연동</span></div><div class="socwrap" data-region="ko"><div class="socsub">KO · 계정 3 · 51 포스트 · 총 28.8k뷰</div><div class="socgrid">
-    <div class="rcol"><div class="ml2">계정별 조회</div><div class="arow"><span class="pf pf-youtube">YT</span><span class="ah">@dumbgamelab<i>23</i></span><div class="rbar"><i class="b-accent" style="width:100%"></i></div><span class="rkv">21.5k</span></div><div class="arow"><span class="pf pf-tiktok">TT</span><span class="ah">@dumb.game.lab<i>18</i></span><div class="rbar"><i class="b-accent" style="width:34%"></i></div><span class="rkv">7.3k</span></div><div class="arow"><span class="pf pf-instagram">IG</span><span class="ah">@dumbgamelab<i>10</i></span><span class="soc-na" title="PostPeer는 Instagram 조회수 미제공(좋아요/댓글만)">뷰 미제공 (PostPeer)</span><span class="rkv">—</span></div></div>
+  <section class="sec"><div class="sech"><h2>소셜 실측</h2><span class="secsub">8. 5. AM 01:39 · ⏸ PostPeer 유료 회수 일시중지(크레딧 0) — TikTok·IG는 중지 시점 값 · YouTube만 갱신 중 · 재개 = metrics/social-pause.js off · 위 KO/EN 필터 연동</span></div><div class="socwrap" data-region="ko"><div class="socsub">KO · 계정 3 · 23 포스트 · 총 21.5k뷰</div><div class="socgrid">
+    <div class="rcol"><div class="ml2">계정별 조회</div><div class="arow"><span class="pf pf-youtube">YT</span><span class="ah">@dumbgamelab<i>23</i></span><div class="rbar"><i class="b-accent" style="width:100%"></i></div><span class="rkv">21.5k</span></div><div class="arow"><span class="pf pf-tiktok">TT</span><span class="ah">@dumb.game.lab<i>0</i></span><span class="soc-na" title="PostPeer 유료 회수 일시중지 중 — 캐시 없음 (재개: social-pause.js off)">포스트 미수집 (PostPeer)</span><span class="rkv">—</span></div><div class="arow"><span class="pf pf-instagram">IG</span><span class="ah">@dumbgamelab<i>0</i></span><span class="soc-na" title="PostPeer 유료 회수 일시중지 중 — 캐시 없음 (재개: social-pause.js off)">포스트 미수집 (PostPeer)</span><span class="rkv">—</span></div></div>
     <div class="rcol"><div class="ml2">Top 포스트</div><table class="tbl soctable"><thead><tr><th></th><th>제목</th><th>계정</th><th>발행</th><th>조회</th><th>좋아요</th></tr></thead><tbody><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=jvN4U_mcDWw" target="_blank" rel="noopener">남이 결제한 자리 몰래 쓰는 진상 잡은 썰 #shorts</a></td><td class="c-lang">@dumbgamelab</td><td class="c-lang">7/7</td><td class="c-views">2.3k</td><td class="c-views">10</td></tr><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=3UFRt9OmKoI" target="_blank" rel="noopener">월급 떼이고 잘린 PC방 알바인데 3개월 뒤 그 가게가 #shorts</a></td><td class="c-lang">@dumbgamelab</td><td class="c-lang">7/10</td><td class="c-views">2.1k</td><td class="c-views">1</td></tr><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=yES45FQv4PE" target="_blank" rel="noopener">새벽 4시에 손님 쫓아낸 PC방 알바인데 내가 잘못함?</a></td><td class="c-lang">@dumbgamelab</td><td class="c-lang">7/3</td><td class="c-views">2.0k</td><td class="c-views">1</td></tr><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=Qjt1law4xgc" target="_blank" rel="noopener">망해가던 동네 PC방, 알바 혼자서 매출 20배 만든 방법</a></td><td class="c-lang">@dumbgamelab</td><td class="c-lang">7/2</td><td class="c-views">1.9k</td><td class="c-views">6</td></tr><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=7e7P9MLoDy8" target="_blank" rel="noopener">남이 결제한 자리 몰래 쓰는 진상 잡은 썰</a></td><td class="c-lang">@dumbgamelab</td><td class="c-lang">7/16</td><td class="c-views">1.6k</td><td class="c-views">3</td></tr><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=F-D8OlfE7_E" target="_blank" rel="noopener">주문 7개 밀렸는데 PC방 알바가 먼저 한 일</a></td><td class="c-lang">@dumbgamelab</td><td class="c-lang">7/21</td><td class="c-views">1.5k</td><td class="c-views">2</td></tr></tbody></table></div>
-  </div></div><div class="socwrap" data-region="en" style="display:none"><div class="socsub">EN · 계정 3 · 26 포스트 · 총 2뷰</div><div class="socgrid">
-    <div class="rcol"><div class="ml2">계정별 조회</div><div class="arow"><span class="pf pf-youtube">YT</span><span class="ah">@dumbgamelabglobal<i>4</i></span><div class="rbar"><i class="b-accent" style="width:100%"></i></div><span class="rkv">2</span></div><div class="arow"><span class="pf pf-tiktok">TT</span><span class="ah">@dumbgamelabglobal<i>11</i></span><div class="rbar"><i class="b-accent" style="width:0%"></i></div><span class="rkv">—</span></div><div class="arow"><span class="pf pf-instagram">IG</span><span class="ah">@dumbgamelabglobal<i>11</i></span><span class="soc-na" title="PostPeer는 Instagram 조회수 미제공(좋아요/댓글만)">뷰 미제공 (PostPeer)</span><span class="rkv">—</span></div></div>
-    <div class="rcol"><div class="ml2">Top 포스트</div><table class="tbl soctable"><thead><tr><th></th><th>제목</th><th>계정</th><th>발행</th><th>조회</th><th>좋아요</th></tr></thead><tbody><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=4QXVd6Xo30g" target="_blank" rel="noopener">AITA for kicking out a guy who screamed every time he lost a</a></td><td class="c-lang">@dumbgamelabglobal</td><td class="c-lang">7/26</td><td class="c-views">1</td><td class="c-views">0</td></tr><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=w8zESTsJREA" target="_blank" rel="noopener">AITA for calling out a customer who stole someone's paid sea</a></td><td class="c-lang">@dumbgamelabglobal</td><td class="c-lang">7/10</td><td class="c-views">1</td><td class="c-views">0</td></tr><tr><td><span class="pf pf-tiktok">TT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.tiktok.com/@dumbgamelabglobal/video/7667346386479746320" target="_blank" rel="noopener">AITA for clearing out a guy who paid for one hour and stayed</a></td><td class="c-lang">@dumbgamelabglobal</td><td class="c-lang">7/28</td><td class="c-views">—</td><td class="c-views">0</td></tr><tr><td><span class="pf pf-instagram">IG</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.instagram.com/reel/DbUGDb3gWS7/" target="_blank" rel="noopener">AITA for clearing out a guy who paid for one hour and stayed</a></td><td class="c-lang">@dumbgamelabglobal</td><td class="c-lang">7/28</td><td class="c-views">—</td><td class="c-views">0</td></tr><tr><td><span class="pf pf-tiktok">TT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.tiktok.com/@dumbgamelabglobal/video/7666604259026341140" target="_blank" rel="noopener">AITA for kicking out a guy who screamed every time he lost a</a></td><td class="c-lang">@dumbgamelabglobal</td><td class="c-lang">7/26</td><td class="c-views">—</td><td class="c-views">0</td></tr><tr><td><span class="pf pf-instagram">IG</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.instagram.com/reel/DbO8egpjuVU/" target="_blank" rel="noopener">AITA for kicking out a guy who screamed every time he lost a</a></td><td class="c-lang">@dumbgamelabglobal</td><td class="c-lang">7/26</td><td class="c-views">—</td><td class="c-views">0</td></tr></tbody></table></div>
+  </div></div><div class="socwrap" data-region="en" style="display:none"><div class="socsub">EN · 계정 3 · 4 포스트 · 총 2뷰</div><div class="socgrid">
+    <div class="rcol"><div class="ml2">계정별 조회</div><div class="arow"><span class="pf pf-youtube">YT</span><span class="ah">@dumbgamelabglobal<i>4</i></span><div class="rbar"><i class="b-accent" style="width:100%"></i></div><span class="rkv">2</span></div><div class="arow"><span class="pf pf-tiktok">TT</span><span class="ah">@dumbgamelabglobal<i>0</i></span><span class="soc-na" title="PostPeer 유료 회수 일시중지 중 — 캐시 없음 (재개: social-pause.js off)">포스트 미수집 (PostPeer)</span><span class="rkv">—</span></div><div class="arow"><span class="pf pf-instagram">IG</span><span class="ah">@dumbgamelabglobal<i>0</i></span><span class="soc-na" title="PostPeer 유료 회수 일시중지 중 — 캐시 없음 (재개: social-pause.js off)">포스트 미수집 (PostPeer)</span><span class="rkv">—</span></div></div>
+    <div class="rcol"><div class="ml2">Top 포스트</div><table class="tbl soctable"><thead><tr><th></th><th>제목</th><th>계정</th><th>발행</th><th>조회</th><th>좋아요</th></tr></thead><tbody><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=4QXVd6Xo30g" target="_blank" rel="noopener">AITA for kicking out a guy who screamed every time he lost a</a></td><td class="c-lang">@dumbgamelabglobal</td><td class="c-lang">7/26</td><td class="c-views">1</td><td class="c-views">0</td></tr><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=w8zESTsJREA" target="_blank" rel="noopener">AITA for calling out a customer who stole someone's paid sea</a></td><td class="c-lang">@dumbgamelabglobal</td><td class="c-lang">7/10</td><td class="c-views">1</td><td class="c-views">0</td></tr><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=wsMON920wfk" target="_blank" rel="noopener">AITA for feeling smug when the PC bang that fired me shut do</a></td><td class="c-lang">@dumbgamelabglobal</td><td class="c-lang">7/11</td><td class="c-views">—</td><td class="c-views">0</td></tr><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=s7GHeisWsmM" target="_blank" rel="noopener">AITA for kicking out a guy who ordered 3 ramens and never le</a></td><td class="c-lang">@dumbgamelabglobal</td><td class="c-lang">7/9</td><td class="c-views">—</td><td class="c-views">0</td></tr></tbody></table></div>
   </div></div></section>
   <section class="sec"><div class="sech"><h2>게임별 실험</h2><span class="secsub">상세는 게임 페이지 마케팅 섹션</span></div><div class="explinks"><a class="explink" href="#/game/pcbangalba"><span class="qtag">PC방 키우기: 방치형 타이쿤</span><span class="qtext">R1 종료 — 판정 대기 · 1위 K2 · 조회 4.4k</span><span class="grgo">게임 페이지 <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></a></div></section>
 </section>
@@ -1227,7 +1321,7 @@ button.ctag:hover{background:var(--card-hover)}
   </div>
 </div>
 <footer class="footer">
-  <span>산출물 스캔 자동 감지 · 2026-08-05 01:14</span>
+  <span>산출물 스캔 자동 감지 · 2026-08-05 01:39</span>
   <code>node tools/dgl-status.js</code>
   <a href="#/reference" style="margin-left:auto">레퍼런스 →</a>
 </footer>
