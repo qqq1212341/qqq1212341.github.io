@@ -1,0 +1,7 @@
+# Dumb Game Lab — app-ads.txt (IAB Tech Lab app-ads.txt 1.0)
+# 이 파일의 SOT = studio/promo/app-ads.txt 다. 라이브 위치는 허브 루트
+# https://qqq1212341.github.io/app-ads.txt (= 스토어 리스팅의 개발자 웹사이트 도메인).
+# studio/tools/deploy-dashboard.js 가 배포 때마다 허브 루트에 이 내용을 되살린다 —
+# 허브 체크아웃은 매번 origin/main 으로 reset 되는 생성물 전용이라 손으로 두면 사라진다.
+# 퍼블리셔 ID 는 전 게임 공통(pub-6403397417096706) 이라 앱이 늘어도 줄은 그대로다.
+google.com, pub-6403397417096706, DIRECT, f08c47fec0942fa0
