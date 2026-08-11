@@ -1,0 +1,85 @@
+{
+ "_comment": "DGL 게임 카탈로그 SSOT — 크로스 프로모(게임 안 '다른 게임' 목록)와 게임 포털 웹사이트가 **둘 다 이 파일 하나**를 읽는다. 게임에 목록을 하드코딩하면 새 게임이 나올 때마다 출시된 게임들을 다시 빌드해야 하고, 그 게임들은 이미 스토어에 나가 있어 못 고친다. 그래서 목록은 여기 두고 `studio/tools/promo/sync.mjs` 가 각 게임 public/ 로 복사한다. 새 게임을 내면 여기에 한 줄 추가 + sync 한 번.",
+ "_remoteNote": "★ 이 파일은 **원격으로도 서빙된다**(build-site.mjs 가 site/catalog.json 으로 복사). 게임은 켜질 때 catalogUrl 을 받아 캐시하고, version 이 번들보다 크면 그 목록을 쓴다 — 그래서 **이미 스토어에 나간 게임에도 새 게임이 뜬다**(재빌드·재제출 불필요). 받기 실패·오프라인이면 번들 목록으로 조용히 떨어진다. 새 게임을 추가하면 version 을 올리고 게임 포털을 다시 배포하면 끝.",
+ "version": 1,
+ "catalogUrl": "https://qqq1212341.github.io/games/catalog.json",
+ "_i18nNote": "★ 게임은 8로케일로 나간다([[dgl-i18n-standard]]). 이 목록만 한국어면 해외 유저에겐 읽을 수 없는 카드 3장이 뜬다. `i18n.<코드>` 가 있으면 그걸 쓰고 없으면 기본(한국어)으로 떨어진다 — 언어를 늘릴 땐 여기만 채우면 된다.",
+ "brand": {
+  "name": "Dumb Game Lab",
+  "short": "DGL",
+  "tagline": "느긋하게 키우는 방치형 타이쿤",
+  "site": "https://qqq1212341.github.io/games/",
+  "i18n": {
+   "en": {
+    "tagline": "Cozy idle tycoons you grow one tap at a time"
+   }
+  }
+ },
+ "_genreNote": "★ 타이쿤은 전부 부제가 '방치형 타이쿤'이다(사장님 2026-08-09). 시리즈로 읽혀야 다음 게임이 앞 게임 유저를 받는다 — 게임마다 장르 이름이 다르면 그냥 남남인 앱 3개다.",
+ "games": [
+  {
+   "slug": "pcbangalba",
+   "repo": "PCAlbaSimulator",
+   "title": "PC방 키우기",
+   "subtitle": "방치형 타이쿤",
+   "hook": "망해가는 동네 PC방을 물려받아 골목에서 전국구로",
+   "genre": "tycoon",
+   "status": "released",
+   "icon": "icons/pcbangalba.png",
+   "accent": "#3aa0ff",
+   "i18n": {
+    "en": {
+     "title": "PC Cafe Tycoon",
+     "subtitle": "Idle Tycoon",
+     "hook": "Take over a dying internet cafe and grow it nationwide"
+    }
+   },
+   "links": {
+    "ios": "https://apps.apple.com/app/id6779939467",
+    "play": "https://play.google.com/store/apps/details?id=com.dumbgamelab.pcbangalba",
+    "web": "https://qqq1212341.github.io/pcbang-alba-sim/"
+   },
+   "iconUrl": "https://qqq1212341.github.io/games/icons/pcbangalba.png"
+  },
+  {
+   "slug": "jjimjilbang",
+   "repo": "JjimjilbangTycoon",
+   "title": "찜질방 키우기",
+   "subtitle": "방치형 타이쿤",
+   "hook": "동네 목욕탕을 대한민국 최대 스파랜드로",
+   "genre": "tycoon",
+   "status": "soon",
+   "icon": "icons/jjimjilbang.png",
+   "accent": "#ff9a3c",
+   "i18n": {
+    "en": {
+     "title": "Korean Spa Tycoon",
+     "subtitle": "Idle Tycoon",
+     "hook": "Turn a tiny bathhouse into the nation's biggest spa land"
+    }
+   },
+   "links": {},
+   "iconUrl": "https://qqq1212341.github.io/games/icons/jjimjilbang.png"
+  },
+  {
+   "slug": "reststop",
+   "repo": "RestStopTycoon",
+   "title": "휴게소 키우기",
+   "subtitle": "방치형 타이쿤",
+   "hook": "자판기 하나뿐인 쉼터를 전국 최고의 휴게소로",
+   "genre": "tycoon",
+   "status": "soon",
+   "icon": "icons/reststop.png",
+   "accent": "#3fa564",
+   "i18n": {
+    "en": {
+     "title": "Rest Stop Tycoon",
+     "subtitle": "Idle Tycoon",
+     "hook": "Grow a lone vending machine into the country's best rest area"
+    }
+   },
+   "links": {},
+   "iconUrl": "https://qqq1212341.github.io/games/icons/reststop.png"
+  }
+ ]
+}
