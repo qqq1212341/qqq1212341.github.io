@@ -41,6 +41,10 @@ h1,h2,h3{margin:0;letter-spacing:-.02em}
 .tabs a{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:500;color:var(--muted);padding:0 12px;height:100%;border-bottom:2px solid transparent;white-space:nowrap;max-width:180px;overflow:hidden;text-overflow:ellipsis;transition:color .12s}
 .tabs a:hover{color:var(--txt)}
 .tabs a.active{color:var(--txt);border-bottom-color:var(--accent);font-weight:600}
+/* 작업대로 나가는 탭 — 페이지가 아니라 **다른 화면**이라 화살표로 구분한다.
+   엔진에 관한 건 작업대 하나뿐이다(대시보드에 엔진 페이지가 없다). */
+.tabs a.tab-wb{color:var(--accent-2);font-weight:600}
+.tabs a.tab-wb:hover{color:var(--txt)}
 .tdot{width:6px;height:6px;border-radius:50%;flex:none}
 .tdot.warn{background:var(--warn);box-shadow:0 0 6px var(--warn)}
 .tdot.danger{background:var(--danger);box-shadow:0 0 6px var(--danger)}
@@ -573,31 +577,31 @@ button.ctag:hover{background:var(--card-hover)}
 </style></head><body>
 <nav class="topnav"><div class="tn">
   <a class="brand" href="#/">Dumb Game Lab</a>
-  <div class="tabs"><a data-page="home" href="#/">홈</a><a data-page="game-pcbangalba" href="#/game/pcbangalba">PC방 키우기: 방치형 타이쿤<i class="tdot warn"></i></a><a data-page="game-mergestampede" href="#/game/mergestampede">머지 스탬피드</a><a data-page="game-jjimjilbang" href="#/game/jjimjilbang">찜질방 키우기</a><a data-page="marketing" href="#/marketing">마케팅<i class="tdot danger"></i></a><a data-page="engine" href="#/engine">엔진</a><a data-page="art" href="#/art">아트</a></div>
-  
-  <span class="tn-sync">동기화 2026-08-16 12:11</span>
+  <div class="tabs"><a data-page="home" href="#/">홈</a><a data-page="game-pcbangalba" href="#/game/pcbangalba">PC방 키우기: 방치형 타이쿤<i class="tdot warn"></i></a><a data-page="game-mergestampede" href="#/game/mergestampede">머지 스탬피드</a><a data-page="game-jjimjilbang" href="#/game/jjimjilbang">찜질방 키우기</a><a data-page="marketing" href="#/marketing">마케팅<i class="tdot danger"></i></a><a class="tab-wb" href="workbench/index.html?wb=1" target="_blank" rel="noopener">엔진 작업대 ↗</a></div>
+  <span class="tn-stale" title="이 체크아웃(claude/art-gallery)이 origin/main보다 3커밋 뒤처져 있어, 최신 게임·데이터가 빠진 채 렌더됐습니다. git pull --ff-only 후 재생성하세요.">⚠ claude/art-gallery · origin/main보다 3 뒤 — 내용 낡음</span>
+  <span class="tn-sync">동기화 2026-08-16 12:20</span>
 </div></nav>
 <main class="main">
 <section class="page active" id="page-home">
   <section class="queue">
   <div class="qhead"><span class="qtitle">오늘 큐</span><span class="qsub">사람 게이트 → 판정·기한 → 경고 → 루틴 — 신호 자동 집계 · 클릭=해당 페이지</span></div>
-  <a class="qrow t-danger" href="#/marketing"><span class="qtag">마케팅</span><span class="qtext">발행된 포스트 URL을 matrix.json posts[].url에 채워라 — 2건 미확인 (game-grow)</span><span class="qwho">Claude</span></a><a class="qrow t-warn" href="#/game/pcbangalba"><span class="qtag">PC방 키우기: 방치형 타이쿤</span><span class="qtext">저품질 클립 5개 (fps&lt;23 = TikTok 발행 불가) — 재렌더 필요</span><span class="qwho">Claude</span></a><a class="qrow t-accent" href="#/game/mergestampede"><span class="qtag">머지 스탬피드</span><span class="qtext">다음 단계: 엔진·밸런스</span><code>balance_sim</code><span class="qwho">Claude</span></a><a class="qrow t-accent" href="#/game/jjimjilbang"><span class="qtag">찜질방 키우기</span><span class="qtext">다음 단계: 엔진·밸런스</span><code>balance_sim</code><span class="qwho">Claude</span></a>
+  <a class="qrow t-danger" href="#/marketing"><span class="qtag">마케팅</span><span class="qtext">발행된 포스트 URL을 matrix.json posts[].url에 채워라 — 2건 미확인 (game-grow)</span><span class="qwho">Claude</span></a><a class="qrow t-warn" href="#/game/pcbangalba"><span class="qtag">PC방 키우기: 방치형 타이쿤</span><span class="qtext">저품질 클립 5개 (fps&lt;23 = TikTok 발행 불가) — 재렌더 필요</span><span class="qwho">Claude</span></a><a class="qrow t-accent" href="#/game/pcbangalba"><span class="qtag">PC방 키우기: 방치형 타이쿤</span><span class="qtext">다음 단계: 빌드·스토어</span><code>store-deploy</code><span class="qwho">Claude</span></a><a class="qrow t-accent" href="#/game/mergestampede"><span class="qtag">머지 스탬피드</span><span class="qtext">다음 단계: 엔진·밸런스</span><code>balance_sim</code><span class="qwho">Claude</span></a><a class="qrow t-accent" href="#/game/jjimjilbang"><span class="qtag">찜질방 키우기</span><span class="qtext">다음 단계: 엔진·밸런스</span><code>balance_sim</code><span class="qwho">Claude</span></a>
 </section>
   <div class="stats">
-    <div class="stat"><div class="stt"><div class="stv">36.0k</div><div class="ktr"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><polyline points="1.0,13.4 4.0,13.5 7.0,12.0 10.0,17.0 13.0,17.0 16.0,9.6 19.0,8.5 22.0,6.3 25.0,6.3 28.0,6.3 31.0,9.7 34.0,9.7 37.0,9.2 40.0,5.8 43.0,9.1 46.0,8.6 49.0,5.2 52.0,7.9 55.0,7.8 58.0,3.0 61.0,3.0 64.0,7.0 67.0,3.0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="kd up">+8,716</span></div></div><div class="stl">소셜 조회</div><div class="sts">111 포스트 · PostPeer 실측</div></div>
-    <div class="stat"><div class="stt"><div class="stv">196</div><div class="ktr"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><polyline points="1.0,17.0 4.0,16.8 7.0,15.7 10.0,15.6 13.0,15.3 16.0,15.0 19.0,14.8 22.0,12.8 25.0,12.5 28.0,11.9 31.0,11.9 34.0,11.8 37.0,11.4 40.0,11.4 43.0,10.5 46.0,9.7 49.0,9.1 52.0,7.9 55.0,7.6 58.0,5.1 61.0,4.9 64.0,3.6 67.0,3.0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="kd up">+8</span></div></div><div class="stl">28일 획득</div><div class="sts">조회 대비 0.54% · first_open</div></div>
-    <div class="stat"><div class="stt"><div class="stv">293</div><div class="ktr"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><polyline points="1.0,17.0 4.0,16.9 7.0,15.3 10.0,15.3 13.0,15.0 16.0,14.6 19.0,14.5 22.0,11.4 25.0,12.5 28.0,12.0 31.0,11.9 34.0,11.5 37.0,10.9 40.0,10.9 43.0,9.6 46.0,8.8 49.0,8.1 52.0,7.1 55.0,6.8 58.0,4.7 61.0,4.5 64.0,3.9 67.0,3.0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="kd up">+14</span></div></div><div class="stl">28일 활성</div><div class="sts">앱 199 · 웹 94 · GA 2게임</div></div>
-    <div class="stat"><div class="stt"><div class="stv">976</div></div><div class="stl">광고 노출 28일</div><div class="sts">전면 788 · 보상 188</div></div>
+    <div class="stat"><div class="stt"><div class="stv">27.3k</div><div class="ktr"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><polyline points="1.0,13.4 4.0,13.5 7.0,12.0 10.0,17.0 13.0,17.0 16.0,9.6 19.0,8.5 22.0,6.3 25.0,6.3 28.0,6.3 31.0,9.7 34.0,9.7 37.0,9.2 40.0,5.8 43.0,9.1 46.0,8.6 49.0,5.2 52.0,7.9 55.0,7.8 58.0,3.0 61.0,3.0 64.0,7.0 67.0,3.0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="kd up">+8,716</span></div></div><div class="stl">소셜 조회</div><div class="sts">35 포스트 · PostPeer 실측</div></div>
+    <div class="stat"><div class="stt"><div class="stv">194</div><div class="ktr"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><polyline points="1.0,17.0 4.0,16.8 7.0,15.7 10.0,15.6 13.0,15.3 16.0,15.0 19.0,14.8 22.0,12.8 25.0,12.5 28.0,11.9 31.0,11.9 34.0,11.8 37.0,11.4 40.0,11.4 43.0,10.5 46.0,9.7 49.0,9.1 52.0,7.9 55.0,7.6 58.0,5.1 61.0,4.9 64.0,3.6 67.0,3.0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="kd up">+8</span></div></div><div class="stl">28일 획득</div><div class="sts">조회 대비 0.71% · first_open</div></div>
+    <div class="stat"><div class="stt"><div class="stv">291</div><div class="ktr"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><polyline points="1.0,17.0 4.0,16.9 7.0,15.3 10.0,15.3 13.0,15.0 16.0,14.6 19.0,14.5 22.0,11.4 25.0,12.5 28.0,12.0 31.0,11.9 34.0,11.5 37.0,10.9 40.0,10.9 43.0,9.6 46.0,8.8 49.0,8.1 52.0,7.1 55.0,6.8 58.0,4.7 61.0,4.5 64.0,3.9 67.0,3.0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="kd up">+14</span></div></div><div class="stl">28일 활성</div><div class="sts">앱 197 · 웹 94 · GA 2게임</div></div>
+    <div class="stat"><div class="stt"><div class="stv">974</div></div><div class="stl">광고 노출 28일</div><div class="sts">전면 786 · 보상 188</div></div>
   </div>
-  <div class="factline">공장 — 진행 3 · 라이브 2 · 평균 진행률 69% · 폐기 1</div>
+  <div class="factline">공장 — 진행 3 · 라이브 2 · 평균 진행률 65% · 폐기 1</div>
   <div class="sech mt"><h2>게임</h2><span class="secsub">클릭 = 게임 페이지 (파이프라인·지표·마케팅 전부)</span></div>
   <div class="grows"><a class="grow" href="#/game/pcbangalba">
   <div class="gr1"><h3>PC방 키우기: 방치형 타이쿤</h3><span class="eng">Web</span><span class="livepill"><i class="dot"></i>운영 중</span><span class="grgo">상세 <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></div>
-  <div class="gr2"><div class="pmini"><div class="tkbar"><i class="tk done" title="1. 컨셉·PRD — 완료"></i><i class="tk done" title="2. 엔진·밸런스 — 완료"></i><i class="tk done" title="3. 제작 폴리시 — 완료"></i><i class="tk done" title="4. 수익엔진·추적 — 완료"></i><i class="tk done" title="5. QA — 완료"></i><i class="tk done" title="6. 빌드·스토어 — 완료"></i><i class="tk done" title="7. 콘솔 등록 — 완료"></i><i class="tk done" title="8. 심사·출시 — 완료"></i><i class="tk done" title="9. 그로스·획득 — 완료"></i></div><span class="tkn">9/9</span><span class="rchip alldone"><em class="rok"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></em>전 단계 완료</span></div></div>
-  <div class="gr3">활성 288 <span class="fa">(앱 194)</span> · 획득 191 · 실험 조회 4.5k · v1.0.14 라이브</div>
+  <div class="gr2"><div class="pmini"><div class="tkbar"><i class="tk done" title="1. 컨셉·PRD — 완료"></i><i class="tk done" title="2. 엔진·밸런스 — 완료"></i><i class="tk done" title="3. 제작 폴리시 — 완료"></i><i class="tk done" title="4. 수익엔진·추적 — 완료"></i><i class="tk done" title="5. QA — 완료"></i><i class="tk partial" title="6. 빌드·스토어 — 진행중"></i><i class="tk done" title="7. 콘솔 등록 — 완료"></i><i class="tk done" title="8. 심사·출시 — 완료"></i><i class="tk done" title="9. 그로스·획득 — 완료"></i></div><span class="tkn">8/9</span><span class="rchip partial">6 빌드</span></div></div>
+  <div class="gr3">활성 286 <span class="fa">(앱 192)</span> · 획득 189 · 실험 조회 4.5k · v1.0.14 라이브</div>
 </a><a class="grow" href="#/game/mergestampede">
   <div class="gr1"><h3>머지 스탬피드</h3><span class="eng">Web</span><span class="livepill"><i class="dot"></i>운영 중</span><span class="grgo">상세 <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></div>
-  <div class="gr2"><div class="pmini"><div class="tkbar"><i class="tk done" title="1. 컨셉·PRD — 완료"></i><i class="tk partial" title="2. 엔진·밸런스 — 진행중"></i><i class="tk done" title="3. 제작 폴리시 — 완료"></i><i class="tk done" title="4. 수익엔진·추적 — 완료"></i><i class="tk done" title="5. QA — 완료"></i><i class="tk partial" title="6. 빌드·스토어 — 진행중"></i><i class="tk done" title="7. 콘솔 등록 — 완료"></i><i class="tk done" title="8. 심사·출시 — 완료"></i><i class="tk todo" title="9. 그로스·획득 — 대기"></i></div><span class="tkn">6/9</span><span class="rchip partial">2 엔진</span><span class="rchip partial">6 빌드</span><span class="rchip todo">9 그로스</span></div></div>
+  <div class="gr2"><div class="pmini"><div class="tkbar"><i class="tk done" title="1. 컨셉·PRD — 완료"></i><i class="tk partial" title="2. 엔진·밸런스 — 진행중"></i><i class="tk done" title="3. 제작 폴리시 — 완료"></i><i class="tk done" title="4. 수익엔진·추적 — 완료"></i><i class="tk done" title="5. QA — 완료"></i><i class="tk todo" title="6. 빌드·스토어 — 대기"></i><i class="tk done" title="7. 콘솔 등록 — 완료"></i><i class="tk done" title="8. 심사·출시 — 완료"></i><i class="tk todo" title="9. 그로스·획득 — 대기"></i></div><span class="tkn">6/9</span><span class="rchip partial">2 엔진</span><span class="rchip todo">6 빌드</span><span class="rchip todo">9 그로스</span></div></div>
   <div class="gr3">활성 5 <span class="fa">(앱 5)</span> · 획득 5 · v1.0 라이브</div>
 </a><a class="grow" href="#/game/jjimjilbang">
   <div class="gr1"><h3>찜질방 키우기</h3><span class="eng">Web</span><span class="grpct">28%</span><span class="grgo">상세 <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></div>
@@ -605,7 +609,7 @@ button.ctag:hover{background:var(--card-hover)}
   <div class="gr3">NEXT 엔진·밸런스 · Claude 자동 · <code>balance_sim</code></div>
 </a></div>
   <div class="grows retiredwrap"><a class="grow retired" href="#/game/slimesimulator">
-  <div class="gr1"><h3>슬라임 시뮬레이터</h3><span class="eng">Unity</span><span class="grpct">56%</span><span class="grgo">기록 <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></div>
+  <div class="gr1"><h3>슬라임 시뮬레이터</h3><span class="eng">Unity</span><span class="grpct">39%</span><span class="grgo">기록 <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></div>
   <div class="gr3">폐기 2026-07-02 — 중도 포기 — 사장님 판정. Play 출시됐으나 다운로드 6·grow 미착수, 추가 투자 중단 (레포·스토어 리스팅은 보존)</div>
 </a></div>
 </section>
@@ -621,9 +625,9 @@ button.ctag:hover{background:var(--card-hover)}
   
   <section class="queue">
   <div class="qhead"><span class="qtitle">이 게임의 큐</span><span class="qsub">사람 게이트 → 판정·기한 → 경고 → 루틴 — 신호 자동 집계 · 클릭=해당 페이지</span></div>
-  <a class="qrow t-warn" href="#/game/pcbangalba"><span class="qtag">PC방 키우기: 방치형 타이쿤</span><span class="qtext">저품질 클립 5개 (fps&lt;23 = TikTok 발행 불가) — 재렌더 필요</span><span class="qwho">Claude</span></a>
+  <a class="qrow t-warn" href="#/game/pcbangalba"><span class="qtag">PC방 키우기: 방치형 타이쿤</span><span class="qtext">저품질 클립 5개 (fps&lt;23 = TikTok 발행 불가) — 재렌더 필요</span><span class="qwho">Claude</span></a><a class="qrow t-accent" href="#/game/pcbangalba"><span class="qtag">PC방 키우기: 방치형 타이쿤</span><span class="qtext">다음 단계: 빌드·스토어</span><code>store-deploy</code><span class="qwho">Claude</span></a>
 </section>
-  <section class="sec"><div class="sech"><h2>지표</h2><span class="secsub">유입 · 활성 · 수익 — GA/Firebase 단일 소스 · 8. 16. PM 12:10 기준 <span class="scopeok">스트림 3개 스코프</span></span></div><div class="mbox"><div class="plwrap">
+  <section class="sec"><div class="sech"><h2>지표</h2><span class="secsub">유입 · 활성 · 수익 — GA/Firebase 단일 소스 · 8. 16. AM 11:35 기준 <span class="scopeok">스트림 3개 스코프</span></span></div><div class="mbox"><div class="plwrap">
   <div class="plhd"><span class="plt">플랫폼 분해</span><span class="pls">최근 28일 · GA4 스트림 실측</span><span class="plsrc">스트림 3개 스코프 · PCAlba Web · PC방 알바 (Android) · PC방 알바 (iOS)</span></div>
   <table class="tbl pltbl"><thead><tr><th>플랫폼</th><th class="num">활성</th><th class="num">신규</th><th class="num">획득</th><th class="num">세션</th><th class="num">참여율</th><th class="num">광고매출</th></tr></thead><tbody><tr>
     <td class="plname"><i class="pdot android"></i>Android</td>
@@ -635,12 +639,12 @@ button.ctag:hover{background:var(--card-hover)}
     <td class="num">$1.09</td>
   </tr><tr>
     <td class="plname"><i class="pdot ios"></i>iOS</td>
-    <td class="num"><b>119</b></td>
-    <td class="num">117</td>
-    <td class="num">117</td>
-    <td class="num">248</td>
-    <td class="num"><span class="">92%</span></td>
-    <td class="num">$6.11</td>
+    <td class="num"><b>117</b></td>
+    <td class="num">115</td>
+    <td class="num">115</td>
+    <td class="num">242</td>
+    <td class="num"><span class="">93%</span></td>
+    <td class="num">$6.08</td>
   </tr><tr>
     <td class="plname"><i class="pdot web"></i>웹 <em>방문</em></td>
     <td class="num"><b>94</b></td>
@@ -651,17 +655,17 @@ button.ctag:hover{background:var(--card-hover)}
     <td class="num"><span class="fa">—</span></td>
   </tr><tr class="plsum">
     <td class="plname">합계 <em>중복 제거</em></td>
-    <td class="num"><b>288</b></td>
-    <td class="num">266</td>
-    <td class="num">191</td>
-    <td class="num">1106</td>
+    <td class="num"><b>286</b></td>
+    <td class="num">264</td>
+    <td class="num">189</td>
+    <td class="num">1100</td>
     <td class="num">37%</td>
-    <td class="num">$7.20</td>
+    <td class="num">$7.17</td>
   </tr></tbody></table>
-  <div class="plnote">앱 실체 <b>194</b><span class="fa">명 활성 · 획득 191</span> <span class="fa">/ 웹 방문 94 (참여율 15%)</span></div>
-</div><div class="tcwrap"><div class="tclegend"><span class="k"><i style="background:var(--accent)"></i>활성 <b>15</b></span><span class="k"><i style="background:var(--ok)"></i>신규 <b>5</b></span><span class="tcnote">일별 최근 28일 · 최고 33</span></div><div class="tccanvas"><canvas class="tchart" id="tc1" data-tc='{&quot;labels&quot;:[&quot;7/20&quot;,&quot;7/21&quot;,&quot;7/22&quot;,&quot;7/23&quot;,&quot;7/24&quot;,&quot;7/25&quot;,&quot;7/26&quot;,&quot;7/27&quot;,&quot;7/28&quot;,&quot;7/29&quot;,&quot;7/30&quot;,&quot;7/31&quot;,&quot;8/1&quot;,&quot;8/2&quot;,&quot;8/3&quot;,&quot;8/4&quot;,&quot;8/5&quot;,&quot;8/6&quot;,&quot;8/7&quot;,&quot;8/8&quot;,&quot;8/9&quot;,&quot;8/10&quot;,&quot;8/11&quot;,&quot;8/12&quot;,&quot;8/13&quot;,&quot;8/14&quot;,&quot;8/15&quot;,&quot;8/16&quot;],&quot;active&quot;:[25,29,33,28,19,23,21,26,18,19,20,4,7,4,18,6,11,11,10,30,17,31,23,29,28,25,18,15],&quot;new&quot;:[6,10,10,3,1,5,2,6,0,1,1,4,4,2,14,5,10,11,9,26,12,25,18,19,21,18,17,5]}' aria-label="28일 일별 활성·신규 추세" role="img"></canvas></div></div><div class="mgrp"><span class="gi">유입</span><span class="gs">최근 28일 · 신규</span><span class="gt">신규 266</span></div><div class="mrow"><span class="ml" title="★ GA4 속성 542222163 은 DGL 게임 공용이다(측정ID G-07WLGFMQDD). 앱(iOS/Android)은 게임별 스트림이라 ga4Streams 화이트리스트로 정확히 갈린다. ★★ 웹은 다르다 — 전 게임(PCAlba·찜질방·휴게소·머지스탬피드)의 analytics.js 가 같은 측정 ID 를 쓰므로 웹 스트림이 'PCAlba Web' 하나뿐이고, streamName 필터로는 게임을 못 가른다. 게임별 웹 스트림(측정 ID)을 만들기 전까지 웹 숫자는 게임 판단 근거로 쓰지 말 것(사람 게이트: GA 콘솔). 2026-08-11 실측으로 드러난 더 큰 오염: 웹 스트림 28일 세션 893 중 867(활성 92명 중 84명)이 localhost/127.0.0.1 = 개발 트래픽(미리보기 :8800·shoot.js 눈검증·개발 브라우저)이었다. analytics.js 가 로컬을 debug_mode 로 '표시'만 하고 그대로 전송했는데 GA4 표준 리포트는 debug_mode 를 빼주지 않는다 → 같은 날 로컬 전송 차단(SEND 게이트)으로 수정. 그 전 기간의 웹 수치는 소급 정정되지 않으니 8/11 이전 웹 지표는 버린다. 지표는 플랫폼별로 봐라: 앱 실체 = Android+iOS. first_open 은 앱 스트림에서만 잡힌다. 광고매출=AdMob Reporting API 실측(admob.js). GA 에 찍히는 ad_reward 는 AdMob·Firebase SDK 자동수집이라 우리 ad_rewarded 와 1:1로 겹친다 — 합산 금지. ★ 스트림 이름을 GA 콘솔에서 바꾸면 여기도 같이 고쳐야 한다(streamId 는 대조용 기록).">신규 유저</span><span class="mv">266 <span class="fa">(</span>앱 191 <span class="fa">·</span> 웹 75<span class="fa">)</span> <span class="cardspark"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><polyline points="1.0,17.0 4.0,16.8 7.0,15.6 10.0,15.6 13.0,15.2 16.0,14.9 19.0,14.8 22.0,12.7 25.0,12.4 28.0,11.8 31.0,13.0 34.0,12.8 37.0,12.4 40.0,12.4 43.0,11.5 46.0,10.7 49.0,10.1 52.0,8.6 55.0,8.0 58.0,5.3 61.0,5.2 64.0,3.6 67.0,3.0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div><div class="mrow"><span class="ml">세션</span><span class="mv">1106</span></div><div class="mrow"><span class="ml">유입 추이</span><span class="mv">1일 22 <span class="fa">·</span> 7일 135 <span class="fa">·</span> 28일 266</span></div><div class="mgrp"><span class="gi">활성</span><span class="gs">최근 28일 · 참여</span><span class="gt">활성 288</span></div><div class="mrow"><span class="ml" title="앱 = Android+iOS 스트림 합. 웹은 방문(설치 아님).">활성 유저</span><span class="mv">288 <span class="fa">(</span>앱 194 <span class="fa">·</span> 웹 94<span class="fa">)</span> <span class="fa">· 재방문 22</span> <span class="cardspark"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><polyline points="1.0,17.0 4.0,16.9 7.0,15.3 10.0,15.2 13.0,15.0 16.0,14.6 19.0,14.4 22.0,11.2 25.0,12.4 28.0,11.9 31.0,12.7 34.0,12.4 37.0,11.7 40.0,11.7 43.0,10.4 46.0,9.5 49.0,8.9 52.0,7.6 55.0,7.2 58.0,4.9 61.0,4.7 64.0,3.9 67.0,3.0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div><div class="mrow"><span class="ml">활성 추이</span><span class="mv">1일 28 <span class="fa">·</span> 7일 142 <span class="fa">·</span> 28일 288</span></div><div class="mrow"><span class="ml">참여율</span><span class="mv"><span class="">37%</span> <span class="fa">(410/1106 세션)</span> <span class="fa">·</span> 21분<span class="fa">/유저</span></span></div><div class="mrow"><span class="ml">참여 퍼널</span><span class="mv">활성 288 <span class="fa">→</span><span class="fconv">945%</span> 진입 2722 <span class="fa">→</span><span class="fconv convlow">76%</span> 완료 2075</span></div><div class="mgrp"><span class="gi">수익</span><span class="gs">AdMob 실측 · 28일</span><span class="gt">$7.20</span></div><div class="mrow"><span class="ml">광고 노출</span><span class="mv">전면 788 <span class="fa">·</span> 보상 188 <span class="fa">(3.4/유저)</span> <span class="fa">· AdMob 905</span></span></div><div class="mrow"><span class="ml" title="AdMob Reporting API 28일 · 추정수익(USD) · 앱ID로 Android/iOS 귀속. ARPU 분모는 앱(Android+iOS) 활성 — 웹 방문자는 광고를 안 본다.">광고 매출</span><span class="mv">$7.20 <span class="fa">(</span>Android $1.09 <span class="fa">·</span> iOS $6.11<span class="fa">)</span> <span class="fa">· 앱 ARPU $0.037</span> <span class="srcnote">AdMob 실측</span></span></div><div class="mrow"><span class="ml">리뷰</span><span class="mv"><span class="rvline"><span class="rvi">App Store <a href="https://apps.apple.com/app/id6779939467" target="_blank"><span class="stars"><span class="star f"><svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor" stroke="none"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span><span class="star e"><svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor" stroke="none"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span><span class="star e"><svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor" stroke="none"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span><span class="star e"><svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor" stroke="none"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span><span class="star e"><svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor" stroke="none"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span></span> <b>1.0</b> (2)</a></span><span class="rvi off">Play 리뷰 집계 없음</span></span></span></div></div></section>
+  <div class="plnote">앱 실체 <b>192</b><span class="fa">명 활성 · 획득 189</span> <span class="fa">/ 웹 방문 94 (참여율 15%)</span></div>
+</div><div class="tcwrap"><div class="tclegend"><span class="k"><i style="background:var(--accent)"></i>활성 <b>13</b></span><span class="k"><i style="background:var(--ok)"></i>신규 <b>4</b></span><span class="tcnote">일별 최근 28일 · 최고 33</span></div><div class="tccanvas"><canvas class="tchart" id="tc1" data-tc='{&quot;labels&quot;:[&quot;7/20&quot;,&quot;7/21&quot;,&quot;7/22&quot;,&quot;7/23&quot;,&quot;7/24&quot;,&quot;7/25&quot;,&quot;7/26&quot;,&quot;7/27&quot;,&quot;7/28&quot;,&quot;7/29&quot;,&quot;7/30&quot;,&quot;7/31&quot;,&quot;8/1&quot;,&quot;8/2&quot;,&quot;8/3&quot;,&quot;8/4&quot;,&quot;8/5&quot;,&quot;8/6&quot;,&quot;8/7&quot;,&quot;8/8&quot;,&quot;8/9&quot;,&quot;8/10&quot;,&quot;8/11&quot;,&quot;8/12&quot;,&quot;8/13&quot;,&quot;8/14&quot;,&quot;8/15&quot;,&quot;8/16&quot;],&quot;active&quot;:[25,29,33,28,19,23,21,26,18,19,20,4,7,4,18,6,11,11,10,30,17,31,23,29,28,25,17,13],&quot;new&quot;:[6,10,10,3,1,5,2,6,0,1,1,4,4,2,14,5,10,11,9,26,12,25,18,19,21,18,16,4]}' aria-label="28일 일별 활성·신규 추세" role="img"></canvas></div></div><div class="mgrp"><span class="gi">유입</span><span class="gs">최근 28일 · 신규</span><span class="gt">신규 264</span></div><div class="mrow"><span class="ml" title="★ GA4 속성 542222163 은 DGL 게임 공용이다(측정ID G-07WLGFMQDD). 앱(iOS/Android)은 게임별 스트림이라 ga4Streams 화이트리스트로 정확히 갈린다. ★★ 웹은 다르다 — 전 게임(PCAlba·찜질방·휴게소·머지스탬피드)의 analytics.js 가 같은 측정 ID 를 쓰므로 웹 스트림이 'PCAlba Web' 하나뿐이고, streamName 필터로는 게임을 못 가른다. 게임별 웹 스트림(측정 ID)을 만들기 전까지 웹 숫자는 게임 판단 근거로 쓰지 말 것(사람 게이트: GA 콘솔). 2026-08-11 실측으로 드러난 더 큰 오염: 웹 스트림 28일 세션 893 중 867(활성 92명 중 84명)이 localhost/127.0.0.1 = 개발 트래픽(미리보기 :8800·shoot.js 눈검증·개발 브라우저)이었다. analytics.js 가 로컬을 debug_mode 로 '표시'만 하고 그대로 전송했는데 GA4 표준 리포트는 debug_mode 를 빼주지 않는다 → 같은 날 로컬 전송 차단(SEND 게이트)으로 수정. 그 전 기간의 웹 수치는 소급 정정되지 않으니 8/11 이전 웹 지표는 버린다. 지표는 플랫폼별로 봐라: 앱 실체 = Android+iOS. first_open 은 앱 스트림에서만 잡힌다. 광고매출=AdMob Reporting API 실측(admob.js). GA 에 찍히는 ad_reward 는 AdMob·Firebase SDK 자동수집이라 우리 ad_rewarded 와 1:1로 겹친다 — 합산 금지. ★ 스트림 이름을 GA 콘솔에서 바꾸면 여기도 같이 고쳐야 한다(streamId 는 대조용 기록).">신규 유저</span><span class="mv">264 <span class="fa">(</span>앱 189 <span class="fa">·</span> 웹 75<span class="fa">)</span> <span class="cardspark"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><polyline points="1.0,17.0 4.0,16.8 7.0,15.6 10.0,15.6 13.0,15.2 16.0,14.9 19.0,14.8 22.0,12.7 25.0,12.4 28.0,11.8 31.0,13.0 34.0,12.8 37.0,12.4 40.0,12.4 43.0,11.5 46.0,10.7 49.0,10.1 52.0,8.6 55.0,8.0 58.0,5.3 61.0,5.2 64.0,3.6 67.0,3.0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div><div class="mrow"><span class="ml">세션</span><span class="mv">1100</span></div><div class="mrow"><span class="ml">유입 추이</span><span class="mv">1일 20 <span class="fa">·</span> 7일 133 <span class="fa">·</span> 28일 264</span></div><div class="mgrp"><span class="gi">활성</span><span class="gs">최근 28일 · 참여</span><span class="gt">활성 286</span></div><div class="mrow"><span class="ml" title="앱 = Android+iOS 스트림 합. 웹은 방문(설치 아님).">활성 유저</span><span class="mv">286 <span class="fa">(</span>앱 192 <span class="fa">·</span> 웹 94<span class="fa">)</span> <span class="fa">· 재방문 22</span> <span class="cardspark"><svg class="spark" viewBox="0 0 68 20" width="68" height="20" aria-hidden="true"><polyline points="1.0,17.0 4.0,16.9 7.0,15.3 10.0,15.2 13.0,15.0 16.0,14.6 19.0,14.4 22.0,11.2 25.0,12.4 28.0,11.9 31.0,12.7 34.0,12.4 37.0,11.7 40.0,11.7 43.0,10.4 46.0,9.5 49.0,8.9 52.0,7.6 55.0,7.2 58.0,4.9 61.0,4.7 64.0,3.9 67.0,3.0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div><div class="mrow"><span class="ml">활성 추이</span><span class="mv">1일 26 <span class="fa">·</span> 7일 140 <span class="fa">·</span> 28일 286</span></div><div class="mrow"><span class="ml">참여율</span><span class="mv"><span class="">37%</span> <span class="fa">(406/1100 세션)</span> <span class="fa">·</span> 21분<span class="fa">/유저</span></span></div><div class="mrow"><span class="ml">참여 퍼널</span><span class="mv">활성 286 <span class="fa">→</span><span class="fconv">938%</span> 진입 2682 <span class="fa">→</span><span class="fconv convlow">76%</span> 완료 2050</span></div><div class="mgrp"><span class="gi">수익</span><span class="gs">AdMob 실측 · 28일</span><span class="gt">$7.17</span></div><div class="mrow"><span class="ml">광고 노출</span><span class="mv">전면 786 <span class="fa">·</span> 보상 188 <span class="fa">(3.4/유저)</span> <span class="fa">· AdMob 901</span></span></div><div class="mrow"><span class="ml" title="AdMob Reporting API 28일 · 추정수익(USD) · 앱ID로 Android/iOS 귀속. ARPU 분모는 앱(Android+iOS) 활성 — 웹 방문자는 광고를 안 본다.">광고 매출</span><span class="mv">$7.17 <span class="fa">(</span>Android $1.09 <span class="fa">·</span> iOS $6.08<span class="fa">)</span> <span class="fa">· 앱 ARPU $0.037</span> <span class="srcnote">AdMob 실측</span></span></div><div class="mrow"><span class="ml">리뷰</span><span class="mv"><span class="rvline"><span class="rvi">App Store <a href="https://apps.apple.com/app/id6779939467" target="_blank"><span class="stars"><span class="star f"><svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor" stroke="none"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span><span class="star e"><svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor" stroke="none"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span><span class="star e"><svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor" stroke="none"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span><span class="star e"><svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor" stroke="none"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span><span class="star e"><svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor" stroke="none"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span></span> <b>1.0</b> (2)</a></span><span class="rvi off">Play 리뷰 집계 없음</span></span></span></div></div></section>
   <section class="sec"><div class="sech"><h2>스토어 &amp; 버전</h2><span class="secsub">실측 우선 — 심사=ASC API · 라이브=iTunes/Play 리스팅 (Play 심사 상태만 공식 API 없음 → 매니페스트)</span></div><div class="stbox"><div class="strow"><span class="stlb">웹</span><div class="stv"><span class="chip done">라이브</span></div><a class="stgo" href="https://qqq1212341.github.io/pcbang-alba-sim/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div><div class="strow"><span class="stlb">App Store</span><div class="stv"><span class="chip done">출시</span><span class="stver">v1.0.14 라이브 (8/14~)</span><span class="srcnote">ASC 실측</span></div><a class="stgo" href="https://apps.apple.com/app/id6779939467" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div><div class="strow"><span class="stlb">Google Play</span><div class="stv"><span class="chip done">출시</span><span class="stver">v1.0.17 라이브 (Aug 13, 2026~)</span><span class="srcnote">리스팅 실측</span></div><a class="stgo" href="https://play.google.com/store/apps/details?id=com.dumbgamelab.pcbangalba" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div></div></section>
-  <section class="sec"><div class="sech"><h2>파이프라인</h2><span class="secsub">9단계 · 산출물 자동 감지 + manual 폴백</span></div><table class="tbl ptable"><thead><tr><th></th><th>단계</th><th>상태</th><th>담당</th><th>하위 신호</th></tr></thead><tbody><tr class="pt-done">
+  <section class="sec"><div class="sech"><h2>파이프라인</h2><span class="secsub">9단계 · 산출물 자동 감지 + manual 폴백</span></div><div class="nextline"><span class="ml2">NEXT</span><b>빌드·스토어</b><span class="who t-accent"><i class="dot"></i>Claude 자동</span><code>store-deploy</code></div><table class="tbl ptable"><thead><tr><th></th><th>단계</th><th>상태</th><th>담당</th><th>하위 신호</th></tr></thead><tbody><tr class="pt-done">
     <td class="c-id">1</td>
     <td class="ptl">컨셉·PRD</td>
     <td><span class="chip done">완료</span></td>
@@ -691,12 +695,12 @@ button.ctag:hover{background:var(--card-hover)}
     <td><span class="chip done">완료</span></td>
     <td class="ptwho"><span class="who t-accent"><i class="dot"></i><code>qa-harness</code></span></td>
     <td class="ptparts"><i class="pp done">눈검증 pass</i></td>
-  </tr><tr class="pt-done">
+  </tr><tr class="pt-partial">
     <td class="c-id">6</td>
     <td class="ptl">빌드·스토어</td>
-    <td><span class="chip done">완료</span></td>
+    <td><span class="chip partial">진행중</span></td>
     <td class="ptwho"><span class="who t-accent"><i class="dot"></i><code>store-deploy</code></span></td>
-    <td class="ptparts"><i class="pp done">빌드</i><i class="pp done">자산</i><i class="pp done">카피</i></td>
+    <td class="ptparts"><i class="pp partial">빌드</i><i class="pp done">자산</i><i class="pp done">카피</i></td>
   </tr><tr class="pt-done">
     <td class="c-id">7</td>
     <td class="ptl">콘솔 등록</td>
@@ -714,7 +718,7 @@ button.ctag:hover{background:var(--card-hover)}
     <td class="ptl">그로스·획득</td>
     <td><span class="chip done">완료</span></td>
     <td class="ptwho"><span class="who t-accent"><i class="dot"></i><code>game-grow</code></span></td>
-    <td class="ptparts"><i class="pp done">산출물 559</i></td>
+    <td class="ptparts"><i class="pp done">산출물 549</i></td>
   </tr></tbody></table></section>
   <section class="sec"><div class="sech"><h2>마케팅</h2><span class="secsub">실험 SSOT: <code>marketing/shortform/matrix.json</code> (읽기 전용 · 조회 갱신=game-grow)</span></div>
   <div class="exph">
@@ -921,9 +925,9 @@ button.ctag:hover{background:var(--card-hover)}
       <td class="c-id">—</td>
       <td class="clipname"><span class="local-only" title="로컬 전용 — 사장님 맥에서만 열립니다">EN1b_ramen_freeloader_v2</span></td>
       <td></td>
-      <td><span class="q q-off">?</span></td>
-      <td class="c-res ">—</td>
-      <td class="c-dur">—<span class="csz"> 13.5M</span></td>
+      <td><span class="q q-ok">30fps</span></td>
+      <td class="c-res ">1080×1920</td>
+      <td class="c-dur">29s<span class="csz"> 13.5M</span></td>
       <td><span class="mst off">미추적</span></td>
       <td class="c-views">—</td>
     </tr><tr class="">
@@ -948,27 +952,27 @@ button.ctag:hover{background:var(--card-hover)}
       <td class="c-id">—</td>
       <td class="clipname"><span class="local-only" title="로컬 전용 — 사장님 맥에서만 열립니다">EN4_dawn_knock_en</span></td>
       <td></td>
-      <td><span class="q q-off">?</span></td>
-      <td class="c-res ">—</td>
-      <td class="c-dur">—<span class="csz"> 14.2M</span></td>
+      <td><span class="q q-ok">30fps</span></td>
+      <td class="c-res ">1080×1920</td>
+      <td class="c-dur">30s<span class="csz"> 14.2M</span></td>
       <td><span class="mst off">미추적</span></td>
       <td class="c-views">—</td>
     </tr><tr class="">
       <td class="c-id">—</td>
       <td class="clipname"><span class="local-only" title="로컬 전용 — 사장님 맥에서만 열립니다">EN5_screamer_en</span></td>
       <td></td>
-      <td><span class="q q-off">?</span></td>
-      <td class="c-res ">—</td>
-      <td class="c-dur">—<span class="csz"> 2.5M</span></td>
+      <td><span class="q q-ok">30fps</span></td>
+      <td class="c-res ">1080×1920</td>
+      <td class="c-dur">32s<span class="csz"> 2.5M</span></td>
       <td><span class="mst off">미추적</span></td>
       <td class="c-views">—</td>
     </tr><tr class="">
       <td class="c-id">—</td>
       <td class="clipname"><span class="local-only" title="로컬 전용 — 사장님 맥에서만 열립니다">EN6_seat_camper_en</span></td>
       <td></td>
-      <td><span class="q q-off">?</span></td>
-      <td class="c-res ">—</td>
-      <td class="c-dur">—<span class="csz"> 2.4M</span></td>
+      <td><span class="q q-ok">30fps</span></td>
+      <td class="c-res ">1080×1920</td>
+      <td class="c-dur">33s<span class="csz"> 2.4M</span></td>
       <td><span class="mst off">미추적</span></td>
       <td class="c-views">—</td>
     </tr><tr class="">
@@ -1029,63 +1033,63 @@ button.ctag:hover{background:var(--card-hover)}
       <td class="c-id">—</td>
       <td class="clipname"><span class="local-only" title="로컬 전용 — 사장님 맥에서만 열립니다">R2-7_kid_night</span></td>
       <td></td>
-      <td><span class="q q-off">?</span></td>
-      <td class="c-res ">—</td>
-      <td class="c-dur">—<span class="csz"> 2.5M</span></td>
+      <td><span class="q q-ok">30fps</span></td>
+      <td class="c-res ">1080×1920</td>
+      <td class="c-dur">40s<span class="csz"> 2.5M</span></td>
       <td><span class="mst off">미추적</span></td>
       <td class="c-views">—</td>
     </tr><tr class="">
       <td class="c-id">—</td>
       <td class="clipname"><span class="local-only" title="로컬 전용 — 사장님 맥에서만 열립니다">R2-8_mala_smell</span></td>
       <td></td>
-      <td><span class="q q-off">?</span></td>
-      <td class="c-res ">—</td>
-      <td class="c-dur">—<span class="csz"> 18.4M</span></td>
+      <td><span class="q q-ok">30fps</span></td>
+      <td class="c-res ">1080×1920</td>
+      <td class="c-dur">41s<span class="csz"> 18.4M</span></td>
       <td><span class="mst off">미추적</span></td>
       <td class="c-views">—</td>
     </tr><tr class="">
       <td class="c-id">—</td>
       <td class="clipname"><span class="local-only" title="로컬 전용 — 사장님 맥에서만 열립니다">R2-9_keyboard_smash</span></td>
       <td></td>
-      <td><span class="q q-off">?</span></td>
-      <td class="c-res ">—</td>
-      <td class="c-dur">—<span class="csz"> 16.8M</span></td>
+      <td><span class="q q-ok">30fps</span></td>
+      <td class="c-res ">1080×1920</td>
+      <td class="c-dur">37s<span class="csz"> 16.8M</span></td>
       <td><span class="mst off">미추적</span></td>
       <td class="c-views">—</td>
     </tr><tr class="">
       <td class="c-id">—</td>
       <td class="clipname"><span class="local-only" title="로컬 전용 — 사장님 맥에서만 열립니다">R2-C1_soup_half</span></td>
       <td></td>
-      <td><span class="q q-off">?</span></td>
-      <td class="c-res ">—</td>
-      <td class="c-dur">—<span class="csz"> 3.7M</span></td>
+      <td><span class="q q-ok">30fps</span></td>
+      <td class="c-res ">1080×1920</td>
+      <td class="c-dur">39s<span class="csz"> 3.7M</span></td>
       <td><span class="mst off">미추적</span></td>
       <td class="c-views">—</td>
     </tr><tr class="">
       <td class="c-id">—</td>
       <td class="clipname"><span class="local-only" title="로컬 전용 — 사장님 맥에서만 열립니다">R2-C2_mala_smell</span></td>
       <td></td>
-      <td><span class="q q-off">?</span></td>
-      <td class="c-res ">—</td>
-      <td class="c-dur">—<span class="csz"> 2.7M</span></td>
+      <td><span class="q q-ok">30fps</span></td>
+      <td class="c-res ">1080×1920</td>
+      <td class="c-dur">45s<span class="csz"> 2.7M</span></td>
       <td><span class="mst off">미추적</span></td>
       <td class="c-views">—</td>
     </tr><tr class="">
       <td class="c-id">—</td>
       <td class="clipname"><span class="local-only" title="로컬 전용 — 사장님 맥에서만 열립니다">R2-C3_keyboard_smash</span></td>
       <td></td>
-      <td><span class="q q-off">?</span></td>
-      <td class="c-res ">—</td>
-      <td class="c-dur">—<span class="csz"> 2.7M</span></td>
+      <td><span class="q q-ok">30fps</span></td>
+      <td class="c-res ">1080×1920</td>
+      <td class="c-dur">40s<span class="csz"> 2.7M</span></td>
       <td><span class="mst off">미추적</span></td>
       <td class="c-views">—</td>
     </tr><tr class="">
       <td class="c-id">—</td>
       <td class="clipname"><span class="local-only" title="로컬 전용 — 사장님 맥에서만 열립니다">R3-1_order-rush</span></td>
       <td></td>
-      <td><span class="q q-off">?</span></td>
-      <td class="c-res ">—</td>
-      <td class="c-dur">—<span class="csz"> 2.9M</span></td>
+      <td><span class="q q-ok">30fps</span></td>
+      <td class="c-res ">1080×1920</td>
+      <td class="c-dur">17s<span class="csz"> 2.9M</span></td>
       <td><span class="mst off">미추적</span></td>
       <td class="c-views">—</td>
     </tr><tr class="">
@@ -1192,18 +1196,18 @@ button.ctag:hover{background:var(--card-hover)}
     <td><span class="chip done">완료</span></td>
     <td class="ptwho"><span class="who t-accent"><i class="dot"></i><code>game-concept</code></span></td>
     <td class="ptparts"></td>
-  </tr><tr class="pt-partial">
+  </tr><tr class="pt-todo">
     <td class="c-id">2</td>
     <td class="ptl">엔진·밸런스</td>
-    <td><span class="chip partial">진행중</span></td>
+    <td><span class="chip todo">대기</span></td>
     <td class="ptwho"><span class="who t-accent"><i class="dot"></i><code>balance_sim</code></span></td>
     <td class="ptparts"></td>
-  </tr><tr class="pt-done">
+  </tr><tr class="pt-todo">
     <td class="c-id">3</td>
     <td class="ptl">제작 폴리시</td>
-    <td><span class="chip done">완료</span></td>
+    <td><span class="chip todo">대기</span></td>
     <td class="ptwho"><span class="who t-accent"><i class="dot"></i><code>codex-image</code></span></td>
-    <td class="ptparts"><i class="pp done">아트</i><i class="pp done">사운드</i><i class="pp done">UI</i></td>
+    <td class="ptparts"><i class="pp todo">아트</i><i class="pp done">사운드</i><i class="pp done">UI</i></td>
   </tr><tr class="pt-todo">
     <td class="c-id">4</td>
     <td class="ptl">수익엔진·추적</td>
@@ -1221,7 +1225,7 @@ button.ctag:hover{background:var(--card-hover)}
     <td class="ptl">빌드·스토어</td>
     <td><span class="chip todo">대기</span></td>
     <td class="ptwho"><span class="who t-accent"><i class="dot"></i><code>store-deploy</code></span></td>
-    <td class="ptparts"><i class="pp todo">빌드</i><i class="pp done">자산</i><i class="pp done">카피</i></td>
+    <td class="ptparts"><i class="pp todo">빌드</i><i class="pp partial">자산</i><i class="pp done">카피</i></td>
   </tr><tr class="pt-done">
     <td class="c-id">7</td>
     <td class="ptl">콘솔 등록</td>
@@ -1261,7 +1265,7 @@ button.ctag:hover{background:var(--card-hover)}
   <div class="qhead"><span class="qtitle">이 게임의 큐</span><span class="qsub">사람 게이트 → 판정·기한 → 경고 → 루틴 — 신호 자동 집계 · 클릭=해당 페이지</span></div>
   <a class="qrow t-accent" href="#/game/mergestampede"><span class="qtag">머지 스탬피드</span><span class="qtext">다음 단계: 엔진·밸런스</span><code>balance_sim</code><span class="qwho">Claude</span></a>
 </section>
-  <section class="sec"><div class="sech"><h2>지표</h2><span class="secsub">유입 · 활성 · 수익 — GA/Firebase 단일 소스 · 8. 16. PM 12:10 기준 <span class="scopeok">스트림 2개 스코프</span></span></div><div class="mbox"><div class="plwrap">
+  <section class="sec"><div class="sech"><h2>지표</h2><span class="secsub">유입 · 활성 · 수익 — GA/Firebase 단일 소스 · 8. 16. AM 11:35 기준 <span class="scopeok">스트림 2개 스코프</span></span></div><div class="mbox"><div class="plwrap">
   <div class="plhd"><span class="plt">플랫폼 분해</span><span class="pls">최근 28일 · GA4 스트림 실측</span><span class="plsrc">스트림 2개 스코프 · 머지 스탬피드 IOS · com.dumbgamelab.mergestampede</span></div>
   <table class="tbl pltbl"><thead><tr><th>플랫폼</th><th class="num">활성</th><th class="num">신규</th><th class="num">획득</th><th class="num">세션</th><th class="num">참여율</th><th class="num">광고매출</th></tr></thead><tbody><tr>
     <td class="plname"><i class="pdot ios"></i>iOS</td>
@@ -1313,12 +1317,12 @@ button.ctag:hover{background:var(--card-hover)}
     <td><span class="chip done">완료</span></td>
     <td class="ptwho"><span class="who t-accent"><i class="dot"></i><code>qa-harness</code></span></td>
     <td class="ptparts"><i class="pp done">눈검증 pass</i></td>
-  </tr><tr class="pt-partial">
+  </tr><tr class="pt-todo">
     <td class="c-id">6</td>
     <td class="ptl">빌드·스토어</td>
-    <td><span class="chip partial">진행중</span></td>
+    <td><span class="chip todo">대기</span></td>
     <td class="ptwho"><span class="who t-accent"><i class="dot"></i><code>store-deploy</code></span></td>
-    <td class="ptparts"><i class="pp done">빌드</i><i class="pp partial">자산</i><i class="pp done">카피</i></td>
+    <td class="ptparts"><i class="pp todo">빌드</i><i class="pp partial">자산</i><i class="pp done">카피</i></td>
   </tr><tr class="pt-done">
     <td class="c-id">7</td>
     <td class="ptl">콘솔 등록</td>
@@ -1393,7 +1397,7 @@ button.ctag:hover{background:var(--card-hover)}
     <td class="ptl">빌드·스토어</td>
     <td><span class="chip todo">대기</span></td>
     <td class="ptwho"><span class="who t-accent"><i class="dot"></i><code>store-deploy</code></span></td>
-    <td class="ptparts"><i class="pp partial">빌드</i><i class="pp todo">자산</i><i class="pp todo">카피</i></td>
+    <td class="ptparts"><i class="pp todo">빌드</i><i class="pp todo">자산</i><i class="pp todo">카피</i></td>
   </tr><tr class="pt-todo">
     <td class="c-id">7</td>
     <td class="ptl">콘솔 등록</td>
@@ -1423,7 +1427,7 @@ button.ctag:hover{background:var(--card-hover)}
 </section>
 <section class="page" id="page-marketing">
   <header class="ph"><div class="phl"><div class="pht"><h1>마케팅</h1></div><div class="phs">공장 공통 인프라 — 채널·발행·실측. 게임별 실험은 각 게임 페이지에.</div></div></header>
-  <section class="sec"><div class="sech"><h2>채널</h2><span class="secsub">발행·조회 모두 PostPeer 단일 경로</span></div><div class="chwrap"><div class="rtoggle"><button class="rtbtn active" data-region="ko">KO</button><button class="rtbtn" data-region="en">EN</button><span class="rvia">발행·조회 <b>PostPeer</b></span></div><div class="chbar" data-region="ko"><a class="chbtn" href="https://www.youtube.com/channel/UC7qYtDdR9mufjF_f4fV5MbQ" target="_blank" rel="noopener"><span class="pf pf-youtube">YT</span><span class="chbtn-l">@dumbgamelab<i>30포스트 · 27.3k뷰</i></span><span class="chbtn-x"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span></a><a class="chbtn" href="https://www.tiktok.com/@dumb.game.lab" target="_blank" rel="noopener"><span class="pf pf-tiktok">TT</span><span class="chbtn-l">@dumb.game.lab<i>25포스트 · 8.6k뷰</i></span><span class="chbtn-x"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span></a><a class="chbtn" href="https://www.instagram.com/dumbgamelab" target="_blank" rel="noopener"><span class="pf pf-instagram">IG</span><span class="chbtn-l">@dumbgamelab<i>17포스트 · 뷰 미제공</i></span><span class="chbtn-x"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span></a></div><div class="chbar" data-region="en" style="display:none"><a class="chbtn" href="https://www.youtube.com/channel/UCVWgJlbNx5sWawdsJGmOM1Q" target="_blank" rel="noopener"><span class="pf pf-youtube">YT</span><span class="chbtn-l">@dumbgamelabglobal<i>5포스트 · 6뷰</i></span><span class="chbtn-x"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span></a><a class="chbtn" href="https://www.tiktok.com/@dumbgamelabglobal" target="_blank" rel="noopener"><span class="pf pf-tiktok">TT</span><span class="chbtn-l">@dumbgamelabglobal<i>17포스트 · 125뷰</i></span><span class="chbtn-x"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span></a><a class="chbtn" href="https://www.instagram.com/dumbgamelabglobal" target="_blank" rel="noopener"><span class="pf pf-instagram">IG</span><span class="chbtn-l">@dumbgamelabglobal<i>17포스트 · 뷰 미제공</i></span><span class="chbtn-x"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span></a></div></div></section>
+  <section class="sec"><div class="sech"><h2>채널</h2><span class="secsub">발행·조회 모두 PostPeer 단일 경로</span></div><div class="chwrap"><div class="rtoggle"><button class="rtbtn active" data-region="ko">KO</button><button class="rtbtn" data-region="en">EN</button><span class="rvia">발행·조회 <b>PostPeer</b></span></div><div class="chbar" data-region="ko"><a class="chbtn" href="https://www.youtube.com/channel/UC7qYtDdR9mufjF_f4fV5MbQ" target="_blank" rel="noopener"><span class="pf pf-youtube">YT</span><span class="chbtn-l">@dumbgamelab<i>30포스트 · 27.3k뷰</i></span><span class="chbtn-x"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span></a><a class="chbtn" href="https://www.tiktok.com/@dumb.game.lab" target="_blank" rel="noopener"><span class="pf pf-tiktok">TT</span><span class="chbtn-l">@dumb.game.lab<i>0포스트 · 실측 없음</i></span><span class="chbtn-x"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span></a><a class="chbtn" href="https://www.instagram.com/dumbgamelab" target="_blank" rel="noopener"><span class="pf pf-instagram">IG</span><span class="chbtn-l">@dumbgamelab<i>0포스트 · 실측 없음</i></span><span class="chbtn-x"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span></a></div><div class="chbar" data-region="en" style="display:none"><a class="chbtn" href="https://www.youtube.com/channel/UCVWgJlbNx5sWawdsJGmOM1Q" target="_blank" rel="noopener"><span class="pf pf-youtube">YT</span><span class="chbtn-l">@dumbgamelabglobal<i>5포스트 · 6뷰</i></span><span class="chbtn-x"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span></a><a class="chbtn" href="https://www.tiktok.com/@dumbgamelabglobal" target="_blank" rel="noopener"><span class="pf pf-tiktok">TT</span><span class="chbtn-l">@dumbgamelabglobal<i>0포스트 · 실측 없음</i></span><span class="chbtn-x"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span></a><a class="chbtn" href="https://www.instagram.com/dumbgamelabglobal" target="_blank" rel="noopener"><span class="pf pf-instagram">IG</span><span class="chbtn-l">@dumbgamelabglobal<i>0포스트 · 실측 없음</i></span><span class="chbtn-x"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span></a></div></div></section>
   <section class="sec"><div class="sech"><h2>헬스</h2><span class="secsub">전부 matrix.json 파생 — 가짜 신호 없음 · 위 KO/EN 필터 연동</span></div><div class="hstrip" data-region="ko"><div class="hcard ok"><div class="hv">50/50</div><div class="hl">발행 진행</div><div class="hs">예약분 모두 경과</div></div><div class="hcard warn"><div class="hv">48/50</div><div class="hl">발행 실측</div><div class="hs">2건 URL 미확인 24h+</div></div><div class="hcard action"><div class="hv">4일 전</div><div class="hl">관찰 신선도</div><div class="hs">관찰 밀림 (game-grow)</div></div><div class="hcard ok"><div class="hv">5/1000</div><div class="hl">크레딧</div><div class="hs">PostPeer 1,000 크레딧</div></div><div class="hcard ok"><div class="hv">3/3</div><div class="hl">채널</div><div class="hs">KO · PostPeer</div></div><div class="hcard action"><div class="hv">종료</div><div class="hl">판정 창</div><div class="hs">~07/13</div></div></div><div class="hstrip" data-region="en" style="display:none"><div class="hcard ok"><div class="hv">10/10</div><div class="hl">발행 진행</div><div class="hs">예약분 모두 경과</div></div><div class="hcard ok"><div class="hv">10/10</div><div class="hl">발행 실측</div><div class="hs">URL 전건 확인</div></div><div class="hcard action"><div class="hv">5일 전</div><div class="hl">관찰 신선도</div><div class="hs">관찰 밀림 (game-grow)</div></div><div class="hcard ok"><div class="hv">18/1000</div><div class="hl">크레딧</div><div class="hs">PostPeer 1,000 크레딧</div></div><div class="hcard ok"><div class="hv">3/3</div><div class="hl">채널</div><div class="hs">EN · PostPeer</div></div><div class="hcard action"><div class="hv">종료</div><div class="hl">판정 창</div><div class="hs">~07/13</div></div></div></section>
   <section class="sec"><div class="sech"><h2>발행 캘린더</h2><span class="secsub">월 캘린더 · ‹ ›로 달 이동 · 영상 1개 = 칩 1개 · 체크 = 발행 확인(URL) · 점선 = PostPeer 예약 · 보라색 = 제작 큐(원본/기획, 미예약) · 위 KO/EN 필터 연동</span></div><div class="calnav">
     <button type="button" class="calnav-btn" data-caldir="-1" aria-label="이전 달">‹</button>
@@ -1435,975 +1439,15 @@ button.ctag:hover{background:var(--card-hover)}
   
   <div class="calnote plan">보라색 제작 큐 7건 — 원본 1건은 클릭 재생 가능 · 모두 미예약이라 예약/크레딧/헬스에는 미반영</div>
   <div class="calnote">앞으로 실제 예약된 발행 없음 — 기획을 제작·검증 후 <code>pp-post.mjs</code>로 예약</div></section>
-  <section class="sec"><div class="sech"><h2>소셜 실측</h2><span class="secsub">8. 16. PM 12:10 · ⏸ PostPeer 유료 회수 일시중지(크레딧 0) — TikTok·IG는 중지 시점 값 · YouTube만 갱신 중 · 재개 = metrics/social-pause.js off · 위 KO/EN 필터 연동</span></div><div class="socwrap" data-region="ko"><div class="socsub">KO · 계정 3 · 72 포스트 · 총 35.8k뷰</div><div class="socgrid">
-    <div class="rcol"><div class="ml2">계정별 조회</div><div class="arow"><span class="pf pf-youtube">YT</span><span class="ah">@dumbgamelab<i>30</i></span><div class="rbar"><i class="b-accent" style="width:100%"></i></div><span class="rkv">27.3k</span></div><div class="arow"><span class="pf pf-tiktok">TT</span><span class="ah">@dumb.game.lab<i>25</i></span><div class="rbar"><i class="b-accent" style="width:32%"></i></div><span class="rkv">8.6k</span></div><div class="arow"><span class="pf pf-instagram">IG</span><span class="ah">@dumbgamelab<i>17</i></span><span class="soc-na" title="PostPeer는 Instagram 조회수 미제공(좋아요/댓글만)">뷰 미제공 (PostPeer)</span><span class="rkv">—</span></div></div>
+  <section class="sec"><div class="sech"><h2>소셜 실측</h2><span class="secsub">8. 16. AM 11:35 · ⏸ PostPeer 유료 회수 일시중지(크레딧 0) — TikTok·IG는 중지 시점 값 · YouTube만 갱신 중 · 재개 = metrics/social-pause.js off · 위 KO/EN 필터 연동</span></div><div class="socwrap" data-region="ko"><div class="socsub">KO · 계정 3 · 30 포스트 · 총 27.3k뷰</div><div class="socgrid">
+    <div class="rcol"><div class="ml2">계정별 조회</div><div class="arow"><span class="pf pf-youtube">YT</span><span class="ah">@dumbgamelab<i>30</i></span><div class="rbar"><i class="b-accent" style="width:100%"></i></div><span class="rkv">27.3k</span></div><div class="arow"><span class="pf pf-tiktok">TT</span><span class="ah">@dumb.game.lab<i>0</i></span><span class="soc-na" title="PostPeer 유료 회수 일시중지 중 — 캐시 없음 (재개: social-pause.js off)">포스트 미수집 (PostPeer)</span><span class="rkv">—</span></div><div class="arow"><span class="pf pf-instagram">IG</span><span class="ah">@dumbgamelab<i>0</i></span><span class="soc-na" title="PostPeer 유료 회수 일시중지 중 — 캐시 없음 (재개: social-pause.js off)">포스트 미수집 (PostPeer)</span><span class="rkv">—</span></div></div>
     <div class="rcol"><div class="ml2">Top 포스트</div><table class="tbl soctable"><thead><tr><th></th><th>제목</th><th>계정</th><th>발행</th><th>조회</th><th>좋아요</th></tr></thead><tbody><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=jvN4U_mcDWw" target="_blank" rel="noopener">남이 결제한 자리 몰래 쓰는 진상 잡은 썰 #shorts</a></td><td class="c-lang">@dumbgamelab</td><td class="c-lang">7/7</td><td class="c-views">2.3k</td><td class="c-views">10</td></tr><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=3UFRt9OmKoI" target="_blank" rel="noopener">월급 떼이고 잘린 PC방 알바인데 3개월 뒤 그 가게가 #shorts</a></td><td class="c-lang">@dumbgamelab</td><td class="c-lang">7/10</td><td class="c-views">2.1k</td><td class="c-views">1</td></tr><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=yES45FQv4PE" target="_blank" rel="noopener">새벽 4시에 손님 쫓아낸 PC방 알바인데 내가 잘못함?</a></td><td class="c-lang">@dumbgamelab</td><td class="c-lang">7/3</td><td class="c-views">2.0k</td><td class="c-views">1</td></tr><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=Qjt1law4xgc" target="_blank" rel="noopener">망해가던 동네 PC방, 알바 혼자서 매출 20배 만든 방법</a></td><td class="c-lang">@dumbgamelab</td><td class="c-lang">7/2</td><td class="c-views">1.9k</td><td class="c-views">6</td></tr><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=mwFjv-zG66w" target="_blank" rel="noopener">PC방에서 마라탕 시켜먹은 손님ㄷㄷ</a></td><td class="c-lang">@dumbgamelab</td><td class="c-lang">8/10</td><td class="c-views">1.6k</td><td class="c-views">6</td></tr><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=7e7P9MLoDy8" target="_blank" rel="noopener">남이 결제한 자리 몰래 쓰는 진상 잡은 썰</a></td><td class="c-lang">@dumbgamelab</td><td class="c-lang">7/16</td><td class="c-views">1.6k</td><td class="c-views">3</td></tr></tbody></table></div>
-  </div></div><div class="socwrap" data-region="en" style="display:none"><div class="socsub">EN · 계정 3 · 39 포스트 · 총 131뷰</div><div class="socgrid">
-    <div class="rcol"><div class="ml2">계정별 조회</div><div class="arow"><span class="pf pf-tiktok">TT</span><span class="ah">@dumbgamelabglobal<i>17</i></span><div class="rbar"><i class="b-accent" style="width:100%"></i></div><span class="rkv">125</span></div><div class="arow"><span class="pf pf-youtube">YT</span><span class="ah">@dumbgamelabglobal<i>5</i></span><div class="rbar"><i class="b-accent" style="width:5%"></i></div><span class="rkv">6</span></div><div class="arow"><span class="pf pf-instagram">IG</span><span class="ah">@dumbgamelabglobal<i>17</i></span><span class="soc-na" title="PostPeer는 Instagram 조회수 미제공(좋아요/댓글만)">뷰 미제공 (PostPeer)</span><span class="rkv">—</span></div></div>
-    <div class="rcol"><div class="ml2">Top 포스트</div><table class="tbl soctable"><thead><tr><th></th><th>제목</th><th>계정</th><th>발행</th><th>조회</th><th>좋아요</th></tr></thead><tbody><tr><td><span class="pf pf-tiktok">TT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.tiktok.com/@dumbgamelabglobal/video/7670448952306634000" target="_blank" rel="noopener">I grew an entire PC cafe on my phone.</a></td><td class="c-lang">@dumbgamelabglobal</td><td class="c-lang">8/5</td><td class="c-views">125</td><td class="c-views">1</td></tr><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=FHn-9vnDBkg" target="_blank" rel="noopener">I grew an entire PC cafe on my phone.</a></td><td class="c-lang">@dumbgamelabglobal</td><td class="c-lang">8/5</td><td class="c-views">4</td><td class="c-views">0</td></tr><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=4QXVd6Xo30g" target="_blank" rel="noopener">AITA for kicking out a guy who screamed every time he lost a</a></td><td class="c-lang">@dumbgamelabglobal</td><td class="c-lang">7/26</td><td class="c-views">1</td><td class="c-views">0</td></tr><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=w8zESTsJREA" target="_blank" rel="noopener">AITA for calling out a customer who stole someone's paid sea</a></td><td class="c-lang">@dumbgamelabglobal</td><td class="c-lang">7/10</td><td class="c-views">1</td><td class="c-views">0</td></tr><tr><td><span class="pf pf-tiktok">TT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.tiktok.com/@dumbgamelabglobal/video/7673283790231407879" target="_blank" rel="noopener">One day here runs three minutes.</a></td><td class="c-lang">@dumbgamelabglobal</td><td class="c-lang">8/13</td><td class="c-views">—</td><td class="c-views">0</td></tr><tr><td><span class="pf pf-instagram">IG</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.instagram.com/reel/Db9SxcDDogq/" target="_blank" rel="noopener">One day here runs three minutes.</a></td><td class="c-lang">@dumbgamelabglobal</td><td class="c-lang">8/13</td><td class="c-views">—</td><td class="c-views">0</td></tr></tbody></table></div>
+  </div></div><div class="socwrap" data-region="en" style="display:none"><div class="socsub">EN · 계정 3 · 5 포스트 · 총 6뷰</div><div class="socgrid">
+    <div class="rcol"><div class="ml2">계정별 조회</div><div class="arow"><span class="pf pf-youtube">YT</span><span class="ah">@dumbgamelabglobal<i>5</i></span><div class="rbar"><i class="b-accent" style="width:100%"></i></div><span class="rkv">6</span></div><div class="arow"><span class="pf pf-tiktok">TT</span><span class="ah">@dumbgamelabglobal<i>0</i></span><span class="soc-na" title="PostPeer 유료 회수 일시중지 중 — 캐시 없음 (재개: social-pause.js off)">포스트 미수집 (PostPeer)</span><span class="rkv">—</span></div><div class="arow"><span class="pf pf-instagram">IG</span><span class="ah">@dumbgamelabglobal<i>0</i></span><span class="soc-na" title="PostPeer 유료 회수 일시중지 중 — 캐시 없음 (재개: social-pause.js off)">포스트 미수집 (PostPeer)</span><span class="rkv">—</span></div></div>
+    <div class="rcol"><div class="ml2">Top 포스트</div><table class="tbl soctable"><thead><tr><th></th><th>제목</th><th>계정</th><th>발행</th><th>조회</th><th>좋아요</th></tr></thead><tbody><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=FHn-9vnDBkg" target="_blank" rel="noopener">I grew an entire PC cafe on my phone.</a></td><td class="c-lang">@dumbgamelabglobal</td><td class="c-lang">8/5</td><td class="c-views">4</td><td class="c-views">0</td></tr><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=4QXVd6Xo30g" target="_blank" rel="noopener">AITA for kicking out a guy who screamed every time he lost a</a></td><td class="c-lang">@dumbgamelabglobal</td><td class="c-lang">7/26</td><td class="c-views">1</td><td class="c-views">0</td></tr><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=w8zESTsJREA" target="_blank" rel="noopener">AITA for calling out a customer who stole someone's paid sea</a></td><td class="c-lang">@dumbgamelabglobal</td><td class="c-lang">7/10</td><td class="c-views">1</td><td class="c-views">0</td></tr><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=wsMON920wfk" target="_blank" rel="noopener">AITA for feeling smug when the PC bang that fired me shut do</a></td><td class="c-lang">@dumbgamelabglobal</td><td class="c-lang">7/11</td><td class="c-views">—</td><td class="c-views">0</td></tr><tr><td><span class="pf pf-youtube">YT</span></td><td class="soc-title"><a class="mtname soc-t" href="https://www.youtube.com/watch?v=s7GHeisWsmM" target="_blank" rel="noopener">AITA for kicking out a guy who ordered 3 ramens and never le</a></td><td class="c-lang">@dumbgamelabglobal</td><td class="c-lang">7/9</td><td class="c-views">—</td><td class="c-views">0</td></tr></tbody></table></div>
   </div></div></section>
   <section class="sec"><div class="sech"><h2>게임별 실험</h2><span class="secsub">상세는 게임 페이지 마케팅 섹션</span></div><div class="explinks"><a class="explink" href="#/game/pcbangalba"><span class="qtag">PC방 키우기: 방치형 타이쿤</span><span class="qtext">R1 종료 — 판정 대기 · 1위 K2 · 조회 4.5k</span><span class="grgo">게임 페이지 <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></a></div></section>
 </section>
-<section class="page" id="page-engine">
-  <a class="wbcta" href="workbench/index.html?wb=1" target="_blank" rel="noopener">
-    <span class="wbcta-i">🛠</span>
-    <span class="wbcta-t"><b>엔진 작업대 열기</b><i>값을 만지고 게이트를 본다 — 만드는 것 · 굴리는 것 · 보이는 것 · 파는 것</i></span>
-    <span class="wbcta-go">열기 →</span></a>
-  <div class="stats">
-    <div class="stat"><div class="stt"><div class="stv">148</div></div><div class="stl">엔진 모듈</div><div class="sts">workbench 53 · core 50 · render 34 · data 7 · root 3 · room 1</div></div>
-    <div class="stat"><div class="stt"><div class="stv">60<span class="stsm">/148</span></div></div><div class="stl">게임이 실제로 쓰는 모듈</div><div class="sts">엔진 내부용 57 · 복제본에 가려짐 14 · 미사용 16</div></div>
-    <div class="stat"><div class="stt"><div class="stv">73%</div></div><div class="stl">엔진 소유 (평균)</div><div class="sts">게임 2개 · 참조로 쓰는 비율</div></div>
-    <div class="stat"><div class="stt"><div class="stv">0</div></div><div class="stl">회수 가능</div><div class="sts">내용 동일한 복제본 · 분기 31</div></div>
-  </div>
-  <div class="factline">엔진 — base 모듈 148 · 두 갈래로 갈린 것 31 (복제 0 · 분기 31)</div>
-  <section class="sec"><div class="sech"><h2>게임별 이관 상태</h2><span class="secsub">참조 = 엔진이 소유 · 복제 = 지금 회수 가능 · 분기 = 병합 필요 · 고유 = 정상</span></div><div class="ecards"><div class="ecard">
-      <div class="ech">
-        <b>JjimjilbangTycoon</b>
-        <span class="eown t-ok">엔진 소유 65%</span>
-      </div>
-      <div class="ebar"><i class="eb-own" style="width:38.1%" title="참조 — 엔진이 소유 — 40개"></i><i class="eb-fork" style="width:21.0%" title="분기 — 내용이 갈라짐, 병합 필요 — 22개"></i><i class="eb-uniq" style="width:41.0%" title="고유 — 이 게임에만 (정상) — 43개"></i></div>
-      <div class="elegend">
-        <span><i class="eb-own"></i>참조 40</span>
-        <span><i class="eb-clone"></i>복제 0</span>
-        <span title="거의같음 = 미세 병합이면 회수 · 부분 = 병합 필요 · 다른물건 = 게임 정체성이거나 이름만 겹침"><i class="eb-fork"></i>분기 22<em class="ebands">거의같음 1 · 부분 9 · 다른물건 12</em></span>
-        <span><i class="eb-uniq"></i>고유 43</span>
-      </div>
-      <div class="egates">
-        <span class="chip done">밸런스 계약 걸림</span>
-        <span class="chip done">눈검증 리포트 있음</span>
-        <span class="chip off">테스트 185</span>
-      </div>
-    </div><div class="ecard">
-      <div class="ech">
-        <b>PCAlbaSimulator</b>
-        <span class="eown t-ok">엔진 소유 81%</span>
-      </div>
-      <div class="ebar"><i class="eb-own" style="width:45.9%" title="참조 — 엔진이 소유 — 39개"></i><i class="eb-fork" style="width:10.6%" title="분기 — 내용이 갈라짐, 병합 필요 — 9개"></i><i class="eb-uniq" style="width:43.5%" title="고유 — 이 게임에만 (정상) — 37개"></i></div>
-      <div class="elegend">
-        <span><i class="eb-own"></i>참조 39</span>
-        <span><i class="eb-clone"></i>복제 0</span>
-        <span title="거의같음 = 미세 병합이면 회수 · 부분 = 병합 필요 · 다른물건 = 게임 정체성이거나 이름만 겹침"><i class="eb-fork"></i>분기 9<em class="ebands">거의같음 0 · 부분 0 · 다른물건 9</em></span>
-        <span><i class="eb-uniq"></i>고유 37</span>
-      </div>
-      <div class="egates">
-        <span class="chip off">밸런스 계약 없음</span>
-        <span class="chip done">눈검증 리포트 있음</span>
-        <span class="chip off">테스트 241</span>
-      </div>
-    </div></div></section>
-  <section class="sec"><div class="sech"><h2>엔진 소비자 — 바꾸면 여기가 다 깨진다</h2><span class="secsub"><b class="t-warn">base 가 검사 뒤에 바뀌었다 — 다시 돌려라</b> · <code>node studio/tools/check-base-consumers.mjs</code></span></div><table class="etab"><thead><tr><th>프로젝트</th><th>갈래</th><th>타입검사</th></tr></thead><tbody><tr><td class="ptl"><code>JjimjilbangTycoon</code></td><td class="c-lang">게임</td><td><span class="chip done">통과</span></td></tr><tr><td class="ptl"><code>PCAlbaSimulator</code></td><td class="c-lang">게임</td><td><span class="chip done">통과</span></td></tr><tr><td class="ptl"><code>studio/factories/tycoon/meshy-poc</code></td><td class="c-lang">툴</td><td><span class="chip done">통과</span></td></tr></tbody></table>
-      <div class="emore">엔진에서 export 를 빼거나 시그니처를 바꿨으면 <b>여기 나온 곳을 전부</b> 고쳐야 한다.
-      게임만 보고 넘기면 툴이 조용히 죽는다 — 2026-08-10 에 기물 굽기가 그렇게 멈춰 있었다.</div></section>
-  <section class="sec"><div class="sech"><h2>엔진 모듈 — 실제로 쓰이나</h2><span class="secsub">모듈이 있다는 것과 게임을 굴린다는 것은 다르다. 상태별로 묶었다</span></div><div class="mstate">
-        <div class="msh"><i class="msdot live"></i><b>게임이 쓴다</b><span class="msn">60</span><span class="mswhy">@base 로 import — 고치면 전 게임에 간다</span></div>
-        <div class="mschips"><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon">core/adjacency</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon, PCAlbaSimulator">core/analytics</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon">core/autoLayout</code><code class="mchip live" title="쓰는 게임: PCAlbaSimulator">core/cameraPolicy</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon">core/contract</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon, PCAlbaSimulator">core/dayclock</code><code class="mchip live" title="쓰는 게임: PCAlbaSimulator">core/demand</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon">core/depth</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon, PCAlbaSimulator">core/expansion</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon">core/exterior</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon">core/floorTint</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon, PCAlbaSimulator">core/floors</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon">core/i18n</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon, PCAlbaSimulator">core/iso</code><code class="mchip live" title="쓰는 게임: PCAlbaSimulator">core/ledger</code><code class="mchip live" title="쓰는 게임: PCAlbaSimulator">core/loyalty</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon">core/occupancy</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon">core/placeholderSpec</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon, PCAlbaSimulator">core/placement</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon">core/queue</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon">core/reach</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon, PCAlbaSimulator">core/rotate</code><code class="mchip live" title="쓰는 게임: PCAlbaSimulator">core/seed</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon, PCAlbaSimulator">core/settings</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon, PCAlbaSimulator">core/store</code><code class="mchip live" title="쓰는 게임: PCAlbaSimulator">core/taskQueue</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon">core/tutorial</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon, PCAlbaSimulator">core/types</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon, PCAlbaSimulator">data/characters</code><code class="mchip live" title="쓰는 게임: PCAlbaSimulator">data/facilities</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon, PCAlbaSimulator">data/fonts</code><code class="mchip live" title="쓰는 게임: PCAlbaSimulator">data/npcSpec</code><code class="mchip live" title="쓰는 게임: PCAlbaSimulator">data/sfx</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon, PCAlbaSimulator">data/tokens</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon">render/AdjacencyHint</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon">render/Coachmark</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon">render/DebugOverlay</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon, PCAlbaSimulator">render/Dialog</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon, PCAlbaSimulator">render/ExteriorLayer</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon, PCAlbaSimulator">render/MotionLab</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon, PCAlbaSimulator">render/SettingsScene</code><code class="mchip live" title="쓰는 게임: PCAlbaSimulator">render/SettleCard</code><code class="mchip live" title="쓰는 게임: PCAlbaSimulator">render/StoryScene</code><code class="mchip live" title="쓰는 게임: PCAlbaSimulator">render/TitleScene</code><code class="mchip live" title="쓰는 게임: PCAlbaSimulator">render/Toast</code><code class="mchip live" title="쓰는 게임: PCAlbaSimulator">render/audio</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon, PCAlbaSimulator">render/cjkWrap</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon, PCAlbaSimulator">render/gameButton</code><code class="mchip live" title="쓰는 게임: PCAlbaSimulator">render/hudKit</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon">render/motion</code><code class="mchip live" title="쓰는 게임: PCAlbaSimulator">render/npc</code><code class="mchip live" title="쓰는 게임: PCAlbaSimulator">render/pageKit</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon">render/shadowGeom</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon">render/shadowSpec</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon">render/shadows</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon">render/transition</code><code class="mchip live" title="쓰는 게임: JjimjilbangTycoon">render/uiAudit</code><code class="mchip live" title="쓰는 게임: PCAlbaSimulator">render/worker</code><code class="mchip live" title="쓰는 게임: PCAlbaSimulator">render/workerPlan</code><code class="mchip live" title="쓰는 게임: PCAlbaSimulator">room/RoomScene</code></div>
-      </div><div class="mstate">
-        <div class="msh"><i class="msdot tested"></i><b>테스트만 쓴다</b><span class="msn">1</span><span class="mswhy">검사는 걸려 있지만 게임 코드엔 아직 배선 안 됨</span></div>
-        <div class="mschips"><code class="mchip tested" title="테스트만: JjimjilbangTycoon">core/balanceContract</code></div>
-      </div><div class="mstate">
-        <div class="msh"><i class="msdot shadowed"></i><b>복제본에 가려짐</b><span class="msn">14</span><span class="mswhy">게임이 같은 이름의 자기 파일을 쓴다 — 엔진 개선이 안 닿는다</span></div>
-        <div class="mschips"><code class="mchip shadowed" title="게임이 같은 이름의 자기 파일을 쓴다 — 엔진 개선이 안 닿는다">core/ads</code><code class="mchip shadowed" title="엔진이 쓴다: render/npc, render/worker">core/path</code><code class="mchip shadowed" title="게임이 같은 이름의 자기 파일을 쓴다 — 엔진 개선이 안 닿는다">core/unlock</code><code class="mchip shadowed" title="엔진이 쓴다: render/npc">core/upgrade</code><code class="mchip shadowed" title="엔진이 쓴다: workbench/panels/room">core/walls</code><code class="mchip shadowed" title="게임이 같은 이름의 자기 파일을 쓴다 — 엔진 개선이 안 닿는다">data/stages</code><code class="mchip shadowed" title="게임이 같은 이름의 자기 파일을 쓴다 — 엔진 개선이 안 닿는다">lib</code><code class="mchip shadowed" title="게임이 같은 이름의 자기 파일을 쓴다 — 엔진 개선이 안 닿는다">main</code><code class="mchip shadowed" title="엔진이 쓴다: main, render/UIScene">render/GameScene</code><code class="mchip shadowed" title="엔진이 쓴다: render/TitleScene">render/MoreGamesScene</code><code class="mchip shadowed" title="엔진이 쓴다: main, render/GameScene">render/UIScene</code><code class="mchip shadowed" title="엔진이 쓴다: render/MoreGamesScene">render/promoCatalog</code><code class="mchip shadowed" title="엔진이 쓴다: render/ExteriorLayer, render/GameScene, render/npc, render/worker, room/RoomScene">render/textures</code><code class="mchip shadowed" title="게임이 같은 이름의 자기 파일을 쓴다 — 엔진 개선이 안 닿는다">room-lib</code></div>
-      </div><div class="mstate">
-        <div class="msh"><i class="msdot internal"></i><b>엔진 안에서 쓴다</b><span class="msn">57</span><span class="mswhy">게임이 아니라 엔진 자신이 쓴다 — 작업대·내부 유틸. 죽은 코드가 아니다</span></div>
-        <div class="mschips"><code class="mchip internal" title="엔진이 쓴다: core/store">core/connectivity</code><code class="mchip internal" title="엔진이 쓴다: render/ShowcaseScene">core/narrative</code><code class="mchip internal" title="엔진이 쓴다: render/ShowcaseScene, workbench/panels/retention">core/offline</code><code class="mchip internal" title="엔진이 쓴다: render/ShowcaseScene">core/speed</code><code class="mchip internal" title="엔진이 쓴다: render/ShowcaseScene">core/stats</code><code class="mchip internal" title="엔진이 쓴다: render/npc">core/weightedPick</code><code class="mchip internal" title="엔진이 쓴다: render/ShowcaseScene">render/SaveBadge</code><code class="mchip internal" title="엔진이 쓴다: main">render/ShowcaseScene</code><code class="mchip internal" title="엔진이 쓴다: render/npc, render/worker">render/npcPlan</code><code class="mchip internal" title="엔진이 쓴다: render/ShowcaseScene">render/numberFx</code><code class="mchip internal" title="엔진이 쓴다: workbench/WorkbenchScene, workbench/index">workbench/Dashboard</code><code class="mchip internal" title="엔진이 쓴다: workbench/Dashboard">workbench/PanelBoundary</code><code class="mchip internal" title="엔진이 쓴다: workbench/index">workbench/WorkbenchScene</code><code class="mchip internal" title="엔진이 쓴다: workbench/Dashboard, workbench/index, workbench/panels/dayclock, workbench/panels/economy, workbench/panels/event, workbench/panels/exterior, workbench/panels/fixture, workbench/panels/guest, workbench/panels/motion, workbench/panels/retention, workbench/panels/revenue, workbench/panels/room, workbench/panels/shell, workbench/panels/sound, workbench/panels/staff, workbench/panels/text">workbench/gates</code><code class="mchip internal" title="엔진이 쓴다: main">workbench/index</code><code class="mchip internal" title="엔진이 쓴다: workbench/panels/registerViews">workbench/panels/ExteriorView</code><code class="mchip internal" title="엔진이 쓴다: workbench/panels/registerViews">workbench/panels/FeelViews</code><code class="mchip internal" title="엔진이 쓴다: workbench/panels/registerViews">workbench/panels/FixtureCheck</code><code class="mchip internal" title="엔진이 쓴다: workbench/panels/registerViews">workbench/panels/FixtureView</code><code class="mchip internal" title="엔진이 쓴다: workbench/panels/registerViews">workbench/panels/GuestView</code><code class="mchip internal" title="엔진이 쓴다: workbench/panels/registerViews">workbench/panels/Insights</code><code class="mchip internal" title="엔진이 쓴다: workbench/panels/registerViews">workbench/panels/RunViews</code><code class="mchip internal" title="엔진이 쓴다: workbench/panels/registerViews">workbench/panels/SoundView</code><code class="mchip internal" title="엔진이 쓴다: workbench/index, workbench/panels/FeelViews, workbench/panels/RunViews, workbench/panels/retention, workbench/panels/revenue">workbench/panels/dayclock</code><code class="mchip internal" title="엔진이 쓴다: workbench/index, workbench/panels/RunViews">workbench/panels/economy</code><code class="mchip internal" title="엔진이 쓴다: workbench/index, workbench/panels/RunViews">workbench/panels/event</code><code class="mchip internal" title="엔진이 쓴다: workbench/index, workbench/panels/ExteriorView">workbench/panels/exterior</code><code class="mchip internal" title="엔진이 쓴다: workbench/index">workbench/panels/fixture</code><code class="mchip internal" title="엔진이 쓴다: workbench/index, workbench/panels/registerViews">workbench/panels/guest</code><code class="mchip internal" title="엔진이 쓴다: workbench/index, workbench/panels/FeelViews">workbench/panels/motion</code><code class="mchip internal" title="엔진이 쓴다: workbench/index">workbench/panels/registerViews</code><code class="mchip internal" title="엔진이 쓴다: workbench/index, workbench/panels/RunViews">workbench/panels/retention</code><code class="mchip internal" title="엔진이 쓴다: workbench/index, workbench/panels/FeelViews">workbench/panels/revenue</code><code class="mchip internal" title="엔진이 쓴다: workbench/index, workbench/panels/registerViews">workbench/panels/room</code><code class="mchip internal" title="엔진이 쓴다: workbench/index, workbench/panels/FeelViews">workbench/panels/shell</code><code class="mchip internal" title="엔진이 쓴다: workbench/index, workbench/panels/Insights, workbench/panels/SoundView">workbench/panels/sound</code><code class="mchip internal" title="엔진이 쓴다: workbench/index">workbench/panels/staff</code><code class="mchip internal" title="엔진이 쓴다: workbench/index, workbench/panels/FeelViews">workbench/panels/text</code><code class="mchip internal" title="엔진이 쓴다: workbench/Dashboard, workbench/index">workbench/registry</code><code class="mchip internal" title="엔진이 쓴다: workbench/Dashboard, workbench/WorkbenchScene, workbench/index, workbench/view">workbench/tuning</code><code class="mchip internal" title="엔진이 쓴다: workbench/Dashboard, workbench/WorkbenchScene, workbench/gates, workbench/index, workbench/panels/dayclock, workbench/panels/economy, workbench/panels/event, workbench/panels/exterior, workbench/panels/fixture, workbench/panels/guest, workbench/panels/motion, workbench/panels/retention, workbench/panels/revenue, workbench/panels/room, workbench/panels/shell, workbench/panels/sound, workbench/panels/staff, workbench/panels/text, workbench/registry, workbench/tuning, workbench/view">workbench/types</code><code class="mchip internal" title="엔진이 쓴다: workbench/Dashboard, workbench/panels/FixtureCheck, workbench/panels/FixtureView, workbench/panels/GuestView">workbench/ui/badge</code><code class="mchip internal" title="엔진이 쓴다: workbench/Dashboard">workbench/ui/breadcrumb</code><code class="mchip internal" title="엔진이 쓴다: workbench/Dashboard, workbench/panels/SoundView, workbench/ui/sidebar">workbench/ui/button</code><code class="mchip internal" title="엔진이 쓴다: workbench/Dashboard">workbench/ui/card</code><code class="mchip internal" title="엔진이 쓴다: workbench/panels/FeelViews, workbench/panels/Insights, workbench/panels/RunViews">workbench/ui/chart</code><code class="mchip internal" title="엔진이 쓴다: workbench/Dashboard, workbench/panels/ExteriorView, workbench/panels/FeelViews, workbench/panels/FixtureCheck, workbench/panels/FixtureView, workbench/panels/GuestView, workbench/panels/RunViews, workbench/panels/SoundView, workbench/ui/alert, workbench/ui/badge, workbench/ui/breadcrumb, workbench/ui/button, workbench/ui/card, workbench/ui/chart, workbench/ui/dropdown-menu, workbench/ui/input, workbench/ui/progress, workbench/ui/scroll-area, workbench/ui/separator, workbench/ui/sheet, workbench/ui/sidebar, workbench/ui/skeleton, workbench/ui/slider, workbench/ui/table, workbench/ui/tabs, workbench/ui/tooltip">workbench/ui/cn</code><code class="mchip internal" title="엔진이 쓴다: workbench/ui/sidebar">workbench/ui/hooks/use-mobile</code><code class="mchip internal" title="엔진이 쓴다: workbench/Dashboard, workbench/ui/sidebar">workbench/ui/input</code><code class="mchip internal" title="엔진이 쓴다: workbench/Dashboard">workbench/ui/scroll-area</code><code class="mchip internal" title="엔진이 쓴다: workbench/ui/sidebar">workbench/ui/separator</code><code class="mchip internal" title="엔진이 쓴다: workbench/ui/sidebar">workbench/ui/sheet</code><code class="mchip internal" title="엔진이 쓴다: workbench/ui/sidebar">workbench/ui/skeleton</code><code class="mchip internal" title="엔진이 쓴다: workbench/Dashboard">workbench/ui/slider</code><code class="mchip internal" title="엔진이 쓴다: workbench/Dashboard">workbench/ui/tabs</code><code class="mchip internal" title="엔진이 쓴다: workbench/Dashboard, workbench/ui/sidebar">workbench/ui/tooltip</code><code class="mchip internal" title="엔진이 쓴다: workbench/Dashboard, workbench/WorkbenchScene, workbench/index, workbench/panels/ExteriorView, workbench/panels/FeelViews, workbench/panels/FixtureCheck, workbench/panels/FixtureView, workbench/panels/GuestView, workbench/panels/Insights, workbench/panels/RunViews, workbench/panels/SoundView, workbench/panels/guest, workbench/panels/registerViews, workbench/panels/room">workbench/view</code></div>
-      </div><div class="mstate">
-        <div class="msh"><i class="msdot unused"></i><b>아무도 안 부른다</b><span class="msn">16</span><span class="mswhy">게임도 엔진도 안 쓴다. 배럴에만 있는 것은 <b>만들어 놓고 배선을 안 한 기능</b>이다</span></div>
-        <div class="mschips"><code class="mchip unused" title="배럴(lib)엔 있는데 부르는 곳이 없다 — 배선 안 된 기능">core/achievements<i class="mwire">배선안됨</i></code><code class="mchip unused" title="배럴(lib)엔 있는데 부르는 곳이 없다 — 배선 안 된 기능">core/dailyReward<i class="mwire">배선안됨</i></code><code class="mchip unused" title="배럴(lib)엔 있는데 부르는 곳이 없다 — 배선 안 된 기능">core/discovery<i class="mwire">배선안됨</i></code><code class="mchip unused" title="배럴(lib)엔 있는데 부르는 곳이 없다 — 배선 안 된 기능">core/eventHost<i class="mwire">배선안됨</i></code><code class="mchip unused" title="배럴(lib)엔 있는데 부르는 곳이 없다 — 배선 안 된 기능">core/events<i class="mwire">배선안됨</i></code><code class="mchip unused" title="배럴(lib)엔 있는데 부르는 곳이 없다 — 배선 안 된 기능">core/newsletter<i class="mwire">배선안됨</i></code><code class="mchip unused" title="배럴(lib)엔 있는데 부르는 곳이 없다 — 배선 안 된 기능">core/prestige<i class="mwire">배선안됨</i></code><code class="mchip unused" title="배럴(lib)엔 있는데 부르는 곳이 없다 — 배선 안 된 기능">core/push<i class="mwire">배선안됨</i></code><code class="mchip unused" title="배럴(lib)엔 있는데 부르는 곳이 없다 — 배선 안 된 기능">core/reputation<i class="mwire">배선안됨</i></code><code class="mchip unused" title="배럴(lib)엔 있는데 부르는 곳이 없다 — 배선 안 된 기능">core/research<i class="mwire">배선안됨</i></code><code class="mchip unused" title="게임도 엔진도 안 쓴다. 배럴에만 있는 것은 &lt;b&gt;만들어 놓고 배선을 안 한 기능&lt;/b&gt;이다">workbench/ui/alert</code><code class="mchip unused" title="게임도 엔진도 안 쓴다. 배럴에만 있는 것은 &lt;b&gt;만들어 놓고 배선을 안 한 기능&lt;/b&gt;이다">workbench/ui/collapsible</code><code class="mchip unused" title="게임도 엔진도 안 쓴다. 배럴에만 있는 것은 &lt;b&gt;만들어 놓고 배선을 안 한 기능&lt;/b&gt;이다">workbench/ui/dropdown-menu</code><code class="mchip unused" title="게임도 엔진도 안 쓴다. 배럴에만 있는 것은 &lt;b&gt;만들어 놓고 배선을 안 한 기능&lt;/b&gt;이다">workbench/ui/progress</code><code class="mchip unused" title="게임도 엔진도 안 쓴다. 배럴에만 있는 것은 &lt;b&gt;만들어 놓고 배선을 안 한 기능&lt;/b&gt;이다">workbench/ui/sidebar</code><code class="mchip unused" title="게임도 엔진도 안 쓴다. 배럴에만 있는 것은 &lt;b&gt;만들어 놓고 배선을 안 한 기능&lt;/b&gt;이다">workbench/ui/table</code></div>
-      </div></section>
-  <section class="sec"><div class="sech"><h2>지금 회수할 수 있는 것</h2><span class="secsub">내용이 base 와 같다 — <code>@base/…</code> import 로 바꾸면 끝난다</span></div><div class="empty"><b>회수할 복제본 없음</b><span>겹치는 모듈이 전부 참조이거나 이미 갈라졌다</span></div></section>
-  <section class="sec"><div class="sech"><h2>이미 갈라진 것</h2><span class="secsub"><b>같은 정도</b>가 성격을 가른다 — 거의같음=미세 병합 · 부분=병합 필요 · <b>다른물건=게임 정체성이거나 이름만 겹침(합칠 게 아니다)</b></span></div><table class="etab"><thead><tr><th>모듈</th><th>게임</th><th class="num">줄</th><th class="num">base</th><th>같은 정도</th></tr></thead><tbody><tr><td class="ptl"><code>render/GameScene</code></td><td class="c-lang">JjimjilbangTycoon</td><td class="num">4054</td><td class="num">702</td><td><span class="t-danger">16% 다른물건</span></td></tr><tr><td class="ptl"><code>render/GameScene</code></td><td class="c-lang">PCAlbaSimulator</td><td class="num">2028</td><td class="num">702</td><td><span class="t-danger">1% 다른물건</span></td></tr><tr><td class="ptl"><code>render/UIScene</code></td><td class="c-lang">JjimjilbangTycoon</td><td class="num">1337</td><td class="num">289</td><td><span class="t-danger">15% 다른물건</span></td></tr><tr><td class="ptl"><code>data/facilities</code></td><td class="c-lang">JjimjilbangTycoon</td><td class="num">1400</td><td class="num">730</td><td><span class="t-danger">30% 다른물건</span></td></tr><tr><td class="ptl"><code>data/facilities</code></td><td class="c-lang">PCAlbaSimulator</td><td class="num">210</td><td class="num">730</td><td><span class="t-danger">2% 다른물건</span></td></tr><tr><td class="ptl"><code>render/npc</code></td><td class="c-lang">JjimjilbangTycoon</td><td class="num">1603</td><td class="num">2090</td><td><span class="t-danger">32% 다른물건</span></td></tr><tr><td class="ptl"><code>core/ads</code></td><td class="c-lang">JjimjilbangTycoon</td><td class="num">31</td><td class="num">305</td><td><span class="t-danger">2% 다른물건</span></td></tr><tr><td class="ptl"><code>core/settings</code></td><td class="c-lang">PCAlbaSimulator</td><td class="num">47</td><td class="num">329</td><td><span class="t-danger">3% 다른물건</span></td></tr><tr><td class="ptl"><code>room/RoomScene</code></td><td class="c-lang">JjimjilbangTycoon</td><td class="num">681</td><td class="num">852</td><td><span class="t-warn">83% 부분</span></td></tr><tr><td class="ptl"><code>data/stages</code></td><td class="c-lang">PCAlbaSimulator</td><td class="num">138</td><td class="num">34</td><td><span class="t-danger">7% 다른물건</span></td></tr><tr><td class="ptl"><code>render/UIScene</code></td><td class="c-lang">PCAlbaSimulator</td><td class="num">330</td><td class="num">289</td><td><span class="t-danger">2% 다른물건</span></td></tr><tr><td class="ptl"><code>render/SettleCard</code></td><td class="c-lang">JjimjilbangTycoon</td><td class="num">483</td><td class="num">598</td><td><span class="t-warn">69% 부분</span></td></tr><tr><td class="ptl"><code>lib</code></td><td class="c-lang">JjimjilbangTycoon</td><td class="num">22</td><td class="num">90</td><td><span class="t-danger">19% 다른물건</span></td></tr><tr><td class="ptl"><code>core/upgrade</code></td><td class="c-lang">JjimjilbangTycoon</td><td class="num">111</td><td class="num">179</td><td><span class="t-danger">28% 다른물건</span></td></tr></tbody></table><div class="emore">전체 31개 중 차이 큰 것 14개</div></section>
-</section>
-<section class="page" id="page-art">
-  <header class="ph"><div class="phl"><div class="pht"><h1>아트</h1></div>
-    <div class="phs">3D 에셋이 <b>게임에서 실제로 렌더된 모습</b> — 굽기 결과물이다(GLB 아님). 흐릿한 칸은 아직 2D.</div></div></header>
-  <div class="stats">
-    <div class="stat"><div class="stt"><div class="stv">1343</div></div><div class="stl">3D 파생 스프라이트</div><div class="sts">Meshy 굽기 산출물 · 전 게임</div></div>
-    <div class="stat"><div class="stt"><div class="stv">123</div></div><div class="stl">금고 GLB 원본</div><div class="sts">~/.dgl-meshy/models · 없으면 재굽기 불가</div></div>
-    <div class="stat"><div class="stt"><div class="stv">828</div></div><div class="stl">아직 2D (화면에 쓰임)</div><div class="sts">로고·UI 처럼 원래 2D 인 것도 포함</div></div>
-    <div class="stat"><div class="stt"><div class="stv">2<span class="stsm">/4</span></div></div><div class="stl">3D 를 쓰는 게임</div><div class="sts">JjimjilbangTycoon · MergeStampede · PCAlbaSimulator · SquishBloom</div></div>
-  </div>
-  <div class="factline">판정은 게이트와 같은 규칙이다 — <code>node studio/tools/check-art-3d.mjs</code></div>
-  <details class="acard" open>
-      <summary class="ach">
-        <b>JjimjilbangTycoon</b>
-        <span class="a3d">3D 230<em>/428</em> · 54%</span>
-        <span class="aflat">아직 2D 164</span>
-        <span class="adead">잔재 34</span>
-      </summary>
-      <details class="acat" open>
-        <summary>기물 <em>32</em></summary><div class="agrid"><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/facilities/jj_arcade_r0.png" alt="jj_arcade">
-          <figcaption><b>jj_arcade</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/facilities/jj_barber_r0.png" alt="jj_barber">
-          <figcaption><b>jj_barber</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/facilities/jj_bath_r0.png" alt="jj_bath">
-          <figcaption><b>jj_bath</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/facilities/jj_cold_bath_r0.png" alt="jj_cold_bath">
-          <figcaption><b>jj_cold_bath</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/facilities/jj_comics_r0.png" alt="jj_comics">
-          <figcaption><b>jj_comics</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/facilities/jj_counter_r0.png" alt="jj_counter">
-          <figcaption><b>jj_counter</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/facilities/jj_diner_r0.png" alt="jj_diner">
-          <figcaption><b>jj_diner</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/facilities/jj_grand_sauna_r0.png" alt="jj_grand_sauna">
-          <figcaption><b>jj_grand_sauna</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/facilities/jj_guest_f.png" alt="jj_guest_f">
-          <figcaption><b>jj_guest_f</b><i>21장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/facilities/jj_guest_m.png" alt="jj_guest_m">
-          <figcaption><b>jj_guest_m</b><i>21장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/facilities/jj_ice_room_r0.png" alt="jj_ice_room">
-          <figcaption><b>jj_ice_room</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/facilities/jj_kids_r0.png" alt="jj_kids">
-          <figcaption><b>jj_kids</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/facilities/jj_kiln_r0.png" alt="jj_kiln">
-          <figcaption><b>jj_kiln</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/facilities/jj_lazy_river_r0.png" alt="jj_lazy_river">
-          <figcaption><b>jj_lazy_river</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/facilities/jj_locker_r0.png" alt="jj_locker">
-          <figcaption><b>jj_locker</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/facilities/jj_massage_chair_r0.png" alt="jj_massage_chair">
-          <figcaption><b>jj_massage_chair</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/facilities/jj_massage_room_r0.png" alt="jj_massage_room">
-          <figcaption><b>jj_massage_room</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/facilities/jj_outdoor_bath_r0.png" alt="jj_outdoor_bath">
-          <figcaption><b>jj_outdoor_bath</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/facilities/jj_pcroom_r0.png" alt="jj_pcroom">
-          <figcaption><b>jj_pcroom</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/facilities/jj_salt_kiln_r0.png" alt="jj_salt_kiln">
-          <figcaption><b>jj_salt_kiln</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/facilities/jj_scrub_r0.png" alt="jj_scrub">
-          <figcaption><b>jj_scrub</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/facilities/jj_shoe_r0.png" alt="jj_shoe">
-          <figcaption><b>jj_shoe</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/facilities/jj_sikhye_r0.png" alt="jj_sikhye">
-          <figcaption><b>jj_sikhye</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/facilities/jj_sleep_r0.png" alt="jj_sleep">
-          <figcaption><b>jj_sleep</b><i>4장</i></figcaption>
-          </figure></div><div class="emore">32개 중 24개 — 나머지는 <code>check-art-3d.mjs</code></div></details><details class="acat">
-        <summary>캐릭터 <em>6</em></summary><div class="agrid"><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/art/chars/aunt.png" alt="aunt">
-          <figcaption><b>aunt</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/chars/char_aunt.png" alt="char_aunt">
-          <figcaption><b>char_aunt</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/chars/char_me.png" alt="char_me">
-          <figcaption><b>char_me</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/chars/char_regular.png" alt="char_regular">
-          <figcaption><b>char_regular</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/art/chars/me.png" alt="me">
-          <figcaption><b>me</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/art/chars/regular.png" alt="regular">
-          <figcaption><b>regular</b></figcaption>
-          </figure></div></details><details class="acat">
-        <summary>방·구조 <em>33</em></summary><div class="agrid"><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/art/building/base.png" alt="base">
-          <figcaption><b>base</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/floor/dry_0.png" alt="dry_0">
-          <figcaption><b>dry_0</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/floor/dry_1.png" alt="dry_1">
-          <figcaption><b>dry_1</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/partition/dry_l.png" alt="dry_l">
-          <figcaption><b>dry_l</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/partition/dry_r.png" alt="dry_r">
-          <figcaption><b>dry_r</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/floor/entrymat_0.png" alt="entrymat_0">
-          <figcaption><b>entrymat_0</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/floor/entrymat_1.png" alt="entrymat_1">
-          <figcaption><b>entrymat_1</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/art/building/facade.png" alt="facade">
-          <figcaption><b>facade</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/building/facade_base_r.png" alt="facade_base_r">
-          <figcaption><b>facade_base_r</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/building/facade_l.png" alt="facade_l">
-          <figcaption><b>facade_l</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/building/facade_mid_l.png" alt="facade_mid_l">
-          <figcaption><b>facade_mid_l</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/art/building/facade_plain.png" alt="facade_plain">
-          <figcaption><b>facade_plain</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/building/facade_r.png" alt="facade_r">
-          <figcaption><b>facade_r</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/floor/food_0.png" alt="food_0">
-          <figcaption><b>food_0</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/floor/food_1.png" alt="food_1">
-          <figcaption><b>food_1</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/partition/food_l.png" alt="food_l">
-          <figcaption><b>food_l</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/partition/food_r.png" alt="food_r">
-          <figcaption><b>food_r</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/floor/heat_0.png" alt="heat_0">
-          <figcaption><b>heat_0</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/floor/heat_1.png" alt="heat_1">
-          <figcaption><b>heat_1</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/partition/heat_l.png" alt="heat_l">
-          <figcaption><b>heat_l</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/partition/heat_r.png" alt="heat_r">
-          <figcaption><b>heat_r</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/floor/path_0.png" alt="path_0">
-          <figcaption><b>path_0</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/floor/path_1.png" alt="path_1">
-          <figcaption><b>path_1</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/partition/rest_l.png" alt="rest_l">
-          <figcaption><b>rest_l</b></figcaption>
-          </figure></div><div class="emore">33개 중 24개 — 나머지는 <code>check-art-3d.mjs</code></div></details><details class="acat">
-        <summary>바깥 부지 <em>18</em></summary><div class="agrid"><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/exterior/asphalt_0.png" alt="asphalt_0">
-          <figcaption><b>asphalt_0</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/exterior/asphalt_1.png" alt="asphalt_1">
-          <figcaption><b>asphalt_1</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/exterior/curb_0.png" alt="curb_0">
-          <figcaption><b>curb_0</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/exterior/curb_1.png" alt="curb_1">
-          <figcaption><b>curb_1</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/exterior-props/jj_bench_r0.png" alt="jj_bench">
-          <figcaption><b>jj_bench</b><i>4장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/exterior-props/jj_neighbor_a_r0.png" alt="jj_neighbor_a">
-          <figcaption><b>jj_neighbor_a</b><i>4장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/exterior-props/jj_neighbor_b_r0.png" alt="jj_neighbor_b">
-          <figcaption><b>jj_neighbor_b</b><i>4장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/exterior-props/jj_neighbor_c_r0.png" alt="jj_neighbor_c">
-          <figcaption><b>jj_neighbor_c</b><i>4장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/exterior-props/jj_neighbor_d_r0.png" alt="jj_neighbor_d">
-          <figcaption><b>jj_neighbor_d</b><i>4장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/exterior-props/jj_neighbor_e_r0.png" alt="jj_neighbor_e">
-          <figcaption><b>jj_neighbor_e</b><i>4장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/exterior-props/jj_planter_r0.png" alt="jj_planter">
-          <figcaption><b>jj_planter</b><i>4장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/exterior-props/jj_signboard_r0.png" alt="jj_signboard">
-          <figcaption><b>jj_signboard</b><i>4장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/exterior-props/jj_streetlight_r0.png" alt="jj_streetlight">
-          <figcaption><b>jj_streetlight</b><i>4장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/exterior-props/jj_streettree_r0.png" alt="jj_streettree">
-          <figcaption><b>jj_streettree</b><i>4장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/exterior/lawn_0.png" alt="lawn_0">
-          <figcaption><b>lawn_0</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/exterior/lawn_1.png" alt="lawn_1">
-          <figcaption><b>lawn_1</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/exterior/sidewalk_0.png" alt="sidewalk_0">
-          <figcaption><b>sidewalk_0</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/assets/exterior/sidewalk_1.png" alt="sidewalk_1">
-          <figcaption><b>sidewalk_1</b></figcaption>
-          </figure></div></details><details class="acat">
-        <summary>UI <em>12</em></summary><div class="agrid"><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/art/ui/badge_stage.png" alt="badge_stage">
-          <figcaption><b>badge_stage</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/art/ui/hero_title.png" alt="hero_title">
-          <figcaption><b>hero_title</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/art/ui/icon_guest.png" alt="icon_guest">
-          <figcaption><b>icon_guest</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/art/ui/icon_money.png" alt="icon_money">
-          <figcaption><b>icon_money</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/icon-180.png" alt="icon-180">
-          <figcaption><b>icon-180</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/icon-192.png" alt="icon-192">
-          <figcaption><b>icon-192</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/public/icon-32.png" alt="icon-32">
-          <figcaption><b>icon-32</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/app/assets/icon-only.png" alt="icon-only">
-          <figcaption><b>icon-only</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/art/logo/logo.png" alt="logo">
-          <figcaption><b>logo</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/art/ui/ui_button.png" alt="ui_button">
-          <figcaption><b>ui_button</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/art/ui/ui_button_aqua.png" alt="ui_button_aqua">
-          <figcaption><b>ui_button_aqua</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/art/ui/ui_panel.png" alt="ui_panel">
-          <figcaption><b>ui_panel</b><i>2장</i></figcaption>
-          </figure></div></details><details class="acat">
-        <summary>기타 <em>51</em></summary><div class="agrid"><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/tools/guides/box_1x1_low.png" alt="box_1x1_low">
-          <figcaption><b>box_1x1_low</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/tools/guides/box_1x1_medium.png" alt="box_1x1_medium">
-          <figcaption><b>box_1x1_medium</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/tools/guides/box_1x1_tall.png" alt="box_1x1_tall">
-          <figcaption><b>box_1x1_tall</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/tools/guides/box_1x1_xtall.png" alt="box_1x1_xtall">
-          <figcaption><b>box_1x1_xtall</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/tools/guides/box_1x2_low.png" alt="box_1x2_low">
-          <figcaption><b>box_1x2_low</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/tools/guides/box_1x2_medium.png" alt="box_1x2_medium">
-          <figcaption><b>box_1x2_medium</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/tools/guides/box_1x2_tall.png" alt="box_1x2_tall">
-          <figcaption><b>box_1x2_tall</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/tools/guides/box_1x2_xtall.png" alt="box_1x2_xtall">
-          <figcaption><b>box_1x2_xtall</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/tools/guides/box_2x1_low.png" alt="box_2x1_low">
-          <figcaption><b>box_2x1_low</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/tools/guides/box_2x1_medium.png" alt="box_2x1_medium">
-          <figcaption><b>box_2x1_medium</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/tools/guides/box_2x1_tall.png" alt="box_2x1_tall">
-          <figcaption><b>box_2x1_tall</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/tools/guides/box_2x1_xtall.png" alt="box_2x1_xtall">
-          <figcaption><b>box_2x1_xtall</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/tools/guides/box_2x2_low.png" alt="box_2x2_low">
-          <figcaption><b>box_2x2_low</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/tools/guides/box_2x2_medium.png" alt="box_2x2_medium">
-          <figcaption><b>box_2x2_medium</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/tools/guides/box_2x2_tall.png" alt="box_2x2_tall">
-          <figcaption><b>box_2x2_tall</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/tools/guides/box_2x2_xtall.png" alt="box_2x2_xtall">
-          <figcaption><b>box_2x2_xtall</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/tools/guides/box_2x3_low.png" alt="box_2x3_low">
-          <figcaption><b>box_2x3_low</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/tools/guides/box_2x3_medium.png" alt="box_2x3_medium">
-          <figcaption><b>box_2x3_medium</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/tools/guides/box_2x3_tall.png" alt="box_2x3_tall">
-          <figcaption><b>box_2x3_tall</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/tools/guides/box_2x3_xtall.png" alt="box_2x3_xtall">
-          <figcaption><b>box_2x3_xtall</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/tools/guides/box_3x2_low.png" alt="box_3x2_low">
-          <figcaption><b>box_3x2_low</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/tools/guides/box_3x2_medium.png" alt="box_3x2_medium">
-          <figcaption><b>box_3x2_medium</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/tools/guides/box_3x2_tall.png" alt="box_3x2_tall">
-          <figcaption><b>box_3x2_tall</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../JjimjilbangTycoon/tools/guides/box_3x2_xtall.png" alt="box_3x2_xtall">
-          <figcaption><b>box_3x2_xtall</b></figcaption>
-          </figure></div><div class="emore">51개 중 24개 — 나머지는 <code>check-art-3d.mjs</code></div></details>
-    </details><details class="acard">
-      <summary class="ach">
-        <b>MergeStampede</b>
-        <span class="a3d">3D 0<em>/78</em> · 0%</span>
-        <span class="aflat">아직 2D 78</span>
-        
-      </summary>
-      <details class="acat">
-        <summary>UI <em>13</em></summary><div class="agrid"><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/badge-lose.png" alt="badge-lose">
-          <figcaption><b>badge-lose</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/badge-win.png" alt="badge-win">
-          <figcaption><b>badge-win</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/prototype/assets/icon-192.png" alt="icon-192">
-          <figcaption><b>icon-192</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/prototype/assets/icon-512.png" alt="icon-512">
-          <figcaption><b>icon-512</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/app/assets/icon-background.png" alt="icon-background">
-          <figcaption><b>icon-background</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/icon-coin.png" alt="icon-coin">
-          <figcaption><b>icon-coin</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/app/assets/icon-foreground.png" alt="icon-foreground">
-          <figcaption><b>icon-foreground</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/app/assets/icon-only.png" alt="icon-only">
-          <figcaption><b>icon-only</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/icon-pool-battle.png" alt="icon-pool-battle">
-          <figcaption><b>icon-pool-battle</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/icon-pool-formation.png" alt="icon-pool-formation">
-          <figcaption><b>icon-pool-formation</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/icon-pool-merge.png" alt="icon-pool-merge">
-          <figcaption><b>icon-pool-merge</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/icon-pool-rule.png" alt="icon-pool-rule">
-          <figcaption><b>icon-pool-rule</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/logo/logo.png" alt="logo">
-          <figcaption><b>logo</b><i>2장</i></figcaption>
-          </figure></div></details><details class="acat">
-        <summary>기타 <em>29</em></summary><div class="agrid"><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/animal-chicken-1.png" alt="animal-chicken-1">
-          <figcaption><b>animal-chicken-1</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/animal-chicken-2.png" alt="animal-chicken-2">
-          <figcaption><b>animal-chicken-2</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/animal-chicken-3.png" alt="animal-chicken-3">
-          <figcaption><b>animal-chicken-3</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/animal-chicken-4.png" alt="animal-chicken-4">
-          <figcaption><b>animal-chicken-4</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/animal-chicken-5.png" alt="animal-chicken-5">
-          <figcaption><b>animal-chicken-5</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/animal-duck-1.png" alt="animal-duck-1">
-          <figcaption><b>animal-duck-1</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/animal-duck-2.png" alt="animal-duck-2">
-          <figcaption><b>animal-duck-2</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/animal-duck-3.png" alt="animal-duck-3">
-          <figcaption><b>animal-duck-3</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/animal-duck-4.png" alt="animal-duck-4">
-          <figcaption><b>animal-duck-4</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/animal-duck-5.png" alt="animal-duck-5">
-          <figcaption><b>animal-duck-5</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/animal-pig-1.png" alt="animal-pig-1">
-          <figcaption><b>animal-pig-1</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/animal-pig-2.png" alt="animal-pig-2">
-          <figcaption><b>animal-pig-2</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/animal-pig-3.png" alt="animal-pig-3">
-          <figcaption><b>animal-pig-3</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/animal-pig-4.png" alt="animal-pig-4">
-          <figcaption><b>animal-pig-4</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/animal-pig-5.png" alt="animal-pig-5">
-          <figcaption><b>animal-pig-5</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/animal-sheep-1.png" alt="animal-sheep-1">
-          <figcaption><b>animal-sheep-1</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/animal-sheep-2.png" alt="animal-sheep-2">
-          <figcaption><b>animal-sheep-2</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/animal-sheep-3.png" alt="animal-sheep-3">
-          <figcaption><b>animal-sheep-3</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/animal-sheep-4.png" alt="animal-sheep-4">
-          <figcaption><b>animal-sheep-4</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/animal-sheep-5.png" alt="animal-sheep-5">
-          <figcaption><b>animal-sheep-5</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/bg-barn.png" alt="bg-barn">
-          <figcaption><b>bg-barn</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/prototype/assets/dgl-splash.png" alt="dgl-splash">
-          <figcaption><b>dgl-splash</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/enemy-goblin.png" alt="enemy-goblin">
-          <figcaption><b>enemy-goblin</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../MergeStampede/art/src/enemy-goblinking.png" alt="enemy-goblinking">
-          <figcaption><b>enemy-goblinking</b><i>2장</i></figcaption>
-          </figure></div><div class="emore">29개 중 24개 — 나머지는 <code>check-art-3d.mjs</code></div></details>
-    </details><details class="acard">
-      <summary class="ach">
-        <b>PCAlbaSimulator</b>
-        <span class="a3d">3D 1113<em>/1744</em> · 64%</span>
-        <span class="aflat">아직 2D 586</span>
-        <span class="adead">잔재 45</span>
-      </summary>
-      <details class="acat">
-        <summary>기물 <em>76</em></summary><div class="agrid"><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/public/assets/facilities/aircon_stand_r0.png" alt="aircon_stand">
-          <figcaption><b>aircon_stand</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/base/auto_clean.png" alt="auto_clean">
-          <figcaption><b>auto_clean</b><i>2장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/base/auto_drink.png" alt="auto_drink">
-          <figcaption><b>auto_drink</b><i>2장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/base/auto_fix.png" alt="auto_fix">
-          <figcaption><b>auto_fix</b><i>2장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/base/auto_ramen.png" alt="auto_ramen">
-          <figcaption><b>auto_ramen</b><i>2장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/base/counter.png" alt="counter">
-          <figcaption><b>counter</b><i>2장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/base/counter_t2.png" alt="counter_t2">
-          <figcaption><b>counter_t2</b><i>2장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/base/counter_t3.png" alt="counter_t3">
-          <figcaption><b>counter_t3</b><i>2장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/base/counter_t4.png" alt="counter_t4">
-          <figcaption><b>counter_t4</b><i>2장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/base/display_case.png" alt="display_case">
-          <figcaption><b>display_case</b><i>2장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/base/door_wall.png" alt="door_wall">
-          <figcaption><b>door_wall</b><i>2장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/base/door_wall_t2.png" alt="door_wall_t2">
-          <figcaption><b>door_wall_t2</b><i>2장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/base/door_wall_t3.png" alt="door_wall_t3">
-          <figcaption><b>door_wall_t3</b><i>2장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/base/door_wall_t4.png" alt="door_wall_t4">
-          <figcaption><b>door_wall_t4</b><i>2장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/base/drink_machine.png" alt="drink_machine">
-          <figcaption><b>drink_machine</b><i>2장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/base/drink_t2.png" alt="drink_t2">
-          <figcaption><b>drink_t2</b><i>2장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/base/drink_t3.png" alt="drink_t3">
-          <figcaption><b>drink_t3</b><i>2장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/base/drink_t4.png" alt="drink_t4">
-          <figcaption><b>drink_t4</b><i>2장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/public/assets/facilities/pc_gaming_r0.png" alt="pc_gaming">
-          <figcaption><b>pc_gaming</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/base/pc_seat.png" alt="pc_seat">
-          <figcaption><b>pc_seat</b><i>2장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/base/pc_seat_occ_broken_office.png" alt="pc_seat_occ_broken_office">
-          <figcaption><b>pc_seat_occ_broken_office</b><i>2장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/base/pc_seat_occ_broken_owner.png" alt="pc_seat_occ_broken_owner">
-          <figcaption><b>pc_seat_occ_broken_owner</b><i>2장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/base/pc_seat_occ_broken_student.png" alt="pc_seat_occ_broken_student">
-          <figcaption><b>pc_seat_occ_broken_student</b><i>2장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/base/pc_seat_occ_clean_office.png" alt="pc_seat_occ_clean_office">
-          <figcaption><b>pc_seat_occ_clean_office</b><i>2장</i></figcaption>
-          </figure></div><div class="emore">76개 중 24개 — 나머지는 <code>check-art-3d.mjs</code></div></details><details class="acat">
-        <summary>캐릭터 <em>61</em></summary><div class="agrid"><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-alba-carry.webp" alt="char-alba-carry">
-          <figcaption><b>char-alba-carry</b></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-alba-doyun-d90-w0.webp" alt="char-alba-doyun">
-          <figcaption><b>char-alba-doyun</b><i>64장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-alba-doyun-carry.webp" alt="char-alba-doyun-carry">
-          <figcaption><b>char-alba-doyun-carry</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-alba-doyun-idle.webp" alt="char-alba-doyun-idle">
-          <figcaption><b>char-alba-doyun-idle</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-alba-doyun-walk-w0.webp" alt="char-alba-doyun-walk">
-          <figcaption><b>char-alba-doyun-walk</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-alba-haneul-d90-w0.webp" alt="char-alba-haneul">
-          <figcaption><b>char-alba-haneul</b><i>64장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-alba-haneul-carry.webp" alt="char-alba-haneul-carry">
-          <figcaption><b>char-alba-haneul-carry</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-alba-haneul-idle.webp" alt="char-alba-haneul-idle">
-          <figcaption><b>char-alba-haneul-idle</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-alba-haneul-walk-w0.webp" alt="char-alba-haneul-walk">
-          <figcaption><b>char-alba-haneul-walk</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-alba-hyunwoo-d90-w0.webp" alt="char-alba-hyunwoo">
-          <figcaption><b>char-alba-hyunwoo</b><i>64장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-alba-hyunwoo-carry.webp" alt="char-alba-hyunwoo-carry">
-          <figcaption><b>char-alba-hyunwoo-carry</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-alba-hyunwoo-idle.webp" alt="char-alba-hyunwoo-idle">
-          <figcaption><b>char-alba-hyunwoo-idle</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-alba-hyunwoo-walk-w0.webp" alt="char-alba-hyunwoo-walk">
-          <figcaption><b>char-alba-hyunwoo-walk</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-alba-jihyun-d90-w0.webp" alt="char-alba-jihyun">
-          <figcaption><b>char-alba-jihyun</b><i>68장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-alba-jihyun-carry.webp" alt="char-alba-jihyun-carry">
-          <figcaption><b>char-alba-jihyun-carry</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-alba-jihyun-idle.webp" alt="char-alba-jihyun-idle">
-          <figcaption><b>char-alba-jihyun-idle</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-alba-jihyun-walk-w0.webp" alt="char-alba-jihyun-walk">
-          <figcaption><b>char-alba-jihyun-walk</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-alba-junseo-d90-w0.webp" alt="char-alba-junseo">
-          <figcaption><b>char-alba-junseo</b><i>64장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-alba-junseo-carry.webp" alt="char-alba-junseo-carry">
-          <figcaption><b>char-alba-junseo-carry</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-alba-junseo-idle.webp" alt="char-alba-junseo-idle">
-          <figcaption><b>char-alba-junseo-idle</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-alba-junseo-walk-w0.webp" alt="char-alba-junseo-walk">
-          <figcaption><b>char-alba-junseo-walk</b><i>4장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-alba-minsu-d90-w0.webp" alt="char-alba-minsu">
-          <figcaption><b>char-alba-minsu</b><i>64장</i></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-alba-seoyeon-d90-w0.webp" alt="char-alba-seoyeon">
-          <figcaption><b>char-alba-seoyeon</b><i>64장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-alba-seoyeon-carry.webp" alt="char-alba-seoyeon-carry">
-          <figcaption><b>char-alba-seoyeon-carry</b></figcaption>
-          </figure></div><div class="emore">61개 중 24개 — 나머지는 <code>check-art-3d.mjs</code></div></details><details class="acat">
-        <summary>초상 <em>13</em></summary><div class="agrid"><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-alba-idle.webp" alt="char-alba-idle">
-          <figcaption><b>char-alba-idle</b></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-boss.webp" alt="char-boss">
-          <figcaption><b>char-boss</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/char-uncle.webp" alt="char-uncle">
-          <figcaption><b>char-uncle</b></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/staff/doyun.png" alt="doyun">
-          <figcaption><b>doyun</b></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/staff/haneul.png" alt="haneul">
-          <figcaption><b>haneul</b></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/staff/hyunwoo.png" alt="hyunwoo">
-          <figcaption><b>hyunwoo</b></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/staff/jihyun.png" alt="jihyun">
-          <figcaption><b>jihyun</b></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/staff/junseo.png" alt="junseo">
-          <figcaption><b>junseo</b></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/staff/minsu.png" alt="minsu">
-          <figcaption><b>minsu</b></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/staff/seoyeon.png" alt="seoyeon">
-          <figcaption><b>seoyeon</b></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/staff/subin.png" alt="subin">
-          <figcaption><b>subin</b></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/staff/taeho.png" alt="taeho">
-          <figcaption><b>taeho</b></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/staff/yujin.png" alt="yujin">
-          <figcaption><b>yujin</b></figcaption>
-          </figure></div></details><details class="acat">
-        <summary>방·구조 <em>8</em></summary><div class="agrid"><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/art/floor/grey_check.png" alt="grey_check">
-          <figcaption><b>grey_check</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/art/wall/shop-blue.png" alt="shop-blue">
-          <figcaption><b>shop-blue</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/art/wall/shop-cream.png" alt="shop-cream">
-          <figcaption><b>shop-cream</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/art/wall/shop-green.png" alt="shop-green">
-          <figcaption><b>shop-green</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/art/floor/t1_worn.png" alt="t1_worn">
-          <figcaption><b>t1_worn</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/art/floor/t2_clean.png" alt="t2_clean">
-          <figcaption><b>t2_clean</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/art/floor/t3_bright.png" alt="t3_bright">
-          <figcaption><b>t3_bright</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/art/floor/t4_dark.png" alt="t4_dark">
-          <figcaption><b>t4_dark</b></figcaption>
-          </figure></div></details><details class="acat">
-        <summary>바깥 부지 <em>18</em></summary><div class="agrid"><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/public/assets/exterior/asphalt_0.png" alt="asphalt_0">
-          <figcaption><b>asphalt_0</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/public/assets/exterior/asphalt_1.png" alt="asphalt_1">
-          <figcaption><b>asphalt_1</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/public/assets/exterior/curb_0.png" alt="curb_0">
-          <figcaption><b>curb_0</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/public/assets/exterior/curb_1.png" alt="curb_1">
-          <figcaption><b>curb_1</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/public/assets/exterior-props/jj_bench_r0.png" alt="jj_bench">
-          <figcaption><b>jj_bench</b><i>4장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/public/assets/exterior-props/jj_neighbor_a_r0.png" alt="jj_neighbor_a">
-          <figcaption><b>jj_neighbor_a</b><i>4장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/public/assets/exterior-props/jj_neighbor_b_r0.png" alt="jj_neighbor_b">
-          <figcaption><b>jj_neighbor_b</b><i>4장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/public/assets/exterior-props/jj_neighbor_c_r0.png" alt="jj_neighbor_c">
-          <figcaption><b>jj_neighbor_c</b><i>4장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/public/assets/exterior-props/jj_neighbor_d_r0.png" alt="jj_neighbor_d">
-          <figcaption><b>jj_neighbor_d</b><i>4장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/public/assets/exterior-props/jj_neighbor_e_r0.png" alt="jj_neighbor_e">
-          <figcaption><b>jj_neighbor_e</b><i>4장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/public/assets/exterior-props/jj_planter_r0.png" alt="jj_planter">
-          <figcaption><b>jj_planter</b><i>4장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/public/assets/exterior-props/jj_signboard_r0.png" alt="jj_signboard">
-          <figcaption><b>jj_signboard</b><i>4장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/public/assets/exterior-props/jj_streetlight_r0.png" alt="jj_streetlight">
-          <figcaption><b>jj_streetlight</b><i>4장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/public/assets/exterior-props/jj_streettree_r0.png" alt="jj_streettree">
-          <figcaption><b>jj_streettree</b><i>4장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/public/assets/exterior/lawn_0.png" alt="lawn_0">
-          <figcaption><b>lawn_0</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/public/assets/exterior/lawn_1.png" alt="lawn_1">
-          <figcaption><b>lawn_1</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/public/assets/exterior/sidewalk_0.png" alt="sidewalk_0">
-          <figcaption><b>sidewalk_0</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/public/assets/exterior/sidewalk_1.png" alt="sidewalk_1">
-          <figcaption><b>sidewalk_1</b></figcaption>
-          </figure></div></details><details class="acat">
-        <summary>UI <em>27</em></summary><div class="agrid"><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/app-icon.png" alt="app-icon">
-          <figcaption><b>app-icon</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/hud-cleanliness.webp" alt="hud-cleanliness">
-          <figcaption><b>hud-cleanliness</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/art/tabs/hud-cog.png" alt="hud-cog">
-          <figcaption><b>hud-cog</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/hud-goal.webp" alt="hud-goal">
-          <figcaption><b>hud-goal</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/hud-money.webp" alt="hud-money">
-          <figcaption><b>hud-money</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/hud-pc.webp" alt="hud-pc">
-          <figcaption><b>hud-pc</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/hud-satisfaction.webp" alt="hud-satisfaction">
-          <figcaption><b>hud-satisfaction</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/hud-strike.webp" alt="hud-strike">
-          <figcaption><b>hud-strike</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/hud-time.webp" alt="hud-time">
-          <figcaption><b>hud-time</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/icon-192.png" alt="icon-192">
-          <figcaption><b>icon-192</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/icon-512.png" alt="icon-512">
-          <figcaption><b>icon-512</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/icon-req-clean.webp" alt="icon-req-clean">
-          <figcaption><b>icon-req-clean</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/icon-req-drink.webp" alt="icon-req-drink">
-          <figcaption><b>icon-req-drink</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/icon-req-fix.webp" alt="icon-req-fix">
-          <figcaption><b>icon-req-fix</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/icon-req-ramen.webp" alt="icon-req-ramen">
-          <figcaption><b>icon-req-ramen</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/icon-stat-grit.webp" alt="icon-stat-grit">
-          <figcaption><b>icon-stat-grit</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/icon-stat-move.webp" alt="icon-stat-move">
-          <figcaption><b>icon-stat-move</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/icon-stat-work.webp" alt="icon-stat-work">
-          <figcaption><b>icon-stat-work</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/art/logo/logo.png" alt="logo">
-          <figcaption><b>logo</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/art/logo/logo-en.png" alt="logo-en">
-          <figcaption><b>logo-en</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/art/logo/logo-id.png" alt="logo-id">
-          <figcaption><b>logo-id</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/art/logo/logo-ja.png" alt="logo-ja">
-          <figcaption><b>logo-ja</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/logo-symbol.webp" alt="logo-symbol">
-          <figcaption><b>logo-symbol</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/art/logo/logo-th.png" alt="logo-th">
-          <figcaption><b>logo-th</b><i>2장</i></figcaption>
-          </figure></div><div class="emore">27개 중 24개 — 나머지는 <code>check-art-3d.mjs</code></div></details><details class="acat">
-        <summary>기타 <em>152</em></summary><div class="agrid"><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/art/sprites/alba-walk/alba-walk.atlas.png" alt="alba-walk.atlas">
-          <figcaption><b>alba-walk.atlas</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/arrow-down.webp" alt="arrow-down">
-          <figcaption><b>arrow-down</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/arrow-up.webp" alt="arrow-up">
-          <figcaption><b>arrow-up</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/combos/auto_lane.png" alt="auto_lane">
-          <figcaption><b>auto_lane</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/bg-gameover.webp" alt="bg-gameover">
-          <figcaption><b>bg-gameover</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/bg-settlement.webp" alt="bg-settlement">
-          <figcaption><b>bg-settlement</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/bg-title.webp" alt="bg-title">
-          <figcaption><b>bg-title</b></figcaption>
-          </figure><figure class="acell">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/regulars/boss.png" alt="boss">
-          <figcaption><b>boss</b><i>2장</i></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/bubble-base.webp" alt="bubble-base">
-          <figcaption><b>bubble-base</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/ing/cheese.png" alt="cheese">
-          <figcaption><b>cheese</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/regulars/chef.png" alt="chef">
-          <figcaption><b>chef</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/chest.webp" alt="chest">
-          <figcaption><b>chest</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/regulars/clean.png" alt="clean">
-          <figcaption><b>clean</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/coin-mascot.webp" alt="coin-mascot">
-          <figcaption><b>coin-mascot</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/regulars/cola.png" alt="cola">
-          <figcaption><b>cola</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/regulars/crew.png" alt="crew">
-          <figcaption><b>crew</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/cutscene-intro.webp" alt="cutscene-intro">
-          <figcaption><b>cutscene-intro</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/cutscene-stage1.webp" alt="cutscene-stage1">
-          <figcaption><b>cutscene-stage1</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/cutscene-stage2.webp" alt="cutscene-stage2">
-          <figcaption><b>cutscene-stage2</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/cutscene-stage3.webp" alt="cutscene-stage3">
-          <figcaption><b>cutscene-stage3</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/cutscene-stage4.webp" alt="cutscene-stage4">
-          <figcaption><b>cutscene-stage4</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/cutscene-stage5.webp" alt="cutscene-stage5">
-          <figcaption><b>cutscene-stage5</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/dgl-splash.png" alt="dgl-splash">
-          <figcaption><b>dgl-splash</b></figcaption>
-          </figure><figure class="acell flat">
-          <img loading="lazy" decoding="async" src="../../PCAlbaSimulator/prototype/assets/drink-bubble.webp" alt="drink-bubble">
-          <figcaption><b>drink-bubble</b></figcaption>
-          </figure></div><div class="emore">152개 중 24개 — 나머지는 <code>check-art-3d.mjs</code></div></details>
-    </details>
-  </section>
 <section class="page" id="page-reference">
   <header class="ph"><div class="phl"><div class="pht"><h1>레퍼런스</h1></div><div class="phs">파이프라인 정의·스킬·커맨드·계약 — 참조용 (상시 화면에서 퇴출된 것들)</div></div></header>
   <section class="sec"><div class="sech"><h2>단계 구분</h2></div><div class="refsplit">
@@ -2472,7 +1516,7 @@ button.ctag:hover{background:var(--card-hover)}
   </div>
 </div>
 <footer class="footer">
-  <span>산출물 스캔 자동 감지 · 2026-08-16 12:11</span>
+  <span>산출물 스캔 자동 감지 · 2026-08-16 12:20</span>
   <code>node tools/dgl-status.js</code>
   <a href="#/reference" style="margin-left:auto">레퍼런스 →</a>
 </footer>
@@ -2545,8 +1589,6 @@ button.ctag:hover{background:var(--card-hover)}
     var m = h.match(/^#\/game\/([\w-]+)/);
     if (m) id = "game-" + m[1];
     else if (h.indexOf("#/marketing") === 0) id = "marketing";
-    else if (h.indexOf("#/engine") === 0) id = "engine";
-      else if (h.indexOf("#/art") === 0) id = "art";
     else if (h.indexOf("#/reference") === 0) id = "reference";
     if (!document.getElementById("page-" + id)) id = "home";
     document.querySelectorAll(".page").forEach(function (el) { el.classList.toggle("active", el.id === "page-" + id); });
