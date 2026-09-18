@@ -1,7 +1,7 @@
 {
- "_comment": "DGL 게임 카탈로그 SSOT — 크로스 프로모(게임 안 '다른 게임' 목록)와 게임 포털 웹사이트가 **둘 다 이 파일 하나**를 읽는다. 게임에 목록을 하드코딩하면 새 게임이 나올 때마다 출시된 게임들을 다시 빌드해야 하고, 그 게임들은 이미 스토어에 나가 있어 못 고친다. 그래서 목록은 여기 두고 `studio/tools/promo/sync.mjs` 가 각 게임 public/ 로 복사한다. 새 게임을 내면 여기에 한 줄 추가 + sync 한 번.",
+ "_comment": "DGL 게임 카탈로그 SSOT — 크로스 프로모(게임 안 '다른 게임' 목록)와 게임 포털 웹사이트가 **둘 다 이 파일 하나**를 읽는다. 게임에 목록을 하드코딩하면 새 게임이 나올 때마다 출시된 게임들을 다시 빌드해야 하고, 그 게임들은 이미 스토어에 나가 있어 못 고친다. 그래서 목록은 여기 두고 `core/tools/promo/sync.mjs` 가 각 게임 public/ 로 복사한다. 새 게임을 내면 여기에 한 줄 추가 + sync 한 번.",
  "_remoteNote": "★ 이 파일은 **원격으로도 서빙된다**(build-site.mjs 가 site/catalog.json 으로 복사). 게임은 켜질 때 catalogUrl 을 받아 캐시하고, version 이 번들보다 크면 그 목록을 쓴다 — 그래서 **이미 스토어에 나간 게임에도 새 게임이 뜬다**(재빌드·재제출 불필요). 받기 실패·오프라인이면 번들 목록으로 조용히 떨어진다. 새 게임을 추가하면 version 을 올리고 게임 포털을 다시 배포하면 끝.",
- "version": 1,
+ "version": 3,
  "catalogUrl": "https://qqq1212341.github.io/games/catalog.json",
  "_i18nNote": "★ 게임은 8로케일로 나간다([[dgl-i18n-standard]]). 이 목록만 한국어면 해외 유저에겐 읽을 수 없는 카드 3장이 뜬다. `i18n.<코드>` 가 있으면 그걸 쓰고 없으면 기본(한국어)으로 떨어진다 — 언어를 늘릴 땐 여기만 채우면 된다.",
  "brand": {
@@ -12,10 +12,87 @@
   "i18n": {
    "en": {
     "tagline": "Cozy idle tycoons you grow one tap at a time"
+   },
+   "ja": {
+    "tagline": "のんびり育てる放置タイクーン"
+   },
+   "zh-Hans": {
+    "tagline": "悠闲养成的放置经营游戏"
+   },
+   "zh-Hant": {
+    "tagline": "悠閒養成的放置經營遊戲"
+   },
+   "id": {
+    "tagline": "Tycoon idle santai yang tumbuh perlahan"
+   },
+   "th": {
+    "tagline": "เกมไอเดิลสร้างกิจการแบบสบาย ๆ"
+   },
+   "vi": {
+    "tagline": "Tycoon nhàn rỗi, thong thả gây dựng"
    }
   }
  },
  "_genreNote": "★ 타이쿤은 전부 부제가 '방치형 타이쿤'이다(사장님 2026-08-09). 시리즈로 읽혀야 다음 게임이 앞 게임 유저를 받는다 — 게임마다 장르 이름이 다르면 그냥 남남인 앱 3개다.",
+ "ui": {
+  "_note": "★ 이 화면의 버튼·배지 말. 소스가 아니라 카탈로그에 두는 이유 = 폰트 서브셋. fonts.js 는 게임 사전(locales/*.js)에 있는 글자만 굽는데, 이 말들은 사전에 없다 — 소스에 박아 두면 '其他遊戲' 같은 글자가 서브셋에서 빠져 화면이 두부(빈칸)가 된다(실측: 휴게소 zh-Hant 18자). 카탈로그에 두면 fonts.js 가 같이 읽어 글자가 자동으로 따라오고, 덤으로 원격 카탈로그만 바꿔 이미 출시된 빌드의 오타도 고칠 수 있다.",
+  "soon": "준비 중",
+  "back": "돌아가기",
+  "get": "받기",
+  "more": "다른 게임",
+  "genre": "방치형 타이쿤",
+  "i18n": {
+   "en": {
+    "soon": "Soon",
+    "back": "Back",
+    "get": "Get",
+    "more": "More games",
+    "genre": "Idle Tycoon"
+   },
+   "ja": {
+    "soon": "準備中",
+    "back": "戻る",
+    "get": "入手",
+    "more": "ほかのゲーム",
+    "genre": "放置タイクーン"
+   },
+   "zh-Hans": {
+    "soon": "准备中",
+    "back": "返回",
+    "get": "去下载",
+    "more": "其他游戏",
+    "genre": "放置经营"
+   },
+   "zh-Hant": {
+    "soon": "準備中",
+    "back": "返回",
+    "get": "去下載",
+    "more": "其他遊戲",
+    "genre": "放置經營"
+   },
+   "id": {
+    "soon": "Segera",
+    "back": "Kembali",
+    "get": "Unduh",
+    "more": "Game lain",
+    "genre": "Tycoon Idle"
+   },
+   "th": {
+    "soon": "เร็ว ๆ นี้",
+    "back": "กลับ",
+    "get": "ไปโหลด",
+    "more": "เกมอื่น",
+    "genre": "เกมไอเดิล"
+   },
+   "vi": {
+    "soon": "Sắp có",
+    "back": "Quay lại",
+    "get": "Tải về",
+    "more": "Trò chơi khác",
+    "genre": "Tycoon Nhàn Rỗi"
+   }
+  }
+ },
  "games": [
   {
    "slug": "pcbangalba",
@@ -32,6 +109,36 @@
      "title": "PC Cafe Tycoon",
      "subtitle": "Idle Tycoon",
      "hook": "Take over a dying internet cafe and grow it nationwide"
+    },
+    "ja": {
+     "title": "ネットカフェ育成",
+     "subtitle": "放置タイクーン",
+     "hook": "潰れかけの町のネットカフェを継いで全国区へ"
+    },
+    "zh-Hans": {
+     "title": "网吧养成记",
+     "subtitle": "放置经营",
+     "hook": "接手濒临倒闭的社区网吧，一路开到全国"
+    },
+    "zh-Hant": {
+     "title": "網咖養成記",
+     "subtitle": "放置經營",
+     "hook": "接手瀕臨倒閉的社區網咖，一路開到全國"
+    },
+    "id": {
+     "title": "Bangun Warnet",
+     "subtitle": "Tycoon Idle",
+     "hook": "Warisi warnet yang hampir bangkrut, besarkan sampai seluruh negeri"
+    },
+    "th": {
+     "title": "เปิดร้านเน็ต",
+     "subtitle": "เกมไอเดิล",
+     "hook": "รับช่วงร้านเน็ตเล็ก ๆ ที่กำลังจะเจ๊ง แล้วขยายให้ทั่วประเทศ"
+    },
+    "vi": {
+     "title": "Nuôi Quán Net",
+     "subtitle": "Tycoon Nhàn Rỗi",
+     "hook": "Tiếp quản quán net sắp phá sản và mở rộng ra cả nước"
     }
    },
    "links": {
@@ -56,30 +163,52 @@
      "title": "Korean Spa Tycoon",
      "subtitle": "Idle Tycoon",
      "hook": "Turn a tiny bathhouse into the nation's biggest spa land"
+    },
+    "ja": {
+     "title": "チムジルバン育成",
+     "subtitle": "放置タイクーン",
+     "hook": "町の銭湯を韓国最大のスパランドへ"
+    },
+    "zh-Hans": {
+     "title": "汗蒸幕养成记",
+     "subtitle": "放置经营",
+     "hook": "把社区澡堂做成韩国最大的水疗乐园"
+    },
+    "zh-Hant": {
+     "title": "汗蒸幕養成記",
+     "subtitle": "放置經營",
+     "hook": "把社區澡堂做成韓國最大的水療樂園"
+    },
+    "id": {
+     "title": "Bangun Sauna Korea",
+     "subtitle": "Tycoon Idle",
+     "hook": "Ubah pemandian kampung jadi spa terbesar se-Korea"
+    },
+    "th": {
+     "title": "เปิดจิมจิลบัง",
+     "subtitle": "เกมไอเดิล",
+     "hook": "เปลี่ยนโรงอาบน้ำเล็ก ๆ ให้เป็นสปาแลนด์ที่ใหญ่ที่สุดในเกาหลี"
+    },
+    "vi": {
+     "title": "Nuôi Spa Hàn Quốc",
+     "subtitle": "Tycoon Nhàn Rỗi",
+     "hook": "Biến nhà tắm công cộng thành spa lớn nhất Hàn Quốc"
     }
    },
    "links": {},
    "iconUrl": "https://qqq1212341.github.io/games/icons/jjimjilbang.png"
   },
   {
-   "slug": "reststop",
-   "repo": "RestStopTycoon",
-   "title": "휴게소 키우기",
-   "subtitle": "방치형 타이쿤",
-   "hook": "자판기 하나뿐인 쉼터를 전국 최고의 휴게소로",
-   "genre": "tycoon",
+   "slug": "toyfront",
+   "repo": "ToyFront",
+   "title": "장난감 전선",
+   "subtitle": "장난감 타워디펜스",
+   "hook": "밤이 되면 침대 밑에서 고장난 장난감이 기어 나온다",
+   "genre": "towerdefense",
    "status": "soon",
-   "icon": "icons/reststop.png",
-   "accent": "#3fa564",
-   "i18n": {
-    "en": {
-     "title": "Rest Stop Tycoon",
-     "subtitle": "Idle Tycoon",
-     "hook": "Grow a lone vending machine into the country's best rest area"
-    }
-   },
-   "links": {},
-   "iconUrl": "https://qqq1212341.github.io/games/icons/reststop.png"
+   "icon": "icons/toyfront.png",
+   "accent": "#ffb02e",
+   "iconUrl": "https://qqq1212341.github.io/games/icons/toyfront.png"
   }
  ]
 }
