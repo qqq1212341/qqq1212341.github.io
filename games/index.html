@@ -1,46 +1,153 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#121528" />
-  <meta name="description" content="Dumb Game Lab (DGL) is an independent game studio based in South Korea creating simple and entertaining mobile games." />
-  <meta name="author" content="Dumb Game Lab (덤게임랩)" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="DGL — Dumb Game Lab | Indie Game Studio" />
-  <meta property="og:description" content="Dumb Game Lab (DGL) is an independent game studio based in South Korea creating simple and entertaining mobile games." />
-  <meta property="og:site_name" content="Dumb Game Lab" />
-  <meta name="twitter:card" content="summary" />
-  <title>DGL — Dumb Game Lab | Indie Game Studio</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css" />
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Organization","name":"Dumb Game Lab","alternateName":["DGL","덤게임랩"],"description":"Independent mobile game development studio.","foundingDate":"2026","address":{"@type":"PostalAddress","addressLocality":"Gwacheon-si","addressRegion":"Gyeonggi-do","addressCountry":"KR"}}
-  </script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dumb Game Lab — 느긋하게 키우는 방치형 타이쿤</title>
+<meta name="description" content="Dumb Game Lab의 방치형 타이쿤 게임 모음. PC방 키우기 · 찜질방 키우기 · 휴게소 키우기" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Dumb Game Lab — 방치형 타이쿤" />
+<meta property="og:description" content="느긋하게 키우는 방치형 타이쿤" />
+<meta property="og:image" content="icons/pcbangalba.png" />
+<link rel="icon" href="icons/pcbangalba.png" />
+<style>
+  :root {
+    --bg: #fbf5e9;
+    --bg2: #f2e6cf;
+    --ink: #3d2a16;
+    --ink-soft: #7b6244;
+    --card: #ffffff;
+    --line: #e6d6b8;
+    --shadow: 0 10px 30px rgba(74, 47, 20, .10);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1611; --bg2: #241c15; --ink: #f4e7d2; --ink-soft: #b9a284;
+      --card: #2a211a; --line: #3d3128;
+      --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1c1611; --bg2: #241c15; --ink: #f4e7d2; --ink-soft: #b9a284;
+    --card: #2a211a; --line: #3d3128; --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  }
+  :root[data-theme="light"] {
+    --bg: #fbf5e9; --bg2: #f2e6cf; --ink: #3d2a16; --ink-soft: #7b6244;
+    --card: #ffffff; --line: #e6d6b8; --shadow: 0 10px 30px rgba(74, 47, 20, .10);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+    color: var(--ink);
+    background: linear-gradient(180deg, var(--bg2), var(--bg) 340px);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.55;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px 64px; }
+
+  header { padding: 64px 0 36px; text-align: center; }
+  .brand { font-size: clamp(30px, 7vw, 44px); font-weight: 800; letter-spacing: -.02em; margin: 0; }
+  .tagline { margin: 10px 0 0; color: var(--ink-soft); font-size: 15px; }
+  .count { margin: 22px 0 0; font-size: 13px; color: var(--ink-soft); }
+
+  .grid { display: grid; gap: 16px; }
+  .card {
+    display: grid;
+    grid-template-columns: 112px 1fr;
+    grid-template-areas: "icon body" "cta cta";
+    gap: 18px;
+    align-items: center;
+    padding: 20px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--accent);
+  }
+  /* ★ 링크를 옆 칸(auto)에 두지 않는다 — 스토어가 셋 달린 게임이 그 칸을 넓게 먹어
+   *   본문 열이 쥐어짜이고 한 줄에 두 글자씩 흐른다(실제로 PC방 카드가 그랬다).
+   *   버튼은 항상 아래 한 줄로 간다: 카드가 조금 길어질 뿐 폭은 무엇에도 안 밀린다. */
+  .card__icon { grid-area: icon; width: 112px; height: 112px; border-radius: 24px; object-fit: cover; display: block; }
+  .card__body { grid-area: body; min-width: 0; }
+  .card__cta { grid-area: cta; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 4px; }
+  .card__title { margin: 0; font-size: 21px; font-weight: 750; letter-spacing: -.01em; }
+  .card__genre {
+    margin: 4px 0 0; display: inline-block; font-size: 12px; font-weight: 600;
+    color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent);
+    padding: 2px 10px; border-radius: 999px;
+  }
+  .card__hook { margin: 10px 0 0; color: var(--ink-soft); font-size: 14px; }
+
+  .store {
+    display: inline-block; padding: 10px 16px; border-radius: 12px;
+    background: var(--accent); color: #fff; font-size: 14px; font-weight: 650;
+    text-decoration: none; white-space: nowrap;
+  }
+  .store:hover { filter: brightness(1.06); }
+  .store--web { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+  .soon {
+    display: inline-block; padding: 9px 15px; border-radius: 12px; white-space: nowrap;
+    border: 1.5px dashed var(--line); color: var(--ink-soft); font-size: 14px; font-weight: 600;
+  }
+
+  footer { margin-top: 44px; text-align: center; color: var(--ink-soft); font-size: 13px; }
+  footer a { color: inherit; }
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="Dumb Game Lab home"><span>DGL</span><small>Dumb Game Lab</small></a>
-    <nav aria-label="Main navigation"><a href="#games">Games</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+<div class="wrap">
+  <header>
+    <h1 class="brand">Dumb Game Lab</h1>
+    <p class="tagline">느긋하게 키우는 방치형 타이쿤</p>
+    <p class="count">타이쿤 3종 · 출시 1종</p>
   </header>
-  <main id="main">
-    <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="orb orb--one" aria-hidden="true"></div><div class="orb orb--two" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div>
-      <div class="hero__content">
-        <p class="eyebrow"><span class="dot"></span>Independent game studio · South Korea</p>
-        <p class="wordmark" aria-hidden="true">DGL</p>
-        <h1 id="hero-title">Small games.<br />Dumb ideas.<br /><em>Serious fun.</em></h1>
-        <p class="hero__copy">Dumb Game Lab is an independent game studio based in South Korea, creating simple and entertaining mobile games.</p>
-        <div class="actions"><a class="button button--dark" href="#games">Our Games <span aria-hidden="true">↓</span></a><a class="button button--light" href="#contact">Contact <span aria-hidden="true">↗</span></a></div>
-      </div><p class="hero__corner">Dumb Game Lab<br /><span>덤게임랩</span></p><a class="scroll-cue" href="#about" aria-label="Scroll to about">Scroll <i></i></a>
-    </section>
-    <section class="section section--about" id="about" aria-labelledby="about-title"><p class="section-label">01 / About</p><div class="about-grid"><h2 id="about-title">Dumb ideas<br />are worth trying.</h2><div><p class="lead">Dumb Game Lab (DGL) is an independent game development studio based in Gwacheon, South Korea.</p><p>We develop and publish mobile games with a focus on simple mechanics, approachable gameplay, and ideas that are fun to experiment with.</p><p class="korean-name">덤게임랩 <span>·</span> Dumb Game Lab</p></div></div></section>
-    <section class="section section--games" id="games" aria-labelledby="games-title"><div class="section-heading"><p class="section-label">02 / Games</p><h2 id="games-title">Made in the lab.</h2></div><div class="games-grid" id="games-grid" aria-live="polite"></div><template id="game-card-template"><article class="game-card"><div class="game-card__top"><img class="game-card__icon" alt="" width="72" height="72" /><span class="status"></span></div><h3></h3><p class="game-card__description"></p><p class="platform"></p><div class="game-card__links"></div></article></template><div class="empty-games" id="empty-games"><span class="empty-games__mark" aria-hidden="true">?</span><div><p class="section-label">IN PROGRESS</p><p>Games from DGL are on the way.</p></div></div></section>
-    <section class="section company" aria-labelledby="company-title"><div class="section-heading"><p class="section-label">03 / Company</p><h2 id="company-title">The useful details.</h2></div><dl class="company-grid"><div><dt>Company Name</dt><dd>Dumb Game Lab</dd></div><div><dt>Korean Name</dt><dd lang="ko">덤게임랩</dd></div><div><dt>Studio</dt><dd>DGL</dd></div><div><dt>Business</dt><dd>Mobile Game Software Development &amp; Publishing</dd></div><div><dt>Founded</dt><dd>2026</dd></div><div><dt>Location</dt><dd>Gwacheon-si, Gyeonggi-do,<br />Republic of Korea</dd></div></dl></section>
-    <section class="contact" id="contact" aria-labelledby="contact-title"><div><p class="section-label">04 / Contact</p><h2 id="contact-title">Talk to DGL.</h2><p>For game support, business inquiries, and other questions, contact us by email.</p></div><div class="contact__details"><p class="contact__types">Business inquiries<br />Game support</p><a class="contact__email" data-email href="#"><span data-email-label>Official email<br />to be configured</span><b aria-hidden="true">↗</b></a></div></section>
+
+  <main class="grid">
+      <article class="card" style="--accent:#3aa0ff">
+        <img class="card__icon" src="icons/pcbangalba.png" width="112" height="112"
+             alt="PC방 키우기 앱 아이콘" loading="lazy" />
+        <div class="card__body">
+          <h2 class="card__title">PC방 키우기</h2>
+          <p class="card__genre">방치형 타이쿤</p>
+          <p class="card__hook">망해가는 동네 PC방을 물려받아 골목에서 전국구로</p>
+        </div>
+        <div class="card__cta">
+          <a class="store store--ios" href="https://apps.apple.com/app/id6779939467" target="_blank" rel="noopener">App Store</a>
+          <a class="store store--play" href="https://play.google.com/store/apps/details?id=com.dumbgamelab.pcbangalba" target="_blank" rel="noopener">Google Play</a>
+          <a class="store store--web" href="https://qqq1212341.github.io/pcbang-alba-sim/" target="_blank" rel="noopener">웹에서 바로 하기</a>
+        </div>
+      </article>
+      <article class="card" style="--accent:#ff9a3c">
+        <img class="card__icon" src="icons/jjimjilbang.png" width="112" height="112"
+             alt="찜질방 키우기 앱 아이콘" loading="lazy" />
+        <div class="card__body">
+          <h2 class="card__title">찜질방 키우기</h2>
+          <p class="card__genre">방치형 타이쿤</p>
+          <p class="card__hook">동네 목욕탕을 대한민국 최대 스파랜드로</p>
+        </div>
+        <div class="card__cta">
+          <span class="soon">준비 중</span>
+        </div>
+      </article>
+      <article class="card" style="--accent:#3fa564">
+        <img class="card__icon" src="icons/reststop.png" width="112" height="112"
+             alt="휴게소 키우기 앱 아이콘" loading="lazy" />
+        <div class="card__body">
+          <h2 class="card__title">휴게소 키우기</h2>
+          <p class="card__genre">방치형 타이쿤</p>
+          <p class="card__hook">자판기 하나뿐인 쉼터를 전국 최고의 휴게소로</p>
+        </div>
+        <div class="card__cta">
+          <span class="soon">준비 중</span>
+        </div>
+      </article>
   </main>
-  <footer><a class="brand" href="#top"><span>DGL</span><small>Dumb Game Lab</small></a><p>© 2026 Dumb Game Lab. All rights reserved.</p><nav aria-label="Footer navigation"><a href="#games">Games</a><a href="#about">About</a><a href="#contact">Contact</a><a href="privacy.html">Privacy Policy</a></nav></footer>
-  <script src="site.config.js"></script><script src="site.js"></script>
+
+  <footer>
+    <p>© Dumb Game Lab</p>
+  </footer>
+</div>
 </body>
 </html>

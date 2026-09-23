@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://qqq1212341.github.io/games/sitemap.xml
