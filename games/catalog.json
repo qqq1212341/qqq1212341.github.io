@@ -1,7 +1,7 @@
 {
  "_comment": "DGL 게임 카탈로그 SSOT — 크로스 프로모(게임 안 '다른 게임' 목록)와 게임 포털 웹사이트가 **둘 다 이 파일 하나**를 읽는다. 게임에 목록을 하드코딩하면 새 게임이 나올 때마다 출시된 게임들을 다시 빌드해야 하고, 그 게임들은 이미 스토어에 나가 있어 못 고친다. 그래서 목록은 여기 두고 `core/tools/promo/sync.mjs` 가 각 게임 public/ 로 복사한다. 새 게임을 내면 여기에 한 줄 추가 + sync 한 번.",
  "_remoteNote": "★ 이 파일은 **원격으로도 서빙된다**(build-site.mjs 가 site/catalog.json 으로 복사). 게임은 켜질 때 catalogUrl 을 받아 캐시하고, version 이 번들보다 크면 그 목록을 쓴다 — 그래서 **이미 스토어에 나간 게임에도 새 게임이 뜬다**(재빌드·재제출 불필요). 받기 실패·오프라인이면 번들 목록으로 조용히 떨어진다. 새 게임을 추가하면 version 을 올리고 게임 포털을 다시 배포하면 끝.",
- "version": 9,
+ "version": 10,
  "catalogUrl": "https://qqq1212341.github.io/games/catalog.json",
  "_i18nNote": "★ 게임은 8로케일로 나간다([[dgl-i18n-standard]]). 이 목록만 한국어면 해외 유저에겐 읽을 수 없는 카드 3장이 뜬다. `i18n.<코드>` 가 있으면 그걸 쓰고 없으면 기본(한국어)으로 떨어진다 — 언어를 늘릴 땐 여기만 채우면 된다.",
  "brand": {
@@ -53,7 +53,8 @@
     "neighborEnter": "Enter a neighbor shop's code",
     "neighborAlready": "You've already entered this shop's code.",
     "neighborUnknown": "No shop has this code.",
-    "neighborFormat": "Check the 8-character code."
+    "neighborFormat": "Check the 8-character code.",
+    "beta": "Play early"
    },
    "ja": {
     "soon": "準備中",
@@ -65,7 +66,8 @@
     "neighborEnter": "となりのお店のコードを入力",
     "neighborAlready": "このお店のコードは入力済みです",
     "neighborUnknown": "そのお店コードは見つかりません",
-    "neighborFormat": "8文字のコードを確認してください"
+    "neighborFormat": "8文字のコードを確認してください",
+    "beta": "先行プレイ"
    },
    "zh-Hans": {
     "soon": "准备中",
@@ -77,7 +79,8 @@
     "neighborEnter": "填邻居店铺码",
     "neighborAlready": "这家店的店铺码已经填过了",
     "neighborUnknown": "没有这个店铺码",
-    "neighborFormat": "请核对8位店铺码"
+    "neighborFormat": "请核对8位店铺码",
+    "beta": "抢先试玩"
    },
    "zh-Hant": {
     "soon": "準備中",
@@ -89,7 +92,8 @@
     "neighborEnter": "填鄰居店鋪碼",
     "neighborAlready": "這家店的店鋪碼已經填過了",
     "neighborUnknown": "沒有這個店鋪碼",
-    "neighborFormat": "請確認8碼店鋪碼"
+    "neighborFormat": "請確認8碼店鋪碼",
+    "beta": "搶先試玩"
    },
    "id": {
     "soon": "Segera",
@@ -101,7 +105,8 @@
     "neighborEnter": "Masukkan kode toko tetangga",
     "neighborAlready": "Kode toko ini sudah kamu masukkan.",
     "neighborUnknown": "Kode toko ini tidak ada.",
-    "neighborFormat": "Periksa lagi kode 8 karakter."
+    "neighborFormat": "Periksa lagi kode 8 karakter.",
+    "beta": "Coba duluan"
    },
    "th": {
     "soon": "เร็ว ๆ นี้",
@@ -113,7 +118,8 @@
     "neighborEnter": "ใส่รหัสร้านเพื่อนบ้าน",
     "neighborAlready": "ใส่รหัสร้านนี้ไปแล้ว",
     "neighborUnknown": "ไม่มีร้านที่ใช้รหัสนี้",
-    "neighborFormat": "ตรวจสอบรหัส 8 ตัวอีกครั้ง"
+    "neighborFormat": "ตรวจสอบรหัส 8 ตัวอีกครั้ง",
+    "beta": "ลองเล่นก่อน"
    },
    "vi": {
     "soon": "Sắp có",
@@ -125,14 +131,16 @@
     "neighborEnter": "Nhập mã tiệm hàng xóm",
     "neighborAlready": "Bạn đã nhập mã của tiệm này rồi.",
     "neighborUnknown": "Không có tiệm nào dùng mã này.",
-    "neighborFormat": "Hãy kiểm tra lại mã 8 ký tự."
+    "neighborFormat": "Hãy kiểm tra lại mã 8 ký tự.",
+    "beta": "Chơi thử trước"
    }
   },
   "neighborMine": "내 가게 코드",
   "neighborEnter": "이웃 가게 코드 넣기",
   "neighborAlready": "이 가게 코드는 이미 넣었어요",
   "neighborUnknown": "없는 가게 코드예요",
-  "neighborFormat": "코드 8자리를 확인해 주세요"
+  "neighborFormat": "코드 8자리를 확인해 주세요",
+  "beta": "먼저 해 보기"
  },
  "games": [
   {
@@ -511,6 +519,31 @@
    "iconUrl": "https://qqq1212341.github.io/games/icons/bakerymerge.png",
    "shot": "shots/bakerymerge.webp",
    "shotUrl": "https://qqq1212341.github.io/games/shots/bakerymerge.webp"
+  },
+  {
+   "slug": "chichicamp",
+   "repo": "ChichiCamp",
+   "title": "치치의 숲속 캠프",
+   "subtitle": "모으고 만들고 꾸미는 캠프",
+   "hook": "매일 아침 동물 손님이 찾아와요. 부탁을 들어주고 가구를 만들어 숲속 캠프를 꾸며요.",
+   "genre": "others",
+   "status": "beta",
+   "icon": "icons/chichicamp.png",
+   "accent": "#5fa04e",
+   "i18n": {
+    "en": {
+     "title": "Chichi Camp",
+     "subtitle": "Gather, craft, decorate",
+     "hook": "Animal guests drop by every morning. Fill their requests, craft furniture and make the forest camp your own."
+    }
+   },
+   "links": {
+    "beta": "https://groups.google.com/g/dumbgamelab-beta"
+   },
+   "iconUrl": "https://qqq1212341.github.io/games/icons/chichicamp.png",
+   "shot": "shots/chichicamp.webp",
+   "shotUrl": "https://qqq1212341.github.io/games/shots/chichicamp.webp",
+   "_beta": "출시 전 베타(core/docs/closed-beta/README.md) — 링크는 테스터 풀 구글 그룹. 스토어에 나가면 status 를 released 로, links 를 play/ios 로 바꾼다"
   }
  ],
  "_xpromoNote": "★ 크로스 프로모 귀속·하우스 광고·카메오·이웃 가게 코드(엔진 core/xpromo). brand.applePt = App Store 캠페인 링크 제공자 토큰. games[].code = 이웃 가게 코드 앞 2글자(가게마다 유일). games[].shot = 하우스 광고 실플레이 그림(번들) · shotUrl = 원격. cameoName/cameoRole = 다른 게임 정산에 들르는 그 게임 주민."
