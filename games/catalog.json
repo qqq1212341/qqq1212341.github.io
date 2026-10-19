@@ -1,7 +1,7 @@
 {
  "_comment": "DGL 게임 카탈로그 SSOT — 크로스 프로모(게임 안 '다른 게임' 목록)와 게임 포털 웹사이트가 **둘 다 이 파일 하나**를 읽는다. 게임에 목록을 하드코딩하면 새 게임이 나올 때마다 출시된 게임들을 다시 빌드해야 하고, 그 게임들은 이미 스토어에 나가 있어 못 고친다. 그래서 목록은 여기 두고 `core/tools/promo/sync.mjs` 가 각 게임 public/ 로 복사한다. 새 게임을 내면 여기에 한 줄 추가 + sync 한 번.",
  "_remoteNote": "★ 이 파일은 **원격으로도 서빙된다**(build-site.mjs 가 site/catalog.json 으로 복사). 게임은 켜질 때 catalogUrl 을 받아 캐시하고, version 이 번들보다 크면 그 목록을 쓴다 — 그래서 **이미 스토어에 나간 게임에도 새 게임이 뜬다**(재빌드·재제출 불필요). 받기 실패·오프라인이면 번들 목록으로 조용히 떨어진다. 새 게임을 추가하면 version 을 올리고 게임 포털을 다시 배포하면 끝.",
- "version": 8,
+ "version": 9,
  "catalogUrl": "https://qqq1212341.github.io/games/catalog.json",
  "_i18nNote": "★ 게임은 8로케일로 나간다([[dgl-i18n-standard]]). 이 목록만 한국어면 해외 유저에겐 읽을 수 없는 카드 3장이 뜬다. `i18n.<코드>` 가 있으면 그걸 쓰고 없으면 기본(한국어)으로 떨어진다 — 언어를 늘릴 땐 여기만 채우면 된다.",
  "brand": {
@@ -457,6 +457,60 @@
    "iconUrl": "https://qqq1212341.github.io/games/icons/bakerydash.png",
    "shot": "shots/bakerydash.webp",
    "shotUrl": "https://qqq1212341.github.io/games/shots/bakerydash.webp"
+  },
+  {
+   "slug": "bakerymerge",
+   "repo": "Bakerymerge",
+   "title": "치치의 빵 합치기",
+   "subtitle": "빵을 합쳐 주문받고 가게를 고쳐요",
+   "hook": "같은 빵 둘을 합쳐 더 큰 빵으로. 손님 주문을 채워서 낡은 동네 빵집을 새로 고쳐요.",
+   "genre": "others",
+   "status": "released",
+   "icon": "icons/bakerymerge.png",
+   "accent": "#e9954a",
+   "i18n": {
+    "en": {
+     "title": "Chichi's Cozy Merge Games",
+     "subtitle": "Fill orders, fix up your shop",
+     "hook": "Merge matching breads, fill orders, and fix up a run-down neighborhood bakery."
+    },
+    "ja": {
+     "title": "チーチーのパン屋ゲーム",
+     "subtitle": "パンを合成して注文に応え、お店を直そう",
+     "hook": "同じパンを二つ合わせて、大きなパンに。お客さんの注文に応えて、古びた町のパン屋を新しく直そう。"
+    },
+    "zh-Hans": {
+     "title": "芝芝的面包合成",
+     "subtitle": "合成面包接订单，修缮老面包店",
+     "hook": "把两个相同的面包合成更大的面包，完成顾客的订单，把破旧的街角小店修缮一新。"
+    },
+    "zh-Hant": {
+     "title": "芝芝的合成遊戲",
+     "subtitle": "合成麵包、接訂單、整修店面",
+     "hook": "兩個相同的麵包合在一起，變成更大的麵包。完成客人的訂單，把老舊的社區麵包店整修一新。"
+    },
+    "id": {
+     "title": "Chichi Gabung Roti",
+     "subtitle": "Penuhi pesanan, perbaiki toko",
+     "hook": "Gabung dua roti sama jadi lebih besar. Penuhi pesanan, perbaiki toko roti tua."
+    },
+    "th": {
+     "title": "ขนมปังของชิชิ",
+     "subtitle": "รวมขนมปัง รับออเดอร์ ซ่อมร้าน",
+     "hook": "รวมขนมปังที่เหมือนกันให้ใหญ่ขึ้น ส่งออเดอร์ลูกค้า แล้วซ่อมร้านเก่าให้กลับมาใหม่"
+    },
+    "vi": {
+     "title": "Chichi Merge",
+     "subtitle": "Ghép bánh, nhận đơn, sửa tiệm",
+     "hook": "Ghép hai bánh giống nhau thành bánh to hơn. Làm đơn cho khách, sửa tiệm bánh cũ."
+    }
+   },
+   "links": {
+    "play": "https://play.google.com/store/apps/details?id=com.dumbgamelab.bakerymerge"
+   },
+   "iconUrl": "https://qqq1212341.github.io/games/icons/bakerymerge.png",
+   "shot": "shots/bakerymerge.webp",
+   "shotUrl": "https://qqq1212341.github.io/games/shots/bakerymerge.webp"
   }
  ],
  "_xpromoNote": "★ 크로스 프로모 귀속·하우스 광고·카메오·이웃 가게 코드(엔진 core/xpromo). brand.applePt = App Store 캠페인 링크 제공자 토큰. games[].code = 이웃 가게 코드 앞 2글자(가게마다 유일). games[].shot = 하우스 광고 실플레이 그림(번들) · shotUrl = 원격. cameoName/cameoRole = 다른 게임 정산에 들르는 그 게임 주민."
