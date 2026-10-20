@@ -3,3 +3,4 @@ Disallow: /dgl/
 Allow: /
 
 Sitemap: https://qqq1212341.github.io/sitemap.xml
+Sitemap: https://qqq1212341.github.io/kkultem/sitemap.xml
