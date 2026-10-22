@@ -1,7 +1,7 @@
 {
  "_comment": "DGL 게임 카탈로그 SSOT — 크로스 프로모(게임 안 '다른 게임' 목록)와 게임 포털 웹사이트가 **둘 다 이 파일 하나**를 읽는다. 게임에 목록을 하드코딩하면 새 게임이 나올 때마다 출시된 게임들을 다시 빌드해야 하고, 그 게임들은 이미 스토어에 나가 있어 못 고친다. 그래서 목록은 여기 두고 `core/tools/promo/sync.mjs` 가 각 게임 public/ 로 복사한다. 새 게임을 내면 여기에 한 줄 추가 + sync 한 번.",
  "_remoteNote": "★ 이 파일은 **원격으로도 서빙된다**(build-site.mjs 가 site/catalog.json 으로 복사). 게임은 켜질 때 catalogUrl 을 받아 캐시하고, version 이 번들보다 크면 그 목록을 쓴다 — 그래서 **이미 스토어에 나간 게임에도 새 게임이 뜬다**(재빌드·재제출 불필요). 받기 실패·오프라인이면 번들 목록으로 조용히 떨어진다. 새 게임을 추가하면 version 을 올리고 게임 포털을 다시 배포하면 끝.",
- "version": 11,
+ "version": 12,
  "catalogUrl": "https://qqq1212341.github.io/games/catalog.json",
  "_i18nNote": "★ 게임은 8로케일로 나간다([[dgl-i18n-standard]]). 이 목록만 한국어면 해외 유저에겐 읽을 수 없는 카드 3장이 뜬다. `i18n.<코드>` 가 있으면 그걸 쓰고 없으면 기본(한국어)으로 떨어진다 — 언어를 늘릴 땐 여기만 채우면 된다.",
  "brand": {
@@ -598,6 +598,60 @@
    "shot": "shots/chichicamp.webp",
    "shotUrl": "https://qqq1212341.github.io/games/shots/chichicamp.webp",
    "_beta": "출시 전 베타(core/docs/closed-beta/README.md) — 링크는 테스터 풀 구글 그룹. 스토어에 나가면 status 를 released 로, links 를 play/ios 로 바꾼다"
+  },
+  {
+   "slug": "onelife",
+   "repo": "OneLife",
+   "title": "한 번뿐인 인생",
+   "subtitle": "실제 출생 확률로 사는 인생 시뮬레이션",
+   "hook": "지구 위 무작위 한 점에 태어나 한 해에 한 줄씩 살아요. 갈림길에서 고른 답이 내 삶을 바꿔요.",
+   "genre": "others",
+   "status": "released",
+   "icon": "icons/onelife.png",
+   "accent": "#e0884a",
+   "i18n": {
+    "en": {
+     "title": "One Life",
+     "subtitle": "Live one life by real birth odds",
+     "hook": "Get born on a random dot on Earth and live one line a year. The answer you pick at each crossroad changes your life."
+    },
+    "ja": {
+     "title": "一度きりの人生",
+     "subtitle": "実際の出生確率で生きる人生シミュレーション",
+     "hook": "地球上のランダムな一点に生まれて、一年に一行ずつ生きていきます。分かれ道で選んだ答えが人生を変えます。"
+    },
+    "zh-Hans": {
+     "title": "仅此一次的人生",
+     "subtitle": "按真实出生概率度过一生的人生模拟",
+     "hook": "出生在地球上随机的一点，一年一行地走完一生。岔路口选的答案会改变你的人生。"
+    },
+    "zh-Hant": {
+     "title": "僅此一次的人生",
+     "subtitle": "依真實出生機率度過一生的人生模擬",
+     "hook": "出生在地球上隨機的一點，一年一行地走完一生。岔路口選的答案會改變你的人生。"
+    },
+    "id": {
+     "title": "Hanya Satu Kehidupan",
+     "subtitle": "Jalani satu hidup dengan peluang lahir nyata",
+     "hook": "Lahir di satu titik acak di Bumi dan jalani hidup satu baris per tahun. Jawaban yang kamu pilih di tiap persimpangan mengubah hidupmu."
+    },
+    "th": {
+     "title": "ชีวิตเดียวเท่านั้น",
+     "subtitle": "ใช้ชีวิตหนึ่งชาติตามโอกาสเกิดจริง",
+     "hook": "เกิดที่จุดสุ่มบนโลกแล้วใช้ชีวิตปีละหนึ่งบรรทัด คำตอบที่เลือกตรงทางแยกเปลี่ยนชีวิตของคุณ"
+    },
+    "vi": {
+     "title": "Chỉ Một Lần Sống",
+     "subtitle": "Sống một đời theo xác suất sinh thật",
+     "hook": "Sinh ra ở một điểm ngẫu nhiên trên Trái Đất và sống mỗi năm một dòng. Đáp án bạn chọn ở mỗi ngã rẽ sẽ đổi đời bạn."
+    }
+   },
+   "links": {
+    "web": "https://qqq1212341.github.io/one-life/"
+   },
+   "iconUrl": "https://qqq1212341.github.io/games/icons/onelife.png",
+   "shot": "shots/onelife.webp",
+   "shotUrl": "https://qqq1212341.github.io/games/shots/onelife.webp"
   }
  ],
  "_xpromoNote": "★ 크로스 프로모 귀속·하우스 광고·카메오·이웃 가게 코드(엔진 core/xpromo). brand.applePt = App Store 캠페인 링크 제공자 토큰. games[].code = 이웃 가게 코드 앞 2글자(가게마다 유일). games[].shot = 하우스 광고 실플레이 그림(번들) · shotUrl = 원격. cameoName/cameoRole = 다른 게임 정산에 들르는 그 게임 주민."
