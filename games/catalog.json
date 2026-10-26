@@ -1,7 +1,7 @@
 {
  "_comment": "DGL 게임 카탈로그 SSOT — 크로스 프로모(게임 안 '다른 게임' 목록)와 게임 포털 웹사이트가 **둘 다 이 파일 하나**를 읽는다. 게임에 목록을 하드코딩하면 새 게임이 나올 때마다 출시된 게임들을 다시 빌드해야 하고, 그 게임들은 이미 스토어에 나가 있어 못 고친다. 그래서 목록은 여기 두고 `core/tools/promo/sync.mjs` 가 각 게임 public/ 로 복사한다. 새 게임을 내면 여기에 한 줄 추가 + sync 한 번.",
  "_remoteNote": "★ 이 파일은 **원격으로도 서빙된다**(build-site.mjs 가 site/catalog.json 으로 복사). 게임은 켜질 때 catalogUrl 을 받아 캐시하고, version 이 번들보다 크면 그 목록을 쓴다 — 그래서 **이미 스토어에 나간 게임에도 새 게임이 뜬다**(재빌드·재제출 불필요). 받기 실패·오프라인이면 번들 목록으로 조용히 떨어진다. 새 게임을 추가하면 version 을 올리고 게임 포털을 다시 배포하면 끝.",
- "version": 16,
+ "version": 17,
  "catalogUrl": "https://qqq1212341.github.io/games/catalog.json",
  "_i18nNote": "★ 게임은 8로케일로 나간다([[dgl-i18n-standard]]). 이 목록만 한국어면 해외 유저에겐 읽을 수 없는 카드 3장이 뜬다. `i18n.<코드>` 가 있으면 그걸 쓰고 없으면 기본(한국어)으로 떨어진다 — 언어를 늘릴 땐 여기만 채우면 된다.",
  "brand": {
@@ -693,6 +693,25 @@
    "iconUrl": "https://qqq1212341.github.io/games/icons/chichibackpack.png",
    "shot": "shots/chichibackpack.webp",
    "shotUrl": "https://qqq1212341.github.io/games/shots/chichibackpack.webp",
+   "_beta": "출시 전 베타(core/docs/closed-beta/README.md) — links.beta = 테스터 풀 구글 그룹, betaIos = TestFlight 공개 링크. 스토어에 나가면 status 를 released 로, links 를 play/ios 로 바꾼다"
+  },
+  {
+   "slug": "chichisurvivor",
+   "repo": "ChichiSurvivor",
+   "title": "치치의 털뭉치",
+   "subtitle": "3D 뱀서라이크",
+   "hook": "털뭉치를 굴려 적을 붙이며 커지고, 10분 동안 보스 3마리를 쓰러뜨려요.",
+   "genre": "others",
+   "status": "beta",
+   "icon": "icons/chichisurvivor.png",
+   "accent": "#f08a2c",
+   "links": {
+    "beta": "https://groups.google.com/g/dumbgamelab-beta",
+    "betaIos": "https://testflight.apple.com/join/HVyQBGnw"
+   },
+   "iconUrl": "https://qqq1212341.github.io/games/icons/chichisurvivor.png",
+   "shot": "shots/chichisurvivor.webp",
+   "shotUrl": "https://qqq1212341.github.io/games/shots/chichisurvivor.webp",
    "_beta": "출시 전 베타(core/docs/closed-beta/README.md) — links.beta = 테스터 풀 구글 그룹, betaIos = TestFlight 공개 링크. 스토어에 나가면 status 를 released 로, links 를 play/ios 로 바꾼다"
   }
  ],
