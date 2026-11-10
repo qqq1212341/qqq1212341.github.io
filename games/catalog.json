@@ -2,7 +2,7 @@
  "publisher": "dgl",
  "_comment": "DGL 게임 카탈로그 SSOT — 크로스 프로모(게임 안 '다른 게임' 목록)와 게임 포털 웹사이트가 **둘 다 이 파일 하나**를 읽는다. 게임에 목록을 하드코딩하면 새 게임이 나올 때마다 출시된 게임들을 다시 빌드해야 하고, 그 게임들은 이미 스토어에 나가 있어 못 고친다. 그래서 목록은 여기 두고 `core/tools/promo/sync.mjs` 가 각 게임 public/ 로 복사한다. 새 게임을 내면 여기에 한 줄 추가 + sync 한 번.",
  "_remoteNote": "★ 이 파일은 **원격으로도 서빙된다**(build-site.mjs 가 site/catalog.json 으로 복사). 게임은 켜질 때 catalogUrl 을 받아 캐시하고, version 이 번들보다 크면 그 목록을 쓴다 — 그래서 **이미 스토어에 나간 게임에도 새 게임이 뜬다**(재빌드·재제출 불필요). 받기 실패·오프라인이면 번들 목록으로 조용히 떨어진다. 새 게임을 추가하면 version 을 올리고 게임 포털을 다시 배포하면 끝.",
- "version": 22,
+ "version": 23,
  "catalogUrl": "https://qqq1212341.github.io/games/catalog.json",
  "_i18nNote": "★ 게임은 8로케일로 나간다([[dgl-i18n-standard]]). 이 목록만 한국어면 해외 유저에겐 읽을 수 없는 카드 3장이 뜬다. `i18n.<코드>` 가 있으면 그걸 쓰고 없으면 기본(한국어)으로 떨어진다 — 언어를 늘릴 땐 여기만 채우면 된다.",
  "brand": {
@@ -654,7 +654,7 @@
     }
    },
    "links": {
-    "web": "https://qqq1212341.github.io/one-life/"
+    "web": "https://dumbgamelab.com/play/one-life/"
    },
    "iconUrl": "https://qqq1212341.github.io/games/icons/onelife.png",
    "shot": "shots/onelife.webp",
@@ -867,6 +867,163 @@
    "code": "SL",
    "cameoName": "미나",
    "cameoRole": "슬라임 문방구 꼬마"
+  },
+  {
+   "slug": "0913sample",
+   "repo": "0913Sample",
+   "title": "방구석뽑기왕: 크레인 실력 게임",
+   "subtitle": "집게 힘을 읽고 인형을 데려와요",
+   "hook": "집게는 누르면 내려가는 장난감이 아니에요. 케이블이 흔들리고 인형마다 무게가 달라서, 어떻게 물리느냐가 결과를 갈라요. 힘 게이지를 읽고 인형을 데려오세요.",
+   "genre": "others",
+   "status": "released",
+   "icon": "icons/0913sample.png",
+   "accent": "#9442b0",
+   "i18n": {
+    "en": {
+     "title": "Room Claw: Crane Skill Game",
+     "subtitle": "Read the grip. Win the plush.",
+     "hook": "A claw machine you have to read. The cable swings, every plush has its own weight, and a strength gauge shows how well you gripped. Read it, carry it, win the plush."
+    },
+    "ja": {
+     "title": "おうちクレーン王：クレーン腕試しゲーム",
+     "subtitle": "アームの力を読んで、ぬいぐるみを連れて帰ろう",
+     "hook": "アームは、押せば下りるだけのおもちゃではありません。ケーブルが揺れて、ぬいぐるみごとに重さも違うので、どうつかむかで結果が分かれます。パワーゲージを読んで、ぬいぐるみを連れて帰りましょう。"
+    },
+    "zh-Hans": {
+     "title": "宅家抓娃娃王：娃娃机技巧游戏",
+     "subtitle": "读懂爪力，把娃娃带回家",
+     "hook": "爪子可不是按一下就往下落的玩具。吊绳会晃，每只娃娃重量不同，怎么抓决定结果。看懂力度条，把娃娃带回家。"
+    },
+    "zh-Hant": {
+     "title": "宅家夾娃娃王：夾娃娃實力遊戲",
+     "subtitle": "讀懂爪子力道，把娃娃帶回家",
+     "hook": "爪子不是按下去就會落下的玩具。纜繩會晃，每隻娃娃的重量也不同，怎麼夾住決定了結果。讀懂力道條，把娃娃帶回家吧。"
+    },
+    "id": {
+     "title": "Room Claw: Game Skill Capit",
+     "subtitle": "Baca tenaga capit, bawa boneka",
+     "hook": "Capit bukan sekadar mainan yang ditekan lalu turun. Kabel bergoyang, bobot tiap boneka beda, jadi cara mencengkeram menentukan hasil. Baca kekuatan capit, bawa bonekanya."
+    },
+    "th": {
+     "title": "ราชาตู้คีบ: เกมคีบสายฝีมือ",
+     "subtitle": "อ่านแรงก้ามคีบ พาตุ๊กตากลับมา",
+     "hook": "ก้ามคีบไม่ใช่ของเล่นที่กดแล้วหย่อนลงไปเฉย ๆ สายเคเบิลแกว่ง ตุ๊กตาแต่ละตัวหนักไม่เท่ากัน วิธีที่ก้ามคีบจับจึงชี้ขาดผล ลองอ่านเกจแรงแล้วพาตุ๊กตากลับมาให้ได้"
+    },
+    "vi": {
+     "title": "Room Claw: Game Kỹ Năng Gắp",
+     "subtitle": "Đọc lực càng, đưa thú bông về",
+     "hook": "Càng gắp không phải đồ chơi cứ bấm là hạ xuống. Dây cáp đung đưa, mỗi bé thú bông nặng nhẹ khác nhau nên cách kẹp quyết định kết quả. Đọc thanh lực rồi đưa thú bông về."
+    }
+   },
+   "links": {
+    "play": "https://play.google.com/store/apps/details?id=com.dumbgamelab.bangguseokclaw"
+   },
+   "iconUrl": "https://qqq1212341.github.io/games/icons/0913sample.png",
+   "shot": "shots/0913sample.webp",
+   "shotUrl": "https://qqq1212341.github.io/games/shots/0913sample.webp"
+  },
+  {
+   "slug": "chichiroulette",
+   "repo": "ChichiRoulette",
+   "title": "점심 메뉴 룰렛 돌림판 - 치치의 결정 룰렛",
+   "subtitle": "점심 메뉴, 벌칙, 순서 정하기",
+   "hook": "항목을 넣고 돌리면 치치가 마이크를 들고 결과를 발표해요. 점심 메뉴, 벌칙, 순서 정하기까지 가입 없이 바로 쓸 수 있어요.",
+   "genre": "others",
+   "status": "released",
+   "icon": "icons/chichiroulette.png",
+   "accent": "#fdaa4c",
+   "i18n": {
+    "en": {
+     "title": "Spin the Wheel: Chichi's Picks",
+     "subtitle": "Decision Maker & Random Picker",
+     "hook": "Add your options, spin the wheel, and Chichi announces the result with a mic. Lunch, dares, turn order: decide in seconds, no sign-up."
+    },
+    "ja": {
+     "title": "ランチ決めルーレット - チーチーの決定ルーレット",
+     "subtitle": "ランチ・罰ゲーム・順番決め",
+     "hook": "項目を入れて回すと、チーチーがマイクを持って結果を発表します。ランチ、罰ゲーム、順番決めまで、登録なしですぐ使えます。"
+    },
+    "zh-Hans": {
+     "title": "吃什么转盘抽签 - 芝芝的决定转盘",
+     "subtitle": "午饭、惩罚、决定顺序",
+     "hook": "输入选项、转动转盘，芝芝就会拿起麦克风宣布结果。午饭、惩罚到排顺序，免注册马上用。"
+    },
+    "zh-Hant": {
+     "title": "吃什麼抽籤轉盤 - 芝芝的決定轉盤",
+     "subtitle": "午餐、懲罰、決定順序",
+     "hook": "輸入選項、轉動轉盤，芝芝就會拿起麥克風宣布結果。午餐、懲罰到排順序，免註冊馬上用。"
+    },
+    "id": {
+     "title": "Roda Putar Acak - Chichi",
+     "subtitle": "Menu makan, hukuman, giliran",
+     "hook": "Masukkan opsi lalu putar, dan Chichi mengumumkan hasilnya dengan mikrofon. Dari menu makan siang, hukuman, sampai giliran, langsung pakai tanpa daftar."
+    },
+    "th": {
+     "title": "วงล้อสุ่มกินอะไรดี - วงล้อชิชิ",
+     "subtitle": "มื้อเที่ยง บทลงโทษ จัดลำดับ",
+     "hook": "ใส่ตัวเลือกแล้วหมุน ชิชิจะถือไมค์ประกาศผลให้ ตั้งแต่มื้อเที่ยง บทลงโทษ ไปจนถึงจัดลำดับ ใช้ได้ทันทีโดยไม่ต้องสมัคร"
+    },
+    "vi": {
+     "title": "Vòng Quay Ăn Gì - Chichi",
+     "subtitle": "Món trưa, hình phạt, thứ tự",
+     "hook": "Nhập các mục rồi quay, Chichi sẽ cầm micro công bố kết quả. Từ món trưa, hình phạt đến xếp thứ tự, dùng ngay không cần đăng ký."
+    }
+   },
+   "links": {
+    "play": "https://play.google.com/store/apps/details?id=com.dumbgamelab.roulette"
+   },
+   "iconUrl": "https://qqq1212341.github.io/games/icons/chichiroulette.png",
+   "shot": "shots/chichiroulette.webp",
+   "shotUrl": "https://qqq1212341.github.io/games/shots/chichiroulette.webp"
+  },
+  {
+   "slug": "mergestampede",
+   "repo": "MergeStampede",
+   "title": "머지 스탬피드: 동물 합성게임",
+   "subtitle": "합치면 진화하는 머지게임 오토배틀",
+   "hook": "같은 동물을 합쳐 진화시키고, 문을 열어 군단을 3D 전장에 쏟아내는 머지 오토배틀",
+   "genre": "others",
+   "status": "released",
+   "icon": "icons/mergestampede.png",
+   "accent": "#e48635",
+   "i18n": {
+    "en": {
+     "title": "Merge Stampede: Animal Battle",
+     "subtitle": "Drop, Merge & Auto Battle",
+     "hook": "Merge matching farm animals to evolve, then open the gate for a 3D auto battle"
+    },
+    "ja": {
+     "title": "Merge Stampede: 動物合体オートバトル",
+     "subtitle": "落として合体、オートバトル",
+     "hook": "同じ動物を落として合体させて進化。扉を開けたら軍団が3Dの戦場で自動バトル"
+    },
+    "zh-Hant": {
+     "title": "Merge Stampede: 動物合成大戰",
+     "subtitle": "丟下去、合成、自動戰鬥",
+     "hook": "動物合成遊戲：一樣的動物碰在一起就進化，打開門讓軍團衝上 3D 戰場自動戰鬥"
+    },
+    "id": {
+     "title": "Merge Stampede: Game Hewan",
+     "hook": "Gabung hewan yang sama agar berevolusi, lalu buka pintu untuk auto battle 3D"
+    },
+    "th": {
+     "title": "Merge Stampede: เกมผสมสัตว์",
+     "subtitle": "หย่อน รวมร่าง แล้วสู้อัตโนมัติ",
+     "hook": "รวมสัตว์ตัวเหมือนกันให้วิวัฒนาการ แล้วเปิดประตูปล่อยกองทัพสู้เองในสนามรบ 3D"
+    },
+    "vi": {
+     "title": "Merge Stampede: Ghép thú",
+     "subtitle": "Thả, ghép thú và tự chiến đấu",
+     "hook": "Game hợp nhất động vật: ghép thú để tiến hóa rồi tung cả đàn ra trận 3D"
+    }
+   },
+   "links": {
+    "play": "https://play.google.com/store/apps/details?id=com.dumbgamelab.mergestampede",
+    "ios": "https://apps.apple.com/app/id6790514141"
+   },
+   "iconUrl": "https://qqq1212341.github.io/games/icons/mergestampede.png",
+   "shot": "shots/mergestampede.webp",
+   "shotUrl": "https://qqq1212341.github.io/games/shots/mergestampede.webp"
   }
  ],
  "_xpromoNote": "★ 크로스 프로모 귀속·하우스 광고·카메오·이웃 가게 코드(엔진 core/xpromo). brand.applePt = App Store 캠페인 링크 제공자 토큰. games[].code = 이웃 가게 코드 앞 2글자(가게마다 유일). games[].shot = 하우스 광고 실플레이 그림(번들) · shotUrl = 원격. cameoName/cameoRole = 다른 게임 정산에 들르는 그 게임 주민."
