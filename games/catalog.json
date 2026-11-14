@@ -2,7 +2,7 @@
  "publisher": "dgl",
  "_comment": "DGL 게임 카탈로그 SSOT — 크로스 프로모(게임 안 '다른 게임' 목록)와 게임 포털 웹사이트가 **둘 다 이 파일 하나**를 읽는다. 게임에 목록을 하드코딩하면 새 게임이 나올 때마다 출시된 게임들을 다시 빌드해야 하고, 그 게임들은 이미 스토어에 나가 있어 못 고친다. 그래서 목록은 여기 두고 `core/tools/promo/sync.mjs` 가 각 게임 public/ 로 복사한다. 새 게임을 내면 여기에 한 줄 추가 + sync 한 번.",
  "_remoteNote": "★ 이 파일은 **원격으로도 서빙된다**(build-site.mjs 가 site/catalog.json 으로 복사). 게임은 켜질 때 catalogUrl 을 받아 캐시하고, version 이 번들보다 크면 그 목록을 쓴다 — 그래서 **이미 스토어에 나간 게임에도 새 게임이 뜬다**(재빌드·재제출 불필요). 받기 실패·오프라인이면 번들 목록으로 조용히 떨어진다. 새 게임을 추가하면 version 을 올리고 게임 포털을 다시 배포하면 끝.",
- "version": 24,
+ "version": 25,
  "catalogUrl": "https://qqq1212341.github.io/games/catalog.json",
  "_i18nNote": "★ 게임은 8로케일로 나간다([[dgl-i18n-standard]]). 이 목록만 한국어면 해외 유저에겐 읽을 수 없는 카드 3장이 뜬다. `i18n.<코드>` 가 있으면 그걸 쓰고 없으면 기본(한국어)으로 떨어진다 — 언어를 늘릴 땐 여기만 채우면 된다.",
  "brand": {
@@ -150,6 +150,7 @@
    "title": "PC방 키우기",
    "subtitle": "방치형 타이쿤",
    "hook": "망해가는 동네 PC방을 물려받아 골목에서 전국구로",
+   "line": "망한 동네 PC방을 전국 1등으로",
    "genre": "tycoon",
    "status": "released",
    "icon": "icons/pcbangalba.png",
@@ -160,55 +161,62 @@
      "subtitle": "Idle Tycoon",
      "hook": "Take over a dying internet cafe and grow it nationwide",
      "cameoName": "Junseo",
-     "cameoRole": "PC cafe part-timer"
+     "cameoRole": "PC cafe part-timer",
+     "line": "Dying PC cafe to No. 1 nationwide"
     },
     "ja": {
      "title": "ネットカフェ育成",
      "subtitle": "放置タイクーン",
      "hook": "潰れかけの町のネットカフェを継いで全国区へ",
      "cameoName": "ジュンソ",
-     "cameoRole": "ネットカフェのバイト"
+     "cameoRole": "ネットカフェのバイト",
+     "line": "寂れたネットカフェを全国1位に"
     },
     "zh-Hans": {
      "title": "网吧养成记",
      "subtitle": "放置经营",
      "hook": "接手濒临倒闭的社区网吧，一路开到全国",
      "cameoName": "俊瑞",
-     "cameoRole": "网吧兼职"
+     "cameoRole": "网吧兼职",
+     "line": "倒闭网吧逆袭全国第1"
     },
     "zh-Hant": {
      "title": "網咖養成記",
      "subtitle": "放置經營",
      "hook": "接手瀕臨倒閉的社區網咖，一路開到全國",
      "cameoName": "俊瑞",
-     "cameoRole": "網咖兼職"
+     "cameoRole": "網咖兼職",
+     "line": "倒閉網咖逆襲全國第1"
     },
     "id": {
      "title": "Bangun Warnet",
      "subtitle": "Tycoon Idle",
      "hook": "Warisi warnet yang hampir bangkrut, besarkan sampai seluruh negeri",
      "cameoName": "Junseo",
-     "cameoRole": "Pegawai warnet"
+     "cameoRole": "Pegawai warnet",
+     "line": "Warnet bangkrut jadi nomor 1 nasional"
     },
     "th": {
      "title": "เปิดร้านเน็ต",
      "subtitle": "เกมไอเดิล",
      "hook": "รับช่วงร้านเน็ตเล็ก ๆ ที่กำลังจะเจ๊ง แล้วขยายให้ทั่วประเทศ",
      "cameoName": "จุนซอ",
-     "cameoRole": "พนักงานร้านเน็ต"
+     "cameoRole": "พนักงานร้านเน็ต",
+     "line": "ร้านเน็ตเจ๊ง สู่ที่ 1 ในประเทศ"
     },
     "vi": {
      "title": "Nuôi Quán Net",
      "subtitle": "Tycoon Nhàn Rỗi",
      "hook": "Tiếp quản quán net sắp phá sản và mở rộng ra cả nước",
      "cameoName": "Junseo",
-     "cameoRole": "Nhân viên quán net"
+     "cameoRole": "Nhân viên quán net",
+     "line": "Quán net sắp phá sản lên top 1 cả nước"
     }
    },
    "links": {
     "ios": "https://apps.apple.com/app/id6779939467",
     "play": "https://play.google.com/store/apps/details?id=com.dumbgamelab.pcbangalba",
-    "web": "https://qqq1212341.github.io/pcbang-alba-sim/"
+    "web": "https://dumbgamelab.com/play/pcbang-alba-sim/"
    },
    "iconUrl": "https://qqq1212341.github.io/games/icons/pcbangalba.png",
    "shot": "shots/pcbangalba.webp",
@@ -218,11 +226,229 @@
    "cameoRole": "PC방 알바"
   },
   {
+   "slug": "slimesimulator",
+   "repo": "SquishBloom",
+   "title": "슬라임 시뮬레이터: 액괴 말랑이 ASMR",
+   "subtitle": "만지고 만드는 슬라임 ASMR",
+   "hook": "누르고 늘리고 비틀면 슬라임 속 별과 하트가 손끝을 따라 움직여요. 색과 재료를 골라 나만의 슬라임도 만들어요.",
+   "line": "누르고 늘리면 반짝이가 따라오는 슬라임",
+   "genre": "others",
+   "status": "released",
+   "icon": "icons/slimesimulator.png",
+   "accent": "#f08ab4",
+   "i18n": {
+    "en": {
+     "title": "Slime Making Simulator: ASMR",
+     "subtitle": "Squishy Slime ASMR",
+     "hook": "Press, stretch and swirl the slime, and the stars and hearts inside move with your fingers. Pick colors and mix-ins to make your own.",
+     "cameoName": "Mina",
+     "cameoRole": "Slime stationery-shop kid",
+     "line": "Stretch slime, sparkles follow along"
+    },
+    "ja": {
+     "title": "スライム作り：ASMR スクイーズ シミュレーター",
+     "subtitle": "スライムASMR",
+     "hook": "押して、伸ばして、ひねると、中の星とハートも指先に合わせて動きます。色や材料を選んで、自分だけのスライムも作れます。",
+     "cameoName": "ミナ",
+     "cameoRole": "スライムの文具店の子",
+     "line": "伸ばすとキラキラがついてくる"
+    },
+    "zh-Hans": {
+     "title": "史莱姆游戏：治愈 ASMR 捏捏乐模拟器",
+     "subtitle": "史莱姆 ASMR 捏捏乐",
+     "hook": "按压、拉长、扭转，史莱姆里的星星和爱心会跟着指尖一起动。还能挑颜色和配料，做出自己的史莱姆。",
+     "cameoName": "米娜",
+     "cameoRole": "史莱姆文具店的小朋友",
+     "line": "捏拉史莱姆，亮晶晶跟着走"
+    },
+    "zh-Hant": {
+     "title": "史萊姆遊戲：療癒 ASMR 捏捏樂模擬器",
+     "subtitle": "史萊姆 ASMR 捏捏樂",
+     "hook": "按壓、拉長、扭轉，史萊姆裡的星星和愛心會跟著指尖一起動。還能挑顏色和配料，做出自己的史萊姆。",
+     "cameoName": "米娜",
+     "cameoRole": "史萊姆文具店的小朋友",
+     "line": "捏拉史萊姆，亮晶晶跟著走"
+    },
+    "id": {
+     "title": "Slime Simulator: Bikin Slime",
+     "subtitle": "Slime ASMR Squishy",
+     "hook": "Tekan, tarik, dan putar slime, lalu bintang dan hati di dalamnya ikut bergerak mengikuti jarimu. Pilih warna dan bahan untuk bikin slime sendiri.",
+     "cameoName": "Mina",
+     "cameoRole": "Anak toko alat tulis slime",
+     "line": "Tarik slime, kilaunya ikut bergerak"
+    },
+    "th": {
+     "title": "เกมสไลม์: ทำสไลม์ ASMR",
+     "subtitle": "สไลม์ ASMR นุ่มนิ่ม",
+     "hook": "กด ดึง บิดสไลม์ แล้วดาวกับหัวใจข้างในจะขยับตามปลายนิ้ว เลือกสีและส่วนผสมเพื่อทำสไลม์ของตัวเองได้ด้วย",
+     "cameoName": "มีนา",
+     "cameoRole": "เด็กร้านเครื่องเขียนสไลม์",
+     "line": "ดึงสไลม์ แล้วประกายก็ตามมา"
+    },
+    "vi": {
+     "title": "Game Slime: Làm Slime ASMR",
+     "subtitle": "Slime ASMR mềm mịn",
+     "hook": "Bóp, kéo, vặn slime, sao và trái tim bên trong sẽ cử động theo đầu ngón tay. Chọn màu và nguyên liệu để tự làm slime của riêng bạn.",
+     "cameoName": "Mina",
+     "cameoRole": "Bé ở tiệm văn phòng phẩm slime",
+     "line": "Kéo slime, ánh lấp lánh đi theo"
+    },
+    "tr": {
+     "title": "Slime Oyunu: Slime Yapma ASMR",
+     "subtitle": "Squishy Slime ASMR",
+     "hook": "Bas, uzat, bük; içindeki yıldızlar ve kalpler parmak ucunla birlikte hareket eder. Renk ve malzeme seçerek kendi slime karışımını yap.",
+     "cameoName": "Mina",
+     "cameoRole": "Slime kırtasiyesinin çocuğu",
+     "line": "Slime'ı uzat, parıltı peşinden gelir"
+    }
+   },
+   "links": {
+    "play": "https://play.google.com/store/apps/details?id=com.dumbgamelab.slimesimulator"
+   },
+   "iconUrl": "https://qqq1212341.github.io/games/icons/slimesimulator.png",
+   "shot": "shots/slimesimulator.webp",
+   "shotUrl": "https://qqq1212341.github.io/games/shots/slimesimulator.webp",
+   "code": "SL",
+   "cameoName": "미나",
+   "cameoRole": "슬라임 문방구 꼬마"
+  },
+  {
+   "slug": "waxpputower",
+   "repo": "WaxPpuTower",
+   "title": "왁뿌타워",
+   "subtitle": "점프 말랑이 키보드 ASMR",
+   "hook": "밟을 때마다 말랑말랑한 힐링 ASMR 게임! 슬리퍼 오리와 5가지 테마 맵을 오르는 점프 게임",
+   "line": "밟을 때마다 말랑한 점프 ASMR",
+   "genre": "others",
+   "status": "released",
+   "icon": "icons/waxpputower.png",
+   "accent": "#ecce8b",
+   "i18n": {
+    "en": {
+     "title": "Wakppu Tower",
+     "subtitle": "Keyboard ASMR",
+     "hook": "Cozy ASMR jump game! Climb 5 squishy theme worlds with Slipper Duck",
+     "line": "Squishy jump ASMR with every step"
+    },
+    "ja": {
+     "title": "ワクプタワー",
+     "subtitle": "キーボードASMR ジャンプ",
+     "hook": "踏むたびにもちもち、癒しのASMRゲーム！スリッパダックと5つのテーママップを登るジャンプゲーム",
+     "line": "踏むたびにもちもちASMR"
+    },
+    "zh-Hans": {
+     "title": "瓦普塔",
+     "subtitle": "键盘 ASMR 跳跳捏捏乐",
+     "hook": "踩软软台阶往上爬的治愈ASMR跳跃游戏，和拖鞋鸭一起闯5张主题地图",
+     "line": "每踩一步，软萌ASMR跳跃"
+    },
+    "zh-Hant": {
+     "title": "瓦普塔",
+     "subtitle": "鍵盤 ASMR 跳跳捏捏樂",
+     "hook": "踩踏軟軟台階往上爬的療癒ASMR跳躍遊戲，和拖鞋鴨一起闖5張主題地圖",
+     "line": "每踩一步，軟萌ASMR跳躍"
+    },
+    "id": {
+     "title": "Wakppu Tower",
+     "subtitle": "Keyboard ASMR",
+     "hook": "Game lompat ASMR santai! Injak pijakan empuk bareng Bebek Sandal di 5 peta tema",
+     "line": "Lompat ASMR, tiap injakan empuk"
+    },
+    "th": {
+     "title": "วัคปูทาวเวอร์",
+     "subtitle": "Keyboard ASMR",
+     "hook": "เกมกระโดด ASMR สุดชิล เหยียบพื้นนุ่มไปกับเป็ดใส่รองเท้าแตะ ใน 5 แผนที่ธีม",
+     "line": "กระโดด ASMR นุ่มนิ่มทุกก้าว"
+    },
+    "vi": {
+     "title": "Wakppu Tower",
+     "subtitle": "Keyboard ASMR",
+     "hook": "Game nhảy leo tháp ASMR thư giãn! Giẫm bậc mềm cùng Vịt Dép ở 5 bản đồ chủ đề",
+     "line": "Nhảy ASMR, mỗi bước giẫm đều êm"
+    },
+    "tr": {
+     "title": "Wakppu Tower",
+     "subtitle": "Squishy ASMR",
+     "hook": "Bastıkça yumuşacık, rahatlatıcı bir ASMR oyunu! Terlikli Ördek'le 5 temalı haritayı tırman",
+     "line": "Her adımda yumuşacık ASMR zıplaması"
+    }
+   },
+   "links": {
+    "play": "https://play.google.com/store/apps/details?id=com.dumbgamelab.waxpputower"
+   },
+   "iconUrl": "https://qqq1212341.github.io/games/icons/waxpputower.png",
+   "shot": "shots/waxpputower.webp",
+   "shotUrl": "https://qqq1212341.github.io/games/shots/waxpputower.webp"
+  },
+  {
+   "slug": "onelife",
+   "repo": "OneLife",
+   "title": "한 번뿐인 인생",
+   "subtitle": "실제 출생 확률로 사는 인생 시뮬레이션",
+   "hook": "지구 위 무작위 한 점에 태어나 한 해에 한 줄씩 살아요. 갈림길에서 고른 답이 내 삶을 바꿔요.",
+   "line": "어디서 태어날지부터 운에 맡기는 인생",
+   "genre": "others",
+   "status": "released",
+   "icon": "icons/onelife.png",
+   "accent": "#e0884a",
+   "i18n": {
+    "en": {
+     "title": "One Life",
+     "subtitle": "Live one life by real birth odds",
+     "hook": "Get born on a random dot on Earth and live one line a year. The answer you pick at each crossroad changes your life.",
+     "line": "Even where you're born is luck"
+    },
+    "ja": {
+     "title": "一度きりの人生",
+     "subtitle": "実際の出生確率で生きる人生シミュレーション",
+     "hook": "地球上のランダムな一点に生まれて、一年に一行ずつ生きていきます。分かれ道で選んだ答えが人生を変えます。",
+     "line": "生まれる場所から運任せの人生"
+    },
+    "zh-Hans": {
+     "title": "仅此一次的人生",
+     "subtitle": "按真实出生概率度过一生的人生模拟",
+     "hook": "出生在地球上随机的一点，一年一行地走完一生。岔路口选的答案会改变你的人生。",
+     "line": "连出生地都靠运气的人生"
+    },
+    "zh-Hant": {
+     "title": "僅此一次的人生",
+     "subtitle": "依真實出生機率度過一生的人生模擬",
+     "hook": "出生在地球上隨機的一點，一年一行地走完一生。岔路口選的答案會改變你的人生。",
+     "line": "連出生地都靠運氣的人生"
+    },
+    "id": {
+     "title": "Hanya Satu Kehidupan",
+     "subtitle": "Jalani satu hidup dengan peluang lahir nyata",
+     "hook": "Lahir di satu titik acak di Bumi dan jalani hidup satu baris per tahun. Jawaban yang kamu pilih di tiap persimpangan mengubah hidupmu.",
+     "line": "Bahkan tempat lahir pun diundi"
+    },
+    "th": {
+     "title": "ชีวิตเดียวเท่านั้น",
+     "subtitle": "ใช้ชีวิตหนึ่งชาติตามโอกาสเกิดจริง",
+     "hook": "เกิดที่จุดสุ่มบนโลกแล้วใช้ชีวิตปีละหนึ่งบรรทัด คำตอบที่เลือกตรงทางแยกเปลี่ยนชีวิตของคุณ",
+     "line": "แม้แต่ที่เกิดก็ต้องลุ้นดวง"
+    },
+    "vi": {
+     "title": "Chỉ Một Lần Sống",
+     "subtitle": "Sống một đời theo xác suất sinh thật",
+     "hook": "Sinh ra ở một điểm ngẫu nhiên trên Trái Đất và sống mỗi năm một dòng. Đáp án bạn chọn ở mỗi ngã rẽ sẽ đổi đời bạn.",
+     "line": "Đến nơi sinh ra cũng nhờ vận may"
+    }
+   },
+   "links": {
+    "web": "https://dumbgamelab.com/play/one-life/"
+   },
+   "iconUrl": "https://qqq1212341.github.io/games/icons/onelife.png",
+   "shot": "shots/onelife.webp",
+   "shotUrl": "https://qqq1212341.github.io/games/shots/onelife.webp"
+  },
+  {
    "slug": "jjimjilbang",
    "repo": "JjimjilbangTycoon",
    "title": "찜질방 키우기",
    "subtitle": "방치형 타이쿤",
    "hook": "동네 목욕탕을 대한민국 최대 스파랜드로",
+   "line": "동네 목욕탕이 스파랜드가 될 때까지",
    "genre": "tycoon",
    "status": "released",
    "icon": "icons/jjimjilbang.png",
@@ -233,49 +459,56 @@
      "subtitle": "Idle Tycoon",
      "hook": "Turn a tiny bathhouse into the nation's biggest spa land",
      "cameoName": "Yeongsuk",
-     "cameoRole": "Korean spa regular"
+     "cameoRole": "Korean spa regular",
+     "line": "From local bathhouse to spa land"
     },
     "ja": {
      "title": "チムジルバン育成",
      "subtitle": "放置タイクーン",
      "hook": "町の銭湯を韓国最大のスパランドへ",
      "cameoName": "ヨンスク",
-     "cameoRole": "チムジルバンの常連"
+     "cameoRole": "チムジルバンの常連",
+     "line": "町の銭湯がスパランドになるまで"
     },
     "zh-Hans": {
      "title": "汗蒸幕养成记",
      "subtitle": "放置经营",
      "hook": "把社区澡堂做成韩国最大的水疗乐园",
      "cameoName": "英淑",
-     "cameoRole": "汗蒸幕常客"
+     "cameoRole": "汗蒸幕常客",
+     "line": "从社区澡堂到水疗乐园"
     },
     "zh-Hant": {
      "title": "汗蒸幕養成記",
      "subtitle": "放置經營",
      "hook": "把社區澡堂做成韓國最大的水療樂園",
      "cameoName": "英淑",
-     "cameoRole": "汗蒸幕常客"
+     "cameoRole": "汗蒸幕常客",
+     "line": "從社區澡堂到水療樂園"
     },
     "id": {
      "title": "Bangun Sauna Korea",
      "subtitle": "Tycoon Idle",
      "hook": "Ubah pemandian kampung jadi spa terbesar se-Korea",
      "cameoName": "Yeongsuk",
-     "cameoRole": "Pelanggan tetap sauna"
+     "cameoRole": "Pelanggan tetap sauna",
+     "line": "Dari pemandian kampung jadi spa"
     },
     "th": {
      "title": "เปิดจิมจิลบัง",
      "subtitle": "เกมไอเดิล",
      "hook": "เปลี่ยนโรงอาบน้ำเล็ก ๆ ให้เป็นสปาแลนด์ที่ใหญ่ที่สุดในเกาหลี",
      "cameoName": "ยองซุก",
-     "cameoRole": "ลูกค้าประจำจิมจิลบัง"
+     "cameoRole": "ลูกค้าประจำจิมจิลบัง",
+     "line": "จากโรงอาบน้ำสู่สปาแลนด์"
     },
     "vi": {
      "title": "Nuôi Spa Hàn Quốc",
      "subtitle": "Tycoon Nhàn Rỗi",
      "hook": "Biến nhà tắm công cộng thành spa lớn nhất Hàn Quốc",
      "cameoName": "Yeong-suk",
-     "cameoRole": "Khách quen spa"
+     "cameoRole": "Khách quen spa",
+     "line": "Từ nhà tắm công cộng thành spa"
     }
    },
    "links": {
@@ -294,6 +527,7 @@
    "title": "치치의 빵집 타이쿤",
    "subtitle": "굽고 진열하는 빵집 경영",
    "hook": "오븐에서 빵을 굽고 진열대를 채우며, 반죽과 속과 토핑으로 새 빵을 만드는 빵집 타이쿤",
+   "line": "굽고 채우고, 새 빵까지 만드는 빵집",
    "genre": "tycoon",
    "status": "released",
    "icon": "icons/dongnebakery.png",
@@ -304,49 +538,56 @@
      "subtitle": "Bake, display, run the shop",
      "hook": "Bake bread in the oven, stock the shelves, and make new breads from dough, filling and toppings.",
      "cameoName": "Minseo",
-     "cameoRole": "Baker at the bakery"
+     "cameoRole": "Baker at the bakery",
+     "line": "Bake, stock, and invent new breads"
     },
     "ja": {
      "title": "チーチーのベーカリー",
      "subtitle": "焼いて並べる放置型パン屋経営",
      "hook": "パンを焼いて棚に並べ、生地と具とトッピングで新しいパンを作る、パン屋経営ゲーム。",
      "cameoName": "ミンソ",
-     "cameoRole": "パン屋のパン職人"
+     "cameoRole": "パン屋のパン職人",
+     "line": "焼いて並べて、新作パンも作る"
     },
     "zh-Hans": {
      "title": "芝芝的面包店",
      "subtitle": "烘焙陈列，放置经营面包店",
      "hook": "烘烤面包、摆满面包架，用面团、夹馅和配料做出新面包的面包店经营游戏。",
      "cameoName": "敏书",
-     "cameoRole": "面包店面包师"
+     "cameoRole": "面包店面包师",
+     "line": "烤、摆，还能做新面包"
     },
     "zh-Hant": {
      "title": "芝芝的麵包店",
      "subtitle": "烘焙陳列，放置經營麵包店",
      "hook": "烘烤麵包、擺滿麵包架，用麵團、內餡和配料做出新麵包的麵包店經營遊戲。",
      "cameoName": "敏書",
-     "cameoRole": "麵包店麵包師傅"
+     "cameoRole": "麵包店麵包師傅",
+     "line": "烤、擺，還能做新麵包"
     },
     "id": {
      "title": "Toko Roti Chichi",
      "subtitle": "Panggang dan tata rak roti",
      "hook": "Panggang roti, isi rak, dan pilih adonan, isian, topping untuk roti baru.",
      "cameoName": "Minseo",
-     "cameoRole": "Pembuat roti di toko roti"
+     "cameoRole": "Pembuat roti di toko roti",
+     "line": "Panggang, isi rak, ciptakan roti baru"
     },
     "th": {
      "title": "เบเกอรี่ของชิชิ",
      "subtitle": "อบและจัดขนมปัง บริหารร้านเบเกอรี่",
      "hook": "อบขนมปัง เติมชั้นวาง และเลือกแป้ง ไส้ ท็อปปิง ทำขนมปังใหม่ในร้านของคุณ",
      "cameoName": "มินซอ",
-     "cameoRole": "ช่างทำขนมปังร้านเบเกอรี่"
+     "cameoRole": "ช่างทำขนมปังร้านเบเกอรี่",
+     "line": "อบ เติมชั้น คิดขนมปังใหม่"
     },
     "vi": {
      "title": "Chichi Mở Tiệm",
      "subtitle": "Nướng bánh và xếp kệ bán hàng",
      "hook": "Nướng bánh, xếp kệ, chọn bột, nhân, topping để làm bánh mới cho tiệm của bạn.",
      "cameoName": "Minseo",
-     "cameoRole": "Thợ bánh ở tiệm bánh"
+     "cameoRole": "Thợ bánh ở tiệm bánh",
+     "line": "Nướng, xếp kệ, tạo bánh mới"
     }
    },
    "links": {
@@ -360,178 +601,12 @@
    "cameoRole": "빵집 제빵사"
   },
   {
-   "slug": "waxpputower",
-   "repo": "WaxPpuTower",
-   "title": "왁뿌타워",
-   "subtitle": "점프 말랑이 키보드 ASMR",
-   "hook": "밟을 때마다 말랑말랑한 힐링 ASMR 게임! 슬리퍼 오리와 5가지 테마 맵을 오르는 점프 게임",
-   "genre": "others",
-   "status": "released",
-   "icon": "icons/waxpputower.png",
-   "accent": "#ecce8b",
-   "i18n": {
-    "en": {
-     "title": "Wakppu Tower",
-     "subtitle": "Keyboard ASMR",
-     "hook": "Cozy ASMR jump game! Climb 5 squishy theme worlds with Slipper Duck"
-    },
-    "ja": {
-     "title": "ワクプタワー",
-     "subtitle": "キーボードASMR ジャンプ",
-     "hook": "踏むたびにもちもち、癒しのASMRゲーム！スリッパダックと5つのテーママップを登るジャンプゲーム"
-    },
-    "zh-Hans": {
-     "title": "瓦普塔",
-     "subtitle": "键盘 ASMR 跳跳捏捏乐",
-     "hook": "踩软软台阶往上爬的治愈ASMR跳跃游戏，和拖鞋鸭一起闯5张主题地图"
-    },
-    "zh-Hant": {
-     "title": "瓦普塔",
-     "subtitle": "鍵盤 ASMR 跳跳捏捏樂",
-     "hook": "踩踏軟軟台階往上爬的療癒ASMR跳躍遊戲，和拖鞋鴨一起闖5張主題地圖"
-    },
-    "id": {
-     "title": "Wakppu Tower",
-     "subtitle": "Keyboard ASMR",
-     "hook": "Game lompat ASMR santai! Injak pijakan empuk bareng Bebek Sandal di 5 peta tema"
-    },
-    "th": {
-     "title": "วัคปูทาวเวอร์",
-     "subtitle": "Keyboard ASMR",
-     "hook": "เกมกระโดด ASMR สุดชิล เหยียบพื้นนุ่มไปกับเป็ดใส่รองเท้าแตะ ใน 5 แผนที่ธีม"
-    },
-    "vi": {
-     "title": "Wakppu Tower",
-     "subtitle": "Keyboard ASMR",
-     "hook": "Game nhảy leo tháp ASMR thư giãn! Giẫm bậc mềm cùng Vịt Dép ở 5 bản đồ chủ đề"
-    },
-    "tr": {
-     "title": "Wakppu Tower",
-     "subtitle": "Squishy ASMR",
-     "hook": "Bastıkça yumuşacık, rahatlatıcı bir ASMR oyunu! Terlikli Ördek'le 5 temalı haritayı tırman"
-    }
-   },
-   "links": {
-    "play": "https://play.google.com/store/apps/details?id=com.dumbgamelab.waxpputower"
-   },
-   "iconUrl": "https://qqq1212341.github.io/games/icons/waxpputower.png",
-   "shot": "shots/waxpputower.webp",
-   "shotUrl": "https://qqq1212341.github.io/games/shots/waxpputower.webp"
-  },
-  {
-   "slug": "bakerydash",
-   "repo": "Bakerydash",
-   "title": "치치의 빵 나르기",
-   "subtitle": "빵 쌓고 나르고 가게 넓히는 게임",
-   "hook": "조이스틱으로 뛰며 빵을 쌓아 나르고, 줄이 길어지면 직원을 뽑아 가게를 넓혀요.",
-   "genre": "others",
-   "status": "released",
-   "icon": "icons/bakerydash.png",
-   "accent": "#e9954a",
-   "i18n": {
-    "en": {
-     "title": "Chichi's Bread Run",
-     "subtitle": "Carry bread, grow your shop",
-     "hook": "Run, stack and carry bread. When lines get long, hire staff and expand."
-    },
-    "ja": {
-     "title": "チーチーのパン運び",
-     "subtitle": "積んで運んで、お店を広げよう",
-     "hook": "ジョイスティックで走ってパンを積んで運ぼう。行列が長くなったら店員を雇ってお店を広げます。"
-    },
-    "zh-Hans": {
-     "title": "芝芝的面包快跑",
-     "subtitle": "堆面包、送面包、扩大店面",
-     "hook": "用摇杆跑动，把面包堆高再送出去。排队变长就招员工，把店越开越大。"
-    },
-    "zh-Hant": {
-     "title": "芝芝的麵包快跑",
-     "subtitle": "堆麵包、送麵包、擴大店面",
-     "hook": "用搖桿跑動，把麵包堆高再送出去。排隊變長就招員工，把店越開越大。"
-    },
-    "id": {
-     "title": "Chichi Antar Roti",
-     "subtitle": "Tumpuk roti, layani, perluas",
-     "hook": "Lari, tumpuk, antar roti. Antrean makin panjang? Rekrut karyawan, perluas toko."
-    },
-    "th": {
-     "title": "ชิชิขายขนมปัง",
-     "subtitle": "ซ้อน ขน ขยายร้านให้ใหญ่",
-     "hook": "ใช้จอยสติ๊กวิ่ง ซ้อนขนมปังแล้วขนไปส่ง คิวยาวเมื่อไรก็จ้างพนักงานมาขยายร้าน"
-    },
-    "vi": {
-     "title": "Chichi Bán Bánh Mì",
-     "subtitle": "Xếp bánh, phục vụ, mở tiệm",
-     "hook": "Chạy, xếp bánh rồi bưng đi. Hàng dài thì thuê nhân viên, mở rộng tiệm."
-    }
-   },
-   "links": {
-    "play": "https://play.google.com/store/apps/details?id=com.dumbgamelab.bakerydash"
-   },
-   "iconUrl": "https://qqq1212341.github.io/games/icons/bakerydash.png",
-   "shot": "shots/bakerydash.webp",
-   "shotUrl": "https://qqq1212341.github.io/games/shots/bakerydash.webp"
-  },
-  {
-   "slug": "bakerymerge",
-   "repo": "Bakerymerge",
-   "title": "치치의 빵 합치기",
-   "subtitle": "빵을 합쳐 주문받고 가게를 고쳐요",
-   "hook": "같은 빵 둘을 합쳐 더 큰 빵으로. 손님 주문을 채워서 낡은 동네 빵집을 새로 고쳐요.",
-   "genre": "others",
-   "status": "released",
-   "icon": "icons/bakerymerge.png",
-   "accent": "#e9954a",
-   "i18n": {
-    "en": {
-     "title": "Chichi's Cozy Merge Games",
-     "subtitle": "Fill orders, fix up your shop",
-     "hook": "Merge matching breads, fill orders, and fix up a run-down neighborhood bakery."
-    },
-    "ja": {
-     "title": "チーチーのパン屋ゲーム",
-     "subtitle": "パンを合成して注文に応え、お店を直そう",
-     "hook": "同じパンを二つ合わせて、大きなパンに。お客さんの注文に応えて、古びた町のパン屋を新しく直そう。"
-    },
-    "zh-Hans": {
-     "title": "芝芝的面包合成",
-     "subtitle": "合成面包接订单，修缮老面包店",
-     "hook": "把两个相同的面包合成更大的面包，完成顾客的订单，把破旧的街角小店修缮一新。"
-    },
-    "zh-Hant": {
-     "title": "芝芝的合成遊戲",
-     "subtitle": "合成麵包、接訂單、整修店面",
-     "hook": "兩個相同的麵包合在一起，變成更大的麵包。完成客人的訂單，把老舊的社區麵包店整修一新。"
-    },
-    "id": {
-     "title": "Chichi Gabung Roti",
-     "subtitle": "Penuhi pesanan, perbaiki toko",
-     "hook": "Gabung dua roti sama jadi lebih besar. Penuhi pesanan, perbaiki toko roti tua."
-    },
-    "th": {
-     "title": "ขนมปังของชิชิ",
-     "subtitle": "รวมขนมปัง รับออเดอร์ ซ่อมร้าน",
-     "hook": "รวมขนมปังที่เหมือนกันให้ใหญ่ขึ้น ส่งออเดอร์ลูกค้า แล้วซ่อมร้านเก่าให้กลับมาใหม่"
-    },
-    "vi": {
-     "title": "Chichi Merge",
-     "subtitle": "Ghép bánh, nhận đơn, sửa tiệm",
-     "hook": "Ghép hai bánh giống nhau thành bánh to hơn. Làm đơn cho khách, sửa tiệm bánh cũ."
-    }
-   },
-   "links": {
-    "play": "https://play.google.com/store/apps/details?id=com.dumbgamelab.bakerymerge"
-   },
-   "iconUrl": "https://qqq1212341.github.io/games/icons/bakerymerge.png",
-   "shot": "shots/bakerymerge.webp",
-   "shotUrl": "https://qqq1212341.github.io/games/shots/bakerymerge.webp"
-  },
-  {
    "slug": "breadorder",
    "repo": "BreadOrder",
    "title": "치치의 빵 만들기",
    "subtitle": "손님 말대로 굽는 요리 게임",
    "hook": "손님 말을 듣고 반죽부터 봉투 담기까지 일곱 걸음으로 직접 굽는 조리 게임",
+   "line": "주문 듣고 반죽부터 직접 굽기",
    "genre": "others",
    "status": "released",
    "icon": "icons/breadorder.png",
@@ -540,37 +615,44 @@
     "en": {
      "title": "Chichi's Baking",
      "subtitle": "Bake What Customers Ask For",
-     "hook": "Listen to each order, then bake it by hand in seven steps and hand it over."
+     "hook": "Listen to each order, then bake it by hand in seven steps and hand it over.",
+     "line": "Hear the order, bake from scratch"
     },
     "ja": {
      "title": "チーチーのパン作り",
      "subtitle": "聞いて焼いて割って確かめる料理ゲーム",
-     "hook": "お客さんの注文を聞いて、生地から袋詰めまで七つの手順で自分の手で焼き上げます"
+     "hook": "お客さんの注文を聞いて、生地から袋詰めまで七つの手順で自分の手で焼き上げます",
+     "line": "注文を聞いて生地から手作り"
     },
     "zh-Hans": {
      "title": "芝芝的做面包",
      "subtitle": "听顾客点单，亲手烘焙的料理游戏",
-     "hook": "听顾客点单，从面团到装袋，用七个步骤亲手烤好每一个面包"
+     "hook": "听顾客点单，从面团到装袋，用七个步骤亲手烤好每一个面包",
+     "line": "听完点单，从面团烤起"
     },
     "zh-Hant": {
      "title": "芝芝的麵包",
      "subtitle": "聽客人點單，親手烘焙的料理遊戲",
-     "hook": "聽客人點單，從麵糰到裝袋，用七個步驟親手烤好每一個麵包"
+     "hook": "聽客人點單，從麵糰到裝袋，用七個步驟親手烤好每一個麵包",
+     "line": "聽完點單，從麵糰烤起"
     },
     "id": {
      "title": "Chichi Masak Roti",
      "subtitle": "Game Masak, Dengar & Sajikan",
-     "hook": "Dengar pesanan pelanggan, lalu panggang rotinya sendiri dalam tujuh langkah."
+     "hook": "Dengar pesanan pelanggan, lalu panggang rotinya sendiri dalam tujuh langkah.",
+     "line": "Dengar pesanan, panggang dari adonan"
     },
     "th": {
      "title": "ชิชิทำขนมปัง",
      "subtitle": "เกมทำอาหาร ฟังออเดอร์แล้วอบเอง",
-     "hook": "ฟังออเดอร์ลูกค้า แล้วอบเองด้วยมือในเจ็ดขั้นตอน ตั้งแต่วางแป้งจนถึงใส่ถุง"
+     "hook": "ฟังออเดอร์ลูกค้า แล้วอบเองด้วยมือในเจ็ดขั้นตอน ตั้งแต่วางแป้งจนถึงใส่ถุง",
+     "line": "ฟังออเดอร์ อบเองตั้งแต่แป้ง"
     },
     "vi": {
      "title": "Chichi Làm Bánh Mì",
      "subtitle": "Nghe khách gọi, tự tay nướng",
-     "hook": "Nghe khách gọi món rồi tự tay nướng bánh qua bảy bước, từ bột đến túi."
+     "hook": "Nghe khách gọi món rồi tự tay nướng bánh qua bảy bước, từ bột đến túi.",
+     "line": "Nghe gọi món, tự nướng từ bột"
     }
    },
    "links": {
@@ -581,11 +663,136 @@
    "shotUrl": "https://qqq1212341.github.io/games/shots/breadorder.webp"
   },
   {
+   "slug": "bakerymerge",
+   "repo": "Bakerymerge",
+   "title": "치치의 빵 합치기",
+   "subtitle": "빵을 합쳐 주문받고 가게를 고쳐요",
+   "hook": "같은 빵 둘을 합쳐 더 큰 빵으로. 손님 주문을 채워서 낡은 동네 빵집을 새로 고쳐요.",
+   "line": "빵 둘을 합치면 더 큰 빵이 나와요",
+   "genre": "others",
+   "status": "released",
+   "icon": "icons/bakerymerge.png",
+   "accent": "#e9954a",
+   "i18n": {
+    "en": {
+     "title": "Chichi's Cozy Merge Games",
+     "subtitle": "Fill orders, fix up your shop",
+     "hook": "Merge matching breads, fill orders, and fix up a run-down neighborhood bakery.",
+     "line": "Merge two breads into a bigger one"
+    },
+    "ja": {
+     "title": "チーチーのパン屋ゲーム",
+     "subtitle": "パンを合成して注文に応え、お店を直そう",
+     "hook": "同じパンを二つ合わせて、大きなパンに。お客さんの注文に応えて、古びた町のパン屋を新しく直そう。",
+     "line": "パン二つで、もっと大きなパンに"
+    },
+    "zh-Hans": {
+     "title": "芝芝的面包合成",
+     "subtitle": "合成面包接订单，修缮老面包店",
+     "hook": "把两个相同的面包合成更大的面包，完成顾客的订单，把破旧的街角小店修缮一新。",
+     "line": "两个面包合成更大的面包"
+    },
+    "zh-Hant": {
+     "title": "芝芝的合成遊戲",
+     "subtitle": "合成麵包、接訂單、整修店面",
+     "hook": "兩個相同的麵包合在一起，變成更大的麵包。完成客人的訂單，把老舊的社區麵包店整修一新。",
+     "line": "兩個麵包合成更大的麵包"
+    },
+    "id": {
+     "title": "Chichi Gabung Roti",
+     "subtitle": "Penuhi pesanan, perbaiki toko",
+     "hook": "Gabung dua roti sama jadi lebih besar. Penuhi pesanan, perbaiki toko roti tua.",
+     "line": "Gabung dua roti jadi lebih besar"
+    },
+    "th": {
+     "title": "ขนมปังของชิชิ",
+     "subtitle": "รวมขนมปัง รับออเดอร์ ซ่อมร้าน",
+     "hook": "รวมขนมปังที่เหมือนกันให้ใหญ่ขึ้น ส่งออเดอร์ลูกค้า แล้วซ่อมร้านเก่าให้กลับมาใหม่",
+     "line": "รวมขนมปังสองชิ้นให้ใหญ่ขึ้น"
+    },
+    "vi": {
+     "title": "Chichi Merge",
+     "subtitle": "Ghép bánh, nhận đơn, sửa tiệm",
+     "hook": "Ghép hai bánh giống nhau thành bánh to hơn. Làm đơn cho khách, sửa tiệm bánh cũ.",
+     "line": "Ghép hai bánh thành bánh to hơn"
+    }
+   },
+   "links": {
+    "play": "https://play.google.com/store/apps/details?id=com.dumbgamelab.bakerymerge"
+   },
+   "iconUrl": "https://qqq1212341.github.io/games/icons/bakerymerge.png",
+   "shot": "shots/bakerymerge.webp",
+   "shotUrl": "https://qqq1212341.github.io/games/shots/bakerymerge.webp"
+  },
+  {
+   "slug": "0913sample",
+   "repo": "0913Sample",
+   "title": "방구석뽑기왕: 크레인 실력 게임",
+   "subtitle": "집게 힘을 읽고 인형을 데려와요",
+   "hook": "집게는 누르면 내려가는 장난감이 아니에요. 케이블이 흔들리고 인형마다 무게가 달라서, 어떻게 물리느냐가 결과를 갈라요. 힘 게이지를 읽고 인형을 데려오세요.",
+   "line": "집게 힘 읽고 인형 데려오기",
+   "genre": "others",
+   "status": "released",
+   "icon": "icons/0913sample.png",
+   "accent": "#9442b0",
+   "i18n": {
+    "en": {
+     "title": "Room Claw: Crane Skill Game",
+     "subtitle": "Read the grip. Win the plush.",
+     "hook": "A claw machine you have to read. The cable swings, every plush has its own weight, and a strength gauge shows how well you gripped. Read it, carry it, win the plush.",
+     "line": "Read the claw's grip, win the plush"
+    },
+    "ja": {
+     "title": "おうちクレーン王：クレーン腕試しゲーム",
+     "subtitle": "アームの力を読んで、ぬいぐるみを連れて帰ろう",
+     "hook": "アームは、押せば下りるだけのおもちゃではありません。ケーブルが揺れて、ぬいぐるみごとに重さも違うので、どうつかむかで結果が分かれます。パワーゲージを読んで、ぬいぐるみを連れて帰りましょう。",
+     "line": "アームの力を読んで連れて帰ろう"
+    },
+    "zh-Hans": {
+     "title": "宅家抓娃娃王：娃娃机技巧游戏",
+     "subtitle": "读懂爪力，把娃娃带回家",
+     "hook": "爪子可不是按一下就往下落的玩具。吊绳会晃，每只娃娃重量不同，怎么抓决定结果。看懂力度条，把娃娃带回家。",
+     "line": "看懂爪力，把娃娃带回家"
+    },
+    "zh-Hant": {
+     "title": "宅家夾娃娃王：夾娃娃實力遊戲",
+     "subtitle": "讀懂爪子力道，把娃娃帶回家",
+     "hook": "爪子不是按下去就會落下的玩具。纜繩會晃，每隻娃娃的重量也不同，怎麼夾住決定了結果。讀懂力道條，把娃娃帶回家吧。",
+     "line": "讀懂爪力，把娃娃帶回家"
+    },
+    "id": {
+     "title": "Room Claw: Game Skill Capit",
+     "subtitle": "Baca tenaga capit, bawa boneka",
+     "hook": "Capit bukan sekadar mainan yang ditekan lalu turun. Kabel bergoyang, bobot tiap boneka beda, jadi cara mencengkeram menentukan hasil. Baca kekuatan capit, bawa bonekanya.",
+     "line": "Baca capit, bawa pulang boneka"
+    },
+    "th": {
+     "title": "ราชาตู้คีบ: เกมคีบสายฝีมือ",
+     "subtitle": "อ่านแรงก้ามคีบ พาตุ๊กตากลับมา",
+     "hook": "ก้ามคีบไม่ใช่ของเล่นที่กดแล้วหย่อนลงไปเฉย ๆ สายเคเบิลแกว่ง ตุ๊กตาแต่ละตัวหนักไม่เท่ากัน วิธีที่ก้ามคีบจับจึงชี้ขาดผล ลองอ่านเกจแรงแล้วพาตุ๊กตากลับมาให้ได้",
+     "line": "อ่านแรงคีบ พาตุ๊กตากลับบ้าน"
+    },
+    "vi": {
+     "title": "Room Claw: Game Kỹ Năng Gắp",
+     "subtitle": "Đọc lực càng, đưa thú bông về",
+     "hook": "Càng gắp không phải đồ chơi cứ bấm là hạ xuống. Dây cáp đung đưa, mỗi bé thú bông nặng nhẹ khác nhau nên cách kẹp quyết định kết quả. Đọc thanh lực rồi đưa thú bông về.",
+     "line": "Đọc lực càng, đưa thú bông về"
+    }
+   },
+   "links": {
+    "play": "https://play.google.com/store/apps/details?id=com.dumbgamelab.bangguseokclaw"
+   },
+   "iconUrl": "https://qqq1212341.github.io/games/icons/0913sample.png",
+   "shot": "shots/0913sample.webp",
+   "shotUrl": "https://qqq1212341.github.io/games/shots/0913sample.webp"
+  },
+  {
    "slug": "chichicamp",
    "repo": "ChichiCamp",
    "title": "치치의 숲속 캠프",
    "subtitle": "모으고 만들고 꾸미는 캠프",
    "hook": "매일 아침 동물 손님이 찾아와요. 부탁을 들어주고 가구를 만들어 숲속 캠프를 꾸며요.",
+   "line": "동물 손님 부탁 들어주는 숲속 캠프",
    "genre": "others",
    "status": "released",
    "icon": "icons/chichicamp.png",
@@ -594,7 +801,8 @@
     "en": {
      "title": "Chichi Camp",
      "subtitle": "Gather, craft, decorate",
-     "hook": "Animal guests drop by every morning. Fill their requests, craft furniture and make the forest camp your own."
+     "hook": "Animal guests drop by every morning. Fill their requests, craft furniture and make the forest camp your own.",
+     "line": "Help animal guests at a forest camp"
     }
    },
    "links": {
@@ -607,75 +815,293 @@
    "_note": "2026-10-31 Play 1.0.1 게시(리스팅 200) — links.play 를 더하고 status released. web = itch 웹판"
   },
   {
-   "slug": "onelife",
-   "repo": "OneLife",
-   "title": "한 번뿐인 인생",
-   "subtitle": "실제 출생 확률로 사는 인생 시뮬레이션",
-   "hook": "지구 위 무작위 한 점에 태어나 한 해에 한 줄씩 살아요. 갈림길에서 고른 답이 내 삶을 바꿔요.",
+   "slug": "bakerydash",
+   "repo": "Bakerydash",
+   "title": "치치의 빵 나르기",
+   "subtitle": "빵 쌓고 나르고 가게 넓히는 게임",
+   "hook": "조이스틱으로 뛰며 빵을 쌓아 나르고, 줄이 길어지면 직원을 뽑아 가게를 넓혀요.",
+   "line": "빵 쌓아 뛰고, 가게는 점점 넓게",
    "genre": "others",
    "status": "released",
-   "icon": "icons/onelife.png",
-   "accent": "#e0884a",
+   "icon": "icons/bakerydash.png",
+   "accent": "#e9954a",
    "i18n": {
     "en": {
-     "title": "One Life",
-     "subtitle": "Live one life by real birth odds",
-     "hook": "Get born on a random dot on Earth and live one line a year. The answer you pick at each crossroad changes your life."
+     "title": "Chichi's Bread Run",
+     "subtitle": "Carry bread, grow your shop",
+     "hook": "Run, stack and carry bread. When lines get long, hire staff and expand.",
+     "line": "Stack bread, run, grow the shop"
     },
     "ja": {
-     "title": "一度きりの人生",
-     "subtitle": "実際の出生確率で生きる人生シミュレーション",
-     "hook": "地球上のランダムな一点に生まれて、一年に一行ずつ生きていきます。分かれ道で選んだ答えが人生を変えます。"
+     "title": "チーチーのパン運び",
+     "subtitle": "積んで運んで、お店を広げよう",
+     "hook": "ジョイスティックで走ってパンを積んで運ぼう。行列が長くなったら店員を雇ってお店を広げます。",
+     "line": "パンを積んで走って、店を拡大"
     },
     "zh-Hans": {
-     "title": "仅此一次的人生",
-     "subtitle": "按真实出生概率度过一生的人生模拟",
-     "hook": "出生在地球上随机的一点，一年一行地走完一生。岔路口选的答案会改变你的人生。"
+     "title": "芝芝的面包快跑",
+     "subtitle": "堆面包、送面包、扩大店面",
+     "hook": "用摇杆跑动，把面包堆高再送出去。排队变长就招员工，把店越开越大。",
+     "line": "堆面包跑一跑，店越开越大"
     },
     "zh-Hant": {
-     "title": "僅此一次的人生",
-     "subtitle": "依真實出生機率度過一生的人生模擬",
-     "hook": "出生在地球上隨機的一點，一年一行地走完一生。岔路口選的答案會改變你的人生。"
+     "title": "芝芝的麵包快跑",
+     "subtitle": "堆麵包、送麵包、擴大店面",
+     "hook": "用搖桿跑動，把麵包堆高再送出去。排隊變長就招員工，把店越開越大。",
+     "line": "堆麵包跑一跑，店越開越大"
     },
     "id": {
-     "title": "Hanya Satu Kehidupan",
-     "subtitle": "Jalani satu hidup dengan peluang lahir nyata",
-     "hook": "Lahir di satu titik acak di Bumi dan jalani hidup satu baris per tahun. Jawaban yang kamu pilih di tiap persimpangan mengubah hidupmu."
+     "title": "Chichi Antar Roti",
+     "subtitle": "Tumpuk roti, layani, perluas",
+     "hook": "Lari, tumpuk, antar roti. Antrean makin panjang? Rekrut karyawan, perluas toko.",
+     "line": "Tumpuk roti, lari, perluas toko"
     },
     "th": {
-     "title": "ชีวิตเดียวเท่านั้น",
-     "subtitle": "ใช้ชีวิตหนึ่งชาติตามโอกาสเกิดจริง",
-     "hook": "เกิดที่จุดสุ่มบนโลกแล้วใช้ชีวิตปีละหนึ่งบรรทัด คำตอบที่เลือกตรงทางแยกเปลี่ยนชีวิตของคุณ"
+     "title": "ชิชิขายขนมปัง",
+     "subtitle": "ซ้อน ขน ขยายร้านให้ใหญ่",
+     "hook": "ใช้จอยสติ๊กวิ่ง ซ้อนขนมปังแล้วขนไปส่ง คิวยาวเมื่อไรก็จ้างพนักงานมาขยายร้าน",
+     "line": "ซ้อนขนมปังวิ่ง ขยายร้านเรื่อยๆ"
     },
     "vi": {
-     "title": "Chỉ Một Lần Sống",
-     "subtitle": "Sống một đời theo xác suất sinh thật",
-     "hook": "Sinh ra ở một điểm ngẫu nhiên trên Trái Đất và sống mỗi năm một dòng. Đáp án bạn chọn ở mỗi ngã rẽ sẽ đổi đời bạn."
+     "title": "Chichi Bán Bánh Mì",
+     "subtitle": "Xếp bánh, phục vụ, mở tiệm",
+     "hook": "Chạy, xếp bánh rồi bưng đi. Hàng dài thì thuê nhân viên, mở rộng tiệm.",
+     "line": "Xếp bánh, chạy, tiệm ngày càng rộng"
     }
    },
    "links": {
-    "web": "https://dumbgamelab.com/play/one-life/"
+    "play": "https://play.google.com/store/apps/details?id=com.dumbgamelab.bakerydash"
    },
-   "iconUrl": "https://qqq1212341.github.io/games/icons/onelife.png",
-   "shot": "shots/onelife.webp",
-   "shotUrl": "https://qqq1212341.github.io/games/shots/onelife.webp"
+   "iconUrl": "https://qqq1212341.github.io/games/icons/bakerydash.png",
+   "shot": "shots/bakerydash.webp",
+   "shotUrl": "https://qqq1212341.github.io/games/shots/bakerydash.webp"
   },
   {
-   "slug": "wordchain",
-   "repo": "Wordchain",
-   "title": "치치의 타자 배틀",
-   "subtitle": "잰말놀이 빨리 치기",
-   "hook": "치치와 같은 말을 동시에 쳐요. 간장 공장 공장장을 치치보다 먼저 끝까지 치면 이겨요.",
+   "slug": "mergestampede",
+   "repo": "MergeStampede",
+   "title": "머지 스탬피드: 동물 합성게임",
+   "subtitle": "합치면 진화하는 머지게임 오토배틀",
+   "hook": "같은 동물을 합쳐 진화시키고, 문을 열어 군단을 3D 전장에 쏟아내는 머지 오토배틀",
+   "line": "같은 동물 합치면 진화하는 군단",
    "genre": "others",
+   "status": "released",
+   "icon": "icons/mergestampede.png",
+   "accent": "#e48635",
+   "i18n": {
+    "en": {
+     "title": "Merge Stampede: Animal Battle",
+     "subtitle": "Drop, Merge & Auto Battle",
+     "hook": "Merge matching farm animals to evolve, then open the gate for a 3D auto battle",
+     "line": "Merge animals, evolve your army"
+    },
+    "ja": {
+     "title": "Merge Stampede: 動物合体オートバトル",
+     "subtitle": "落として合体、オートバトル",
+     "hook": "同じ動物を落として合体させて進化。扉を開けたら軍団が3Dの戦場で自動バトル",
+     "line": "同じ動物を合体、進化する軍団"
+    },
+    "zh-Hant": {
+     "title": "Merge Stampede: 動物合成大戰",
+     "subtitle": "丟下去、合成、自動戰鬥",
+     "hook": "動物合成遊戲：一樣的動物碰在一起就進化，打開門讓軍團衝上 3D 戰場自動戰鬥",
+     "line": "同款動物合成，軍團進化"
+    },
+    "id": {
+     "title": "Merge Stampede: Game Hewan",
+     "hook": "Gabung hewan yang sama agar berevolusi, lalu buka pintu untuk auto battle 3D",
+     "line": "Gabung hewan, pasukan berevolusi"
+    },
+    "th": {
+     "title": "Merge Stampede: เกมผสมสัตว์",
+     "subtitle": "หย่อน รวมร่าง แล้วสู้อัตโนมัติ",
+     "hook": "รวมสัตว์ตัวเหมือนกันให้วิวัฒนาการ แล้วเปิดประตูปล่อยกองทัพสู้เองในสนามรบ 3D",
+     "line": "รวมสัตว์ให้กองทัพวิวัฒน์"
+    },
+    "vi": {
+     "title": "Merge Stampede: Ghép thú",
+     "subtitle": "Thả, ghép thú và tự chiến đấu",
+     "hook": "Game hợp nhất động vật: ghép thú để tiến hóa rồi tung cả đàn ra trận 3D",
+     "line": "Ghép thú giống nhau, đàn quân tiến hóa"
+    }
+   },
+   "links": {
+    "play": "https://play.google.com/store/apps/details?id=com.dumbgamelab.mergestampede",
+    "ios": "https://apps.apple.com/app/id6790514141"
+   },
+   "iconUrl": "https://qqq1212341.github.io/games/icons/mergestampede.png",
+   "shot": "shots/mergestampede.webp",
+   "shotUrl": "https://qqq1212341.github.io/games/shots/mergestampede.webp"
+  },
+  {
+   "slug": "chichiroulette",
+   "repo": "ChichiRoulette",
+   "title": "점심 메뉴 룰렛 돌림판 - 치치의 결정 룰렛",
+   "subtitle": "점심 메뉴, 벌칙, 순서 정하기",
+   "hook": "항목을 넣고 돌리면 치치가 마이크를 들고 결과를 발표해요. 점심 메뉴, 벌칙, 순서 정하기까지 가입 없이 바로 쓸 수 있어요.",
+   "line": "점심 메뉴, 돌려서 바로 정하기",
+   "genre": "others",
+   "status": "released",
+   "icon": "icons/chichiroulette.png",
+   "accent": "#fdaa4c",
+   "i18n": {
+    "en": {
+     "title": "Spin the Wheel: Chichi's Picks",
+     "subtitle": "Decision Maker & Random Picker",
+     "hook": "Add your options, spin the wheel, and Chichi announces the result with a mic. Lunch, dares, turn order: decide in seconds, no sign-up.",
+     "line": "Lunch picked in one spin"
+    },
+    "ja": {
+     "title": "ランチ決めルーレット - チーチーの決定ルーレット",
+     "subtitle": "ランチ・罰ゲーム・順番決め",
+     "hook": "項目を入れて回すと、チーチーがマイクを持って結果を発表します。ランチ、罰ゲーム、順番決めまで、登録なしですぐ使えます。",
+     "line": "ランチ、回して即決"
+    },
+    "zh-Hans": {
+     "title": "吃什么转盘抽签 - 芝芝的决定转盘",
+     "subtitle": "午饭、惩罚、决定顺序",
+     "hook": "输入选项、转动转盘，芝芝就会拿起麦克风宣布结果。午饭、惩罚到排顺序，免注册马上用。",
+     "line": "午饭吃啥，转一下就定"
+    },
+    "zh-Hant": {
+     "title": "吃什麼抽籤轉盤 - 芝芝的決定轉盤",
+     "subtitle": "午餐、懲罰、決定順序",
+     "hook": "輸入選項、轉動轉盤，芝芝就會拿起麥克風宣布結果。午餐、懲罰到排順序，免註冊馬上用。",
+     "line": "午餐吃啥，轉一下就定"
+    },
+    "id": {
+     "title": "Roda Putar Acak - Chichi",
+     "subtitle": "Menu makan, hukuman, giliran",
+     "hook": "Masukkan opsi lalu putar, dan Chichi mengumumkan hasilnya dengan mikrofon. Dari menu makan siang, hukuman, sampai giliran, langsung pakai tanpa daftar.",
+     "line": "Menu makan siang, putar langsung"
+    },
+    "th": {
+     "title": "วงล้อสุ่มกินอะไรดี - วงล้อชิชิ",
+     "subtitle": "มื้อเที่ยง บทลงโทษ จัดลำดับ",
+     "hook": "ใส่ตัวเลือกแล้วหมุน ชิชิจะถือไมค์ประกาศผลให้ ตั้งแต่มื้อเที่ยง บทลงโทษ ไปจนถึงจัดลำดับ ใช้ได้ทันทีโดยไม่ต้องสมัคร",
+     "line": "เมนูมื้อเที่ยง หมุนแล้วจบ"
+    },
+    "vi": {
+     "title": "Vòng Quay Ăn Gì - Chichi",
+     "subtitle": "Món trưa, hình phạt, thứ tự",
+     "hook": "Nhập các mục rồi quay, Chichi sẽ cầm micro công bố kết quả. Từ món trưa, hình phạt đến xếp thứ tự, dùng ngay không cần đăng ký.",
+     "line": "Món trưa, quay một phát là chốt"
+    }
+   },
+   "links": {
+    "play": "https://play.google.com/store/apps/details?id=com.dumbgamelab.roulette"
+   },
+   "iconUrl": "https://qqq1212341.github.io/games/icons/chichiroulette.png",
+   "shot": "shots/chichiroulette.webp",
+   "shotUrl": "https://qqq1212341.github.io/games/shots/chichiroulette.webp"
+  },
+  {
+   "slug": "brainrotheist",
+   "repo": "Brainrotheist",
+   "title": "치치의 브레인롯 털이",
+   "subtitle": "생물 모아 남의 기지 터는 게임",
+   "hook": "이상한 생물을 사 모아 돈을 벌고, 경비 몰래 남의 기지에서 훔쳐 오는 방치형 게임",
+   "line": "이상한 생물 모아 남의 기지 털기",
+   "genre": "others",
+   "status": "released",
+   "icon": "icons/brainrotheist.png",
+   "accent": "#d6453a",
+   "i18n": {
+    "en": {
+     "title": "Brainrot Heist: Chichi",
+     "subtitle": "Collect, steal, idle tycoon",
+     "hook": "Collect weird creatures, earn cash, and sneak into other bases to steal theirs.",
+     "line": "Collect weird creatures, raid bases"
+    }
+   },
+   "links": {
+    "play": "https://play.google.com/store/apps/details?id=com.dumbgamelab.brainrotheist"
+   },
+   "iconUrl": "https://qqq1212341.github.io/games/icons/brainrotheist.png",
+   "shot": "shots/brainrotheist.webp",
+   "shotUrl": "https://qqq1212341.github.io/games/shots/brainrotheist.webp",
+   "_note": "2026-11-12 Play 리스팅 200 실측으로 추가(크로스 프로모 목록 갱신 회차). en 문구는 docs/store/listing.json 그대로"
+  },
+  {
+   "slug": "ppijukland",
+   "repo": "Ppijukland",
+   "title": "삐죽랜드",
+   "subtitle": "동물 손님이 찾아오는 놀이공원",
+   "hook": "개구리·구름·식빵 손님을 놀이기구에 태우고 핫도그·츄러스·음료를 직접 만들어요.",
+   "line": "동물 손님 태우는 놀이공원",
+   "genre": "tycoon",
    "status": "beta",
-   "icon": "icons/wordchain.png",
-   "accent": "#e8833a",
+   "icon": "icons/ppijukland.png",
+   "accent": "#f26b5b",
+   "links": {
+    "beta": "https://groups.google.com/g/dumbgamelab-beta",
+    "web": "https://dumbgamelab.com/play/ppijukland/"
+   },
+   "iconUrl": "https://qqq1212341.github.io/games/icons/ppijukland.png",
+   "shot": "shots/ppijukland.webp",
+   "shotUrl": "https://qqq1212341.github.io/games/shots/ppijukland.webp",
+   "_beta": "출시 전 베타(core/docs/closed-beta/README.md) — 링크는 테스터 풀 구글 그룹. 스토어에 나가면 status 를 released 로, links 를 play/ios 로 바꾼다"
+  },
+  {
+   "slug": "gasstation",
+   "repo": "Gasstation",
+   "title": "치치의 주유소 키우기",
+   "subtitle": "차마다 들르는 순서가 다른 주유소",
+   "hook": "국도 옆 문 닫은 주유소를 물려받아 일곱 단계로 키워요. 차종마다 들르는 기물이 달라요.",
+   "line": "문 닫은 국도 주유소 다시 살리기",
+   "genre": "tycoon",
+   "status": "beta",
+   "icon": "icons/gasstation.png",
+   "accent": "#e8892b",
+   "i18n": {
+    "en": {
+     "title": "Chichi's Gas Station",
+     "subtitle": "Every car has its own stops",
+     "hook": "Take over a closed gas station by the highway and grow it in seven stages. Each type of car visits different equipment.",
+     "line": "Revive a closed highway gas station"
+    },
+    "ja": {
+     "title": "チーチーのガソリンスタンド",
+     "subtitle": "車ごとに寄る順番が違うスタンド",
+     "hook": "国道沿いの閉まったガソリンスタンドを引き継いで、七段階で育てます。車種ごとに立ち寄る設備が違います。",
+     "line": "閉まった国道のスタンドを復活"
+    },
+    "zh-Hans": {
+     "title": "芝芝的加油站",
+     "subtitle": "每辆车停靠的顺序都不一样",
+     "hook": "接手国道边关了门的加油站，分七个阶段把它做大。不同车型会去不同的设备。",
+     "line": "让关门的国道加油站复活"
+    },
+    "zh-Hant": {
+     "title": "芝芝的加油站",
+     "subtitle": "每輛車停靠的順序都不一樣",
+     "hook": "接手國道旁關了門的加油站，分七個階段把它做大。不同車型會去不同的設備。",
+     "line": "讓關門的國道加油站復活"
+    },
+    "id": {
+     "title": "Pom Bensin Chichi",
+     "subtitle": "Tiap mobil mampir dengan urutan berbeda",
+     "hook": "Warisi pom bensin tutup di pinggir jalan raya dan kembangkan lewat tujuh tahap. Tiap jenis mobil mampir ke perlengkapan yang berbeda.",
+     "line": "Hidupkan lagi pom bensin yang tutup"
+    },
+    "th": {
+     "title": "ปั๊มน้ำมันของชิชิ",
+     "subtitle": "รถแต่ละคันแวะไม่เหมือนกัน",
+     "hook": "รับช่วงปั๊มน้ำมันที่ปิดตัวข้างทางหลวงมาปั้นให้โตในเจ็ดขั้น รถแต่ละประเภทแวะอุปกรณ์ไม่เหมือนกัน",
+     "line": "ชุบชีวิตปั๊มน้ำมันที่ปิดตัว"
+    },
+    "vi": {
+     "title": "Trạm Xăng của Chichi",
+     "subtitle": "Mỗi xe ghé một thứ tự khác nhau",
+     "hook": "Nhận lại trạm xăng đã đóng cửa bên quốc lộ và phát triển qua bảy giai đoạn. Mỗi loại xe ghé những thiết bị khác nhau.",
+     "line": "Cứu lại trạm xăng quốc lộ đã đóng"
+    }
+   },
    "links": {
     "beta": "https://groups.google.com/g/dumbgamelab-beta"
    },
-   "iconUrl": "https://qqq1212341.github.io/games/icons/wordchain.png",
-   "shot": "shots/wordchain.webp",
-   "shotUrl": "https://qqq1212341.github.io/games/shots/wordchain.webp",
+   "iconUrl": "https://qqq1212341.github.io/games/icons/gasstation.png",
+   "shot": "shots/gasstation.webp",
+   "shotUrl": "https://qqq1212341.github.io/games/shots/gasstation.webp",
    "_beta": "출시 전 베타(core/docs/closed-beta/README.md) — 링크는 테스터 풀 구글 그룹. 스토어에 나가면 status 를 released 로, links 를 play/ios 로 바꾼다"
   },
   {
@@ -684,6 +1110,7 @@
    "title": "치치의 출근 가방",
    "subtitle": "가방 정리 로그라이크",
    "hook": "출근길 가방 칸에 물건을 놓아 조합을 터뜨리고, 층마다 부장 보스를 깨요.",
+   "line": "가방 칸 조합으로 부장 보스 깨기",
    "genre": "others",
    "status": "beta",
    "icon": "icons/chichibackpack.png",
@@ -703,6 +1130,7 @@
    "title": "치치의 털뭉치",
    "subtitle": "3D 뱀서라이크",
    "hook": "털뭉치를 굴려 적을 붙이며 커지고, 10분 동안 보스 3마리를 쓰러뜨려요.",
+   "line": "털뭉치 굴려 커지며 10분 버티기",
    "genre": "others",
    "status": "beta",
    "icon": "icons/chichisurvivor.png",
@@ -717,339 +1145,25 @@
    "_beta": "출시 전 베타(core/docs/closed-beta/README.md) — links.beta = 테스터 풀 구글 그룹, betaIos = TestFlight 공개 링크. 스토어에 나가면 status 를 released 로, links 를 play/ios 로 바꾼다"
   },
   {
-   "slug": "gasstation",
-   "repo": "Gasstation",
-   "title": "치치의 주유소 키우기",
-   "subtitle": "차마다 들르는 순서가 다른 주유소",
-   "hook": "국도 옆 문 닫은 주유소를 물려받아 일곱 단계로 키워요. 차종마다 들르는 기물이 달라요.",
-   "genre": "tycoon",
+   "slug": "wordchain",
+   "repo": "Wordchain",
+   "title": "치치의 타자 배틀",
+   "subtitle": "잰말놀이 빨리 치기",
+   "hook": "치치와 같은 말을 동시에 쳐요. 간장 공장 공장장을 치치보다 먼저 끝까지 치면 이겨요.",
+   "line": "간장 공장 공장장, 치치보다 빨리",
+   "genre": "others",
    "status": "beta",
-   "icon": "icons/gasstation.png",
-   "accent": "#e8892b",
-   "i18n": {
-    "en": {
-     "title": "Chichi's Gas Station",
-     "subtitle": "Every car has its own stops",
-     "hook": "Take over a closed gas station by the highway and grow it in seven stages. Each type of car visits different equipment."
-    },
-    "ja": {
-     "title": "チーチーのガソリンスタンド",
-     "subtitle": "車ごとに寄る順番が違うスタンド",
-     "hook": "国道沿いの閉まったガソリンスタンドを引き継いで、七段階で育てます。車種ごとに立ち寄る設備が違います。"
-    },
-    "zh-Hans": {
-     "title": "芝芝的加油站",
-     "subtitle": "每辆车停靠的顺序都不一样",
-     "hook": "接手国道边关了门的加油站，分七个阶段把它做大。不同车型会去不同的设备。"
-    },
-    "zh-Hant": {
-     "title": "芝芝的加油站",
-     "subtitle": "每輛車停靠的順序都不一樣",
-     "hook": "接手國道旁關了門的加油站，分七個階段把它做大。不同車型會去不同的設備。"
-    },
-    "id": {
-     "title": "Pom Bensin Chichi",
-     "subtitle": "Tiap mobil mampir dengan urutan berbeda",
-     "hook": "Warisi pom bensin tutup di pinggir jalan raya dan kembangkan lewat tujuh tahap. Tiap jenis mobil mampir ke perlengkapan yang berbeda."
-    },
-    "th": {
-     "title": "ปั๊มน้ำมันของชิชิ",
-     "subtitle": "รถแต่ละคันแวะไม่เหมือนกัน",
-     "hook": "รับช่วงปั๊มน้ำมันที่ปิดตัวข้างทางหลวงมาปั้นให้โตในเจ็ดขั้น รถแต่ละประเภทแวะอุปกรณ์ไม่เหมือนกัน"
-    },
-    "vi": {
-     "title": "Trạm Xăng của Chichi",
-     "subtitle": "Mỗi xe ghé một thứ tự khác nhau",
-     "hook": "Nhận lại trạm xăng đã đóng cửa bên quốc lộ và phát triển qua bảy giai đoạn. Mỗi loại xe ghé những thiết bị khác nhau."
-    }
-   },
+   "icon": "icons/wordchain.png",
+   "accent": "#e8833a",
    "links": {
     "beta": "https://groups.google.com/g/dumbgamelab-beta"
    },
-   "iconUrl": "https://qqq1212341.github.io/games/icons/gasstation.png",
-   "shot": "shots/gasstation.webp",
-   "shotUrl": "https://qqq1212341.github.io/games/shots/gasstation.webp",
+   "iconUrl": "https://qqq1212341.github.io/games/icons/wordchain.png",
+   "shot": "shots/wordchain.webp",
+   "shotUrl": "https://qqq1212341.github.io/games/shots/wordchain.webp",
    "_beta": "출시 전 베타(core/docs/closed-beta/README.md) — 링크는 테스터 풀 구글 그룹. 스토어에 나가면 status 를 released 로, links 를 play/ios 로 바꾼다"
-  },
-  {
-   "slug": "ppijukland",
-   "repo": "Ppijukland",
-   "title": "삐죽랜드",
-   "subtitle": "동물 손님이 찾아오는 놀이공원",
-   "hook": "개구리·구름·식빵 손님을 놀이기구에 태우고 핫도그·츄러스·음료를 직접 만들어요.",
-   "genre": "tycoon",
-   "status": "beta",
-   "icon": "icons/ppijukland.png",
-   "accent": "#f26b5b",
-   "links": {
-    "beta": "https://groups.google.com/g/dumbgamelab-beta",
-    "web": "https://dumbgamelab.com/play/ppijukland/"
-   },
-   "iconUrl": "https://qqq1212341.github.io/games/icons/ppijukland.png",
-   "shot": "shots/ppijukland.webp",
-   "shotUrl": "https://qqq1212341.github.io/games/shots/ppijukland.webp",
-   "_beta": "출시 전 베타(core/docs/closed-beta/README.md) — 링크는 테스터 풀 구글 그룹. 스토어에 나가면 status 를 released 로, links 를 play/ios 로 바꾼다"
-  },
-  {
-   "slug": "slimesimulator",
-   "repo": "SquishBloom",
-   "title": "슬라임 시뮬레이터: 액괴 말랑이 ASMR",
-   "subtitle": "만지고 만드는 슬라임 ASMR",
-   "hook": "누르고 늘리고 비틀면 슬라임 속 별과 하트가 손끝을 따라 움직여요. 색과 재료를 골라 나만의 슬라임도 만들어요.",
-   "genre": "others",
-   "status": "released",
-   "icon": "icons/slimesimulator.png",
-   "accent": "#f08ab4",
-   "i18n": {
-    "en": {
-     "title": "Slime Making Simulator: ASMR",
-     "subtitle": "Squishy Slime ASMR",
-     "hook": "Press, stretch and swirl the slime, and the stars and hearts inside move with your fingers. Pick colors and mix-ins to make your own.",
-     "cameoName": "Mina",
-     "cameoRole": "Slime stationery-shop kid"
-    },
-    "ja": {
-     "title": "スライム作り：ASMR スクイーズ シミュレーター",
-     "subtitle": "スライムASMR",
-     "hook": "押して、伸ばして、ひねると、中の星とハートも指先に合わせて動きます。色や材料を選んで、自分だけのスライムも作れます。",
-     "cameoName": "ミナ",
-     "cameoRole": "スライムの文具店の子"
-    },
-    "zh-Hans": {
-     "title": "史莱姆游戏：治愈 ASMR 捏捏乐模拟器",
-     "subtitle": "史莱姆 ASMR 捏捏乐",
-     "hook": "按压、拉长、扭转，史莱姆里的星星和爱心会跟着指尖一起动。还能挑颜色和配料，做出自己的史莱姆。",
-     "cameoName": "米娜",
-     "cameoRole": "史莱姆文具店的小朋友"
-    },
-    "zh-Hant": {
-     "title": "史萊姆遊戲：療癒 ASMR 捏捏樂模擬器",
-     "subtitle": "史萊姆 ASMR 捏捏樂",
-     "hook": "按壓、拉長、扭轉，史萊姆裡的星星和愛心會跟著指尖一起動。還能挑顏色和配料，做出自己的史萊姆。",
-     "cameoName": "米娜",
-     "cameoRole": "史萊姆文具店的小朋友"
-    },
-    "id": {
-     "title": "Slime Simulator: Bikin Slime",
-     "subtitle": "Slime ASMR Squishy",
-     "hook": "Tekan, tarik, dan putar slime, lalu bintang dan hati di dalamnya ikut bergerak mengikuti jarimu. Pilih warna dan bahan untuk bikin slime sendiri.",
-     "cameoName": "Mina",
-     "cameoRole": "Anak toko alat tulis slime"
-    },
-    "th": {
-     "title": "เกมสไลม์: ทำสไลม์ ASMR",
-     "subtitle": "สไลม์ ASMR นุ่มนิ่ม",
-     "hook": "กด ดึง บิดสไลม์ แล้วดาวกับหัวใจข้างในจะขยับตามปลายนิ้ว เลือกสีและส่วนผสมเพื่อทำสไลม์ของตัวเองได้ด้วย",
-     "cameoName": "มีนา",
-     "cameoRole": "เด็กร้านเครื่องเขียนสไลม์"
-    },
-    "vi": {
-     "title": "Game Slime: Làm Slime ASMR",
-     "subtitle": "Slime ASMR mềm mịn",
-     "hook": "Bóp, kéo, vặn slime, sao và trái tim bên trong sẽ cử động theo đầu ngón tay. Chọn màu và nguyên liệu để tự làm slime của riêng bạn.",
-     "cameoName": "Mina",
-     "cameoRole": "Bé ở tiệm văn phòng phẩm slime"
-    },
-    "tr": {
-     "title": "Slime Oyunu: Slime Yapma ASMR",
-     "subtitle": "Squishy Slime ASMR",
-     "hook": "Bas, uzat, bük; içindeki yıldızlar ve kalpler parmak ucunla birlikte hareket eder. Renk ve malzeme seçerek kendi slime karışımını yap.",
-     "cameoName": "Mina",
-     "cameoRole": "Slime kırtasiyesinin çocuğu"
-    }
-   },
-   "links": {
-    "play": "https://play.google.com/store/apps/details?id=com.dumbgamelab.slimesimulator"
-   },
-   "iconUrl": "https://qqq1212341.github.io/games/icons/slimesimulator.png",
-   "shot": "shots/slimesimulator.webp",
-   "shotUrl": "https://qqq1212341.github.io/games/shots/slimesimulator.webp",
-   "code": "SL",
-   "cameoName": "미나",
-   "cameoRole": "슬라임 문방구 꼬마"
-  },
-  {
-   "slug": "0913sample",
-   "repo": "0913Sample",
-   "title": "방구석뽑기왕: 크레인 실력 게임",
-   "subtitle": "집게 힘을 읽고 인형을 데려와요",
-   "hook": "집게는 누르면 내려가는 장난감이 아니에요. 케이블이 흔들리고 인형마다 무게가 달라서, 어떻게 물리느냐가 결과를 갈라요. 힘 게이지를 읽고 인형을 데려오세요.",
-   "genre": "others",
-   "status": "released",
-   "icon": "icons/0913sample.png",
-   "accent": "#9442b0",
-   "i18n": {
-    "en": {
-     "title": "Room Claw: Crane Skill Game",
-     "subtitle": "Read the grip. Win the plush.",
-     "hook": "A claw machine you have to read. The cable swings, every plush has its own weight, and a strength gauge shows how well you gripped. Read it, carry it, win the plush."
-    },
-    "ja": {
-     "title": "おうちクレーン王：クレーン腕試しゲーム",
-     "subtitle": "アームの力を読んで、ぬいぐるみを連れて帰ろう",
-     "hook": "アームは、押せば下りるだけのおもちゃではありません。ケーブルが揺れて、ぬいぐるみごとに重さも違うので、どうつかむかで結果が分かれます。パワーゲージを読んで、ぬいぐるみを連れて帰りましょう。"
-    },
-    "zh-Hans": {
-     "title": "宅家抓娃娃王：娃娃机技巧游戏",
-     "subtitle": "读懂爪力，把娃娃带回家",
-     "hook": "爪子可不是按一下就往下落的玩具。吊绳会晃，每只娃娃重量不同，怎么抓决定结果。看懂力度条，把娃娃带回家。"
-    },
-    "zh-Hant": {
-     "title": "宅家夾娃娃王：夾娃娃實力遊戲",
-     "subtitle": "讀懂爪子力道，把娃娃帶回家",
-     "hook": "爪子不是按下去就會落下的玩具。纜繩會晃，每隻娃娃的重量也不同，怎麼夾住決定了結果。讀懂力道條，把娃娃帶回家吧。"
-    },
-    "id": {
-     "title": "Room Claw: Game Skill Capit",
-     "subtitle": "Baca tenaga capit, bawa boneka",
-     "hook": "Capit bukan sekadar mainan yang ditekan lalu turun. Kabel bergoyang, bobot tiap boneka beda, jadi cara mencengkeram menentukan hasil. Baca kekuatan capit, bawa bonekanya."
-    },
-    "th": {
-     "title": "ราชาตู้คีบ: เกมคีบสายฝีมือ",
-     "subtitle": "อ่านแรงก้ามคีบ พาตุ๊กตากลับมา",
-     "hook": "ก้ามคีบไม่ใช่ของเล่นที่กดแล้วหย่อนลงไปเฉย ๆ สายเคเบิลแกว่ง ตุ๊กตาแต่ละตัวหนักไม่เท่ากัน วิธีที่ก้ามคีบจับจึงชี้ขาดผล ลองอ่านเกจแรงแล้วพาตุ๊กตากลับมาให้ได้"
-    },
-    "vi": {
-     "title": "Room Claw: Game Kỹ Năng Gắp",
-     "subtitle": "Đọc lực càng, đưa thú bông về",
-     "hook": "Càng gắp không phải đồ chơi cứ bấm là hạ xuống. Dây cáp đung đưa, mỗi bé thú bông nặng nhẹ khác nhau nên cách kẹp quyết định kết quả. Đọc thanh lực rồi đưa thú bông về."
-    }
-   },
-   "links": {
-    "play": "https://play.google.com/store/apps/details?id=com.dumbgamelab.bangguseokclaw"
-   },
-   "iconUrl": "https://qqq1212341.github.io/games/icons/0913sample.png",
-   "shot": "shots/0913sample.webp",
-   "shotUrl": "https://qqq1212341.github.io/games/shots/0913sample.webp"
-  },
-  {
-   "slug": "chichiroulette",
-   "repo": "ChichiRoulette",
-   "title": "점심 메뉴 룰렛 돌림판 - 치치의 결정 룰렛",
-   "subtitle": "점심 메뉴, 벌칙, 순서 정하기",
-   "hook": "항목을 넣고 돌리면 치치가 마이크를 들고 결과를 발표해요. 점심 메뉴, 벌칙, 순서 정하기까지 가입 없이 바로 쓸 수 있어요.",
-   "genre": "others",
-   "status": "released",
-   "icon": "icons/chichiroulette.png",
-   "accent": "#fdaa4c",
-   "i18n": {
-    "en": {
-     "title": "Spin the Wheel: Chichi's Picks",
-     "subtitle": "Decision Maker & Random Picker",
-     "hook": "Add your options, spin the wheel, and Chichi announces the result with a mic. Lunch, dares, turn order: decide in seconds, no sign-up."
-    },
-    "ja": {
-     "title": "ランチ決めルーレット - チーチーの決定ルーレット",
-     "subtitle": "ランチ・罰ゲーム・順番決め",
-     "hook": "項目を入れて回すと、チーチーがマイクを持って結果を発表します。ランチ、罰ゲーム、順番決めまで、登録なしですぐ使えます。"
-    },
-    "zh-Hans": {
-     "title": "吃什么转盘抽签 - 芝芝的决定转盘",
-     "subtitle": "午饭、惩罚、决定顺序",
-     "hook": "输入选项、转动转盘，芝芝就会拿起麦克风宣布结果。午饭、惩罚到排顺序，免注册马上用。"
-    },
-    "zh-Hant": {
-     "title": "吃什麼抽籤轉盤 - 芝芝的決定轉盤",
-     "subtitle": "午餐、懲罰、決定順序",
-     "hook": "輸入選項、轉動轉盤，芝芝就會拿起麥克風宣布結果。午餐、懲罰到排順序，免註冊馬上用。"
-    },
-    "id": {
-     "title": "Roda Putar Acak - Chichi",
-     "subtitle": "Menu makan, hukuman, giliran",
-     "hook": "Masukkan opsi lalu putar, dan Chichi mengumumkan hasilnya dengan mikrofon. Dari menu makan siang, hukuman, sampai giliran, langsung pakai tanpa daftar."
-    },
-    "th": {
-     "title": "วงล้อสุ่มกินอะไรดี - วงล้อชิชิ",
-     "subtitle": "มื้อเที่ยง บทลงโทษ จัดลำดับ",
-     "hook": "ใส่ตัวเลือกแล้วหมุน ชิชิจะถือไมค์ประกาศผลให้ ตั้งแต่มื้อเที่ยง บทลงโทษ ไปจนถึงจัดลำดับ ใช้ได้ทันทีโดยไม่ต้องสมัคร"
-    },
-    "vi": {
-     "title": "Vòng Quay Ăn Gì - Chichi",
-     "subtitle": "Món trưa, hình phạt, thứ tự",
-     "hook": "Nhập các mục rồi quay, Chichi sẽ cầm micro công bố kết quả. Từ món trưa, hình phạt đến xếp thứ tự, dùng ngay không cần đăng ký."
-    }
-   },
-   "links": {
-    "play": "https://play.google.com/store/apps/details?id=com.dumbgamelab.roulette"
-   },
-   "iconUrl": "https://qqq1212341.github.io/games/icons/chichiroulette.png",
-   "shot": "shots/chichiroulette.webp",
-   "shotUrl": "https://qqq1212341.github.io/games/shots/chichiroulette.webp"
-  },
-  {
-   "slug": "mergestampede",
-   "repo": "MergeStampede",
-   "title": "머지 스탬피드: 동물 합성게임",
-   "subtitle": "합치면 진화하는 머지게임 오토배틀",
-   "hook": "같은 동물을 합쳐 진화시키고, 문을 열어 군단을 3D 전장에 쏟아내는 머지 오토배틀",
-   "genre": "others",
-   "status": "released",
-   "icon": "icons/mergestampede.png",
-   "accent": "#e48635",
-   "i18n": {
-    "en": {
-     "title": "Merge Stampede: Animal Battle",
-     "subtitle": "Drop, Merge & Auto Battle",
-     "hook": "Merge matching farm animals to evolve, then open the gate for a 3D auto battle"
-    },
-    "ja": {
-     "title": "Merge Stampede: 動物合体オートバトル",
-     "subtitle": "落として合体、オートバトル",
-     "hook": "同じ動物を落として合体させて進化。扉を開けたら軍団が3Dの戦場で自動バトル"
-    },
-    "zh-Hant": {
-     "title": "Merge Stampede: 動物合成大戰",
-     "subtitle": "丟下去、合成、自動戰鬥",
-     "hook": "動物合成遊戲：一樣的動物碰在一起就進化，打開門讓軍團衝上 3D 戰場自動戰鬥"
-    },
-    "id": {
-     "title": "Merge Stampede: Game Hewan",
-     "hook": "Gabung hewan yang sama agar berevolusi, lalu buka pintu untuk auto battle 3D"
-    },
-    "th": {
-     "title": "Merge Stampede: เกมผสมสัตว์",
-     "subtitle": "หย่อน รวมร่าง แล้วสู้อัตโนมัติ",
-     "hook": "รวมสัตว์ตัวเหมือนกันให้วิวัฒนาการ แล้วเปิดประตูปล่อยกองทัพสู้เองในสนามรบ 3D"
-    },
-    "vi": {
-     "title": "Merge Stampede: Ghép thú",
-     "subtitle": "Thả, ghép thú và tự chiến đấu",
-     "hook": "Game hợp nhất động vật: ghép thú để tiến hóa rồi tung cả đàn ra trận 3D"
-    }
-   },
-   "links": {
-    "play": "https://play.google.com/store/apps/details?id=com.dumbgamelab.mergestampede",
-    "ios": "https://apps.apple.com/app/id6790514141"
-   },
-   "iconUrl": "https://qqq1212341.github.io/games/icons/mergestampede.png",
-   "shot": "shots/mergestampede.webp",
-   "shotUrl": "https://qqq1212341.github.io/games/shots/mergestampede.webp"
-  },
-  {
-   "slug": "brainrotheist",
-   "repo": "Brainrotheist",
-   "title": "치치의 브레인롯 털이",
-   "subtitle": "생물 모아 남의 기지 터는 게임",
-   "hook": "이상한 생물을 사 모아 돈을 벌고, 경비 몰래 남의 기지에서 훔쳐 오는 방치형 게임",
-   "genre": "others",
-   "status": "released",
-   "icon": "icons/brainrotheist.png",
-   "accent": "#d6453a",
-   "i18n": {
-    "en": {
-     "title": "Brainrot Heist: Chichi",
-     "subtitle": "Collect, steal, idle tycoon",
-     "hook": "Collect weird creatures, earn cash, and sneak into other bases to steal theirs."
-    }
-   },
-   "links": {
-    "play": "https://play.google.com/store/apps/details?id=com.dumbgamelab.brainrotheist"
-   },
-   "iconUrl": "https://qqq1212341.github.io/games/icons/brainrotheist.png",
-   "shot": "shots/brainrotheist.webp",
-   "shotUrl": "https://qqq1212341.github.io/games/shots/brainrotheist.webp",
-   "_note": "2026-11-12 Play 리스팅 200 실측으로 추가(크로스 프로모 목록 갱신 회차). en 문구는 docs/store/listing.json 그대로"
   }
  ],
- "_xpromoNote": "★ 크로스 프로모 귀속·하우스 광고·카메오·이웃 가게 코드(엔진 core/xpromo). brand.applePt = App Store 캠페인 링크 제공자 토큰. games[].code = 이웃 가게 코드 앞 2글자(가게마다 유일). games[].shot = 하우스 광고 실플레이 그림(번들) · shotUrl = 원격. cameoName/cameoRole = 다른 게임 정산에 들르는 그 게임 주민."
+ "_xpromoNote": "★ 크로스 프로모 귀속·하우스 광고·카메오·이웃 가게 코드(엔진 core/xpromo). brand.applePt = App Store 캠페인 링크 제공자 토큰. games[].code = 이웃 가게 코드 앞 2글자(가게마다 유일). games[].shot = 하우스 광고 실플레이 그림(번들) · shotUrl = 원격. cameoName/cameoRole = 다른 게임 정산에 들르는 그 게임 주민.",
+ "_lineNote": "★ line = «다른 게임» 갤러리 카드의 한줄평(2열 칸에 두 줄 안쪽 · 20자 안팎). 그 언어 line 이 없으면 그 언어 subtitle 로 떨어진다(사장님 2026-11-14 «2열 그리드 갤러리·한줄평»)."
 }
