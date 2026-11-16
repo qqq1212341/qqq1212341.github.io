@@ -2,7 +2,7 @@
  "publisher": "dgl",
  "_comment": "DGL 게임 카탈로그 SSOT — 크로스 프로모(게임 안 '다른 게임' 목록)와 게임 포털 웹사이트가 **둘 다 이 파일 하나**를 읽는다. 게임에 목록을 하드코딩하면 새 게임이 나올 때마다 출시된 게임들을 다시 빌드해야 하고, 그 게임들은 이미 스토어에 나가 있어 못 고친다. 그래서 목록은 여기 두고 `core/tools/promo/sync.mjs` 가 각 게임 public/ 로 복사한다. 새 게임을 내면 여기에 한 줄 추가 + sync 한 번.",
  "_remoteNote": "★ 이 파일은 **원격으로도 서빙된다**(build-site.mjs 가 site/catalog.json 으로 복사). 게임은 켜질 때 catalogUrl 을 받아 캐시하고, version 이 번들보다 크면 그 목록을 쓴다 — 그래서 **이미 스토어에 나간 게임에도 새 게임이 뜬다**(재빌드·재제출 불필요). 받기 실패·오프라인이면 번들 목록으로 조용히 떨어진다. 새 게임을 추가하면 version 을 올리고 게임 포털을 다시 배포하면 끝.",
- "version": 25,
+ "version": 26,
  "catalogUrl": "https://qqq1212341.github.io/games/catalog.json",
  "_i18nNote": "★ 게임은 8로케일로 나간다([[dgl-i18n-standard]]). 이 목록만 한국어면 해외 유저에겐 읽을 수 없는 카드 3장이 뜬다. `i18n.<코드>` 가 있으면 그걸 쓰고 없으면 기본(한국어)으로 떨어진다 — 언어를 늘릴 땐 여기만 채우면 된다.",
  "brand": {
@@ -1020,6 +1020,48 @@
    "shot": "shots/brainrotheist.webp",
    "shotUrl": "https://qqq1212341.github.io/games/shots/brainrotheist.webp",
    "_note": "2026-11-12 Play 리스팅 200 실측으로 추가(크로스 프로모 목록 갱신 회차). en 문구는 docs/store/listing.json 그대로"
+  },
+  {
+   "slug": "chichibrawl",
+   "repo": "ChichiBrawl",
+   "title": "트리거 트리오",
+   "subtitle": "3대3 슈팅, 3장 중 1장 선택",
+   "hook": "증강 66종 중에서 고르며 스테이지 8개를 목숨 하나로 돌파해요. 거대 보스가 기다려요.",
+   "line": "목숨 하나로 증강 모아 보스 깨기",
+   "genre": "others",
+   "status": "released",
+   "icon": "icons/chichibrawl.png",
+   "accent": "#e8833a",
+   "i18n": {
+    "en": {
+     "title": "Trigger Trio Roguelike Shooter",
+     "subtitle": "Pick 1 of 3 Augments & 3v3",
+     "hook": "Pick from 66 augments and fight through 8 stages on a single life. Giant bosses wait.",
+     "line": "Collect augments, beat giant bosses"
+    },
+    "th": {
+     "title": "Trigger Trio",
+     "subtitle": "ยิง 3v3 เลือกพลัง 1 ใน 3",
+     "hook": "เลือกจากตัวเสริมพลัง 66 แบบแล้วลุยฝ่า 8 ด่านด้วยชีวิตเดียว มีบอสยักษ์รออยู่"
+    },
+    "vi": {
+     "title": "Trigger Trio",
+     "subtitle": "Bắn súng 3v3, chọn 1 trong 3",
+     "hook": "Chọn trong 66 cường hóa rồi vượt 8 màn chỉ với một mạng. Trùm khổng lồ đang chờ."
+    },
+    "id": {
+     "title": "Trigger Trio",
+     "subtitle": "Tembak 3v3, pilih 1 dari 3",
+     "hook": "Pilih dari 66 augment lalu tembus 8 stage dengan satu nyawa. Bos raksasa menunggu."
+    }
+   },
+   "links": {
+    "play": "https://play.google.com/store/apps/details?id=com.dumbgamelab.chichibrawl"
+   },
+   "iconUrl": "https://qqq1212341.github.io/games/icons/chichibrawl.png",
+   "shot": "shots/chichibrawl.webp",
+   "shotUrl": "https://qqq1212341.github.io/games/shots/chichibrawl.webp",
+   "_note": "2026-11-16 Play 리스팅 200 실측으로 추가(크로스 프로모 목록 갱신 회차). iOS 는 심사 중이라 Play 링크만. 제목·부제·hook 은 docs/store play-listing·ios-listing 그대로"
   },
   {
    "slug": "ppijukland",
