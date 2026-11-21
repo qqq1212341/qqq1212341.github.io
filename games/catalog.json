@@ -2,7 +2,7 @@
  "publisher": "dgl",
  "_comment": "DGL 게임 카탈로그 SSOT — 크로스 프로모(게임 안 '다른 게임' 목록)와 게임 포털 웹사이트가 **둘 다 이 파일 하나**를 읽는다. 게임에 목록을 하드코딩하면 새 게임이 나올 때마다 출시된 게임들을 다시 빌드해야 하고, 그 게임들은 이미 스토어에 나가 있어 못 고친다. 그래서 목록은 여기 두고 `core/tools/promo/sync.mjs` 가 각 게임 public/ 로 복사한다. 새 게임을 내면 여기에 한 줄 추가 + sync 한 번.",
  "_remoteNote": "★ 이 파일은 **원격으로도 서빙된다**(build-site.mjs 가 site/catalog.json 으로 복사). 게임은 켜질 때 catalogUrl 을 받아 캐시하고, version 이 번들보다 크면 그 목록을 쓴다 — 그래서 **이미 스토어에 나간 게임에도 새 게임이 뜬다**(재빌드·재제출 불필요). 받기 실패·오프라인이면 번들 목록으로 조용히 떨어진다. 새 게임을 추가하면 version 을 올리고 게임 포털을 다시 배포하면 끝.",
- "version": 26,
+ "version": 27,
  "catalogUrl": "https://qqq1212341.github.io/games/catalog.json",
  "_i18nNote": "★ 게임은 8로케일로 나간다([[dgl-i18n-standard]]). 이 목록만 한국어면 해외 유저에겐 읽을 수 없는 카드 3장이 뜬다. `i18n.<코드>` 가 있으면 그걸 쓰고 없으면 기본(한국어)으로 떨어진다 — 언어를 늘릴 땐 여기만 채우면 된다.",
  "brand": {
@@ -524,7 +524,7 @@
   {
    "slug": "dongnebakery",
    "repo": "Dongnebakery",
-   "title": "치치의 빵집 타이쿤",
+   "title": "동네빵집 키우기",
    "subtitle": "굽고 진열하는 빵집 경영",
    "hook": "오븐에서 빵을 굽고 진열대를 채우며, 반죽과 속과 토핑으로 새 빵을 만드는 빵집 타이쿤",
    "line": "굽고 채우고, 새 빵까지 만드는 빵집",
@@ -534,59 +534,59 @@
    "accent": "#cf966b",
    "i18n": {
     "en": {
-     "title": "Chichi's Idle Bakery Tycoon",
+     "title": "Bakery Simulator: Idle Tycoon",
      "subtitle": "Bake, display, run the shop",
      "hook": "Bake bread in the oven, stock the shelves, and make new breads from dough, filling and toppings.",
      "cameoName": "Minseo",
-     "cameoRole": "Baker at the bakery",
+     "cameoRole": "Owner of the bakery",
      "line": "Bake, stock, and invent new breads"
     },
     "ja": {
-     "title": "チーチーのベーカリー",
+     "title": "街のパン屋育成",
      "subtitle": "焼いて並べる放置型パン屋経営",
      "hook": "パンを焼いて棚に並べ、生地と具とトッピングで新しいパンを作る、パン屋経営ゲーム。",
      "cameoName": "ミンソ",
-     "cameoRole": "パン屋のパン職人",
+     "cameoRole": "パン屋の店主",
      "line": "焼いて並べて、新作パンも作る"
     },
     "zh-Hans": {
-     "title": "芝芝的面包店",
+     "title": "经营街坊面包店",
      "subtitle": "烘焙陈列，放置经营面包店",
      "hook": "烘烤面包、摆满面包架，用面团、夹馅和配料做出新面包的面包店经营游戏。",
      "cameoName": "敏书",
-     "cameoRole": "面包店面包师",
+     "cameoRole": "面包店店主",
      "line": "烤、摆，还能做新面包"
     },
     "zh-Hant": {
-     "title": "芝芝的麵包店",
+     "title": "經營街坊麵包店",
      "subtitle": "烘焙陳列，放置經營麵包店",
      "hook": "烘烤麵包、擺滿麵包架，用麵團、內餡和配料做出新麵包的麵包店經營遊戲。",
      "cameoName": "敏書",
-     "cameoRole": "麵包店麵包師傅",
+     "cameoRole": "麵包店店主",
      "line": "烤、擺，還能做新麵包"
     },
     "id": {
-     "title": "Toko Roti Chichi",
+     "title": "Kelola Toko Roti Tetangga",
      "subtitle": "Panggang dan tata rak roti",
      "hook": "Panggang roti, isi rak, dan pilih adonan, isian, topping untuk roti baru.",
      "cameoName": "Minseo",
-     "cameoRole": "Pembuat roti di toko roti",
+     "cameoRole": "Pemilik toko roti",
      "line": "Panggang, isi rak, ciptakan roti baru"
     },
     "th": {
-     "title": "เบเกอรี่ของชิชิ",
+     "title": "สร้างร้านขนมปังในละแวก",
      "subtitle": "อบและจัดขนมปัง บริหารร้านเบเกอรี่",
      "hook": "อบขนมปัง เติมชั้นวาง และเลือกแป้ง ไส้ ท็อปปิง ทำขนมปังใหม่ในร้านของคุณ",
      "cameoName": "มินซอ",
-     "cameoRole": "ช่างทำขนมปังร้านเบเกอรี่",
+     "cameoRole": "เจ้าของร้านเบเกอรี่",
      "line": "อบ เติมชั้น คิดขนมปังใหม่"
     },
     "vi": {
-     "title": "Chichi Mở Tiệm",
+     "title": "Phát triển Tiệm Bánh Khu Phố",
      "subtitle": "Nướng bánh và xếp kệ bán hàng",
      "hook": "Nướng bánh, xếp kệ, chọn bột, nhân, topping để làm bánh mới cho tiệm của bạn.",
      "cameoName": "Minseo",
-     "cameoRole": "Thợ bánh ở tiệm bánh",
+     "cameoRole": "Chủ tiệm bánh",
      "line": "Nướng, xếp kệ, tạo bánh mới"
     }
    },
@@ -598,7 +598,7 @@
    "shotUrl": "https://qqq1212341.github.io/games/shots/dongnebakery.webp",
    "code": "BK",
    "cameoName": "민서",
-   "cameoRole": "빵집 제빵사"
+   "cameoRole": "빵집 사장"
   },
   {
    "slug": "breadorder",
